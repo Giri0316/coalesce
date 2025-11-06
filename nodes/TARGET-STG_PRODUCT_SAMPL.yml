@@ -1,6 +1,6 @@
 fileVersion: 1
 id: 62cf0568-63f2-47e2-9224-d20015330042
-name: STG_PRODUCT_SAMPLE
+name: STG_PRODUCT_SAMPL
 operation:
   config:
     insertStrategy: INSERT
@@ -189,9 +189,9 @@ operation:
             FROM {{ ref('SRC', 'PRODUCT') }} "PRODUCT"
             INNER JOIN {{ ref('SRC', 'SAMPLE1') }} "SAMPLE1"
             ON "PRODUCT"."PRODUCT_ID" = "SAMPLE1"."PRODUCT_ID"
-        name: STG_PRODUCT_SAMPLE
+        name: STG_PRODUCT_SAMPL
         noLinkRefs: []
-  name: STG_PRODUCT_SAMPLE
+  name: STG_PRODUCT_SAMPL
   overrideSQL: false
   schema: ""
   sqlType: Stage
