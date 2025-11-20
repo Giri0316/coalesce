@@ -71,7 +71,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: DW_SOURCE_SYSTEM_ID
         nullable: true
         sourceColumnReferences:
@@ -86,7 +85,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: DW_CLIENT_ID
         nullable: true
         sourceColumnReferences:
@@ -101,7 +99,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: DW_CLIENT_MASTER_ID
         nullable: true
         sourceColumnReferences:
@@ -116,7 +113,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: DW_POLICY_ID
         nullable: true
         sourceColumnReferences:
@@ -131,7 +127,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: DW_STRUCTURE_ID
         nullable: true
         sourceColumnReferences:
@@ -146,7 +141,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: DW_COMPANY_ID_ISSUING
         nullable: true
         sourceColumnReferences:
@@ -161,7 +155,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: DW_COMPANY_ID_BILLING
         nullable: true
         sourceColumnReferences:
@@ -176,7 +169,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: DW_DATE_ID_EFFECTIVE_DATE
         nullable: true
         sourceColumnReferences:
@@ -191,7 +183,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: DW_DATE_ID_EXPIRATION_DATE
         nullable: true
         sourceColumnReferences:
@@ -206,7 +197,6 @@ operation:
         config: {}
         dataType: VARCHAR(100)
         description: ""
-        isChangeTracking: true
         name: POLICY_NUMBER
         nullable: true
         sourceColumnReferences:
@@ -221,7 +211,6 @@ operation:
         config: {}
         dataType: VARCHAR(200)
         description: ""
-        isChangeTracking: true
         name: POLICY_NAME
         nullable: true
         sourceColumnReferences:
@@ -236,7 +225,6 @@ operation:
         config: {}
         dataType: VARCHAR(100)
         description: ""
-        isChangeTracking: true
         name: POLICY_TYPE
         nullable: true
         sourceColumnReferences:
@@ -251,7 +239,6 @@ operation:
         config: {}
         dataType: VARCHAR(50)
         description: ""
-        isChangeTracking: true
         name: POLICY_TYPE_CODE
         nullable: true
         sourceColumnReferences:
@@ -266,7 +253,6 @@ operation:
         config: {}
         dataType: VARCHAR(50)
         description: ""
-        isChangeTracking: true
         name: LINE_STATUS_CODE
         nullable: true
         sourceColumnReferences:
@@ -281,7 +267,6 @@ operation:
         config: {}
         dataType: VARCHAR(100)
         description: ""
-        isChangeTracking: true
         name: LINE_TYPE
         nullable: true
         sourceColumnReferences:
@@ -296,7 +281,6 @@ operation:
         config: {}
         dataType: VARCHAR(50)
         description: ""
-        isChangeTracking: true
         name: LINE_TYPE_CODE
         nullable: true
         sourceColumnReferences:
@@ -311,7 +295,6 @@ operation:
         config: {}
         dataType: DATE
         description: ""
-        isChangeTracking: true
         name: POLICY_EFFECTIVE_DATE
         nullable: true
         sourceColumnReferences:
@@ -326,7 +309,6 @@ operation:
         config: {}
         dataType: DATE
         description: ""
-        isChangeTracking: true
         name: POLICY_EXPIRATION_DATE
         nullable: true
         sourceColumnReferences:
@@ -341,7 +323,6 @@ operation:
         config: {}
         dataType: NUMBER(18,2)
         description: ""
-        isChangeTracking: true
         name: BILLED_COMMISSION
         nullable: true
         sourceColumnReferences:
@@ -356,7 +337,6 @@ operation:
         config: {}
         dataType: NUMBER(18,2)
         description: ""
-        isChangeTracking: true
         name: BILLED_PREMIUM
         nullable: true
         sourceColumnReferences:
@@ -371,7 +351,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: EMPLOYEE_COUNT
         nullable: true
         sourceColumnReferences:
@@ -386,7 +365,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: EMPLOYEE_COUNT_CALIFORNIA
         nullable: true
         sourceColumnReferences:
@@ -401,7 +379,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: EMPLOYEE_COUNT_UNITED_STATES
         nullable: true
         sourceColumnReferences:
@@ -416,7 +393,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: EMPLOYEE_COUNT_GLOBAL
         nullable: true
         sourceColumnReferences:
@@ -431,7 +407,6 @@ operation:
         config: {}
         dataType: VARCHAR(1)
         description: ""
-        isChangeTracking: true
         name: EMPLOYEE_DOMESTIC_US_FLAG
         nullable: true
         sourceColumnReferences:
@@ -446,7 +421,6 @@ operation:
         config: {}
         dataType: VARCHAR(1)
         description: ""
-        isChangeTracking: true
         name: EMPLOYEE_GLOBAL_FLAG
         nullable: true
         sourceColumnReferences:
@@ -461,7 +435,6 @@ operation:
         config: {}
         dataType: NUMBER(18,2)
         description: ""
-        isChangeTracking: true
         name: TOTAL_REVENUE
         nullable: true
         sourceColumnReferences:
@@ -476,7 +449,6 @@ operation:
         config: {}
         dataType: NUMBER(18,2)
         description: ""
-        isChangeTracking: true
         name: TOTAL_CLIENT_ASSETS
         nullable: true
         sourceColumnReferences:
@@ -491,7 +463,6 @@ operation:
         config: {}
         dataType: VARCHAR(50)
         description: ""
-        isChangeTracking: true
         name: PRIVATE_OR_PUBLIC
         nullable: true
         sourceColumnReferences:
@@ -506,7 +477,6 @@ operation:
         config: {}
         dataType: NUMBER(18,2)
         description: ""
-        isChangeTracking: true
         name: MARKET_CAP
         nullable: true
         sourceColumnReferences:
@@ -521,7 +491,6 @@ operation:
         config: {}
         dataType: NUMBER(18,2)
         description: ""
-        isChangeTracking: true
         name: PUBLIC_FLOAT
         nullable: true
         sourceColumnReferences:
@@ -536,7 +505,6 @@ operation:
         config: {}
         dataType: VARCHAR(10)
         description: ""
-        isChangeTracking: true
         name: IPO
         nullable: true
         sourceColumnReferences:
@@ -551,7 +519,6 @@ operation:
         config: {}
         dataType: DATE
         description: ""
-        isChangeTracking: true
         name: EFFECTIVE_DATE_FINANCIAL_PACKAGE_PROGRAM
         nullable: true
         sourceColumnReferences:
@@ -566,7 +533,6 @@ operation:
         config: {}
         dataType: VARCHAR(100)
         description: ""
-        isChangeTracking: true
         name: FIG_CLIENT_TYPE1
         nullable: true
         sourceColumnReferences:
@@ -581,7 +547,6 @@ operation:
         config: {}
         dataType: VARCHAR(100)
         description: ""
-        isChangeTracking: true
         name: FIG_CLIENT_TYPE2
         nullable: true
         sourceColumnReferences:
@@ -596,7 +561,6 @@ operation:
         config: {}
         dataType: VARCHAR(100)
         description: ""
-        isChangeTracking: true
         name: FIG_CLIENT_TYPE3
         nullable: true
         sourceColumnReferences:
@@ -611,7 +575,6 @@ operation:
         config: {}
         dataType: NUMBER(18,2)
         description: ""
-        isChangeTracking: true
         name: AUM_DISCRETIONARY
         nullable: true
         sourceColumnReferences:
@@ -626,7 +589,6 @@ operation:
         config: {}
         dataType: NUMBER(18,2)
         description: ""
-        isChangeTracking: true
         name: AUM_NON_DISCRETIONARY
         nullable: true
         sourceColumnReferences:
@@ -641,7 +603,6 @@ operation:
         config: {}
         dataType: VARCHAR(200)
         description: ""
-        isChangeTracking: true
         name: PRIMARY_INVESTMENT_STRATEGY
         nullable: true
         sourceColumnReferences:
@@ -656,7 +617,6 @@ operation:
         config: {}
         dataType: VARCHAR(200)
         description: ""
-        isChangeTracking: true
         name: INVESTMENT_STRATEGY2
         nullable: true
         sourceColumnReferences:
@@ -671,7 +631,6 @@ operation:
         config: {}
         dataType: VARCHAR(200)
         description: ""
-        isChangeTracking: true
         name: INVESTMENT_STRATEGY3
         nullable: true
         sourceColumnReferences:
@@ -686,7 +645,6 @@ operation:
         config: {}
         dataType: VARCHAR(200)
         description: ""
-        isChangeTracking: true
         name: INVESTMENT_STRATEGY4
         nullable: true
         sourceColumnReferences:
@@ -701,7 +659,6 @@ operation:
         config: {}
         dataType: VARCHAR(200)
         description: ""
-        isChangeTracking: true
         name: INVESTMENT_STRATEGY5
         nullable: true
         sourceColumnReferences:
@@ -716,7 +673,6 @@ operation:
         config: {}
         dataType: VARCHAR(200)
         description: ""
-        isChangeTracking: true
         name: INVESTMENT_STRATEGY6
         nullable: true
         sourceColumnReferences:
@@ -731,7 +687,6 @@ operation:
         config: {}
         dataType: VARCHAR(200)
         description: ""
-        isChangeTracking: true
         name: INVESTMENT_STRATEGY7
         nullable: true
         sourceColumnReferences:
@@ -746,7 +701,6 @@ operation:
         config: {}
         dataType: VARCHAR(16777216)
         description: ""
-        isChangeTracking: true
         name: INVESTMENT_STRATEGY_NOTES
         nullable: true
         sourceColumnReferences:
@@ -761,7 +715,6 @@ operation:
         config: {}
         dataType: NUMBER(18,2)
         description: ""
-        isChangeTracking: true
         name: ASSETS_UNDER_MANAGEMENT
         nullable: true
         sourceColumnReferences:
@@ -776,7 +729,6 @@ operation:
         config: {}
         dataType: VARCHAR(100)
         description: ""
-        isChangeTracking: true
         name: FUND_STRUCTURE
         nullable: true
         sourceColumnReferences:
@@ -791,7 +743,6 @@ operation:
         config: {}
         dataType: VARCHAR(1)
         description: ""
-        isChangeTracking: true
         name: DEVELOPERS_FLAG
         nullable: true
         sourceColumnReferences:
@@ -806,7 +757,6 @@ operation:
         config: {}
         dataType: VARCHAR(50)
         description: ""
-        isChangeTracking: true
         name: SINGLE_FAM
         nullable: true
         sourceColumnReferences:
@@ -821,7 +771,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: NUMBER_OF_REPS
         nullable: true
         sourceColumnReferences:
@@ -836,7 +785,6 @@ operation:
         config: {}
         dataType: NUMBER(18,2)
         description: ""
-        isChangeTracking: true
         name: ASSETS_UNDER_ADVISEMENT
         nullable: true
         sourceColumnReferences:
@@ -851,7 +799,6 @@ operation:
         config: {}
         dataType: NUMBER(18,2)
         description: ""
-        isChangeTracking: true
         name: BANK_ASSETS
         nullable: true
         sourceColumnReferences:
@@ -866,7 +813,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: NON_BANK_LENDERS
         nullable: true
         sourceColumnReferences:
@@ -881,7 +827,6 @@ operation:
         config: {}
         dataType: NUMBER(18,2)
         description: ""
-        isChangeTracking: true
         name: MORTGAGE_ORIGINATION
         nullable: true
         sourceColumnReferences:
@@ -896,7 +841,6 @@ operation:
         config: {}
         dataType: NUMBER(18,2)
         description: ""
-        isChangeTracking: true
         name: MORTGAGE_REIT_ASSETS
         nullable: true
         sourceColumnReferences:
@@ -911,7 +855,6 @@ operation:
         config: {}
         dataType: VARCHAR(200)
         description: ""
-        isChangeTracking: true
         name: AMPS_MERGER_AND_ACQUISITIONS1
         nullable: true
         sourceColumnReferences:
@@ -926,7 +869,6 @@ operation:
         config: {}
         dataType: VARCHAR(200)
         description: ""
-        isChangeTracking: true
         name: AMPS_MERGER_AND_ACQUISITIONS2
         nullable: true
         sourceColumnReferences:
@@ -941,7 +883,6 @@ operation:
         config: {}
         dataType: VARCHAR(200)
         description: ""
-        isChangeTracking: true
         name: AMPS_MERGER_AND_ACQUISITIONS3
         nullable: true
         sourceColumnReferences:
@@ -956,7 +897,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: NUMBER_OF_PROFESSIONALS
         nullable: true
         sourceColumnReferences:
@@ -971,7 +911,6 @@ operation:
         config: {}
         dataType: VARCHAR(200)
         description: ""
-        isChangeTracking: true
         name: PRIVACY_REPORTS
         nullable: true
         sourceColumnReferences:
@@ -986,7 +925,6 @@ operation:
         config: {}
         dataType: NUMBER(18,2)
         description: ""
-        isChangeTracking: true
         name: ERISA_PLAN_ASSETS
         nullable: true
         sourceColumnReferences:
@@ -1001,7 +939,6 @@ operation:
         config: {}
         dataType: VARCHAR(1)
         description: ""
-        isChangeTracking: true
         name: PRIVATE_EQUITY_SPONSOR_FLAG
         nullable: true
         sourceColumnReferences:
@@ -1016,7 +953,6 @@ operation:
         config: {}
         dataType: NUMBER(18,2)
         description: ""
-        isChangeTracking: true
         name: EMPLOYER_SECURITIES_IN_PLAN_ASSETS
         nullable: true
         sourceColumnReferences:
@@ -1031,7 +967,6 @@ operation:
         config: {}
         dataType: VARCHAR(1)
         description: ""
-        isChangeTracking: true
         name: ESOP_FLAG
         nullable: true
         sourceColumnReferences:
@@ -1061,7 +996,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: SOURCE_SYSTEM_POLICY_ID
         nullable: true
         sourceColumnReferences:
@@ -1091,7 +1025,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: SOURCE_SYSTEM_POLICY_TYPE_ID
         nullable: true
         sourceColumnReferences:
@@ -1106,7 +1039,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: SOURCE_SYSTEM_CUSTOM_FORM_SCREEN_ID
         nullable: true
         sourceColumnReferences:
@@ -1121,7 +1053,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: SOURCE_SYSTEM_LINE_TYPE_ID
         nullable: true
         sourceColumnReferences:
@@ -1136,7 +1067,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: SOURCE_SYSTEM_ISSUING_COMPANY_ID
         nullable: true
         sourceColumnReferences:
@@ -1151,7 +1081,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: SOURCE_SYSTEM_BILLING_COMPANY_ID
         nullable: true
         sourceColumnReferences:
@@ -1166,7 +1095,6 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isChangeTracking: true
         name: SOURCE_SYSTEM_ORIGINAL_POLICY_ID
         nullable: true
         sourceColumnReferences:

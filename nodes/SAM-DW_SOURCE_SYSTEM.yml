@@ -1,0 +1,73 @@
+fileVersion: 1
+id: bc985ec3-0bb7-4557-ae96-878097395596
+name: DW_SOURCE_SYSTEM
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SAM
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c968f3b-cc40-4726-aca5-7c9ce1e1a324
+          stepCounter: bc985ec3-0bb7-4557-ae96-878097395596
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d0064501-6b05-436a-99b9-d016197fbafc
+          stepCounter: bc985ec3-0bb7-4557-ae96-878097395596
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: AGENCY_COMPANY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3bcf3b4d-5687-4ee7-9579-8a8511a57c55
+          stepCounter: bc985ec3-0bb7-4557-ae96-878097395596
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: DW_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: DW_SOURCE_SYSTEM
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
