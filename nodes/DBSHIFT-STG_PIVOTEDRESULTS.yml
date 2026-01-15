@@ -1,0 +1,194 @@
+fileVersion: 1
+id: 8d2ab5f1-ac2d-4fc-b141-8d5f9ea07d70
+name: STG_PIVOTEDRESULTS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: Alliant_DW_Stage
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e3bc602-bd3e-40d-b252-9e6a9fb18e81
+          stepCounter: 8d2ab5f1-ac2d-4fc-b141-8d5f9ea07d70
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQENTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d2ac5f1-ac2d-4fc-b140-7c4f9d906b6e
+                stepCounter: 7c19b4e0-9b1c-4eb-a03f-6b3e9c8f5a5d
+            transform: pvt."UNIQENTITY"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: af4cd713-ce4f-41e-b363-af7b90c29f92
+          stepCounter: 8d2ab5f1-ac2d-4fc-b141-8d5f9ea07d70
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQPOLICY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9e3bd602-bd3e-40d-b251-8d509ea17c7f
+                stepCounter: 7c19b4e0-9b1c-4eb-a03f-6b3e9c8f5a5d
+            transform: pvt."UNIQPOLICY"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b05de824-df50-42f-b474-b08c91d3a0a3
+          stepCounter: 8d2ab5f1-ac2d-4fc-b141-8d5f9ea07d70
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQLINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: af4ce713-ce4f-41e-b362-9e619fb28d80
+                stepCounter: 7c19b4e0-9b1c-4eb-a03f-6b3e9c8f5a5d
+            transform: pvt."UNIQLINE"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c16ef935-e061-430-b585-c19d92e4b1b4
+          stepCounter: 8d2ab5f1-ac2d-4fc-b141-8d5f9ea07d70
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: POLICYNUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b05df824-df50-42f-b473-af7290c39e91
+                stepCounter: 7c19b4e0-9b1c-4eb-a03f-6b3e9c8f5a5d
+            transform: pvt."POLICYNUMBER"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d27f0a46-f172-441-b696-d2ae93f5c2c5
+          stepCounter: 8d2ab5f1-ac2d-4fc-b141-8d5f9ea07d70
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CDPOLICYLINETYPECODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c16e0935-e061-430-b584-b08391d4a0a2
+                stepCounter: 7c19b4e0-9b1c-4eb-a03f-6b3e9c8f5a5d
+            transform: pvt."CDPOLICYLINETYPECODE"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e3801b57-0283-452-b7a7-e3bf9406d3d6
+          stepCounter: 8d2ab5f1-ac2d-4fc-b141-8d5f9ea07d70
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: AGGRLIMIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 27c46f9b-46c7-496-bbf0-16e9973a0608
+                stepCounter: 7c19b4e0-9b1c-4eb-a03f-6b3e9c8f5a5d
+              - columnCounter: f6c8daec-80cd-41de-b25d-af7b90c29f91
+                stepCounter: 6b08a3d9-8a0b-4da-9f2e-5a2d9b7e4f4c
+            transform: pvt."AGGRLIMIT"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f4912c68-1394-463-b8b8-f4c09517e4e7
+          stepCounter: 8d2ab5f1-ac2d-4fc-b141-8d5f9ea07d70
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EACLAIMLIMIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 27c46f9b-46c7-496-bbf0-16e9973a0608
+                stepCounter: 7c19b4e0-9b1c-4eb-a03f-6b3e9c8f5a5d
+              - columnCounter: f6c8daec-80cd-41de-b25d-af7b90c29f91
+                stepCounter: 6b08a3d9-8a0b-4da-9f2e-5a2d9b7e4f4c
+            transform: pvt."EACLAIMLIMIT"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 05a23d79-24a5-474-b9c9-05d19628f5f8
+          stepCounter: 8d2ab5f1-ac2d-4fc-b141-8d5f9ea07d70
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EXCESSLAYERLIMIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 27c46f9b-46c7-496-bbf0-16e9973a0608
+                stepCounter: 7c19b4e0-9b1c-4eb-a03f-6b3e9c8f5a5d
+              - columnCounter: f6c8daec-80cd-41de-b25d-af7b90c29f91
+                stepCounter: 6b08a3d9-8a0b-4da-9f2e-5a2d9b7e4f4c
+            transform: pvt."EXCESSLAYERLIMIT"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 16b34e8a-35b6-485-bada-16e297390609
+          stepCounter: 8d2ab5f1-ac2d-4fc-b141-8d5f9ea07d70
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RETENTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 27c46f9b-46c7-496-bbf0-16e9973a0608
+                stepCounter: 7c19b4e0-9b1c-4eb-a03f-6b3e9c8f5a5d
+              - columnCounter: f6c8daec-80cd-41de-b25d-af7b90c29f91
+                stepCounter: 6b08a3d9-8a0b-4da-9f2e-5a2d9b7e4f4c
+            transform: pvt."RETENTION"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC_FORM_MAP
+          - locationName: DBSHIFT
+            nodeName: STG_SCREENDATA
+        join:
+          joinCondition: |
+            FROM (
+                SELECT
+                    sd.UNIQENTITY,
+                    sd.UNIQPOLICY,
+                    sd.UNIQLINE,
+                    sd.POLICYNUMBER,
+                    sd.CDPOLICYLINETYPECODE,
+                    m.FIELD_NAME,
+                    sd.FIELD_DATA
+                FROM {{ ref('DBSHIFT', 'STG_SCREENDATA') }} AS sd
+                INNER JOIN {{ ref('DBSHIFT', 'DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC_FORM_MAP') }} AS m
+                    ON sd.FIELD_ID = m.FIELD_ID
+                    AND sd.UNIQCUSTOMFORMMAP = m.UNIQCUSTOMFORMMAP
+                WHERE m.PAGE_DESCRIPTION = 'Coverage Type/Limits/Retention'
+            )
+            PIVOT (
+                MAX(FIELD_DATA)
+                FOR FIELD_NAME IN ('AggrLimit', 'EaClaimLimit', 'ExcessLayerLimit', 'Retention')
+            ) AS pvt (UNIQENTITY, UNIQPOLICY, UNIQLINE, POLICYNUMBER, CDPOLICYLINETYPECODE, AGGRLIMIT, EACLAIMLIMIT, EXCESSLAYERLIMIT, RETENTION)
+        name: STG_PIVOTEDRESULTS
+        noLinkRefs: []
+  name: STG_PIVOTEDRESULTS
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

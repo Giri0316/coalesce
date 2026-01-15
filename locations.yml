@@ -1,6 +1,8 @@
 defaultStorageMapping: TARGET
 fileVersion: 1
 locations:
+  - DBSHIFT
+  - HI
   - SAM
   - SRC
   - TARGET

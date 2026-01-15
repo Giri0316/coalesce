@@ -1,0 +1,8 @@
+fileVersion: 1
+id: "1"
+macroString: |-
+  {% set client_defined_information_code = "'1CLI'" %}
+  {% set current_timestamp = "CURRENT_TIMESTAMP()" %}
+  {% set proc_name = "'spdw_dw_client_benchmarking_policy_line_staging_insert'" %}
+name: macro
+type: Macro
