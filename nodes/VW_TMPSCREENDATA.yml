@@ -1,0 +1,223 @@
+fileVersion: 1
+id: 71092e48-89c0-45f8-8549-3e0f03565f84
+name: VW_TMPSCREENDATA
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW_STAGE
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b432a22-3a3f-4e00-8804-03290dd7e2e3
+          stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32230113-d34e-4f05-8e1d-3b6b69b55231
+                stepCounter: 5970c67f-5d07-422e-a579-22a84976a161
+            transform: B.DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC_ID
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a2c589b-0089-40da-9e32-9599525c317f
+          stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQENTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c022a1f8-009f-44e2-a0f5-502801eb12d0
+                stepCounter: 5970c67f-5d07-422e-a579-22a84976a161
+            transform: B.UNIQENTITY
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d3345d3-863a-4a25-a134-dd02251a31b4
+          stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQPOLICY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d3345d3-863a-4a25-a134-dd02251a31b4
+                stepCounter: 5970c67f-5d07-422e-a579-22a84976a161
+            transform: B.UNIQPOLICY
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a2c589b-0089-40da-9e32-9599525c317f
+          stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQLINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3a2c589b-0089-40da-9e32-9599525c317f
+                stepCounter: 5970c67f-5d07-422e-a579-22a84976a161
+            transform: B.UNIQLINE
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 181788c7-43da-4767-aa62-2ca8b1a8d011
+          stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: POLICYNUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 181788c7-43da-4767-aa62-2ca8b1a8d011
+                stepCounter: 5970c67f-5d07-422e-a579-22a84976a161
+            transform: B.POLICYNUMBER
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e3346f3-189f-40e9-a41a-a1622353a7f6
+          stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CDPOLICYLINETYPECODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9e3346f3-189f-40e9-a41a-a1622353a7f6
+                stepCounter: 5970c67f-5d07-422e-a579-22a84976a161
+            transform: B.CDPOLICYLINETYPECODE
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1441a1c-3004-44ed-9a5c-59ac31742617
+          stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+        config: {}
+        dataType: VARIANT
+        description: ""
+        name: SCREENDATA
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c1441a1c-3004-44ed-9a5c-59ac31742617
+                stepCounter: 5970c67f-5d07-422e-a579-22a84976a161
+            transform: B.SCREENDATA
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c8220914-8785-45d4-89f5-1793796fc713
+          stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQCUSTOMFORMSCREEN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c8220914-8785-45d4-89f5-1793796fc713
+                stepCounter: 5970c67f-5d07-422e-a579-22a84976a161
+            transform: B.UNIQCUSTOMFORMSCREEN
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fe91d84f-4d9f-431f-a38f-a3d823469858
+          stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQCUSTOMFORMMAP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fe91d84f-4d9f-431f-a38f-a3d823469858
+                stepCounter: 5970c67f-5d07-422e-a579-22a84976a161
+            transform: B.UNIQCUSTOMFORMMAP
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d19999a9-3914-460d-a09c-a19e2f6760a3
+          stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LINETYPEUNIQCUSTOMFORMMAP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d19999a9-3914-460d-a09c-a19e2f6760a3
+                stepCounter: 5970c67f-5d07-422e-a579-22a84976a161
+            transform: B.LINETYPEUNIQCUSTOMFORMMAP
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b13833d7-4009-4171-87de-6444850025d5
+          stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: FIELD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c1441a1c-3004-44ed-9a5c-59ac31742617
+                stepCounter: 5970c67f-5d07-422e-a579-22a84976a161
+            transform: XMLGET(X.VALUE, '@Name'):"$"::VARCHAR(255)
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b17e79c1-791f-442a-a922-acb80549c6ba
+          stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: FIELD_DATA
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c1441a1c-3004-44ed-9a5c-59ac31742617
+                stepCounter: 5970c67f-5d07-422e-a579-22a84976a161
+            transform: NULLIF(LTRIM(XMLGET(X.VALUE, '@Data'):"$"::VARCHAR), '')
+        transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC: B
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC
+        join:
+          joinCondition: |
+            FROM {{ ref('DBSHIFT', 'DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC') }} AS B, 
+            LATERAL FLATTEN(INPUT => PARSE_XML(B.SCREENDATA), PATH => 'Data/NonScheduled/Field') AS X
+            WHERE B.CDPOLICYLINETYPECODE = '1CLI'
+        name: VW_TMPSCREENDATA
+        noLinkRefs: []
+  name: VW_TMPSCREENDATA
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

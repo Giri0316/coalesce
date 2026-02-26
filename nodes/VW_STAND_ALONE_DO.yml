@@ -1,0 +1,218 @@
+fileVersion: 1
+id: 5693c6f8-04f7-4180-87a3-e7f12e535e93
+name: VW_STAND_ALONE_DO
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW_STAGE
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535e94
+          stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e93
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQLINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3a2c589b-0089-40da-9e32-9599525c317f
+                stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+            transform: S.UNIQLINE
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535e95
+          stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e93
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PROGRAM_TYPE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'stand_alone_do'"
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535e96
+          stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e93
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PRIMARY_LIMIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b13833d7-4009-4171-87de-6444850025d5
+                stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+              - columnCounter: b17e79c1-791f-442a-a922-acb80549c6ba
+                stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+            transform: MAX(IFF(S.FIELD_ID ='11151590-e5ea-4e2e-b6e9-09e9c558e2e9', S.FIELD_DATA,
+              NULL))
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535e97
+          stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e93
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PRIMARY_PREMIUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b13833d7-4009-4171-87de-6444850025d5
+                stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+              - columnCounter: b17e79c1-791f-442a-a922-acb80549c6ba
+                stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+            transform: MAX(IFF(S.FIELD_ID ='371ea488-caa8-4fee-8e36-fbe066ebbd7f', S.FIELD_DATA,
+              NULL))
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535e98
+          stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e93
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PRIMARY_SIR_RETENTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b13833d7-4009-4171-87de-6444850025d5
+                stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+              - columnCounter: b17e79c1-791f-442a-a922-acb80549c6ba
+                stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+            transform: MAX(IFF(S.FIELD_ID ='aae257ca-3143-44d7-b35a-08a3988b0974', S.FIELD_DATA,
+              NULL))
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535e99
+          stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e93
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PRIMARY_ICO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b13833d7-4009-4171-87de-6444850025d5
+                stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+              - columnCounter: b17e79c1-791f-442a-a922-acb80549c6ba
+                stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+            transform: MAX(IFF(S.FIELD_ID ='70888e5e-7205-4c32-85f5-43199f58d960', S.FIELD_DATA,
+              NULL))
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535f00
+          stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e93
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: AGGREGATE_LIMIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b13833d7-4009-4171-87de-6444850025d5
+                stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+              - columnCounter: b17e79c1-791f-442a-a922-acb80549c6ba
+                stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+            transform: MAX(IFF(S.FIELD_ID ='1121ef85-fdd0-47a9-be3e-bdb5505a1484', S.FIELD_DATA,
+              NULL))
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535f01
+          stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e93
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: AGGREGATE_PREMIUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b13833d7-4009-4171-87de-6444850025d5
+                stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+              - columnCounter: b17e79c1-791f-442a-a922-acb80549c6ba
+                stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+            transform: MAX(IFF(S.FIELD_ID ='fcf86d00-f3b8-4f63-85e9-c50cf9f21e89', S.FIELD_DATA,
+              NULL))
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535f02
+          stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e93
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: AGGREGATE_SIR_RETENTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b13833d7-4009-4171-87de-6444850025d5
+                stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+              - columnCounter: b17e79c1-791f-442a-a922-acb80549c6ba
+                stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+            transform: MAX(IFF(S.FIELD_ID ='7baf6110-ea08-4eb6-a00a-95462c66c276', S.FIELD_DATA,
+              NULL))
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535f03
+          stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e93
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: AGGREGATE_ICO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b13833d7-4009-4171-87de-6444850025d5
+                stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+              - columnCounter: b17e79c1-791f-442a-a922-acb80549c6ba
+                stepCounter: 71092e48-89c0-45f8-8549-3e0f03565f84
+            transform: MAX(IFF(S.FIELD_ID ='1ca03703-e43b-4b39-a16e-b7429a99e96f', S.FIELD_DATA,
+              NULL))
+        transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          VW_TMPSCREENDATA: S
+          DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC_FORM_MAP: F
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: VW_TMPSCREENDATA
+          - locationName: DBSHIFT
+            nodeName: DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC_FORM_MAP
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'VW_TMPSCREENDATA') }} AS S INNER
+            JOIN {{ ref('DBSHIFT', 'DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC_FORM_MAP')
+            }} AS F ON S.UNIQCUSTOMFORMMAP = F.UNIQCUSTOMFORMMAP AND S.FIELD_ID
+            = F.FIELD_ID GROUP BY S.UNIQLINE
+        name: VW_STAND_ALONE_DO
+        noLinkRefs: []
+  name: VW_STAND_ALONE_DO
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
