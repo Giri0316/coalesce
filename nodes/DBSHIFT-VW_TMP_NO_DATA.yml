@@ -1,0 +1,72 @@
+fileVersion: 1
+id: d7d507a2-f75e-4c07-b359-53e34b15c7e1
+name: VW_TMP_NO_DATA
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW_STAGE
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c3c6f8f-c684-48d6-9a29-b68b375b5b11
+          stepCounter: d7d507a2-f75e-4c07-b359-53e34b15c7e1
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQLINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9e638d01-2098-4660-844c-31a892dfd661
+                stepCounter: 5e638d01-2098-4660-844c-31a892dfd660
+            transform: STG.UNIQLINE
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f021e1d-c89b-4654-b529-6e3e5c942918
+          stepCounter: d7d507a2-f75e-4c07-b359-53e34b15c7e1
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PROGRAM_TYPE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9e638d01-2098-4660-844c-31a892dfd662
+                stepCounter: 5e638d01-2098-4660-844c-31a892dfd660
+            transform: STG.PROGRAM_TYPE_KEY
+        transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          VW_TMP_SCREEN_DATA_PVT: STG
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: VW_TMP_SCREEN_DATA_PVT
+        join:
+          joinCondition: |
+            FROM {{ ref('DBSHIFT', 'VW_TMP_SCREEN_DATA_PVT') }} AS STG
+            WHERE PRIMARY_LIMIT IS NULL AND PRIMARY_PREMIUM IS NULL AND PRIMARY_SIR_RETENTION IS NULL AND STG.PRIMARY_ICO IS NULL AND AGGREGATE_LIMIT IS NULL AND AGGREGATE_PREMIUM IS NULL AND AGGREGATE_SIR_RETENTION IS NULL AND STG.AGGREGATE_ICO IS NULL
+        name: VW_TMP_NO_DATA
+        noLinkRefs: []
+  name: VW_TMP_NO_DATA
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

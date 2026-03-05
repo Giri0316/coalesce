@@ -1,0 +1,292 @@
+fileVersion: 1
+id: 5e638d01-2098-4660-844c-31a892dfd660
+name: VW_TMP_SCREEN_DATA_PVT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW_STAGE
+  deployEnabled: true
+  description: ""
+  isMultisource: true
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e638d01-2098-4660-844c-31a892dfd661
+          stepCounter: 5e638d01-2098-4660-844c-31a892dfd660
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: UNIQLINE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535e61
+                stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e61
+            transform: U.UNIQLINE
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e638d01-2098-4660-844c-31a892dfd662
+          stepCounter: 5e638d01-2098-4660-844c-31a892dfd660
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PROGRAM_TYPE_KEY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535e62
+                stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e61
+            transform: U.PROGRAM_TYPE_KEY
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e638d01-2098-4660-844c-31a892dfd663
+          stepCounter: 5e638d01-2098-4660-844c-31a892dfd660
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PRIMARY_LIMIT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535e63
+                stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e61
+            transform: U.PRIMARY_LIMIT
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e638d01-2098-4660-844c-31a892dfd664
+          stepCounter: 5e638d01-2098-4660-844c-31a892dfd660
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PRIMARY_PREMIUM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535e64
+                stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e61
+            transform: U.PRIMARY_PREMIUM
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e638d01-2098-4660-844c-31a892dfd665
+          stepCounter: 5e638d01-2098-4660-844c-31a892dfd660
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PRIMARY_SIR_RETENTION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535e65
+                stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e61
+            transform: U.PRIMARY_SIR_RETENTION
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e638d01-2098-4660-844c-31a892dfd666
+          stepCounter: 5e638d01-2098-4660-844c-31a892dfd660
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PRIMARY_ICO
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535e66
+                stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e61
+            transform: U.PRIMARY_ICO
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e638d01-2098-4660-844c-31a892dfd667
+          stepCounter: 5e638d01-2098-4660-844c-31a892dfd660
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: AGGREGATE_LIMIT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535e67
+                stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e61
+            transform: U.AGGREGATE_LIMIT
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e638d01-2098-4660-844c-31a892dfd668
+          stepCounter: 5e638d01-2098-4660-844c-31a892dfd660
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: AGGREGATE_PREMIUM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535e68
+                stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e61
+            transform: U.AGGREGATE_PREMIUM
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e638d01-2098-4660-844c-31a892dfd669
+          stepCounter: 5e638d01-2098-4660-844c-31a892dfd660
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: AGGREGATE_SIR_RETENTION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535e69
+                stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e61
+            transform: U.AGGREGATE_SIR_RETENTION
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e638d01-2098-4660-844c-31a892dfd670
+          stepCounter: 5e638d01-2098-4660-844c-31a892dfd660
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: AGGREGATE_ICO
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1693c6f8-04f7-4180-87a3-e7f12e535e70
+                stepCounter: 5693c6f8-04f7-4180-87a3-e7f12e535e61
+            transform: U.AGGREGATE_ICO
+        transform: ""
+        uniqueKey: false
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: VW_FINANCIAL_PROFESSIONAL_PACKAGE
+          - locationName: DBSHIFT
+            nodeName: VW_MANAGEMENT_LIABILITY_PACKAGE
+          - locationName: DBSHIFT
+            nodeName: VW_PROFESSIONAL_LIABILITY_PACKAGE
+          - locationName: DBSHIFT
+            nodeName: VW_STAND_ALONE_DO
+          - locationName: DBSHIFT
+            nodeName: VW_STAND_ALONE_EPL
+          - locationName: DBSHIFT
+            nodeName: VW_STAND_ALONE_CRIME
+          - locationName: DBSHIFT
+            nodeName: VW_STAND_ALONE_FIDUCIARY
+          - locationName: DBSHIFT
+            nodeName: VW_STAND_ALONE_CYBER
+          - locationName: DBSHIFT
+            nodeName: VW_STAND_ALONE_PROF_LIABILITY_EO
+          - locationName: DBSHIFT
+            nodeName: VW_REPS_WARRANTIES
+          - locationName: DBSHIFT
+            nodeName: VW_SIDE_A_AND_DO
+        join:
+          joinCondition: |
+            FROM (
+              SELECT * FROM {{ ref('DBSHIFT','VW_FINANCIAL_PROFESSIONAL_PACKAGE') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT','VW_MANAGEMENT_LIABILITY_PACKAGE') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT','VW_PROFESSIONAL_LIABILITY_PACKAGE') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT','VW_STAND_ALONE_DO') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT','VW_STAND_ALONE_EPL') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT','VW_STAND_ALONE_CRIME') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT','VW_STAND_ALONE_FIDUCIARY') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT','VW_STAND_ALONE_CYBER') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT','VW_STAND_ALONE_PROF_LIABILITY_EO') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT','VW_REPS_WARRANTIES') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT','VW_SIDE_A_AND_DO') }}
+            ) AS U
+        name: VW_TMP_SCREEN_DATA_PVT
+        noLinkRefs: []
+  name: VW_TMP_SCREEN_DATA_PVT
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
