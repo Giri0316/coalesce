@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: HELLO
+  locationName: SRC
   materializationType: table
   metadata:
     appliedNodeTests: []
