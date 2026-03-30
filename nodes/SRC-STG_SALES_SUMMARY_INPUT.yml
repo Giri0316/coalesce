@@ -1,0 +1,82 @@
+fileVersion: 1
+id: 52db7b96-43cd-4faa-bc2b-cdcf35a071db
+name: STG_SALES_SUMMARY_INPUT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: SRC
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e997a6fb-2aae-4b15-bb9f-838e825b40f8
+          stepCounter: 52db7b96-43cd-4faa-bc2b-cdcf35a071db
+        config: {}
+        dataType: DATE
+        description: ""
+        name: ORDER_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2163e1fd-8afb-4029-9570-c112a9b32565
+                stepCounter: 4cc86256-c738-4a14-b267-ffdcef344062
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d3089d73-b0e1-4918-b607-8b6f63499536
+          stepCounter: 52db7b96-43cd-4faa-bc2b-cdcf35a071db
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: TOTAL_SALES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 713ceb73-6d3e-4108-8570-1abf881ed3b5
+                stepCounter: 4cc86256-c738-4a14-b267-ffdcef344062
+            transform: SUM("SALES_SUMMARY_INPUT"."TOTAL_SALES") OVER()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1f5c60d-8c2a-48ad-b580-7ad80fd2397d
+          stepCounter: 52db7b96-43cd-4faa-bc2b-cdcf35a071db
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TOTAL_ORDERS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c0334d77-7f1b-4c25-96b0-3aa69197e01c
+                stepCounter: 4cc86256-c738-4a14-b267-ffdcef344062
+            transform: SUM("SALES_SUMMARY_INPUT"."TOTAL_ORDERS") OVER()
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SALES_SUMMARY_INPUT: 4cc86256-c738-4a14-b267-ffdcef344062
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: SALES_SUMMARY_INPUT
+        join:
+          joinCondition: FROM {{ ref('SRC', 'SALES_SUMMARY_INPUT') }} "SALES_SUMMARY_INPUT"
+        name: STG_SALES_SUMMARY_INPUT
+        noLinkRefs: []
+  name: STG_SALES_SUMMARY_INPUT
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

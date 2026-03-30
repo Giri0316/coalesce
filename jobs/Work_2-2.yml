@@ -1,0 +1,6 @@
+excludeSelector: ""
+fileVersion: 1
+id: "2"
+includeSelector: "{ location: \"SRC\" name: \"SALES_SUMMARY_INPUT\" } OR { location: \"SRC\" name: \"STG_SALES_SUMMARY_INPUT\" }"
+name: Work_2
+type: Job
