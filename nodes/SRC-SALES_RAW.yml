@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 80973285-f5fe-4beb-91f5-b5063b9b53e6
-name: PRODUCT
+id: 6f37b478-cd4e-472b-8973-fff123f84756
+name: SALES_RAW
 operation:
   database: ""
   deployEnabled: true
@@ -13,32 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: b3932a65-26c0-4e4d-8f2b-79ccf6318471
-          stepCounter: 80973285-f5fe-4beb-91f5-b5063b9b53e6
+          columnCounter: 15636282-608e-4614-a36d-6d7210d596a3
+          stepCounter: 6f37b478-cd4e-472b-8973-fff123f84756
         config: {}
         dataType: NUMBER(38,0)
         defaultValue: ""
         description: ""
-        name: PRODUCT_ID
-        nullable: false
-        primaryKey: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 52df1215-fe26-4224-9a1d-1c6368a65477
-          stepCounter: 80973285-f5fe-4beb-91f5-b5063b9b53e6
-        config: {}
-        dataType: VARCHAR(100)
-        defaultValue: ""
-        description: ""
-        name: PRODUCT_NAME
+        name: ORDER_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: db2b8b09-a3cd-4c86-a5f8-2cdc38d718d6
-          stepCounter: 80973285-f5fe-4beb-91f5-b5063b9b53e6
+          columnCounter: a5236558-eb6f-4565-bc2a-fd38e112684c
+          stepCounter: 6f37b478-cd4e-472b-8973-fff123f84756
         config: {}
-        dataType: VARCHAR(100)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: CATEGORY
+        name: CUSTOMER_NAME
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 713c0679-a72d-48c9-810b-80ac52ff9ec9
-          stepCounter: 80973285-f5fe-4beb-91f5-b5063b9b53e6
+          columnCounter: 1a766314-9236-4de2-8e55-4e1106ceaaef
+          stepCounter: 6f37b478-cd4e-472b-8973-fff123f84756
         config: {}
-        dataType: VARCHAR(100)
+        dataType: FLOAT
         defaultValue: ""
         description: ""
-        name: BRAND
+        name: AMOUNT
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -89,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 6ef2605f-cc3e-4d90-a17b-4d6c9bd5863a
-          stepCounter: 80973285-f5fe-4beb-91f5-b5063b9b53e6
+          columnCounter: 736faf12-b148-45ba-83b9-1a9de8d12263
+          stepCounter: 6f37b478-cd4e-472b-8973-fff123f84756
         config: {}
-        dataType: NUMBER(10,2)
+        dataType: DATE
         defaultValue: ""
         description: ""
-        name: UNIT_PRICE
+        name: ORDER_DATE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -103,7 +84,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: PRODUCT
+  name: SALES_RAW
   schema: ""
   sqlType: Source
   type: sourceInput
