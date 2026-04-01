@@ -1,0 +1,301 @@
+fileVersion: 1
+id: 569e5d43-fc05-4f40-8b4e-e14b2d415758
+name: ACA_ACCOUNT_STRUCTURE_STAGING_ESIS
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS_STAGE
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2fce5a-063a-4469-807e-ecb4f97184a4
+          stepCounter: 569e5d43-fc05-4f40-8b4e-e14b2d415758
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_ACCOUNT_STRUCTURE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97940149-a035-430b-93ca-ab97e515d978
+          stepCounter: 569e5d43-fc05-4f40-8b4e-e14b2d415758
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLIENT_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 326f3333-e7f6-402f-b258-c0b8f04746f3
+          stepCounter: 569e5d43-fc05-4f40-8b4e-e14b2d415758
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: UNIT_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b18d7ef-4796-419b-b097-f5d75d5069b7
+          stepCounter: 569e5d43-fc05-4f40-8b4e-e14b2d415758
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SITE_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f723cc02-7c9d-47fa-80ab-c9b0e1b212dd
+          stepCounter: 569e5d43-fc05-4f40-8b4e-e14b2d415758
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DIVISION_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 76f63459-7b3c-485a-821f-9b1686cd8527
+          stepCounter: 569e5d43-fc05-4f40-8b4e-e14b2d415758
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DIVISION_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d727f91-18e3-4c9f-8646-0b16a2ef69d3
+          stepCounter: 569e5d43-fc05-4f40-8b4e-e14b2d415758
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SUBSIDIARY_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d3ddb0d-22fa-4d04-8742-50d4d0398687
+          stepCounter: 569e5d43-fc05-4f40-8b4e-e14b2d415758
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SUBSIDIARY_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3267d3b9-a2e6-4903-b184-c5a89e90059b
+          stepCounter: 569e5d43-fc05-4f40-8b4e-e14b2d415758
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: LOCATION_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e34fde77-84d5-45cd-a570-5b65f5a2e557
+          stepCounter: 569e5d43-fc05-4f40-8b4e-e14b2d415758
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: LOCATION_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2df3b680-33b6-4b8c-b630-9b398df9a850
+          stepCounter: 569e5d43-fc05-4f40-8b4e-e14b2d415758
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0137d6e8-d1a1-4228-a53b-e066a503a74a
+          stepCounter: 569e5d43-fc05-4f40-8b4e-e14b2d415758
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: ACA_DATE_CREATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0540e1b3-4672-4d1a-8280-92de7147be86
+          stepCounter: 569e5d43-fc05-4f40-8b4e-e14b2d415758
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: ACA_CREATE_USER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b57e4c76-d98c-4f71-a481-23d90680197d
+          stepCounter: 569e5d43-fc05-4f40-8b4e-e14b2d415758
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: ACA_DATE_UPDATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf899b80-a61f-4ed7-941f-82559b9ca1a3
+          stepCounter: 569e5d43-fc05-4f40-8b4e-e14b2d415758
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: ACA_UPDATE_USER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_ACCOUNT_STRUCTURE_STAGING_ESIS
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
