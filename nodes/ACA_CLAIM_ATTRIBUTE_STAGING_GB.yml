@@ -1,0 +1,756 @@
+fileVersion: 1
+id: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+name: ACA_CLAIM_ATTRIBUTE_STAGING_GB
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: false
+  database: ALLIANT_CLAIMS_ASTRUS_STAGE
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32671f65-7496-412e-848f-4ed7927d3c01
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: MD5(TO_VARCHAR(OBJECT_CONSTRUCT('claim_status_code', TC.CLAIM_STATUS,
+              'reserve_type_code', TC.RESERVE_TYPE_CODE, 'convert_code', TC.CONVERT_CODE,
+              'death_result_code', TC.DEATH_RESULT_CODE, 'reporting_basis_code', TC.REPORTING_BASIS_CODE,
+              'claimant_type_code', TC.CLAIMANT_NAME_FORMAT, 'workers_compensation_claim_type_code',
+              TC.WORKERS_COMPENSATION_CLAIMTYPE, 'fraud_indicator_code', TC.FRAUD_INDICATOR,
+              'catastrophe_code', TC.CATASTROPHE_CODE, 'driver_gender', TC.DRIVER_SEX,
+              'reporting_unit_type_code', TC.REPORTING_UNIT_NAME_FORMAT, 'insuit_flag',
+              TC.INSUIT_FLAG, 'driver_chargeable_flag', TC.DRIVER_CHARGEABLE_FLAG,
+              'surgery_flag', TC.SURGERY_FLAG, 'employer_premises_flag', TC.EMPLOYER_PREMISES_FLAG,
+              'number_of_dependents_flag', TC.NUMBER_OF_DEPENDENTS_FLAG, 'controverted_case_flag',
+              TC.CONTROVERTED_CASE_FLAG, 'employment_status_flag', TC.EMPLOYMENT_STATUS_FLAG,
+              'attorney_authorized_representative_flag', TC.ATTORNEY_AUTHORIZED_REPRESENTATIVE_FLAG,
+              'multi_claim_occur_flag', TC.MULTI_CLAIM_OCCUR_FLAG, 'unemployment_offset_flag',
+              TC.UNEMPLOYMENT_OFFSET_FLAG, 'full_pay_day_of_injury_flag', TC.FULL_PAY_DAY_OF_INJURY_FLAG,
+              'return_to_work_restricted_flag', TC.RETURN_TO_WORK_RESTRICTED_FLAG,
+              'claim_ever_controverted_flag', TC.CLAIM_EVER_CONTROVERTED_FLAG, 'lost_time_case_flag',
+              TC.LOST_TIME_CASE_FLAG, 'salary_continued_flag', TC.SALARY_CONTINUED_FLAG,
+              'other_recovery_potential_flag', TC.OTHER_RECOVERY_POTENTIAL, 'social_security_offset_flag',
+              TC.SOCIAL_SECURITY_OFFSET_FLAG, 'pension_offset_flag', TC.PENSION_OFFSET_FLAG,
+              'other_offset_flag', TC.OTHER_OFFSET_FLAG, 'deductible_flag', TC.DEDUCTIBLE_FLAG,
+              'degree_of_loss_code', TC.DEGREE_OF_LOSSFLAG, 'appraised_eligibility_code',
+              TC.APPRAISED_ELIGIBILITY_FLAG)))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a78ebc6-30e4-411a-829d-476717a58c0c
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b3b2e9ca-28a8-4800-8234-74c902ed36f7
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.CLAIM_STATUS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 326e6d1c-b248-477d-944a-108502f90407
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_STATUS_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1e38c48-c625-4c40-a587-565802397861
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.CLAIM_STATUS_DESCRIPTION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: df75d1d6-b072-46d4-8d9e-151026048fc6
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RESERVE_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 16fde2e3-3152-4c53-aca9-23c8b8c39102
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.RESERVE_TYPE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd6ebc78-1a93-4a34-a63e-001004a44b1c
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONVERT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 018c1b52-5264-469b-9860-2646399c017c
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.CONVERT_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b132644e-a1e6-42f0-91a1-9a7065f3f4c0
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DEATH_RESULT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0214a1f6-a979-4786-90a4-37a5f609e235
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.DEATH_RESULT_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d508200-c089-4d6d-8874-d02f3089d380
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DEATH_RESULT_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0214a1f6-a979-4786-90a4-37a5f609e235
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: CASE TC.DEATH_RESULT_CODE WHEN 'Y' THEN 'Yes' WHEN 'N' THEN 'No'
+              WHEN 'U' THEN 'Unknown' END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d8a9a8f4-411a-4643-9844-3c66f91667b9
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REPORTING_BASIS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 42a1ef2e-f78a-40a8-ba70-d9d13410f994
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.REPORTING_BASIS_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eb996843-7f28-4fbb-a15d-5cde3de764e5
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REPORTING_BASIS_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 42a1ef2e-f78a-40a8-ba70-d9d13410f994
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: CASE TC.REPORTING_BASIS_CODE WHEN 'LD' THEN 'Loss Date Basis'
+              WHEN 'CM' THEN 'Claims Made Basis' END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e34f0c45-4235-4302-b2f5-27a3c75d496c
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIMANT_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b5c2e171-87b6-45a4-9e7f-6a5d7c83f980
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.CLAIMANT_NAME_FORMAT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e8742586-e04f-4fa1-8a9d-157945d814c4
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIMANT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b5c2e171-87b6-45a4-9e7f-6a5d7c83f980
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: CASE TC.CLAIMANT_NAME_FORMAT WHEN 'I' THEN 'Individual' WHEN
+              'O' THEN 'Organization' END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 90c8a513-5a7a-4dd0-998f-a9478fde1a6f
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: WORKERS_COMPENSATION_CLAIM_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c6d3f282-98c7-46b5-af80-7b6e8d940a91
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.WORKERS_COMPENSATION_CLAIMTYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f4b9f29-2810-4448-918d-f2136e088716
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: WORKERS_COMPENSATION_CLAIM_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c6d3f282-98c7-46b5-af80-7b6e8d940a91
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: CASE TC.WORKERS_COMPENSATION_CLAIMTYPE WHEN 'M' THEN 'Medical'
+              WHEN 'I' THEN 'Indemnity' END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 10472483-393c-411a-82e7-f65529f7f858
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: FRAUD_INDICATOR_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d7e40393-a9d8-47c6-b091-8c7f9ea51ba2
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.FRAUD_INDICATOR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 31070e30-a92c-4734-92d5-4752c1e8749a
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CATASTROPHE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e8f514a4-bae9-48d7-c1a2-9d80afb62cb3
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.CATASTROPHE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8251e89e-2c93-41ef-9351-460d37e6f8ad
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DRIVER_GENDER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f90625b5-cbfb-49e8-d2b3-ae91b0c73dc4
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.DRIVER_SEX
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 779435b8-d42f-48e0-a9fe-a9d39ccf6952
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REPORTING_UNIT_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0a1736c6-dc0c-4af9-e3c4-bfb2c1d84ed5
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.REPORTING_UNIT_NAME_FORMAT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d32d0391-da79-484d-b65b-07c4b4ddcc51
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSUIT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1b2847d7-ed1d-4b0a-f4d5-c0c3d2e95fe6
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.INSUIT_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: df7a4176-79fd-4217-a579-9944365778b0
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DRIVER_CHARGEABLE_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2c3958e8-fe2e-4c1b-05e6-d1d4e3fa60f7
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.DRIVER_CHARGEABLE_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b57e7f63-128a-4c59-ac28-118837265910
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SURGERY_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3d4a69f9-ff3f-4d2c-16f7-e2e5f40b7108
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.SURGERY_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b449b803-34e8-469a-b86a-e8d989f6498a
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYER_PREMISES_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4e5b7a0a-0040-4e3d-2708-f3f6051c8219
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.EMPLOYER_PREMISES_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1726a455-8903-455b-8664-9403d157a949
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NUMBER_OF_DEPENDENTS_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5f6c8b1b-1151-4f4e-3819-0407162d932a
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.NUMBER_OF_DEPENDENTS_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b138c290-7d6f-451e-8bd8-b80c35588726
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONTROVERTED_CASE_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 607d9c2c-2262-405f-492a-1518273ea43b
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.CONTROVERTED_CASE_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b2e0544f-124b-4b16-95f2-98544d6731e8
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYMENT_STATUS_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 718ea03d-3373-4160-5a3b-2629384fb54c
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.EMPLOYMENT_STATUS_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2b2c45-5688-4389-9b16-cd34c44f3879
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ATTORNEY_AUTHORIZED_REPRESENTATIVE_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 829fb14e-4484-4271-6b4c-373a4950c65d
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.ATTORNEY_AUTHORIZED_REPRESENTATIVE_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd69f8d9-22a3-48ee-a309-87a329d5b035
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MULTI_CLAIM_OCCUR_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 93a0c25f-5595-4382-7c5d-484b5a61d76e
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.MULTI_CLAIM_OCCUR_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32a76f23-6447-494b-9705-728469317573
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNEMPLOYMENT_OFFSET_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a4b1d360-66a6-4493-8d6e-595c6b72e87f
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.UNEMPLOYMENT_OFFSET_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b06086c2-b5e0-4a8f-a78b-d249d443e498
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: FULL_PAY_DAY_OF_INJURY_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b5c2e471-77b7-45a4-9e7f-6a6d7c83f980
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.FULL_PAY_DAY_OF_INJURY_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0c26802e-c760-4965-8bce-d21808b5f3d3
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RETURN_TO_WORK_RESTRICTED_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c6d3f582-88c8-46b5-af80-7b7e8d940a91
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.RETURN_TO_WORK_RESTRICTED_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6a91d1e-e818-498b-9071-89e47326a575
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_EVER_CONTROVERTED_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d7e40693-99d9-47c6-b091-8c8f9ea51ba2
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.CLAIM_EVER_CONTROVERTED_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c0220671-55cc-48a0-8356-d7a86f99052b
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOST_TIME_CASE_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e8f517a4-aaeb-48d7-c1a2-9d90afb62cb3
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.LOST_TIME_CASE_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3ab78917-7a54-4a41-8631-f5b2f5b87452
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SALARY_CONTINUED_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f90628b5-bbfc-49e8-d2b3-aea1b0c73dc4
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.SALARY_CONTINUED_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e43a2862-23c3-48fe-8902-6c3e6022e118
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OTHER_RECOVERY_POTENTIAL_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0a1739c6-cdde-4af9-e3c4-bfb2c1d84ed5
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.OTHER_RECOVERY_POTENTIAL
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e659b8be-59d4-49c0-82a8-12d93e18a004
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOCIAL_SECURITY_OFFSET_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1b284ad7-eeef-4b0a-f4d5-c0c3d2e95fe6
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.SOCIAL_SECURITY_OFFSET_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 95cd50be-8456-429a-b855-32e67a75765f
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PENSION_OFFSET_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2c395be8-f000-4c1b-05e6-d1d4e3fa60f7
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.PENSION_OFFSET_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b13c6d66-6514-4114-87d4-b81636b04859
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OTHER_OFFSET_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3d4a6cf9-0111-4d2c-16f7-e2e5f40b7108
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.OTHER_OFFSET_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3e8a4a58-c990-449e-8c56-f5c9e4763327
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DEDUCTIBLE_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4e5b7d0a-1222-4e3d-2708-f3f6051c8219
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.DEDUCTIBLE_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b425cc04-6330-4e36-a149-1d428178a3a2
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DEGREE_OF_LOSS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5f6c8e1b-2333-4f4e-3819-0407162d932a
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.DEGREE_OF_LOSSFLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf89f1f0-bb57-4180-8774-72990fd2c89f
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DEGREE_OF_LOSS_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5f6c8e1b-2333-4f4e-3819-0407162d932a
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: CASE TC.DEGREE_OF_LOSSFLAG WHEN 'P' THEN 'Partial Loss' WHEN
+              'T' THEN 'Total Loss' END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32a0c6a8-7d8b-494b-a9b3-467262f7e0fc
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: APPRAISED_ELIGIBILITY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 607d9f2c-3444-405f-492a-1518273ea43b
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: TC.APPRAISED_ELIGIBILITY_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a6376822-e038-4e12-ac7f-e22119286c07
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: APPRAISED_ELIGIBILITY_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 607d9f2c-3444-405f-492a-1518273ea43b
+                stepCounter: 9f5c7e66-3f79-46b6-aeb6-eb33e469df54
+            transform: CASE TC.APPRAISED_ELIGIBILITY_FLAG WHEN 'Y' THEN 'Eligible Appraised'
+              WHEN 'E' THEN 'Eligible Not Appraised' WHEN 'N' THEN 'Not Eligible'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: df2c069b-980b-4176-b6ae-0a1334057883
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'GB'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e8756e80-d021-4f0e-b8d6-7c327263b6a9
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7d8e9f0a-1b2c-4d3e-4f5a-6b7c8d9e0f1a
+                stepCounter: 5a1b3c2d-1e0f-4d7a-8b6c-9e8d7c6b5a4b
+            transform: SS.ACA_SOURCE_SYSTEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d3345d2-a39c-49fd-af15-09be56b46610
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACA_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f3c5f49-5de4-49c0-9988-c70014a9c6d4
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_CREATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'spaca_aca_claim_attribute_staging_gb_insert'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77b4d32a-7e3e-4b6e-8cf4-0570b678c439
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACA_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b138c290-7d6f-451e-8bd8-b80c35588727
+          stepCounter: e9a4c8c1-8d2b-4e6f-a1b3-5c8e7f6a4b2d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'spaca_aca_claim_attribute_staging_gb_insert'"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_SOURCE_SYSTEM: SS
+          ACA_TRANSACTION_CLAIM: TC
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_TRANSACTION_CLAIM
+          - locationName: DBSHIFT
+            nodeName: ACA_SOURCE_SYSTEM
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'ACA_TRANSACTION_CLAIM') }} "TC"
+            CROSS JOIN {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} "SS"
+            WHERE SS.SOURCE_SYSTEM = 'GB'
+            GROUP BY
+            TC.CLAIM_STATUS,
+            TC.RESERVE_TYPE_CODE,
+            TC.CONVERT_CODE,
+            TC.DEATH_RESULT_CODE,
+            TC.REPORTING_BASIS_CODE,
+            TC.CLAIMANT_NAME_FORMAT,
+            TC.WORKERS_COMPENSATION_CLAIMTYPE,
+            TC.FRAUD_INDICATOR,
+            TC.CATASTROPHE_CODE,
+            TC.DRIVER_SEX,
+            TC.REPORTING_UNIT_NAME_FORMAT,
+            TC.INSUIT_FLAG,
+            TC.DRIVER_CHARGEABLE_FLAG,
+            TC.SURGERY_FLAG,
+            TC.EMPLOYER_PREMISES_FLAG,
+            TC.NUMBER_OF_DEPENDENTS_FLAG,
+            TC.CONTROVERTED_CASE_FLAG,
+            TC.EMPLOYMENT_STATUS_FLAG,
+            TC.ATTORNEY_AUTHORIZED_REPRESENTATIVE_FLAG,
+            TC.MULTI_CLAIM_OCCUR_FLAG,
+            TC.UNEMPLOYMENT_OFFSET_FLAG,
+            TC.FULL_PAY_DAY_OF_INJURY_FLAG,
+            TC.RETURN_TO_WORK_RESTRICTED_FLAG,
+            TC.CLAIM_EVER_CONTROVERTED_FLAG,
+            TC.LOST_TIME_CASE_FLAG,
+            TC.SALARY_CONTINUED_FLAG,
+            TC.OTHER_RECOVERY_POTENTIAL,
+            TC.SOCIAL_SECURITY_OFFSET_FLAG,
+            TC.PENSION_OFFSET_FLAG,
+            TC.OTHER_OFFSET_FLAG,
+            TC.DEDUCTIBLE_FLAG,
+            TC.DEGREE_OF_LOSSFLAG,
+            TC.APPRAISED_ELIGIBILITY_FLAG,
+            TC.CLAIM_STATUS_DESCRIPTION,
+            SS.ACA_SOURCE_SYSTEM_ID
+        name: ACA_CLAIM_ATTRIBUTE_STAGING_GB
+        noLinkRefs: []
+  name: ACA_CLAIM_ATTRIBUTE_STAGING_GB
+  overrideSQL: false
+  schema: DBO
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
