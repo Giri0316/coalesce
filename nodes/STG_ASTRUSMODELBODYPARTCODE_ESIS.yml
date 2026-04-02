@@ -1,0 +1,69 @@
+fileVersion: 1
+id: 5a73e4b8-f9b8-4c8d-90c7-1d2a1c0d5c0b
+name: STG_ASTRUSMODELBODYPARTCODE_ESIS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97f48e9c-c51d-4034-8b65-68d7f7634f19
+          stepCounter: 5a73e4b8-f9b8-4c8d-90c7-1d2a1c0d5c0b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PART_OF_BODY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a6c4b2b2-6c3e-436d-97e0-f2b18600d890
+                stepCounter: 790432a6-b964-42b7-84a8-6f5df5df0b0a
+            transform: S.BODY_PART_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a68b209e-716b-4e1b-b788-0f04e14f6b21
+          stepCounter: 5a73e4b8-f9b8-4c8d-90c7-1d2a1c0d5c0b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PART_OF_BODY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1e9d8923-a55e-450f-90e6-b25b6a7167a5
+                stepCounter: 790432a6-b964-42b7-84a8-6f5df5df0b0a
+            transform: S.BODY_PART_DESCRIPTION
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_INJURY_BODY_PART_CODE_ESIS: S
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_INJURY_BODY_PART_CODE_ESIS
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_INJURY_BODY_PART_CODE_ESIS')
+            }} AS S
+        name: STG_ASTRUSMODELBODYPARTCODE_ESIS
+        noLinkRefs: []
+  name: STG_ASTRUSMODELBODYPARTCODE_ESIS
+  overrideSQL: false
+  schema: RPT
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
