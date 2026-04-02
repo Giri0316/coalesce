@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 5678abcd-ef01-2345-6789-abcdef012345
+name: V_RESERVE_AGG
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f8e7d6c-5b4a-3c2d-1e0f-9a8b7c6d5e4f
+          stepCounter: 5678abcd-ef01-2345-6789-abcdef012345
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9e0f1a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3
+                stepCounter: 8c3d8a5f-1e9d-4c5e-8b1a-2f3d4e5f6a7b
+            transform: T.ACA_SOURCE_SYSTEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e7d6c5b-4a3c-2d1e-0f9a-8b7c6d5e4f3a
+          stepCounter: 5678abcd-ef01-2345-6789-abcdef012345
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0a1b2c3d-4e5f-4a6b-7c8d-9e0f1a2b3c4d
+                stepCounter: 8c3d8a5f-1e9d-4c5e-8b1a-2f3d4e5f6a7b
+            transform: MAX(T.TRANSACTION_DATE)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_RESERVE_TRANSACTION: T
+          ACA_SOURCE_SYSTEM: S
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_RESERVE_TRANSACTION
+          - locationName: DBSHIFT
+            nodeName: ACA_SOURCE_SYSTEM
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_RESERVE_TRANSACTION') }} AS T
+            INNER JOIN {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} AS S ON T.ACA_SOURCE_SYSTEM_ID
+            = S.ACA_SOURCE_SYSTEM_ID WHERE S.SOURCE_SYSTEM = 'ESIS' GROUP BY T.ACA_SOURCE_SYSTEM_ID
+        name: V_RESERVE_AGG
+        noLinkRefs: []
+  name: V_RESERVE_AGG
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

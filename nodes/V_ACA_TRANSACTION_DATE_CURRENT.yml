@@ -1,0 +1,88 @@
+fileVersion: 1
+id: deadbeef-cafe-babe-feed-facebeadcafe
+name: V_ACA_TRANSACTION_DATE_CURRENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b
+          stepCounter: deadbeef-cafe-babe-feed-facebeadcafe
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f9349e5-9c9e-4c74-897d-4171e549d472
+                stepCounter: 5418b76e-5221-4d92-9721-a3f8983d5a41
+            transform: S.ACA_SOURCE_SYSTEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c
+          stepCounter: deadbeef-cafe-babe-feed-facebeadcafe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c8b74a3-7188-4674-a78b-826a8d6e7b51
+                stepCounter: 5418b76e-5221-4d92-9721-a3f8983d5a41
+            transform: S.SOURCE_SYSTEM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+          stepCounter: deadbeef-cafe-babe-feed-facebeadcafe
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d3e4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a
+                stepCounter: 00112233-4455-6677-8899-aabbccddeeff
+            transform: IFNULL(MAX(T.TRANSACTION_DATE), CAST('1900-01-01' AS DATE))
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_SOURCE_SYSTEM: S
+          STG_UNIONED_TRANSACTIONS: T
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_SOURCE_SYSTEM
+          - locationName: DBSHIFT
+            nodeName: STG_UNIONED_TRANSACTIONS
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} AS S LEFT JOIN
+            {{ ref('DBSHIFT', 'STG_UNIONED_TRANSACTIONS') }} AS T ON T.ACA_SOURCE_SYSTEM_ID
+            = S.ACA_SOURCE_SYSTEM_ID WHERE S.ACA_SOURCE_SYSTEM_ID > -1 GROUP BY S.ACA_SOURCE_SYSTEM_ID,
+            S.SOURCE_SYSTEM
+        name: V_ACA_TRANSACTION_DATE_CURRENT
+        noLinkRefs: []
+  name: V_ACA_TRANSACTION_DATE_CURRENT
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
