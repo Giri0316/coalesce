@@ -1,0 +1,220 @@
+fileVersion: 1
+id: 6c5d4e3f-2a1b-4d7c-8b6c-9e8d7c6b5a4b
+name: STG_TMP_EXP
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b
+          stepCounter: 6c5d4e3f-2a1b-4d7c-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1d2e3f4a-5b6c-7d8e-9f0a-1b2c3d4e5f6a
+                stepCounter: 5b4c3d2e-1f0a-4d7b-8b6c-9e8d7c6b5a4b
+            transform: UNIQUE_CLAIM_ID
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c
+          stepCounter: 6c5d4e3f-2a1b-4d7c-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: INCD_BI
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: IFNULL("'B. I.'", 0.00)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+          stepCounter: 6c5d4e3f-2a1b-4d7c-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: INCD_COLLISION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: IFNULL("'COLLISION'", 0.00)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e
+          stepCounter: 6c5d4e3f-2a1b-4d7c-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: INCD_COMP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: IFNULL("'COMP'", 0.00)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f
+          stepCounter: 6c5d4e3f-2a1b-4d7c-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: INCD_EXPENSE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: IFNULL("'EXPENSE'", 0.00)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f10
+          stepCounter: 6c5d4e3f-2a1b-4d7c-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: INCD_INDEMNITY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: IFNULL("'INDEMNITY'", 0.00)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1011
+          stepCounter: 6c5d4e3f-2a1b-4d7c-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: INCD_MEDICAL
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: IFNULL("'MEDICAL'", 0.00)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f101112
+          stepCounter: 6c5d4e3f-2a1b-4d7c-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: INCD_PD
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: IFNULL("'P. D.'", 0.00)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f10111213
+          stepCounter: 6c5d4e3f-2a1b-4d7c-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: INCD_REHAB
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: IFNULL("'REHAB'", 0.00)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0b1c2d3e-4f5a-6b7c-8d9e-0f1011121314
+          stepCounter: 6c5d4e3f-2a1b-4d7c-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: TOTAL_EXPERIENCE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d
+                stepCounter: 5b4c3d2e-1f0a-4d7b-8b6c-9e8d7c6b5a4b
+            transform: ANY_VALUE(TOTAL_EXPERIENCE)
+        transform: ""
+        uniqueKey: false
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: STG_TMP_EXP_RESERVE_TYPE
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'STG_TMP_EXP_RESERVE_TYPE') }}
+            PIVOT (SUM(EXPERIENCE_AMOUNT) FOR RESERVE_TYPE IN ('B. I.', 'BUILDING', 'COLLISION', 'COMP', 'CONTENTS', 'EXPENSE', 'EXTD. COVG.', 'INDEMNITY', 'LOSS', 'MEDICAL', 'P. D.', 'REHAB', 'V & M.M.', 'WAGE LOSS', 'Zero (0)'))
+            GROUP BY UNIQUE_CLAIM_ID
+        name: STG_TMP_EXP
+        noLinkRefs: []
+  name: STG_TMP_EXP
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,54 @@
+fileVersion: 1
+id: b449b5fc-e034-406c-94cd-9f448c5a935f
+name: REF_ACA_ACCIDENT_TYPE_CODE
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 938b8d4f-561b-4394-9173-13840eb14533
+          stepCounter: b449b5fc-e034-406c-94cd-9f448c5a935f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: TYPE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e82d77d7-2f12-409e-b816-c73e13d9485b
+          stepCounter: b449b5fc-e034-406c-94cd-9f448c5a935f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DESCRIPTION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: REF_ACA_ACCIDENT_TYPE_CODE
+  schema: REF
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

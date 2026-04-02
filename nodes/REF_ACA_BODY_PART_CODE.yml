@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 61c28c6e-d71d-400b-b23d-0d859d9c22e4
+name: REF_ACA_BODY_PART_CODE
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: eb9959e1-1b9a-4c27-a006-2f0858c49cc1
+          stepCounter: 61c28c6e-d71d-400b-b23d-0d859d9c22e4
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PART_OF_BODY_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 53c2b8c9-7603-4f51-b8d9-60586e9b9868
+          stepCounter: 61c28c6e-d71d-400b-b23d-0d859d9c22e4
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DESCRIPTION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: REF_ACA_BODY_PART_CODE
+  schema: REF
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
