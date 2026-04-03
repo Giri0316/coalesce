@@ -1,0 +1,108 @@
+fileVersion: 1
+id: 3d4e5f6a-9b8c-4d7j-8b6c-9e8d7c6b5a4b
+name: STG_TMP_RECOVERY_RESERVE_TYPE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1d2e3f4a-5b6c-7d8e-9f0a-1b2c3d4e5f6a
+          stepCounter: 3d4e5f6a-9b8c-4d7j-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1c2d3e4f-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+                stepCounter: 2c3d4e5f-8a7b-4d7i-8b6c-9e8d7c6b5a4b
+            transform: T1.UNIQUE_CLAIM_ID
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2e3f4a5b-6c7d-8e9f-0a1b-2c3d4e5f6a7b
+          stepCounter: 3d4e5f6a-9b8c-4d7j-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a63f913d-e475-474c-8fd2-c4de4da5b306
+                stepCounter: 569308be-77b3-4f96-b605-72fd02e3b2e9
+            transform: RT.RESERVE_TYPE
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3f4a5b6c-7d8e-9f0a-1b2c-3d4e5f6a7b8c
+          stepCounter: 3d4e5f6a-9b8c-4d7j-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_AMOUNT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d3e4f5a-6a7b-8c9d-0e1f-2a3b4c5d6e7f
+                stepCounter: 2c3d4e5f-8a7b-4d7i-8b6c-9e8d7c6b5a4b
+            transform: T1.RECOVERY_AMOUNT
+        transform: ""
+        uniqueKey: false
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_TMP_RECOVERY_PIVOT: T1
+          REF_ACA_RESERVE_TYPE_GB: RT
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: STG_TMP_RECOVERY_PIVOT
+          - locationName: DBSHIFT
+            nodeName: REF_ACA_RESERVE_TYPE_GB
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'STG_TMP_RECOVERY_PIVOT') }} AS T1
+            INNER JOIN {{ ref('DBSHIFT', 'REF_ACA_RESERVE_TYPE_GB') }} AS RT ON T1.CLASS
+            = RT.CLASS_CODE AND T1.RESERVE_TYPE_COLUMN_NUMBER = RT.RESERVE_TYPE_COLUMN_NUMBER
+        name: STG_TMP_RECOVERY_RESERVE_TYPE
+        noLinkRefs: []
+  name: STG_TMP_RECOVERY_RESERVE_TYPE
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

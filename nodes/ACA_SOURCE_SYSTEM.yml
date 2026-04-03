@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 61e14902-6045-4200-a15d-85f0e9f16cfc
+name: ACA_SOURCE_SYSTEM
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e82e0e0a-a82f-488b-a430-81f1856abf1d
+          stepCounter: 61e14902-6045-4200-a15d-85f0e9f16cfc
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2358823-ef88-466d-a722-e4d66299b8b8
+          stepCounter: 61e14902-6045-4200-a15d-85f0e9f16cfc
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_SOURCE_SYSTEM
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

@@ -1,0 +1,238 @@
+fileVersion: 1
+id: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+name: STG_TMP_RECOVERY_CURRENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-5e6f-7890-a1b2-c3d4e5f67890
+          stepCounter: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 93ef6409-72c0-4357-8b02-534ef064f781
+                stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+            transform: TP.UNIQUE_CLAIM_ID
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b3c4d5e-6f78-90a1-b2c3-d4e5f6789012
+          stepCounter: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f930e46-5b3a-4416-8c43-26a91176ecf2
+                stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+            transform: TP.CLAIM_COVERAGE_CODE
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3c4d5e6f-7890-a1b2-c3d4-e5f678901234
+          stepCounter: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLASS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9753c153-27dd-4b30-91c2-c62d0e340e65
+                stepCounter: fe900b39-c1dd-444f-8016-168a442d6d02
+            transform: ACC.CLASS
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d5e6f78-90a1-b2c3-d4e5-f67890123456
+          stepCounter: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_AMOUNT1
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1a75094-1a06-4074-a4f7-e43598d1a104
+                stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+            transform: SUM(TP.RECOVERY_AMOUNT1)
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e6f7890-a1b2-c3d4-e5f6-789012345678
+          stepCounter: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_AMOUNT2
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9b2d8293-9c86-4014-b80c-c4664c39d09c
+                stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+            transform: SUM(TP.RECOVERY_AMOUNT2)
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f7890a1-b2c3-d4e5-f678-901234567890
+          stepCounter: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_AMOUNT3
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c23d387f-945f-4a00-9ef9-cc97b3117578
+                stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+            transform: SUM(TP.RECOVERY_AMOUNT3)
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7890a1b2-c3d4-e5f6-7890-123456789012
+          stepCounter: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_AMOUNT4
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d152c93-577e-40d6-8488-29472e3915bc
+                stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+            transform: SUM(TP.RECOVERY_AMOUNT4)
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 890a1b2c-3d4e-5f67-8901-234567890123
+          stepCounter: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_AMOUNT5
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b0a996d-cdd6-4171-aa3a-4422204c8651
+                stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+            transform: SUM(TP.RECOVERY_AMOUNT5)
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 90a1b2c3-d4e5-f678-9012-345678901234
+          stepCounter: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_AMOUNT6
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3226a266-9351-41b9-8c6f-6f38010839a8
+                stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+            transform: SUM(TP.RECOVERY_AMOUNT6)
+        transform: ""
+        uniqueKey: false
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_TRANSACTION_THIRD_PARTY_RECOVERY: TP
+          REF_ACA_COVERAGE_CODE: ACC
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_TRANSACTION_THIRD_PARTY_RECOVERY
+          - locationName: DBSHIFT
+            nodeName: REF_ACA_COVERAGE_CODE
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'ACA_TRANSACTION_THIRD_PARTY_RECOVERY') }} TP
+            LEFT OUTER JOIN {{ ref('DBSHIFT', 'REF_ACA_COVERAGE_CODE') }} ACC ON TP.CLAIM_COVERAGE_CODE = ACC.CODE
+            GROUP BY 
+                TP.UNIQUE_CLAIM_ID,
+                TP.CLAIM_COVERAGE_CODE,
+                ACC.CLASS
+        name: STG_TMP_RECOVERY_CURRENT
+        noLinkRefs: []
+  name: STG_TMP_RECOVERY_CURRENT
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

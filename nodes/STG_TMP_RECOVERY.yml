@@ -1,0 +1,198 @@
+fileVersion: 1
+id: 4e5f6a7b-0c9d-4d7k-8b6c-9e8d7c6b5a4b
+name: STG_TMP_RECOVERY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f2a3b4c-7b8c-9d0e-1f2a-3b4c5d6e7f80
+          stepCounter: 4e5f6a7b-0c9d-4d7k-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1d2e3f4a-5b6c-7d8e-9f0a-1b2c3d4e5f6a
+                stepCounter: 3d4e5f6a-9b8c-4d7j-8b6c-9e8d7c6b5a4b
+            transform: UNIQUE_CLAIM_ID
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a3b4c5d-8c9d-0e1f-2a3b-4c5d6e7f8081
+          stepCounter: 4e5f6a7b-0c9d-4d7k-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: REC_BI
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: IFNULL("'B. I.'", 0.00)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b4c5d6e-9d0e-1f2a-3b4c-5d6e7f808182
+          stepCounter: 4e5f6a7b-0c9d-4d7k-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: REC_COLLISION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: IFNULL("'COLLISION'", 0.00)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c5d6e7f-0e1f-2a3b-4c5d-6e7f80818283
+          stepCounter: 4e5f6a7b-0c9d-4d7k-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: REC_COMP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: IFNULL("'COMP'", 0.00)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d6e7f80-1f2a-3b4c-5d6e-7f8081828384
+          stepCounter: 4e5f6a7b-0c9d-4d7k-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: REC_EXPENSE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: IFNULL("'EXPENSE'", 0.00)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e7f8081-2a3b-4c5d-6e7f-808182838485
+          stepCounter: 4e5f6a7b-0c9d-4d7k-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: REC_INDEMNITY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: IFNULL("'INDEMNITY'", 0.00)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7f808182-3b4c-5d6e-7f80-818283848586
+          stepCounter: 4e5f6a7b-0c9d-4d7k-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: REC_MEDICAL
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: IFNULL("'MEDICAL'", 0.00)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 80818283-4c5d-6e7f-8081-828384858687
+          stepCounter: 4e5f6a7b-0c9d-4d7k-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: REC_PD
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: IFNULL("'P. D.'", 0.00)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 81828384-5d6e-7f80-8182-838485868788
+          stepCounter: 4e5f6a7b-0c9d-4d7k-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: REC_REHAB
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: IFNULL("'REHAB'", 0.00)
+        uniqueKey: false
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: STG_TMP_RECOVERY_RESERVE_TYPE
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'STG_TMP_RECOVERY_RESERVE_TYPE') }}
+            PIVOT (SUM(RECOVERY_AMOUNT) FOR RESERVE_TYPE IN('B. I.', 'BUILDING', 'COLLISION', 'COMP', 'CONTENTS', 'EXPENSE', 'EXTD. COVG.', 'INDEMNITY', 'LOSS', 'MEDICAL', 'P. D.', 'REHAB', 'V & M.M.', 'WAGE LOSS', 'Zero (0)'))
+        name: STG_TMP_RECOVERY
+        noLinkRefs: []
+  name: STG_TMP_RECOVERY
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
