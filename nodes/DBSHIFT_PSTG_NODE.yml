@@ -1,0 +1,187 @@
+fileVersion: 1
+id: a7f8e1d2-c3b4-4a56-b789-0123456789ab
+name: DBSHIFT_PSTG_NODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+          USE DATABASE ALLIANT_CLAIMS_ASTRUS_STAGE;
+      
+          UPDATE
+              ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_CLAIM_STAGING_ESIS AS E
+          SET
+              ACA_SOURCE_SYSTEM_ID = SRC_SYSTEM.ACA_SOURCE_SYSTEM_ID,
+              ACA_ACCOUNT_STRUCTURE_ID = IFNULL(AC.ACA_ACCOUNT_STRUCTURE_ID, -1),
+              ACA_DATE_ID_CLAIM_DATE = IFNULL(TRY_TO_NUMBER(TO_VARCHAR(E.CLAIM_DATE, 'YYYYMMDD')), -1),
+              ACA_DATE_ID_ORIGINAL_OPEN_DATE = IFNULL(TRY_TO_NUMBER(TO_VARCHAR(E.ORIGINAL_OPEN_DATE, 'YYYYMMDD')), -1),
+              EMPLOYEE_IDENTIFICATION_NUMBER_ENCRYPTED = IFNULL(E.EMPLOYEE_IDENTIFICATION_NUMBER_ENCRYPTED, ENCRYPT(TO_BINARY(CAST(E.EMPLOYEE_IDENTIFICATION_NUMBER AS VARCHAR)), 'SymmetricKey1')),
+              EMPLOYER_FEDERAL_TAX_IDENTIFICATION_NUMBER_ENCRYPTED = IFNULL(E.EMPLOYER_FEDERAL_TAX_IDENTIFICATION_NUMBER_ENCRYPTED, ENCRYPT(TO_BINARY(CAST(E.EMPLOYER_FEDERAL_TAX_IDENTIFICATION_NUMBER AS VARCHAR)), 'SymmetricKey1')),
+              DEATH_DATE_ENCRYPTED = IFNULL(E.DEATH_DATE_ENCRYPTED, ENCRYPT(TO_BINARY(CAST(E.DEATH_DATE AS VARCHAR(25))), 'SymmetricKey1')),
+              EMPLOYEE_IDENTIFICATION_NUMBER = NULL,
+              EMPLOYER_FEDERAL_TAX_IDENTIFICATION_NUMBER = NULL,
+              DEATH_DATE = NULL,
+              ACA_DATE_UPDATED = CURRENT_TIMESTAMP(),
+              ACA_UPDATE_USER = 'spaca_aca_claim_staging_esis_update'
+          FROM (
+              SELECT ACA_SOURCE_SYSTEM_ID FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_SOURCE_SYSTEM WHERE SOURCE_SYSTEM = 'ESIS'
+          ) AS SRC_SYSTEM
+          LEFT JOIN ALLIANT_CLAIMS_ASTRUS.DBO.ACA_ACCOUNT_STRUCTURE AC
+              ON E.SOURCE_SYSTEM_ACCOUNT_STRUCTURE_ID = AC.SOURCE_SYSTEM_ACCOUNT_STRUCTURE_ID
+              AND AC.ACA_SOURCE_SYSTEM_ID = SRC_SYSTEM.ACA_SOURCE_SYSTEM_ID;
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: ALLIANT_CLAIMS_ASTRUS_STAGE
+  deployEnabled: true
+  description: UPDATE-only conversion of spaca_aca_claim_staging_esis_update
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f9a2b8c-3d4e-4f5a-6b7c-8d9e0f1a2b3c
+          stepCounter: a7f8e1d2-c3b4-4a56-b789-0123456789ab
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DBSHIFT_PSTG_NODE_KEY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(MD5(1) AS VARCHAR)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a8b3c7d-4e5f-5a6b-7c8d-9e0f1a2b3c4d
+          stepCounter: a7f8e1d2-c3b4-4a56-b789-0123456789ab
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: "1"
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b7c4d6e-5f6a-6b7c-8d9e-0f1a2b3c4d5e
+          stepCounter: a7f8e1d2-c3b4-4a56-b789-0123456789ab
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: "TRUE"
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c6d5e5f-6a7b-7c8d-9e0f-1a2b3c4d5e6f
+          stepCounter: a7f8e1d2-c3b4-4a56-b789-0123456789ab
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d5e6f4a-7b8c-8d9e-0f1a-2b3c4d5e6f7a
+          stepCounter: a7f8e1d2-c3b4-4a56-b789-0123456789ab
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST('2999-12-31 00:00:00.000' AS TIMESTAMP)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e4f7a3b-8c9d-9e0f-1a2b-3c4d5e6f7a8b
+          stepCounter: a7f8e1d2-c3b4-4a56-b789-0123456789ab
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7f3a8b2c-9d0e-0f1a-2b3c-4d5e6f7a8b9c
+          stepCounter: a7f8e1d2-c3b4-4a56-b789-0123456789ab
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        uniqueKey: false
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping: []
+  name: DBSHIFT_PSTG_NODE
+  overrideSQL: false
+  schema: DBO
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node
