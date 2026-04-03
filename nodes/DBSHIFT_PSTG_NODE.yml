@@ -1,0 +1,194 @@
+fileVersion: 1
+id: d4b3b2c1-8b9a-4e1f-b3e2-1a9c8d7e6f5a
+name: DBSHIFT_PSTG_NODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+      USE DATABASE ALLIANT_CLAIMS_ASTRUS_STAGE;
+
+      UPDATE ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_CLAIM_TRANSACTION_STAGING_ESIS s
+      SET 
+          s.aca_claim_id = source.new_aca_claim_id,
+          s.aca_claimant_id = source.new_aca_claimant_id,
+          s.aca_date_id_transaction_date = source.new_aca_date_id_transaction_date,
+          s.aca_date_id_status_date = source.new_aca_date_id_status_date,
+          s.aca_date_id_reported_date = source.new_aca_date_id_reported_date,
+          s.aca_date_id_accident_date = source.new_aca_date_id_accident_date,
+          s.aca_policy_id = source.new_aca_policy_id,
+          s.aca_claim_attribute_id = source.new_aca_claim_attribute_id,
+          s.aca_current_flag = source.new_aca_current_flag,
+          s.aca_transaction_date = source.s_source_system_transaction_date,
+          s.max_transaction_date_per_claim = source.max_transaction_date_per_claim,
+          s.next_transaction_date = source.next_transaction_date,
+          s.aca_accident_source_code_id = source.new_aca_accident_source_code_id,
+          s.description_of_loss_encrypted = source.new_description_of_loss_encrypted,
+          s.vehicle_identification_number_encrypted = source.new_vehicle_identification_number_encrypted,
+          s.claimant_encrypted = source.new_claimant_encrypted,
+          s.claimant_ssn_encrypted = source.new_claimant_ssn_encrypted,
+          s.description_of_loss = NULL,
+          s.vehicle_identification_number = NULL,
+          s.claimant = NULL,
+          s.claimant_ssn = NULL,
+          s.aca_source_system_id = source.new_aca_source_system_id,
+          s.aca_update_user = source.new_aca_update_user,
+          s.aca_date_updated = source.new_aca_date_updated
+      FROM (
+          SELECT
+              s.source_system_claim_id,
+              s.source_system_transaction_date,
+              s.source_system_transaction_date as s_source_system_transaction_date,
+              IFNULL(cl.aca_claim_id, -1) AS new_aca_claim_id,
+              IFNULL(clm.aca_claimant_id, -1) AS new_aca_claimant_id,
+              IFNULL(TRY_CAST(TO_VARCHAR(s.source_system_transaction_date, 'YYYYMMDD') AS INT), -1) AS new_aca_date_id_transaction_date,
+              IFNULL(TRY_CAST(TO_VARCHAR(s.status_date, 'YYYYMMDD') AS INT), -1) AS new_aca_date_id_status_date,
+              IFNULL(TRY_CAST(TO_VARCHAR(s.reported_date, 'YYYYMMDD') AS INT), -1) AS new_aca_date_id_reported_date,
+              IFNULL(TRY_CAST(TO_VARCHAR(s.accident_date, 'YYYYMMDD') AS INT), -1) AS new_aca_date_id_accident_date,
+              IFNULL(p.aca_policy_id, -1) AS new_aca_policy_id,
+              IFNULL(ca.aca_claim_attribute_id, -1) AS new_aca_claim_attribute_id,
+              IFF(s.source_system_transaction_date = mx.max_transaction_date_per_claim, 'Y', 'N') AS new_aca_current_flag,
+              mx.max_transaction_date_per_claim,
+              mx.next_transaction_date,
+              IFNULL(asco.aca_accident_source_code_id, -1) AS new_aca_accident_source_code_id,
+              IFNULL(s.description_of_loss_encrypted, NULL /* T-SQL ENCRYPTBYKEY not supported. Manual migration required. */) AS new_description_of_loss_encrypted,
+              IFNULL(s.vehicle_identification_number_encrypted, NULL /* T-SQL ENCRYPTBYKEY not supported. Manual migration required. */) AS new_vehicle_identification_number_encrypted,
+              IFNULL(s.claimant_encrypted, NULL /* T-SQL ENCRYPTBYKEY not supported. Manual migration required. */) AS new_claimant_encrypted,
+              IFNULL(s.claimant_ssn_encrypted, NULL /* T-SQL ENCRYPTBYKEY not supported. Manual migration required. */) AS new_claimant_ssn_encrypted,
+              (SELECT aca_source_system_id FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_SOURCE_SYSTEM WHERE source_system = 'ESIS') AS new_aca_source_system_id,
+              'spaca_aca_claim_transaction_staging_esis_update' AS new_aca_update_user,
+              CURRENT_TIMESTAMP() AS new_aca_date_updated
+          FROM ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_CLAIM_TRANSACTION_STAGING_ESIS s
+          INNER JOIN (
+              SELECT 
+                  source_system_claim_id,
+                  source_system_transaction_date,
+                  DATEADD(DAY, -1, LEAD(source_system_transaction_date, 1) OVER (PARTITION BY source_system_claim_id ORDER BY source_system_transaction_date ASC)) AS next_transaction_date,
+                  MAX(source_system_transaction_date) OVER (PARTITION BY source_system_claim_id) AS max_transaction_date_per_claim
+              FROM ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_CLAIM_TRANSACTION_STAGING_ESIS
+          ) mx ON s.source_system_claim_id = mx.source_system_claim_id AND s.source_system_transaction_date = mx.source_system_transaction_date
+          LEFT OUTER JOIN ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIM cl ON s.source_system_claim_id = cl.source_system_claim_id 
+              AND cl.aca_source_system_id = (SELECT aca_source_system_id FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_SOURCE_SYSTEM WHERE source_system = 'ESIS')
+          LEFT OUTER JOIN ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIMANT clm ON clm.source_system_claimant_id = s.source_system_claimant_id
+          LEFT OUTER JOIN ALLIANT_CLAIMS_ASTRUS.DBO.ACA_POLICY p ON p.source_system_policy_id = s.source_system_policy_id
+          LEFT OUTER JOIN ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIM_ATTRIBUTE ca ON s.source_system_claim_attribute_id = ca.source_system_claim_attribute_id
+          LEFT OUTER JOIN ALLIANT_CLAIMS_ASTRUS.REF.ACA_ACCIDENT_SOURCE_CODE asco ON asco.source_system_accident_source_code_id = s.source_system_accident_source_code_id
+      ) AS source
+      WHERE s.source_system_claim_id = source.source_system_claim_id 
+        AND s.source_system_transaction_date = source.source_system_transaction_date;
+
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: DBSHIFT
+  deployEnabled: true
+  description: UPDATE-only conversion of spaca_aca_claim_transaction_staging_esis_update
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a9b8c7d-6e5f-4a3b-2c1d-0e9f8a7b6c5d
+          stepCounter: d4b3b2c1-8b9a-4e1f-b3e2-1a9c8d7e6f5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DBSHIFT_PSTG_NODE_KEY
+        nullable: true
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: "''"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b8c7d6e-5f4a-3b2c-1d0e-9f8a7b6c5d4e
+          stepCounter: d4b3b2c1-8b9a-4e1f-b3e2-1a9c8d7e6f5a
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: "1"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3c7d6e5f-4a3b-2c1d-0e9f-8a7b6c5d4e3f
+          stepCounter: d4b3b2c1-8b9a-4e1f-b3e2-1a9c8d7e6f5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: "'Y'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d6e5f4a-3b2c-1d0e-9f8a-7b6c5d4e3f2a
+          stepCounter: d4b3b2c1-8b9a-4e1f-b3e2-1a9c8d7e6f5a
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e5f4a3b-2c1d-0e9f-8a7b-6c5d4e3f2a1b
+          stepCounter: d4b3b2c1-8b9a-4e1f-b3e2-1a9c8d7e6f5a
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST('9999-12-31 23:59:59.999' AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f4a3b2c-1d0e-9f8a-7b6c-5d4e3f2a1b0c
+          stepCounter: d4b3b2c1-8b9a-4e1f-b3e2-1a9c8d7e6f5a
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a3b2c1d-0e9f-8a7b-6c5d-4e3f2a1b0c9d
+          stepCounter: d4b3b2c1-8b9a-4e1f-b3e2-1a9c8d7e6f5a
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping: []
+  name: DBSHIFT_PSTG_NODE
+  overrideSQL: false
+  schema: DBSHIFT
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
