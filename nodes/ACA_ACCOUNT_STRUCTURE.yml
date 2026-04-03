@@ -1,0 +1,373 @@
+fileVersion: 1
+id: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+name: ACA_ACCOUNT_STRUCTURE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: |-
+      BEGIN
+          --Update if anything has changed (non-key columns)
+          UPDATE ALLIANT_CLAIMS_ASTRUS.DBO.ACA_ACCOUNT_STRUCTURE AS a
+          SET
+              a.division_id = stg.division_id,
+              a.division_name = stg.division_name,
+              a.subsidiary_id = stg.subsidiary_id,
+              a.subsidiary_name = stg.subsidiary_name,
+              a.location_id = stg.location_id,
+              a.location_name = stg.location_name,
+              aca_date_updated = CURRENT_TIMESTAMP(),
+              aca_update_user = 'spaca_aca_account_structure_insertUpdate'
+          FROM {{ ref('DBSHIFT', 'ACA_ACCOUNT_STRUCTURE_STAGING') }} AS stg
+          WHERE a.source_system_account_structure_id = stg.source_system_account_structure_id
+          AND a.aca_date_created <> CURRENT_TIMESTAMP() --don't update newly created rows
+          AND (
+              IFNULL(a.division_id, '-1') <> IFNULL(stg.division_id, '-1')
+              OR IFNULL(a.division_name, '-1') <> IFNULL(stg.division_name, '-1')
+              OR IFNULL(a.subsidiary_id, '-1') <> IFNULL(stg.subsidiary_id, '-1')
+              OR IFNULL(a.subsidiary_name, '-1') <> IFNULL(stg.subsidiary_name, '-1')
+              OR IFNULL(a.location_id, '-1') <> IFNULL(stg.location_id, '-1')
+              OR IFNULL(a.location_name, '-1') <> IFNULL(stg.location_name, '-1')
+          );
+      END;
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: false
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97f39423-fd08-410a-8a43-693246237207
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: ACA_ACCOUNT_STRUCTURE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3174246-8697-4089-a359-994c502b6623
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77f6424e-28b3-4f1c-913a-c852ef72f107
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7d6c6e1c-530e-436f-a89a-0994f280e2f5
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1982b5d-e5ae-49e0-8344-8c8f85f340be
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a4f4949-c1e3-4416-b52f-1d4b68e71569
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f2ec8387-a22e-4861-ac19-b57008ff7e32
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a6edb221-a48a-493e-a89c-5e60803c7375
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: true
+        name: SOURCE_SYSTEM_ACCOUNT_STRUCTURE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 63f3503f-02f6-4554-b525-4c6e94e432d6
+                stepCounter: 5979c299-4c12-4f33-b1d7-25e2e8fdf0b0
+            transform: SRC.SOURCE_SYSTEM_ACCOUNT_STRUCTURE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 181e1d09-b6eb-4ecb-9d41-325bdf2595de
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLIENT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5543c7b3-85f2-45e0-a78b-c6b75eb3758c
+                stepCounter: 5979c299-4c12-4f33-b1d7-25e2e8fdf0b0
+            transform: SRC.CLIENT_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e891d4d1-c7c4-4b53-b097-6a5b6f047f52
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d15d656-7871-4171-ac59-994c502b6623
+                stepCounter: 5979c299-4c12-4f33-b1d7-25e2e8fdf0b0
+            transform: SRC.UNIT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 91b1062b-9c71-4a41-b8ef-f10f44927f1c
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SITE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c82d9082-9388-46d4-8d96-c4d688b56950
+                stepCounter: 5979c299-4c12-4f33-b1d7-25e2e8fdf0b0
+            transform: SRC.SITE_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6310344d-176f-4515-812f-48d6b8b05658
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DIVISION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 76f6424e-28b3-4f1c-913a-c852ef72f107
+                stepCounter: 5979c299-4c12-4f33-b1d7-25e2e8fdf0b0
+            transform: SRC.DIVISION_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 978184d2-d812-4cf4-9e90-2c70d4732646
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DIVISION_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7d6c6e1c-530e-436f-a89a-0994f280e2f5
+                stepCounter: 5979c299-4c12-4f33-b1d7-25e2e8fdf0b0
+            transform: SRC.DIVISION_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 479b1d9c-1971-471e-8a21-72f87a329d00
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SUBSIDIARY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1982b5d-e5ae-49e0-8344-8c8f85f340be
+                stepCounter: 5979c299-4c12-4f33-b1d7-25e2e8fdf0b0
+            transform: SRC.SUBSIDIARY_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e5c75549-0520-40e8-8a8b-4b10b75368a5
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SUBSIDIARY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a4f4949-c1e3-4416-b52f-1d4b68e71569
+                stepCounter: 5979c299-4c12-4f33-b1d7-25e2e8fdf0b0
+            transform: SRC.SUBSIDIARY_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4f447f52-8700-47b7-b0a4-3580521d09e5
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOCATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f2ec8387-a22e-4861-ac19-b57008ff7e32
+                stepCounter: 5979c299-4c12-4f33-b1d7-25e2e8fdf0b0
+            transform: SRC.LOCATION_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8251e737-2de7-47b1-91a5-34907931326c
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOCATION_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b137837-2936-407a-ae1f-0b9239d67566
+                stepCounter: 5979c299-4c12-4f33-b1d7-25e2e8fdf0b0
+            transform: SRC.LOCATION_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 15b497b3-851f-431e-bca1-7cc633ebc838
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e0c5113d-5b31-419b-ab8b-d7de68010893
+                stepCounter: 5979c299-4c12-4f33-b1d7-25e2e8fdf0b0
+            transform: SRC.ACA_SOURCE_SYSTEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a9952a1-6385-4811-9e20-7f2de1b55979
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACA_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 341f237f-5d6c-497b-891d-06440b8bb094
+                stepCounter: 5979c299-4c12-4f33-b1d7-25e2e8fdf0b0
+            transform: SRC.ACA_DATE_CREATED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 979f4039-49dd-47e2-8822-1efefed8d76d
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_CREATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b511e155-25e4-44ed-9268-2d2c145e6912
+                stepCounter: 5979c299-4c12-4f33-b1d7-25e2e8fdf0b0
+            transform: SRC.ACA_CREATE_USER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1729487c-e092-4f32-8494-b7787498c56c
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACA_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3014c278-df3d-4c3d-b40b-74b8849b2c89
+                stepCounter: 5979c299-4c12-4f33-b1d7-25e2e8fdf0b0
+            transform: SRC.ACA_DATE_UPDATED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 337ff8c5-2b47-4971-87a7-194cc2b64dd8
+          stepCounter: 97890b0e-c2a7-471a-b0d5-b0400a4ed5e6
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 934de590-413c-4a30-9b48-8df0c345b14c
+                stepCounter: 5979c299-4c12-4f33-b1d7-25e2e8fdf0b0
+            transform: SRC.ACA_UPDATE_USER
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_ACA_ACCOUNT_STRUCTURE: SRC
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: STG_ACA_ACCOUNT_STRUCTURE
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'STG_ACA_ACCOUNT_STRUCTURE') }} "SRC"
+        name: ACA_ACCOUNT_STRUCTURE
+        noLinkRefs: []
+  name: ACA_ACCOUNT_STRUCTURE
+  overrideSQL: false
+  schema: DBO
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node
