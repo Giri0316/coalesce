@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 59798030-a801-49b8-b80c-c7664e339d67
+name: ACA_NCCI_ACT_ESIS
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e82cf5b7-7e6d-4959-974a-4a2512f6a798
+          stepCounter: 59798030-a801-49b8-b80c-c7664e339d67
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: NCCI_ACT_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b17a565a-02d2-43bb-9a4f-5612140c950d
+          stepCounter: 59798030-a801-49b8-b80c-c7664e339d67
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: NCCI_ACT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_NCCI_ACT_ESIS
+  schema: REF
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
