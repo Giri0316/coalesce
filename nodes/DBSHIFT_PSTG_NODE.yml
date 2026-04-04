@@ -1,0 +1,63 @@
+fileVersion: 1
+id: 3c7a6e1f-4b8e-4a9d-b8d2-1c0f1d2e3a4b
+name: DBSHIFT_PSTG_NODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+          USE DATABASE ALLIANT_CLAIMS_ASTRUS_STAGE;
+          UPDATE DBO.ACA_TRANSACTION_HEADER_STAGING
+          SET 
+              ACTIVITY_FROM_DATE = CASE 
+                                      WHEN ACTIVITY_FROM_YR = '0000' THEN NULL
+                                      ELSE DATEFROMPARTS(ACTIVITY_FROM_YR, ACTIVITY_FROM_MO, ACTIVITY_FROM_DAY) 
+                                   END,
+              ACTIVITY_TO_DATE = CASE 
+                                    WHEN ACTIVITY_TO_YR = '0000' THEN NULL
+                                    ELSE DATEFROMPARTS(ACTIVITY_TO_YR, ACTIVITY_TO_MO, ACTIVITY_TO_DAY) 
+                                 END,
+              ACA_DATE_UPDATED = CURRENT_TIMESTAMP(),
+              ACA_UPDATE_USER = 'spaca_aca_transaction_header_staging_update';
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: ALLIANT_CLAIMS_ASTRUS_STAGE
+  deployEnabled: true
+  description: UPDATE-only conversion of spaca_aca_transaction_header_staging_update
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e8f7d6c-5b4a-4c3d-b2a1-0e9f8d7c6b5a
+          stepCounter: 3c7a6e1f-4b8e-4a9d-b8d2-1c0f1d2e3a4b
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CURRENT_TIMESTAMP()
+        uniqueKey: false
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping: []
+  name: DBSHIFT_PSTG_NODE
+  overrideSQL: false
+  schema: DBO
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node
