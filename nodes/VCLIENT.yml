@@ -1,0 +1,141 @@
+fileVersion: 1
+id: e7183e9b-4b2e-4638-ac7d-e0b605ab3e5b
+name: VCLIENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_ONE
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4725d2c2-8ac5-4b0d-959c-6a0149021437
+          stepCounter: e7183e9b-4b2e-4638-ac7d-e0b605ab3e5b
+        config: {}
+        dataType: BIGINT
+        description: ""
+        name: CLIENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b40049e-13c5-4eb8-ac49-74d115e5b38d
+                stepCounter: 5a854a61-8209-4b19-b672-96541d1a6e9a
+            transform: CAST(SHA2(IFNULL(C.AO_CLAIM_EPIC_CLIENT_LOOKUP_CODE, '-x')) AS
+              BIGINT)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1b777a5-c543-41a6-8e50-496677f51174
+          stepCounter: e7183e9b-4b2e-4638-ac7d-e0b605ab3e5b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIMEPICCLIENTLOOKUPCODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b40049e-13c5-4eb8-ac49-74d115e5b38d
+                stepCounter: 5a854a61-8209-4b19-b672-96541d1a6e9a
+            transform: C.AO_CLAIM_EPIC_CLIENT_LOOKUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e35543c7-3c99-4d23-9cf6-9040356c9d74
+          stepCounter: e7183e9b-4b2e-4638-ac7d-e0b605ab3e5b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EPICCLIENTLOOKUPCODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f3c5fbe-f363-4fef-935f-173860472f10
+                stepCounter: 5a854a61-8209-4b19-b672-96541d1a6e9a
+            transform: C.DW_CLIENT_LOOKUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e99147e-409e-4e76-88fe-7221e649e794
+          stepCounter: e7183e9b-4b2e-4638-ac7d-e0b605ab3e5b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EPICCLIENTNAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5c911e3b-b27a-40a8-b6df-201a07bb5c76
+                stepCounter: 5a854a61-8209-4b19-b672-96541d1a6e9a
+            transform: C.DW_CLIENT_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 39a3f2b1-6a6c-4b51-93ac-d4e512419c8f
+          stepCounter: e7183e9b-4b2e-4638-ac7d-e0b605ab3e5b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLIENTINEPICFLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6d5e1823-74b7-4c4c-ac94-912c44ed9eb2
+                stepCounter: 5a854a61-8209-4b19-b672-96541d1a6e9a
+            transform: C.CLIENT_IN_EPIC_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b13c4155-7f9a-4c8d-b8d9-69d1a3c0e35b
+          stepCounter: e7183e9b-4b2e-4638-ac7d-e0b605ab3e5b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSFACCOUNTFLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e86a4e40-b593-4a1e-8e56-11b33346d092
+                stepCounter: 5a854a61-8209-4b19-b672-96541d1a6e9a
+            transform: C.SF_ACCOUNT_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a631e50f-212d-4009-8086-6ecf2d34a478
+          stepCounter: e7183e9b-4b2e-4638-ac7d-e0b605ab3e5b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SFACCOUNTID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b06c641-6945-4286-8d59-3663a75e81d8
+                stepCounter: 5a854a61-8209-4b19-b672-96541d1a6e9a
+            transform: C.SF_ACCOUNT_ID
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          POLICY_TRANSACTION: C
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: POLICY_TRANSACTION
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'POLICY_TRANSACTION') }} "C"
+            GROUP BY C.AO_CLAIM_EPIC_CLIENT_LOOKUP_CODE, C.DW_CLIENT_LOOKUP_CODE, C.DW_CLIENT_NAME, C.CLIENT_IN_EPIC_FLAG, C.SF_ACCOUNT_FLAG, C.SF_ACCOUNT_ID
+        name: VCLIENT
+        noLinkRefs: []
+  name: VCLIENT
+  overrideSQL: false
+  schema: RPT
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
