@@ -1,0 +1,206 @@
+fileVersion: 1
+id: 11486f0c-b261-4148-ad3c-d2320b923984
+name: ACA_ACCOUNT_STRUCTURE
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3267d3d2-3592-41f2-986c-0e70ab557018
+          stepCounter: 11486f0c-b261-4148-ad3c-d2320b923984
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_ACCOUNT_STRUCTURE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97f4802c-5b58-45d2-a797-15d97f6c31f4
+          stepCounter: 11486f0c-b261-4148-ad3c-d2320b923984
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLIENT_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f31e7fca-01c8-47c3-8a9d-5ac272a27521
+          stepCounter: 11486f0c-b261-4148-ad3c-d2320b923984
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SITE_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7712f5e3-1768-455b-bce9-1b5dd1c2602e
+          stepCounter: 11486f0c-b261-4148-ad3c-d2320b923984
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: DIVISION_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a68cae6a-7469-424a-939e-d3062828ff74
+          stepCounter: 11486f0c-b261-4148-ad3c-d2320b923984
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DIVISION_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c0394019-d00e-473d-82d2-28c117b07850
+          stepCounter: 11486f0c-b261-4148-ad3c-d2320b923984
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: SUBSIDIARY_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f4b19901-b5f7-4630-9b48-18e00199e469
+          stepCounter: 11486f0c-b261-4148-ad3c-d2320b923984
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SUBSIDIARY_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32a0c6a5-7389-49dd-a0fd-98246e6a57c1
+          stepCounter: 11486f0c-b261-4148-ad3c-d2320b923984
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: LOCATION_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f26de6d-74d1-41eb-8c6f-a496b9557b44
+          stepCounter: 11486f0c-b261-4148-ad3c-d2320b923984
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: LOCATION_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1a3e6a7-0e9b-4395-97df-0361a4f009bb
+          stepCounter: 11486f0c-b261-4148-ad3c-d2320b923984
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_ACCOUNT_STRUCTURE
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
