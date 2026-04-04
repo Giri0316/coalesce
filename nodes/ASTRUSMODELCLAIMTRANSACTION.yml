@@ -1,0 +1,1222 @@
+fileVersion: 1
+id: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+name: ASTRUSMODELCLAIMTRANSACTION
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d364522a-6058-472b-8a14-46c592a83856
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIM_TRANSACTION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a631dfb8-450f-48e0-a54f-560965d5ef9b
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ACA_CLAIM_TRANSACTION_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fe510860-e889-43c2-ad79-0520a23223fd
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b5631740-496a-4933-a620-eb41865e9c0c
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ACA_POLICY_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e82f5053-a5d4-42de-8e4d-70438b4d081f
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e82f5053-a5d4-42de-8e4d-70438b4d081f
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5631740-496a-4933-a620-eb41865e9c0c
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIMANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fe510860-e889-43c2-ad79-0520a23223fd
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ACA_CLAIMANT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a631dfb8-450f-48e0-a54f-560965d5ef9b
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIM_ATTRIBUTE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d364522a-6058-472b-8a14-46c592a83856
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ACA_CLAIM_ATTRIBUTE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6363c46e-1d68-45fe-bd46-5b32f915606d
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_ACCIDENT_SOURCE_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 181f7c00-671c-43f6-9f89-eb354cd1c53e
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ACA_ACCIDENT_SOURCE_CODE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f370c0c8-63d1-420a-9d22-26d17b2781e3
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_DATE_ID_SNAPSHOT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32675975-f2a9-4b13-a447-062402179b5d
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ACA_DATE_ID_TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f72305a4-1296-4191-8ac3-31f03f56f183
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_DATE_ID_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 388c2270-c752-4416-abed-4a2592d6e4b8
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: TRY_CAST(TO_CHAR(ACT.SOURCE_SYSTEM_TRANSACTION_DATE, 'YYYYMMDD')
+              AS INT)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2b2c99-0e77-4009-8d77-6d2c67b96053
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_DATE_ID_STATUS_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 33fcf69d-21b9-4676-a367-930fcb548b8b
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ACA_DATE_ID_STATUS_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d82992d-98ac-436f-a2e6-a0558b3a0e63
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_DATE_ID_REPORTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9845014c-1123-455b-b9d0-c33cc17fce8c
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ACA_DATE_ID_REPORTED_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e7389a9-6e3e-4363-8a9d-5ac5109b4d58
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_DATE_ID_ACCIDENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f3c5f49-563b-48c0-bc66-4f4007f30015
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ACA_DATE_ID_ACCIDENT_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 47b19a18-d7e1-4c12-9c3f-c93f0b22a084
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SNAPSHOT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c9cf9e57-19ad-45e0-b6f7-111100918ac8
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ACA_TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97bb1f0c-1549-4700-84c1-4b1979b9a67e
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 479b47e2-45e5-474c-87d8-eb17a2283a0e
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ACA_SOURCE_SYSTEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b4d455b-432d-48d5-9988-bd97a31b4028
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 26c368d4-f655-46b6-a28a-79a0d18d4239
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dba7e008-8df0-47de-8408-7261a84f5068
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 388c2270-c752-4416-abed-4a2592d6e4b8
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.SOURCE_SYSTEM_TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c79e8557-7975-4bd9-906f-7065963e6cd3
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_NCCI_LOSS_COVERAGE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9346d6b1-9b16-43f3-b605-ff204843ed27
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+              - columnCounter: c79e8557-7975-4bd9-906f-7065963e6cd3
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.BENEFIT_JURISDICTION_STATE_CODE || '_' || ACT.NCCI_LOSS_COVERAGE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9346d6b1-9b16-43f3-b605-ff204843ed27
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: POLICY_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dba7e008-8df0-47de-8408-7261a84f5068
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.POLICY_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 26c368d4-f655-46b6-a28a-79a0d18d4239
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: POLICY_EFFECTIVE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5b4d455b-432d-48d5-9988-bd97a31b4028
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.POLICY_EFFECTIVE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 479b47e2-45e5-474c-87d8-eb17a2283a0e
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: POLICY_EXPIRATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 97bb1f0c-1549-4700-84c1-4b1979b9a67e
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.POLICY_EXPIRATION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9cf9e57-19ad-45e0-b6f7-111100918ac8
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 47b19a18-d7e1-4c12-9c3f-c93f0b22a084
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.CLAIM_STATUS_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f3c5f49-563b-48c0-bc66-4f4007f30015
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7e7389a9-6e3e-4363-8a9d-5ac5109b4d58
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.CLAIM_STATUS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9845014c-1123-455b-b9d0-c33cc17fce8c
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: STATUS_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d82992d-98ac-436f-a2e6-a0558b3a0e63
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.STATUS_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 33fcf69d-21b9-4676-a367-930fcb548b8b
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: CLOSE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 47b19a18-d7e1-4c12-9c3f-c93f0b22a084
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+              - columnCounter: 2d82992d-98ac-436f-a2e6-a0558b3a0e63
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: IFF(ACT.CLAIM_STATUS_CODE IN ('CL', 'F'), ACT.STATUS_DATE, NULL)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 388c2270-c752-4416-abed-4a2592d6e4b8
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: REPORTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f2b2c99-0e77-4009-8d77-6d2c67b96053
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.REPORTED_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32675975-f2a9-4b13-a447-062402179b5d
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACCIDENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f72305a4-1296-4191-8ac3-31f03f56f183
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ACCIDENT_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 181f7c00-671c-43f6-9f89-eb354cd1c53e
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACCIDENT_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f72305a4-1296-4191-8ac3-31f03f56f183
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: YEAR(ACT.ACCIDENT_DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d364522a-6058-472b-8a14-46c592a83856
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCIDENT_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f370c0c8-63d1-420a-9d22-26d17b2781e3
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ACCIDENT_TYPE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fe510860-e889-43c2-ad79-0520a23223fd
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCIDENT_CITY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6363c46e-1d68-45fe-bd46-5b32f915606d
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ACCIDENT_CITY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e82f5053-a5d4-42de-8e4d-70438b4d081f
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCIDENT_STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a631dfb8-450f-48e0-a54f-560965d5ef9b
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ACCIDENT_STATE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5631740-496a-4933-a620-eb41865e9c0c
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCIDENT_ZIP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b5631740-496a-4933-a620-eb41865e9c0c
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ACCIDENT_ZIP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a631dfb8-450f-48e0-a54f-560965d5ef9b
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PART_OF_BODY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e82f5053-a5d4-42de-8e4d-70438b4d081f
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.PART_OF_BODY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6363c46e-1d68-45fe-bd46-5b32f915606d
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fe510860-e889-43c2-ad79-0520a23223fd
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f370c0c8-63d1-420a-9d22-26d17b2781e3
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NATURE_OF_LOSS_CODE_BODILY_INJURY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d364522a-6058-472b-8a14-46c592a83856
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.NATURE_OF_LOSS_CODE_BODILY_INJURY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f72305a4-1296-4191-8ac3-31f03f56f183
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_METHOD_OF_SETTLEMENT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 181f7c00-671c-43f6-9f89-eb354cd1c53e
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+              - columnCounter: 9346d6b1-9b16-43f3-b605-ff204843ed27
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+              - columnCounter: 32675975-f2a9-4b13-a447-062402179b5d
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.SOURCE_SYSTEM || '_' || ACT.BENEFIT_JURISDICTION_STATE_CODE
+              || '_' || IFNULL(ACT.METHOD_OF_SETTLEMENT_CODE, '')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2b2c99-0e77-4009-8d77-6d2c67b96053
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NCCI_LOSS_COVERAGE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c79e8557-7975-4bd9-906f-7065963e6cd3
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.NCCI_LOSS_COVERAGE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d82992d-98ac-436f-a2e6-a0558b3a0e63
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: DESCRIPTION_OF_LOSS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 388c2270-c752-4416-abed-4a2592d6e4b8
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: CAST(DECRYPTBYKEYAUTOCERT(CERT_ID('Certificate1'), NULL, ACT.DESCRIPTION_OF_LOSS_ENCRYPTED,
+              1, '123') AS VARCHAR(256))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e7389a9-6e3e-4363-8a9d-5ac5109b4d58
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BENEFIT_JURISDICTION_STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9346d6b1-9b16-43f3-b605-ff204843ed27
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.BENEFIT_JURISDICTION_STATE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 47b19a18-d7e1-4c12-9c3f-c93f0b22a084
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EXPOSURE_STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 33fcf69d-21b9-4676-a367-930fcb548b8b
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.EXPOSURE_STATE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97bb1f0c-1549-4700-84c1-4b1979b9a67e
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EXPOSURE_COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9845014c-1123-455b-b9d0-c33cc17fce8c
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.EXPOSURE_COUNTRY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b4d455b-432d-48d5-9988-bd97a31b4028
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: STATE_CLAIM_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f3c5f49-563b-48c0-bc66-4f4007f30015
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.STATE_CLAIM_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dba7e008-8df0-47de-8408-7261a84f5068
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: FULL_STATE_CLAIM_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c9cf9e57-19ad-45e0-b6f7-111100918ac8
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.FULL_STATE_CLAIM_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c79e8557-7975-4bd9-906f-7065963e6cd3
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: EMPLOYER_NOTIFICATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 479b47e2-45e5-474c-87d8-eb17a2283a0e
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.EMPLOYER_NOTIFICATION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9346d6b1-9b16-43f3-b605-ff204843ed27
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: VEHICLE_IDENTIFICATION_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 26c368d4-f655-46b6-a28a-79a0d18d4239
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: CAST(DECRYPTBYKEYAUTOCERT(CERT_ID('Certificate1'), NULL,
+              ACT.VEHICLE_IDENTIFICATION_NUMBER_ENCRYPTED, 1, '123') AS VARCHAR(256))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 26c368d4-f655-46b6-a28a-79a0d18d4239
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_ADJUSTING_BRANCH_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9346d6b1-9b16-43f3-b605-ff204843ed27
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.CLAIM_ADJUSTING_BRANCH_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 479b47e2-45e5-474c-87d8-eb17a2283a0e
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADJUSTER_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c79e8557-7975-4bd9-906f-7065963e6cd3
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ADJUSTER_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9cf9e57-19ad-45e0-b6f7-111100918ac8
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: NUMBER_OF_DEPENDENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dba7e008-8df0-47de-8408-7261a84f5068
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.NUMBER_OF_DEPENDENTS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f3c5f49-563b-48c0-bc66-4f4007f30015
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIMANT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5b4d455b-432d-48d5-9988-bd97a31b4028
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.CLAIMANT_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9845014c-1123-455b-b9d0-c33cc17fce8c
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CLAIMANT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 97bb1f0c-1549-4700-84c1-4b1979b9a67e
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: CAST(DECRYPTBYKEYAUTOCERT(CERT_ID('Certificate1'), NULL, ACT.CLAIMANT_ENCRYPTED,
+              1, '123') AS VARCHAR(256))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 33fcf69d-21b9-4676-a367-930fcb548b8b
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CLAIMANT_SSN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 47b19a18-d7e1-4c12-9c3f-c93f0b22a084
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: CAST(DECRYPTBYKEYAUTOCERT(CERT_ID('Certificate1'), NULL, ACT.CLAIMANT_SSN_ENCRYPTED,
+              1, '123') AS VARCHAR(256))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 388c2270-c752-4416-abed-4a2592d6e4b8
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: EMPLOYEE_LAST_WORK_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7e7389a9-6e3e-4363-8a9d-5ac5109b4d58
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.EMPLOYEE_LAST_WORK_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32675975-f2a9-4b13-a447-062402179b5d
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: COMPENSATION_RATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d82992d-98ac-436f-a2e6-a0558b3a0e63
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.COMPENSATION_RATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 181f7c00-671c-43f6-9f89-eb354cd1c53e
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_NCCI_INJURY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 181f7c00-671c-43f6-9f89-eb354cd1c53e
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+              - columnCounter: 9346d6b1-9b16-43f3-b605-ff204843ed27
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+              - columnCounter: 0f2b2c99-0e77-4009-8d77-6d2c67b96053
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.SOURCE_SYSTEM || '_' || ACT.BENEFIT_JURISDICTION_STATE_CODE
+              || '_' || ACT.NCCI_INJURY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d364522a-6058-472b-8a14-46c592a83856
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: DISABILITY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f72305a4-1296-4191-8ac3-31f03f56f183
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.DISABILITY_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fe510860-e889-43c2-ad79-0520a23223fd
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: RETURN_TO_WORK_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f370c0c8-63d1-420a-9d22-26d17b2781e3
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.RETURN_TO_WORK_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e82f5053-a5d4-42de-8e4d-70438b4d081f
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: MAX_MEDICAL_IMPROVEMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6363c46e-1d68-45fe-bd46-5b32f915606d
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.MAX_MEDICAL_IMPROVEMENT_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5631740-496a-4933-a620-eb41865e9c0c
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: POST_INJURY_WEEKLY_WAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 620c5417-6d65-4f40-b387-a2267b2d56d7
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.POST_INJURY_WEEKLY_WAGE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a631dfb8-450f-48e0-a54f-560965d5ef9b
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: PERCENTAGE_OF_IMPAIRMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c82d681c-8a21-4f30-84a8-6f5dfb80ed5e
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.PERCENTAGE_OF_IMPAIRMENT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6363c46e-1d68-45fe-bd46-5b32f915606d
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSURER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b138c2ef-2921-4d1e-acb9-0c6d9d15c719
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.INSURER_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f370c0c8-63d1-420a-9d22-26d17b2781e3
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: OTHER_WEEKLY_PAYMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f3189d2d-059e-4e89-a316-56e6cdb19280
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.OTHER_WEEKLY_PAYMENTS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f72305a4-1296-4191-8ac3-31f03f56f183
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: ATTORNEY_DISCLOSURE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b56d5668-385d-450b-bdc3-42e88a087a38
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ATTORNEY_DISCLOSURE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2b2c99-0e77-4009-8d77-6d2c67b96053
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: REPORTING_BASIS_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f82b4a20-336e-4f5b-be39-68806297491d
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.REPORTING_BASIS_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d82992d-98ac-436f-a2e6-a0558b3a0e63
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: OCCURRENCE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a631dfb8-450f-48e0-a54f-560965d5ef9b
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.OCCURRENCE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e7389a9-6e3e-4363-8a9d-5ac5109b4d58
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MULTI_CLAIM_OCCUR_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b5631740-496a-4933-a620-eb41865e9c0c
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.MULTI_CLAIM_OCCUR_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 47b19a18-d7e1-4c12-9c3f-c93f0b22a084
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOSS_PROGRAM_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e82f5053-a5d4-42de-8e4d-70438b4d081f
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.LOSS_PROGRAM_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97bb1f0c-1549-4700-84c1-4b1979b9a67e
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: DENIAL_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fe510860-e889-43c2-ad79-0520a23223fd
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.DENIAL_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b4d455b-432d-48d5-9988-bd97a31b4028
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: WEEKLY_BENEFIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d364522a-6058-472b-8a14-46c592a83856
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.WEEKLY_BENEFIT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dba7e008-8df0-47de-8408-7261a84f5068
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NCCI_TYPE_OF_LOSS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 181f7c00-671c-43f6-9f89-eb354cd1c53e
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.NCCI_TYPE_OF_LOSS_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c79e8557-7975-4bd9-906f-7065963e6cd3
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NCCI_PPO_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32675975-f2a9-4b13-a447-062402179b5d
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: CASE ACT.NCCI_PPO_CODE WHEN 'N' THEN '00' WHEN 'Y' THEN '03'
+              ELSE ACT.NCCI_PPO_CODE END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9346d6b1-9b16-43f3-b605-ff204843ed27
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: TOTAL_LOST_WORK_DAYS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 388c2270-c752-4416-abed-4a2592d6e4b8
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.TOTAL_LOST_WORK_DAYS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 26c368d4-f655-46b6-a28a-79a0d18d4239
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLIENT_OPTIONAL_CLAIM_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 33fcf69d-21b9-4676-a367-930fcb548b8b
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.CLIENT_OPTIONAL_CLAIM_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 479b47e2-45e5-474c-87d8-eb17a2283a0e
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSURED_VEHICLE_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9845014c-1123-455b-b9d0-c33cc17fce8c
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.INSURED_VEHICLE_YEAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9cf9e57-19ad-45e0-b6f7-111100918ac8
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSURED_VEHICLE_MAKE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f3c5f49-563b-48c0-bc66-4f4007f30015
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.INSURED_VEHICLE_MAKE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f3c5f49-563b-48c0-bc66-4f4007f30015
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BENEFICIARY_INFORMATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c9cf9e57-19ad-45e0-b6f7-111100918ac8
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.BENEFICIARY_INFORMATION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9845014c-1123-455b-b9d0-c33cc17fce8c
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REPORTING_UNIT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 479b47e2-45e5-474c-87d8-eb17a2283a0e
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.REPORTING_UNIT_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 33fcf69d-21b9-4676-a367-930fcb548b8b
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: RETURN_TO_WORK_FULL_DUTY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 26c368d4-f655-46b6-a28a-79a0d18d4239
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.RETURN_TO_WORK_FULL_DUTY_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 388c2270-c752-4416-abed-4a2592d6e4b8
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: RETURN_TO_WORK_RELEASE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9346d6b1-9b16-43f3-b605-ff204843ed27
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.RETURN_TO_WORK_RELEASE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32675975-f2a9-4b13-a447-062402179b5d
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: REPRESENTATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c79e8557-7975-4bd9-906f-7065963e6cd3
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.REPRESENTATION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 181f7c00-671c-43f6-9f89-eb354cd1c53e
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: SALARY_CONTINUED_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dba7e008-8df0-47de-8408-7261a84f5068
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.SALARY_CONTINUED_START_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d364522a-6058-472b-8a14-46c592a83856
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: SALARY_CONTINUED_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5b4d455b-432d-48d5-9988-bd97a31b4028
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.SALARY_CONTINUED_END_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fe510860-e889-43c2-ad79-0520a23223fd
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: MEDICAL_TO_INDEMNITY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 97bb1f0c-1549-4700-84c1-4b1979b9a67e
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.MEDICAL_TO_INDEMNITY_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e82f5053-a5d4-42de-8e4d-70438b4d081f
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: LAST_REVIEW_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 47b19a18-d7e1-4c12-9c3f-c93f0b22a084
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.LAST_REVIEW_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5631740-496a-4933-a620-eb41865e9c0c
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 181f7c00-671c-43f6-9f89-eb354cd1c53e
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.SOURCE_SYSTEM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a631dfb8-450f-48e0-a54f-560965d5ef9b
+          stepCounter: 4e99a4e3-b3c0-4f7f-9b1d-8f1b6260a9f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7e7389a9-6e3e-4363-8a9d-5ac5109b4d58
+                stepCounter: 52d67a53-c649-410a-b30a-20d0f4d30999
+            transform: ACT.ACA_CURRENT_FLAG
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_CLAIM_TRANSACTION: act
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_CLAIM_TRANSACTION
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_CLAIM_TRANSACTION') }} "ACT"
+        name: ASTRUSMODELCLAIMTRANSACTION
+        noLinkRefs: []
+  name: ASTRUSMODELCLAIMTRANSACTION
+  overrideSQL: false
+  schema: RPT
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
