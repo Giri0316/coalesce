@@ -1,0 +1,102 @@
+fileVersion: 1
+id: 47166a10-f19f-455e-861f-cfa80b5bfa59
+name: V_TMPCLIENTHIERARCHY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0aeab1dc-4cad-4f91-ed3e-7a8b9c0d1e2f
+          stepCounter: 47166a10-f19f-455e-861f-cfa80b5bfa59
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PARENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a4e4b5d6-8c4e-4f3b-8d7e-1a2b3c4d5e6f
+                stepCounter: 67166a10-f19f-455e-861f-d0691c6c096a
+            transform: U.PARENT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1bfbc2ed-5dbe-40a2-fe4f-8b9c0d1e2f3a
+          stepCounter: 47166a10-f19f-455e-861f-cfa80b5bfa59
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MEMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b5f5c6e7-9d5f-4a4c-9e8f-2b3c4d5e6f7a
+                stepCounter: 67166a10-f19f-455e-861f-d0691c6c096a
+            transform: U.MEMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c0cd3fe-6ecf-41b3-0f50-9c0d1e2f3a4b
+          stepCounter: 47166a10-f19f-455e-861f-cfa80b5bfa59
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c6a6d7f8-0e6a-4b5d-af9a-3c4d5e6f7a8b
+                stepCounter: 67166a10-f19f-455e-861f-d0691c6c096a
+            transform: U.GROUP_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d1de40f-7fd0-42c4-1061-ad1e2f3a4b5c
+          stepCounter: 47166a10-f19f-455e-861f-cfa80b5bfa59
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: SORT_ORDER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d7b7e8a9-1f7b-4c6e-ba0b-4d5e6f7a8b9c
+                stepCounter: 67166a10-f19f-455e-861f-d0691c6c096a
+            transform: U.SORT_ORDER
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: V_HIERARCHY_BRANCH_PARENTS
+          - locationName: DBSHIFT
+            nodeName: V_HIERARCHY_BRANCH_MEMBERS
+        join:
+          joinCondition: |-
+            FROM (
+              SELECT PARENT, MEMBER, GROUP_ID, SORT_ORDER FROM {{ ref('DBSHIFT', 'V_HIERARCHY_BRANCH_PARENTS') }}
+              UNION
+              SELECT PARENT, MEMBER, GROUP_ID, SORT_ORDER FROM {{ ref('DBSHIFT', 'V_HIERARCHY_BRANCH_MEMBERS') }}
+            ) "u"
+        name: V_TMPCLIENTHIERARCHY
+        noLinkRefs: []
+  name: V_TMPCLIENTHIERARCHY
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

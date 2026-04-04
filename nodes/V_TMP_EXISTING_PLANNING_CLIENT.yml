@@ -1,0 +1,124 @@
+fileVersion: 1
+id: 48277b21-e2a0-466f-8720-e07a2d7d1a7b
+name: V_TMP_EXISTING_PLANNING_CLIENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a4e4b5d6-8c4e-4f3b-8d7e-1a2b3c4d5e6f
+          stepCounter: 48277b21-e2a0-466f-8720-e07a2d7d1a7b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d8e7d0d-a9d5-4b1a-c2a4-5a4d4h0a3d5e
+                stepCounter: 6b3d3f2a-5c79-4a92-92f2-443f196f8b0f
+            transform: C.PLANNING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5f5c6e7-9d5f-4a4c-9e8f-2b3c4d5e6f7a
+          stepCounter: 48277b21-e2a0-466f-8720-e07a2d7d1a7b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLIENT_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9e9f8e1e-b0e6-4c2b-d3b5-6b5e5i1b4e6f
+                stepCounter: 6b3d3f2a-5c79-4a92-92f2-443f196f8b0f
+            transform: C.CLIENT_LOOKUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c6a6d7f8-0e6a-4b5d-af9a-3c4d5e6f7a8b
+          stepCounter: 48277b21-e2a0-466f-8720-e07a2d7d1a7b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_CLIENT_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a0a09f2f-c1f7-4d3c-e4c6-7c6f6j2c5f7g
+                stepCounter: 6b3d3f2a-5c79-4a92-92f2-443f196f8b0f
+            transform: C.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d7b7e8a9-1f7b-4c6e-ba0b-4d5e6f7a8b9c
+          stepCounter: 48277b21-e2a0-466f-8720-e07a2d7d1a7b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1b10a30-d208-4e4d-f5d7-8d7g7k3d6g8h
+                stepCounter: 6b3d3f2a-5c79-4a92-92f2-443f196f8b0f
+            transform: C.SOURCE_SYSTEM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e8c8f9ba-2a8c-4d7f-cb1c-5e6f7a8b9c0d
+          stepCounter: 48277b21-e2a0-466f-8720-e07a2d7d1a7b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PLANNING_ALIAS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c2c21b41-e319-4f5e-06e8-9e8h8l4e7h9i
+                stepCounter: 6b3d3f2a-5c79-4a92-92f2-443f196f8b0f
+            transform: C.PLANNING_ALIAS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f9d90acb-3b9d-4e80-dc2d-6f7a8b9c0d1e
+          stepCounter: 48277b21-e2a0-466f-8720-e07a2d7d1a7b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DW_CLIENT_MASTER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d3d32c52-f42a-406f-17f9-0f9i9m5f8i0j
+                stepCounter: 6b3d3f2a-5c79-4a92-92f2-443f196f8b0f
+            transform: C.DW_CLIENT_MASTER_ID
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PLANNING_FCCS_CLIENT: C
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: PLANNING_FCCS_CLIENT
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'PLANNING_FCCS_CLIENT') }} "C"
+        name: V_TMP_EXISTING_PLANNING_CLIENT
+        noLinkRefs: []
+  name: V_TMP_EXISTING_PLANNING_CLIENT
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

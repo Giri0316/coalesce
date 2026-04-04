@@ -1,0 +1,149 @@
+fileVersion: 1
+id: 6b3d3f2a-5c79-4a92-92f2-443f196f8b0f
+name: PLANNING_FCCS_CLIENT
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c7d6c9c-f8c4-4a0f-b1f3-4f3c3g9f2c4d
+          stepCounter: 6b3d3f2a-5c79-4a92-92f2-443f196f8b0f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PARENT_PLANNING_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d8e7d0d-a9d5-4b1a-c2a4-5a4d4h0a3d5e
+          stepCounter: 6b3d3f2a-5c79-4a92-92f2-443f196f8b0f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PLANNING_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e9f8e1e-b0e6-4c2b-d3b5-6b5e5i1b4e6f
+          stepCounter: 6b3d3f2a-5c79-4a92-92f2-443f196f8b0f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLIENT_LOOKUP_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a0a09f2f-c1f7-4d3c-e4c6-7c6f6j2c5f7g
+          stepCounter: 6b3d3f2a-5c79-4a92-92f2-443f196f8b0f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_CLIENT_LOOKUP_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1b10a30-d208-4e4d-f5d7-8d7g7k3d6g8h
+          stepCounter: 6b3d3f2a-5c79-4a92-92f2-443f196f8b0f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2c21b41-e319-4f5e-06e8-9e8h8l4e7h9i
+          stepCounter: 6b3d3f2a-5c79-4a92-92f2-443f196f8b0f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PLANNING_ALIAS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d3d32c52-f42a-406f-17f9-0f9i9m5f8i0j
+          stepCounter: 6b3d3f2a-5c79-4a92-92f2-443f196f8b0f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DW_CLIENT_MASTER_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: PLANNING_FCCS_CLIENT
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

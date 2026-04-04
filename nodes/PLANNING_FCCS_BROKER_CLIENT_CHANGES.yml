@@ -1,0 +1,111 @@
+fileVersion: 1
+id: 7c4e4a3b-6d8a-4b03-a3a3-554a2a7a9c1a
+name: PLANNING_FCCS_BROKER_CLIENT_CHANGES
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e9f5b4c-7e9b-4c14-b4b4-665b3b8b0d2b
+          stepCounter: 7c4e4a3b-6d8a-4b03-a3a3-554a2a7a9c1a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DW_BROKER_CLIENT_MASTER_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f0a6c5d-8f0c-4d25-c5c5-776c4c9c1e3c
+          stepCounter: 7c4e4a3b-6d8a-4b03-a3a3-554a2a7a9c1a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a01b7d6e-901d-4e36-d6d6-887d5dad2f4d
+          stepCounter: 7c4e4a3b-6d8a-4b03-a3a3-554a2a7a9c1a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DIMENSION_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b12c8e7f-a12e-4f47-e7e7-998e6ebe305e
+          stepCounter: 7c4e4a3b-6d8a-4b03-a3a3-554a2a7a9c1a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CHANGE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c23d9f80-b23f-4058-f8f8-009f7fcf416f
+          stepCounter: 7c4e4a3b-6d8a-4b03-a3a3-554a2a7a9c1a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PLANNING_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: PLANNING_FCCS_BROKER_CLIENT_CHANGES
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
