@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 9d17d0c3-305f-4a0b-930f-b0f34d19b787
+name: CTE_CLAIM
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b349b168-96f7-4a6c-94cd-9f7bbce37286
+          stepCounter: 9d17d0c3-305f-4a0b-930f-b0f34d19b787
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9e6587c4-06c8-472e-8393-27de39316e6f
+                stepCounter: 3c577038-f918-4952-b91c-99a53164a66a
+            transform: AO_CLAIM.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e63d6b0-13f5-412f-9333-e18e3a2ec2a9
+          stepCounter: 9d17d0c3-305f-4a0b-930f-b0f34d19b787
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        name: CURRENTFLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1e5f86c-0112-4c28-98e9-d7e7e6f3075c
+                stepCounter: 3c577038-f918-4952-b91c-99a53164a66a
+              - columnCounter: a6083e6b-ff18-4a65-9856-78817a016b8d
+                stepCounter: 3c577038-f918-4952-b91c-99a53164a66a
+              - columnCounter: 6f87455e-2b1b-4228-a53c-1b7f08dfb692
+                stepCounter: 3c577038-f918-4952-b91c-99a53164a66a
+            transform: IFF(AO_CLAIM.BATCH_DATE = MAX(AO_CLAIM.BATCH_DATE) OVER (PARTITION
+              BY AO_CLAIM.POLICY_NUMBER, AO_CLAIM.CLAIM_NUMBER), 'Y', 'N')
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          AO_CLAIM: AO_CLAIM
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: AO_CLAIM
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'AO_CLAIM') }} AS AO_CLAIM
+        name: CTE_CLAIM
+        noLinkRefs: []
+  name: CTE_CLAIM
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
