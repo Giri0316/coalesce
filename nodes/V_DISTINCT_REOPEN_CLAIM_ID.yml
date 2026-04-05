@@ -1,0 +1,55 @@
+fileVersion: 1
+id: 8d2f4b6c-7e8f-4a9b-0c1d-2e3f4a5b6c7e
+name: V_DISTINCT_REOPEN_CLAIM_ID
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e3f5c7d-8f9a-4b0c-1d2e-3f4a5b6c7d8f
+          stepCounter: 8d2f4b6c-7e8f-4a9b-0c1d-2e3f4a5b6c7e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d2f3a4b-5c6d-4e7f-8a9b-0c1d2e3f4a5b
+                stepCounter: 7c1e2f3a-4b5c-4d6e-7f8a-9b0c1d2e3f4a
+            transform: T.CLAIM_ID
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_REOPEN_CLAIM_ESIS: T
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_REOPEN_CLAIM_ESIS
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_REOPEN_CLAIM_ESIS') }} AS T
+            GROUP BY T.CLAIM_ID
+        name: V_DISTINCT_REOPEN_CLAIM_ID
+        noLinkRefs: []
+  name: V_DISTINCT_REOPEN_CLAIM_ID
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

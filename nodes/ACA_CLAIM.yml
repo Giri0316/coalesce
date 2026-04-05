@@ -1,0 +1,92 @@
+fileVersion: 1
+id: 6b8d9e0f-1a2b-4c3d-4e5f-6a7b8c9d0e1f
+name: ACA_CLAIM
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c9e0f1a-2b3c-4d4e-5f6a-7b8c9d0e1f2a
+          stepCounter: 6b8d9e0f-1a2b-4c3d-4e5f-6a7b8c9d0e1f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d0f1a2b-3c4d-4e5f-6a7b-8c9d0e1f2a3b
+          stepCounter: 6b8d9e0f-1a2b-4c3d-4e5f-6a7b8c9d0e1f
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: ORIGINAL_OPEN_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e1a2b3c-4d5e-4f6a-7b8c-9d0e1f2a3b4c
+          stepCounter: 6b8d9e0f-1a2b-4c3d-4e5f-6a7b8c9d0e1f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 6b8d9e0f-1a2b-4c3d-4e5f-6a7b8c9d0e1f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_CLAIM
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

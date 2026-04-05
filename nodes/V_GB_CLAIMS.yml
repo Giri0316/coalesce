@@ -1,0 +1,112 @@
+fileVersion: 1
+id: 9e4f6d8e-9a0b-4c1d-2e3f-4a5b6c7d8e9f
+name: V_GB_CLAIMS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a05f7e9f-0b1c-4d2e-3f4a-5b6c7d8e9f0a
+          stepCounter: 9e4f6d8e-9a0b-4c1d-2e3f-4a5b6c7d8e9f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b9c7e1f-4d6a-4b9e-8f1a-2b3c4d5e6f7a
+                stepCounter: 5a76483c-1b6e-4f5a-8b3d-1c3e2d6a1b9e
+            transform: T.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b16f8f0a-1c2d-4e3f-4a5b-6c7d8e9f0a1b
+          stepCounter: 9e4f6d8e-9a0b-4c1d-2e3f-4a5b6c7d8e9f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ACA_DATE_ID_SOURCE_SYSTEM_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d2b9f4a-7e1c-4b6d-a2c4-7e9f8a6b5c4d
+                stepCounter: 5a76483c-1b6e-4f5a-8b3d-1c3e2d6a1b9e
+            transform: CAST(TO_VARCHAR(T.STATUS_DATE, 'YYYYMMDD') AS INT)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c27f9a1b-2d3e-4f4a-5b6c-7d8e9f0a1b2c
+          stepCounter: 9e4f6d8e-9a0b-4c1d-2e3f-4a5b6c7d8e9f
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SOURCE_SYSTEM_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d2b9f4a-7e1c-4b6d-a2c4-7e9f8a6b5c4d
+                stepCounter: 5a76483c-1b6e-4f5a-8b3d-1c3e2d6a1b9e
+            transform: T.STATUS_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d38fa2c-3e4f-4a5b-6c7d-8e9f0a1b2c3d
+          stepCounter: 9e4f6d8e-9a0b-4c1d-2e3f-4a5b6c7d8e9f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a2b3c4d-5e6f-4g7h-8i9j-0k1l2m3n4o5p
+                stepCounter: 5a76483c-1b6e-4f5a-8b3d-1c3e2d6a1b9e
+            transform: T.CLAIM_STATUS_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e49fb3d-4f5a-4b6c-7d8e-9f0a1b2c3d4e
+          stepCounter: 9e4f6d8e-9a0b-4c1d-2e3f-4a5b6c7d8e9f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6p5o4n3m-2l1k-4j9i-8h7g-6f5e4d3c2b1a
+                stepCounter: 5a76483c-1b6e-4f5a-8b3d-1c3e2d6a1b9e
+            transform: T.CLAIM_STATUS
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_CLAIM_TRANSACTION: T
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_CLAIM_TRANSACTION
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_CLAIM_TRANSACTION') }} AS T
+            WHERE T.SOURCE_SYSTEM = 'GB' GROUP BY T.ACA_CLAIM_ID, T.STATUS_DATE, T.CLAIM_STATUS_CODE,
+            T.CLAIM_STATUS
+        name: V_GB_CLAIMS
+        noLinkRefs: []
+  name: V_GB_CLAIMS
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
