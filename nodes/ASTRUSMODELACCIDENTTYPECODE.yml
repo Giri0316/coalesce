@@ -1,0 +1,82 @@
+fileVersion: 1
+id: 97897282-5147-49f9-913a-7d40dd11b7d5
+name: ASTRUSMODELACCIDENTTYPECODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d5e7514-6c3e-4604-94b1-ac19d9c8c87b
+          stepCounter: 97897282-5147-49f9-913a-7d40dd11b7d5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCIDENT_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a0b380f5-93df-4028-a46a-785c490a612d
+                stepCounter: 485121c0-023a-4467-85b2-38f36c646b5a
+            transform: U.ACCIDENT_TYPE_CODE
+          - columnReferences:
+              - columnCounter: 0f2fef09-43c3-488b-b8c7-43a9f939e407
+                stepCounter: 6e257e84-e435-4303-9dcd-e822005a3962
+            transform: U.ACCIDENT_TYPE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77a16b9d-59cc-4305-9e66-1070e7e13203
+          stepCounter: 97897282-5147-49f9-913a-7d40dd11b7d5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCIDENT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6046e72b-bbd7-4632-9c3f-c38d4957e87b
+                stepCounter: 485121c0-023a-4467-85b2-38f36c646b5a
+            transform: U.ACCIDENT_TYPE
+          - columnReferences:
+              - columnCounter: 3d2319f3-80f0-4ac0-bc11-20510657c913
+                stepCounter: 6e257e84-e435-4303-9dcd-e822005a3962
+            transform: U.ACCIDENT_TYPE
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: VW_ACCIDENT_TYPE_CODE
+          - locationName: DBSHIFT
+            nodeName: VW_CLAIM_TYPE_CODE_ESIS
+        join:
+          joinCondition: |-
+            FROM (
+              SELECT * FROM {{ ref('DBSHIFT', 'VW_ACCIDENT_TYPE_CODE') }}
+              UNION
+              SELECT * FROM {{ ref('DBSHIFT', 'VW_CLAIM_TYPE_CODE_ESIS') }}
+            ) AS U
+        name: ASTRUSMODELACCIDENTTYPECODE
+        noLinkRefs: []
+  name: ASTRUSMODELACCIDENTTYPECODE
+  overrideSQL: false
+  schema: RPT
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

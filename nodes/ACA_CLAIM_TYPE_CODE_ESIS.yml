@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 3c26058d-6a56-429f-a888-c774f2cdcd8f
+name: ACA_CLAIM_TYPE_CODE_ESIS
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a63d1a88-293d-42e1-a083-d9d300dd8f3a
+          stepCounter: 3c26058d-6a56-429f-a888-c774f2cdcd8f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLAIM_TYPE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b1e32d5-cc74-4b53-83d1-4da2032ca08d
+          stepCounter: 3c26058d-6a56-429f-a888-c774f2cdcd8f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLAIM_TYPE_DESCRIPTION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_CLAIM_TYPE_CODE_ESIS
+  schema: REF
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
