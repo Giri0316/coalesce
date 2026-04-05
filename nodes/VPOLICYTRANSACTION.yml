@@ -1,0 +1,130 @@
+fileVersion: 1
+id: 9a7b5d1e-8e4a-4d7c-8d1e-9a7b5d1e8e4a
+name: VPOLICYTRANSACTION
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_ONE
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2b2c8a-2c8c-4f9e-9b9a-0e9e1c1b8e1a
+          stepCounter: 9a7b5d1e-8e4a-4d7c-8d1e-9a7b5d1e8e4a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: AO_CLAIM_EPIC_CLIENT_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1823793f-c178-43d9-9524-77e4871032b4
+                stepCounter: 597a7836-e8d9-4b8c-8f9f-0c5a278d6e3c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1f9c8d1-5a5d-4f0e-b2e3-d1f9c8d15a5d
+          stepCounter: 9a7b5d1e-8e4a-4d7c-8d1e-9a7b5d1e8e4a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: AO_CLAIM_EPIC_POLICY_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f3c5f49-598d-472b-8a1a-3e4b7c85c35b
+                stepCounter: 597a7836-e8d9-4b8c-8f9f-0c5a278d6e3c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2d3e4f5-9a8b-4c7d-8e9f-0a1b2c3d4e5f
+          stepCounter: 9a7b5d1e-8e4a-4d7c-8d1e-9a7b5d1e8e4a
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: POLICY_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d19c8f94-734c-4c28-98e9-d10a9c6c5b04
+                stepCounter: 597a7836-e8d9-4b8c-8f9f-0c5a278d6e3c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6b7c8d9e-1a2b-4c5d-6e7f-8a9b0c1d2e3f
+          stepCounter: 9a7b5d1e-8e4a-4d7c-8d1e-9a7b5d1e8e4a
+        config: {}
+        dataType: DECIMAL(38,2)
+        description: ""
+        name: PREMIUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5e6d6d4a-3f4a-4952-b91b-252c7c7f9999
+                stepCounter: 597a7836-e8d9-4b8c-8f9f-0c5a278d6e3c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f1e2d3c4-5b6a-4d5e-8f9a-0b1c2d3e4f5a
+          stepCounter: 9a7b5d1e-8e4a-4d7c-8d1e-9a7b5d1e8e4a
+        config: {}
+        dataType: BIGINT
+        description: ""
+        name: POLICY_TRANSACTION_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1823793f-c178-43d9-9524-77e4871032b4
+                stepCounter: 597a7836-e8d9-4b8c-8f9f-0c5a278d6e3c
+              - columnCounter: 0f3c5f49-598d-472b-8a1a-3e4b7c85c35b
+                stepCounter: 597a7836-e8d9-4b8c-8f9f-0c5a278d6e3c
+              - columnCounter: d19c8f94-734c-4c28-98e9-d10a9c6c5b04
+                stepCounter: 597a7836-e8d9-4b8c-8f9f-0c5a278d6e3c
+            transform: HASH(IFNULL(POLICY_TRANSACTION.AO_CLAIM_EPIC_CLIENT_LOOKUP_CODE, '-x'),
+              IFNULL(POLICY_TRANSACTION.AO_CLAIM_EPIC_POLICY_NUMBER, '-x'), IFNULL(CAST(POLICY_TRANSACTION.POLICY_YEAR
+              AS VARCHAR(4)), '-x'))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e7f8a9b0-1c2d-4e5f-6a7b-8c9d0e1f2a3b
+          stepCounter: 9a7b5d1e-8e4a-4d7c-8d1e-9a7b5d1e8e4a
+        config: {}
+        dataType: BIGINT
+        description: ""
+        name: CLIENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1823793f-c178-43d9-9524-77e4871032b4
+                stepCounter: 597a7836-e8d9-4b8c-8f9f-0c5a278d6e3c
+            transform: HASH(IFNULL(POLICY_TRANSACTION.AO_CLAIM_EPIC_CLIENT_LOOKUP_CODE, '-x'))
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          POLICY_TRANSACTION: POLICY_TRANSACTION
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: POLICY_TRANSACTION
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'POLICY_TRANSACTION') }} "POLICY_TRANSACTION"
+        name: VPOLICYTRANSACTION
+        noLinkRefs: []
+  name: VPOLICYTRANSACTION
+  overrideSQL: false
+  schema: RPT
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
