@@ -1,0 +1,88 @@
+fileVersion: 1
+id: 9e0f4a2b-6f2a-4d3c-e4a0-7a8b9c0d1e2f
+name: ASTRUSMODELNATURECODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  isMultisource: true
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 9e0f4a2b-6f2a-4d3c-e4a0-7a8b9c0d1e2f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NATURE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b9c3d1e-5c0e-4a0f-b17d-4d5e6f7a8b9c
+                stepCounter: 7a8b2c0d-4b9d-4f9e-a06c-3c4d5e6f7a8b
+            transform: ""
+          - columnReferences:
+              - columnCounter: 9e0f4a2b-6f2a-4d3c-e4a0-7a8b9c0d1e2f
+                stepCounter: 8d9e3f1a-5e1f-4c2b-d39f-6f7a8b9c0d1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b3c4d5e-6f7a-4b8c-9d0e-1f2a3b4c5d6e
+          stepCounter: 9e0f4a2b-6f2a-4d3c-e4a0-7a8b9c0d1e2f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NATURE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c0d4e2f-6d1f-4b1a-c28e-5e6f7a8b9c0d
+                stepCounter: 7a8b2c0d-4b9d-4f9e-a06c-3c4d5e6f7a8b
+            transform: ""
+          - columnReferences:
+              - columnCounter: a01a5b3c-7a3b-4e4d-f5b1-8b9c0d1e2f3a
+                stepCounter: 8d9e3f1a-5e1f-4c2b-d39f-6f7a8b9c0d1e
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: VW_ACA_NATURE_CODE
+          - locationName: DBSHIFT
+            nodeName: VW_ACA_INJURY_BODY_PART_CODE_ESIS
+        join:
+          joinCondition: |-
+            FROM (
+              SELECT
+                NATURE_CODE,
+                NATURE
+              FROM {{ ref('DBSHIFT', 'VW_ACA_NATURE_CODE') }}
+              UNION
+              SELECT
+                NATURE_CODE,
+                NATURE
+              FROM {{ ref('DBSHIFT', 'VW_ACA_INJURY_BODY_PART_CODE_ESIS') }}
+            ) AS "UNION_ALIAS"
+        name: ASTRUSMODELNATURECODE
+        noLinkRefs: []
+  name: ASTRUSMODELNATURECODE
+  overrideSQL: false
+  schema: RPT
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

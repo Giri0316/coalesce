@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 6f7b1b9c-3a8c-4e8d-9f5b-2b3c4d5e6f7a
+name: ACA_INJURY_BODY_PART_CODE_ESIS
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e
+          stepCounter: 6f7b1b9c-3a8c-4e8d-9f5b-2b3c4d5e6f7a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: INJURY_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f
+          stepCounter: 6f7b1b9c-3a8c-4e8d-9f5b-2b3c4d5e6f7a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: INJURY_DESCRIPTION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_INJURY_BODY_PART_CODE_ESIS
+  schema: REF
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
