@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 4cc86256-c738-4a14-b267-ffdcef344062
-name: SALES_SUMMARY_INPUT
+id: d22a6cd8-b2bf-41f1-b18a-a3b6a38d689c
+name: SALES_SOURCE
 operation:
   database: ""
   deployEnabled: true
@@ -13,51 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 2163e1fd-8afb-4029-9570-c112a9b32565
-          stepCounter: 4cc86256-c738-4a14-b267-ffdcef344062
-        config: {}
-        dataType: DATE
-        defaultValue: ""
-        description: ""
-        name: ORDER_DATE
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 713ceb73-6d3e-4108-8570-1abf881ed3b5
-          stepCounter: 4cc86256-c738-4a14-b267-ffdcef344062
-        config: {}
-        dataType: FLOAT
-        defaultValue: ""
-        description: ""
-        name: TOTAL_SALES
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: c0334d77-7f1b-4c25-96b0-3aa69197e01c
-          stepCounter: 4cc86256-c738-4a14-b267-ffdcef344062
+          columnCounter: f0c03484-0b09-40a8-854a-7362e2ff59cb
+          stepCounter: d22a6cd8-b2bf-41f1-b18a-a3b6a38d689c
         config: {}
         dataType: NUMBER(38,0)
         defaultValue: ""
         description: ""
-        name: TOTAL_ORDERS
+        name: SALE_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -65,7 +27,64 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: SALES_SUMMARY_INPUT
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f674d59-c1b2-4975-8e1f-226668150884
+          stepCounter: d22a6cd8-b2bf-41f1-b18a-a3b6a38d689c
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: PRODUCT_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2da0df0a-db94-4cf8-aecf-a63969ed2184
+          stepCounter: d22a6cd8-b2bf-41f1-b18a-a3b6a38d689c
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: QUANTITY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 578c8b69-e040-4c51-8014-7228637fdfd3
+          stepCounter: d22a6cd8-b2bf-41f1-b18a-a3b6a38d689c
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: SALE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: SALES_SOURCE
   schema: ""
   sqlType: Source
   type: sourceInput
