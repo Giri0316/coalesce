@@ -1,0 +1,168 @@
+fileVersion: 1
+id: 57642637-2384-4861-a472-a7d79b6348ef
+name: DBSHIFT_PSTG_NODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+        USE DATABASE ALLIANT_ONE;
+        UPDATE DBO.AO_CLAIM
+        SET LOAD_TO_SF_FLAG = 'N'
+        WHERE LOAD_TO_SF_FLAG IN ('I', 'U');
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: ALLIANT_ONE
+  deployEnabled: true
+  description: UPDATE-only conversion of spao_ao_claim_update
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2b2390-3490-4a8e-a222-2616a9a7c3b9
+          stepCounter: 57642637-2384-4861-a472-a7d79b6348ef
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: AO_CLAIM_KEY
+        nullable: true
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9cf23924-d2c0-47b8-b127-1c60b7313a48
+          stepCounter: 57642637-2384-4861-a472-a7d79b6348ef
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d1cc32b-9e47-49f3-af84-e91b2c45e54d
+          stepCounter: 57642637-2384-4861-a472-a7d79b6348ef
+        config: {}
+        dataType: VARCHAR(1)
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 507b9736-ecf0-4573-982c-47fc916da658
+          stepCounter: 57642637-2384-4861-a472-a7d79b6348ef
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b400494-1a2c-497d-9488-8cf9b3d07e99
+          stepCounter: 57642637-2384-4861-a472-a7d79b6348ef
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 51242332-9022-4a0b-93ca-dd50a58a7ab2
+          stepCounter: 57642637-2384-4861-a472-a7d79b6348ef
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 55883ef0-ecf9-4676-a05e-f00114030638
+          stepCounter: 57642637-2384-4861-a472-a7d79b6348ef
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping: []
+  name: AO_CLAIM
+  overrideSQL: false
+  schema: DBO
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node

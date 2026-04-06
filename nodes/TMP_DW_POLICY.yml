@@ -1,0 +1,159 @@
+fileVersion: 1
+id: 61e13fc1-965a-4712-a7d1-e6d8a3791295
+name: TMP_DW_POLICY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1be8b7a-9a00-410a-84de-70a2569e5d7d
+          stepCounter: 61e13fc1-965a-4712-a7d1-e6d8a3791295
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: DW_CLIENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f2b2b1b-6893-4a0b-90f9-2d17ac471c26
+                stepCounter: 574efdae-b5f7-4148-8f85-79a0b4e05b63
+            transform: AP.DW_CLIENT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32a76f23-952b-4573-b3c1-7f8a7e0c4060
+          stepCounter: 61e13fc1-965a-4712-a7d1-e6d8a3791295
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: AO_CLAIM_EPIC_POLICY_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1547844a-8d65-4d2c-8067-175a0695029e
+                stepCounter: 574efdae-b5f7-4148-8f85-79a0b4e05b63
+            transform: AP.EPIC_POLICY_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e8167f13-68d2-43d9-a5c2-19e496a77d20
+          stepCounter: 61e13fc1-965a-4712-a7d1-e6d8a3791295
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: POLICY_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 50821ec3-706f-474c-83b5-77983656113b
+                stepCounter: 574efdae-b5f7-4148-8f85-79a0b4e05b63
+            transform: AP.POLICY_YEAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 47b1940a-3c99-4702-861f-632b85e1358b
+          stepCounter: 61e13fc1-965a-4712-a7d1-e6d8a3791295
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: DW_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9e06184b-0c9f-4318-9710-539063d8d60d
+                stepCounter: 48e9d1a8-9a4f-4d39-bbfa-6184fc9c7457
+            transform: PC.DW_POLICY_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b0c80b5-7f30-466d-9788-b226e6d3a82e
+          stepCounter: 61e13fc1-965a-4712-a7d1-e6d8a3791295
+        config: {}
+        dataType: DATE
+        description: ""
+        name: DW_POLICY_EFFECTIVE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 322306fc-c56a-4b95-a400-f9250cf4f7c1
+                stepCounter: 48e9d1a8-9a4f-4d39-bbfa-6184fc9c7457
+            transform: PC.POLICY_EFFECTIVE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1412b32-e03b-4861-a53f-b6a9c336b9c9
+          stepCounter: 61e13fc1-965a-4712-a7d1-e6d8a3791295
+        config: {}
+        dataType: DATE
+        description: ""
+        name: DW_POLICY_EXPIRATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 77a11977-9477-449e-af0d-40748439ac1e
+                stepCounter: 48e9d1a8-9a4f-4d39-bbfa-6184fc9c7457
+            transform: PC.POLICY_EXPIRATION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a631dfb8-5c4a-4e2a-82ee-06a1278144f8
+          stepCounter: 61e13fc1-965a-4712-a7d1-e6d8a3791295
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DW_POLICY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5b674d81-8b21-4f11-92b1-12f5e1f02ac6
+                stepCounter: 48e9d1a8-9a4f-4d39-bbfa-6184fc9c7457
+            transform: PC.POLICY_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 36ff8524-734f-47fa-8086-646ef71746f3
+          stepCounter: 61e13fc1-965a-4712-a7d1-e6d8a3791295
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DW_POLICY_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2f741c30-fc6d-472e-8360-1e523f46f4eb
+                stepCounter: 48e9d1a8-9a4f-4d39-bbfa-6184fc9c7457
+            transform: PC.POLICY_NUMBER
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: TMP_AO_POLICY
+          - locationName: DBSHIFT
+            nodeName: DW_POLICY_CURRENT
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'TMP_AO_POLICY') }} AP
+            LEFT OUTER JOIN {{ ref('DBSHIFT', 'DW_POLICY_CURRENT') }} PC ON AP.DW_CLIENT_ID = PC.DW_CLIENT_ID
+                AND AP.EPIC_POLICY_NUMBER = PC.POLICY_NUMBER
+                AND AP.POLICY_YEAR = YEAR(PC.POLICY_EFFECTIVE_DATE)
+            WHERE PC.DELETED_DATE IS NULL
+                AND PC.SOURCE_SYSTEM = 'EPIC'
+        name: TMP_DW_POLICY
+        noLinkRefs: []
+  name: TMP_DW_POLICY
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

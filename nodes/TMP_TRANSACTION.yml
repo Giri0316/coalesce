@@ -1,0 +1,89 @@
+fileVersion: 1
+id: 59388c30-d886-444f-b67f-945b672a9121
+name: TMP_TRANSACTION
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9789073c-6190-48e0-a4d3-e7f01740b2f0
+          stepCounter: 59388c30-d886-444f-b67f-945b672a9121
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: DW_CLIENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e82d7733-4f93-4a3d-b2a1-12503251a37c
+                stepCounter: 59a16f6b-d36c-4860-98b0-4ca006093539
+            transform: PC.DW_CLIENT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf89f1f0-a7d0-40e8-96f3-ff7837ec59c1
+          stepCounter: 59388c30-d886-444f-b67f-945b672a9121
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: DW_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a63e6912-78d1-4475-b893-9c5950d68f77
+                stepCounter: 59a16f6b-d36c-4860-98b0-4ca006093539
+            transform: PC.DW_POLICY_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 91b150c1-382a-4318-b220-41edee4e8156
+          stepCounter: 59388c30-d886-444f-b67f-945b672a9121
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: PREMIUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1424d86-0ac3-4330-9dfd-a8e56230985a
+                stepCounter: 597a7e8e-ff57-41b2-bf4b-e666a7071d3c
+            transform: SUM(T.PREMIUM)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: TMP_DW_POLICY_UPDATED
+          - locationName: DBSHIFT
+            nodeName: DW_TRANSACTION
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'TMP_DW_POLICY_UPDATED') }} PC
+            INNER JOIN {{ ref('DBSHIFT', 'DW_TRANSACTION') }} T ON PC.DW_POLICY_ID = T.DW_POLICY_ID
+            WHERE T.DW_SOURCE_SYSTEM_ID = 1
+            AND T.REVENUE_FLAG = 'Y'
+            GROUP BY PC.DW_CLIENT_ID
+                , PC.DW_POLICY_ID
+        name: TMP_TRANSACTION
+        noLinkRefs: []
+  name: TMP_TRANSACTION
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 97f39423-f273-49b0-9856-11f26f22d511
+name: DW_CLIENT_CURRENT
+operation:
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 486a67f7-11ef-4573-a8c7-4d101217e997
+          stepCounter: 97f39423-f273-49b0-9856-11f26f22d511
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: DW_CLIENT_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1738743-4f96-41f2-9844-434031d258b3
+          stepCounter: 97f39423-f273-49b0-9856-11f26f22d511
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: LOOKUP_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 80e72c84-e91b-4394-a16f-1f0624d77bb4
+          stepCounter: 97f39423-f273-49b0-9856-11f26f22d511
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: DW_CLIENT_CURRENT
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

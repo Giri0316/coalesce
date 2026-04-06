@@ -1,0 +1,92 @@
+fileVersion: 1
+id: 5747120a-7067-464a-a160-b6f488663884
+name: DW_POLICY
+operation:
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32669e4f-2f84-484d-9a79-27a94939bce5
+          stepCounter: 5747120a-7067-464a-a160-b6f488663884
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: DW_CLIENT_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1301c3e0-321b-4573-b78f-682570081d64
+          stepCounter: 5747120a-7067-464a-a160-b6f488663884
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: POLICY_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d7f0e9fa-b320-4221-8255-a0edcc7c5d08
+          stepCounter: 5747120a-7067-464a-a160-b6f488663884
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: POLICY_EFFECTIVE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 58a980dd-61e8-422f-ae2e-0797825d5fd1
+          stepCounter: 5747120a-7067-464a-a160-b6f488663884
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: DW_POLICY_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: DW_POLICY
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

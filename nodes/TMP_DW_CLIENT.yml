@@ -1,0 +1,118 @@
+fileVersion: 1
+id: 97890786-e089-4e08-bfb9-8e77c8e9d6d5
+name: TMP_DW_CLIENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e876008b-6101-443b-8d07-a36c84c1f60f
+          stepCounter: 97890786-e089-4e08-bfb9-8e77c8e9d6d5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: AO_CLAIM_EPIC_CLIENT_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d14b105-09cd-468a-b97f-4b087a32822a
+                stepCounter: 4945d7d7-133a-4460-9bb4-b49911e3b5be
+            transform: AC.EPIC_CLIENT_LOOKUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b13fc0c5-55de-4b72-8706-c87a1fd709c0
+          stepCounter: 97890786-e089-4e08-bfb9-8e77c8e9d6d5
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: DW_CLIENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 486a67f7-11ef-4573-a8c7-4d101217e997
+                stepCounter: 97f39423-f273-49b0-9856-11f26f22d511
+            transform: COALESCE(CC.DW_CLIENT_ID, CCNEW.DW_CLIENT_ID)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f7d159dd-13dd-47e1-b40b-71dd991448b3
+          stepCounter: 97890786-e089-4e08-bfb9-8e77c8e9d6d5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DW_CLIENT_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c1738743-4f96-41f2-9844-434031d258b3
+                stepCounter: 97f39423-f273-49b0-9856-11f26f22d511
+            transform: COALESCE(CC.LOOKUP_CODE, CCNEW.LOOKUP_CODE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c76ab0a0-d123-40a2-97b7-68b323c2a688
+          stepCounter: 97890786-e089-4e08-bfb9-8e77c8e9d6d5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DW_CLIENT_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 80e72c84-e91b-4394-a16f-1f0624d77bb4
+                stepCounter: 97f39423-f273-49b0-9856-11f26f22d511
+            transform: COALESCE(CC.NAME, CCNEW.NAME)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3a694ca-913a-4464-92e9-798836ff76dd
+          stepCounter: 97890786-e089-4e08-bfb9-8e77c8e9d6d5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLIENT_IN_EPIC_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 486a67f7-11ef-4573-a8c7-4d101217e997
+                stepCounter: 97f39423-f273-49b0-9856-11f26f22d511
+            transform: IFF(COALESCE(CC.DW_CLIENT_ID, CCNEW.DW_CLIENT_ID) IS NOT NULL,
+              'Y', 'N')
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: TMP_AO_CLIENT
+          - locationName: DBSHIFT
+            nodeName: DW_CLIENT_CURRENT
+          - locationName: DBSHIFT
+            nodeName: DW_CLIENT
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'TMP_AO_CLIENT') }} AC
+            LEFT OUTER JOIN {{ ref('DBSHIFT', 'DW_CLIENT_CURRENT') }} CC ON AC.EPIC_CLIENT_LOOKUP_CODE = CC.LOOKUP_CODE
+            LEFT OUTER JOIN {{ ref('DBSHIFT', 'DW_CLIENT') }} CCHIST ON AC.EPIC_CLIENT_LOOKUP_CODE = CCHIST.LOOKUP_CODE
+            LEFT OUTER JOIN {{ ref('DBSHIFT', 'DW_CLIENT_CURRENT') }} CCNEW ON CCHIST.DW_CLIENT_ID = CCNEW.DW_CLIENT_ID
+        name: TMP_DW_CLIENT
+        noLinkRefs: []
+  name: TMP_DW_CLIENT
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

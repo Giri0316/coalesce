@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 4945d7d7-133a-4460-9bb4-b49911e3b5be
+name: TMP_AO_CLIENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d14b105-09cd-468a-b97f-4b087a32822a
+          stepCounter: 4945d7d7-133a-4460-9bb4-b49911e3b5be
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EPIC_CLIENT_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 017f8a7e-407a-42cd-9150-18451f28b26e
+                stepCounter: 59a1175c-7607-4e6a-b286-90e82f7336f1
+            transform: SOURCE.EPIC_CLIENT_LOOKUP_CODE
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          AO_CLAIM: SOURCE
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: AO_CLAIM
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'AO_CLAIM') }} AS SOURCE
+        name: TMP_AO_CLIENT
+        noLinkRefs: []
+  name: TMP_AO_CLIENT
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

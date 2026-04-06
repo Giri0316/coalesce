@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 56930263-04bb-4e6f-b25b-017e88ab1a11
+name: SF_ACCOUNT
+operation:
+  database: ALLIANT_ONE
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 16d55d21-f222-4a00-98d9-2e0f46c310cc
+          stepCounter: 56930263-04bb-4e6f-b25b-017e88ab1a11
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SF_ACCOUNT_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f7234674-3298-444f-a0c4-9040d7c71f54
+          stepCounter: 56930263-04bb-4e6f-b25b-017e88ab1a11
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SF_LOOKUP_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: SF_ACCOUNT
+  schema: REF
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

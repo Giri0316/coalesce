@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 59a1175c-7607-4e6a-b286-90e82f7336f1
+name: AO_CLAIM
+operation:
+  database: ALLIANT_ONE
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 017f8a7e-407a-42cd-9150-18451f28b26e
+          stepCounter: 59a1175c-7607-4e6a-b286-90e82f7336f1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: EPIC_CLIENT_LOOKUP_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b0920f0-8356-42bb-a722-e42a98f7e2df
+          stepCounter: 59a1175c-7607-4e6a-b286-90e82f7336f1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: EPIC_POLICY_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4235e12f-912a-4632-a5e1-d6159620021c
+          stepCounter: 59a1175c-7607-4e6a-b286-90e82f7336f1
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: POLICY_YEAR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: AO_CLAIM
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

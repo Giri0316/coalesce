@@ -1,0 +1,85 @@
+fileVersion: 1
+id: 574efdae-b5f7-4148-8f85-79a0b4e05b63
+name: TMP_AO_POLICY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2b2b1b-6893-4a0b-90f9-2d17ac471c26
+          stepCounter: 574efdae-b5f7-4148-8f85-79a0b4e05b63
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: DW_CLIENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b13fc0c5-55de-4b72-8706-c87a1fd709c0
+                stepCounter: 97890786-e089-4e08-bfb9-8e77c8e9d6d5
+            transform: AC.DW_CLIENT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1547844a-8d65-4d2c-8067-175a0695029e
+          stepCounter: 574efdae-b5f7-4148-8f85-79a0b4e05b63
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EPIC_POLICY_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b0920f0-8356-42bb-a722-e42a98f7e2df
+                stepCounter: 59a1175c-7607-4e6a-b286-90e82f7336f1
+            transform: CLM.EPIC_POLICY_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 50821ec3-706f-474c-83b5-77983656113b
+          stepCounter: 574efdae-b5f7-4148-8f85-79a0b4e05b63
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: POLICY_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4235e12f-912a-4632-a5e1-d6159620021c
+                stepCounter: 59a1175c-7607-4e6a-b286-90e82f7336f1
+            transform: CLM.POLICY_YEAR
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: TMP_DW_CLIENT
+          - locationName: DBSHIFT
+            nodeName: AO_CLAIM
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'TMP_DW_CLIENT') }} AC
+            INNER JOIN {{ ref('DBSHIFT', 'AO_CLAIM') }} CLM ON AC.AO_CLAIM_EPIC_CLIENT_LOOKUP_CODE = CLM.EPIC_CLIENT_LOOKUP_CODE
+        name: TMP_AO_POLICY
+        noLinkRefs: []
+  name: TMP_AO_POLICY
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
