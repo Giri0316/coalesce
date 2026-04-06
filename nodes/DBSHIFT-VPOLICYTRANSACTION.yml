@@ -90,9 +90,7 @@ operation:
                 stepCounter: 597a7836-e8d9-4b8c-8f9f-0c5a278d6e3c
               - columnCounter: d19c8f94-734c-4c28-98e9-d10a9c6c5b04
                 stepCounter: 597a7836-e8d9-4b8c-8f9f-0c5a278d6e3c
-            transform: HASH(IFNULL(POLICY_TRANSACTION.AO_CLAIM_EPIC_CLIENT_LOOKUP_CODE, '-x'),
-              IFNULL(POLICY_TRANSACTION.AO_CLAIM_EPIC_POLICY_NUMBER, '-x'), IFNULL(CAST(POLICY_TRANSACTION.POLICY_YEAR
-              AS VARCHAR(4)), '-x'))
+            transform: HASH(IFNULL(POLICY_TRANSACTION.AO_CLAIM_EPIC_CLIENT_LOOKUP_CODE, '-x'), IFNULL(POLICY_TRANSACTION.AO_CLAIM_EPIC_POLICY_NUMBER, '-x'), IFNULL(CAST(POLICY_TRANSACTION.POLICY_YEAR AS VARCHAR(4)), '-x'))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: e7f8a9b0-1c2d-4e5f-6a7b-8c9d0e1f2a3b
