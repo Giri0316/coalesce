@@ -1,0 +1,130 @@
+fileVersion: 1
+id: d307ba0e-a9d4-4037-a748-b30dcf5bcacc
+name: STG_Target_1_REGION_SOURCE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: SRC
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1db5b94e-a4ff-4944-b784-cc7d19fdd50f
+          stepCounter: d307ba0e-a9d4-4037-a748-b30dcf5bcacc
+        config: {}
+        dataType: NUMBER(10,2)
+        description: ""
+        name: PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0172e140-a648-485a-80ef-4a29f46e04da
+                stepCounter: 87d4b4b4-fb03-417f-a99e-a9c7426f8b57
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 16d18c85-b813-481f-aba4-5487e9c0795a
+          stepCounter: d307ba0e-a9d4-4037-a748-b30dcf5bcacc
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SALE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 55debffa-349b-4cc0-b6f6-77fb42fa56ed
+                stepCounter: 87d4b4b4-fb03-417f-a99e-a9c7426f8b57
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e8b5e7eb-f3cf-4a22-9c95-eeed350d9490
+          stepCounter: d307ba0e-a9d4-4037-a748-b30dcf5bcacc
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 23ff094d-a542-440b-8d59-6923494399ad
+                stepCounter: 87d4b4b4-fb03-417f-a99e-a9c7426f8b57
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ea6657a5-79cd-43d8-9ca3-20a4d9628f28
+          stepCounter: d307ba0e-a9d4-4037-a748-b30dcf5bcacc
+        config: {}
+        dataType: DATE
+        description: ""
+        name: SALE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 65c35c88-855c-43cd-b79e-c99cf26b0401
+                stepCounter: 87d4b4b4-fb03-417f-a99e-a9c7426f8b57
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8ad47949-064d-4222-b658-1626e5499262
+          stepCounter: d307ba0e-a9d4-4037-a748-b30dcf5bcacc
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PRODUCT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ebf95ecd-c982-4713-87b0-86492420b138
+                stepCounter: 9c9cd402-87c5-4da3-889e-ed9886fce649
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: af129ff3-da14-4705-95c4-29059c2eba82
+          stepCounter: d307ba0e-a9d4-4037-a748-b30dcf5bcacc
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: REGION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2465e1d8-fdb4-4118-b51e-822d231d2522
+                stepCounter: 9c9cd402-87c5-4da3-889e-ed9886fce649
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          REGION_SOURCE: 9c9cd402-87c5-4da3-889e-ed9886fce649
+          Target_1: 87d4b4b4-fb03-417f-a99e-a9c7426f8b57
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: REGION_SOURCE
+          - locationName: SRC
+            nodeName: Target_1
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'Target_1') }} "Target_1"
+            INNER JOIN {{ ref('SRC', 'REGION_SOURCE') }} "REGION_SOURCE"
+            ON "Target_1"."PRODUCT_ID" = "REGION_SOURCE"."PRODUCT_ID"
+        name: STG_Target_1_REGION_SOURCE
+        noLinkRefs: []
+  name: STG_Target_1_REGION_SOURCE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
