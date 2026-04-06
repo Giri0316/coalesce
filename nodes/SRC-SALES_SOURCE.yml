@@ -1,0 +1,92 @@
+fileVersion: 1
+id: d22a6cd8-b2bf-41f1-b18a-a3b6a38d689c
+name: SALES_SOURCE
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f0c03484-0b09-40a8-854a-7362e2ff59cb
+          stepCounter: d22a6cd8-b2bf-41f1-b18a-a3b6a38d689c
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: SALE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f674d59-c1b2-4975-8e1f-226668150884
+          stepCounter: d22a6cd8-b2bf-41f1-b18a-a3b6a38d689c
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: PRODUCT_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2da0df0a-db94-4cf8-aecf-a63969ed2184
+          stepCounter: d22a6cd8-b2bf-41f1-b18a-a3b6a38d689c
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: QUANTITY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 578c8b69-e040-4c51-8014-7228637fdfd3
+          stepCounter: d22a6cd8-b2bf-41f1-b18a-a3b6a38d689c
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: SALE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: SALES_SOURCE
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
