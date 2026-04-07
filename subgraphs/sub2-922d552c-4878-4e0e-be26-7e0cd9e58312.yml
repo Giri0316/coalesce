@@ -1,7 +1,5 @@
 fileVersion: 1
 id: 922d552c-4878-4e0e-be26-7e0cd9e58312
 name: sub2
-steps:
-  - 597a7836-e8d9-4b8c-8f9f-0c5a278d6e3c
-  - d7528e6d-9c9a-49fa-9ffd-92962fec6fd2
+steps: []
 type: Subgraph

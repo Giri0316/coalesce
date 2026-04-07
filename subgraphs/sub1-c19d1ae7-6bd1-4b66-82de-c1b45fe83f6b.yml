@@ -1,7 +1,5 @@
 fileVersion: 1
 id: c19d1ae7-6bd1-4b66-82de-c1b45fe83f6b
 name: sub1
-steps:
-  - 597a7836-e8d9-4b8c-8f9f-0c5a278d6e3c
-  - 9a7b5d1e-8e4a-4d7c-8d1e-9a7b5d1e8e4a
+steps: []
 type: Subgraph
