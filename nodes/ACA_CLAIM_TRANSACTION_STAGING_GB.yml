@@ -1005,12 +1005,6 @@ operation:
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: d166299b-5134-45e0-aa31-e1f14417a86f
-                stepCounter: 5a4b3c2d-1e
-name: OCCURRENCE_DATE
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: d166299b-5134-45e0-aa31-e1f14417a86f
                 stepCounter: 5a4b3c2d-1e0f-4d7a-8b6c-9e8d7c6b5a4b
             transform: SRC.OCCURRENCE_DATE
       - acceptedValues:
