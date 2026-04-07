@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 5a8e3b20-9a8e-4a8e-a2f2-5a8e3b209a8e
+name: ACA_DATE
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2b0c1d0-1b0a-4a6c-8a9a-a2b0c1d0a6c8
+          stepCounter: 5a8e3b20-9a8e-4a8e-a2f2-5a8e3b209a8e
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: ACA_DATE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2b0c1d0-1b0a-4a6c-8a9a-a2b0c1d0a6c9
+          stepCounter: 5a8e3b20-9a8e-4a8e-a2f2-5a8e3b209a8e
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: FULL_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_DATE
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
