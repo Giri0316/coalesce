@@ -1,0 +1,77 @@
+fileVersion: 1
+id: 597a1773-f14d-4c3e-9907-28d8858e6538
+name: VW_TEMP_RESERVE_REMAINING
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f02170f-c38a-4933-911e-089a80371ef3
+          stepCounter: 597a1773-f14d-4c3e-9907-28d8858e6538
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a8b082d-11d7-402a-a9e9-798e20253f93
+                stepCounter: 5a73e6a4-43e7-49f8-b11d-5b3a623a8563
+            transform: R.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a61e8c9c-b17b-40d6-8b2b-0e5a6396e6d1
+          stepCounter: 597a1773-f14d-4c3e-9907-28d8858e6538
+        config: {}
+        dataType: NUMERIC(19, 2)
+        description: ""
+        name: TRANSACTION_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5b7d9039-6d6c-4813-8b83-2d2c700388d7
+                stepCounter: 5a73e6a4-43e7-49f8-b11d-5b3a623a8563
+              - columnCounter: d7f0691e-3511-4475-ac9d-92d3b2a59a72
+                stepCounter: 3c5770a3-a8a6-4299-873d-82c58971f153
+            transform: SUM(CASE WHEN (R.TRANSACTION_AMOUNT - IFNULL(P.TRANSACTION_AMOUNT,
+              0)) <= 0 THEN 0 ELSE R.TRANSACTION_AMOUNT - IFNULL(P.TRANSACTION_AMOUNT,
+              0) END)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          VW_TEMP_RESERVE: R
+          VW_TEMP_PAYMENT: P
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: VW_TEMP_RESERVE
+          - locationName: DBSHIFT
+            nodeName: VW_TEMP_PAYMENT
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'VW_TEMP_RESERVE') }} "R" LEFT JOIN
+            {{ ref('DBSHIFT', 'VW_TEMP_PAYMENT') }} "P" ON P.ACA_CLAIM_ID = R.ACA_CLAIM_ID
+            AND P.RESERVE_TYPE = R.RESERVE_TYPE GROUP BY R.ACA_CLAIM_ID
+        name: VW_TEMP_RESERVE_REMAINING
+        noLinkRefs: []
+  name: VW_TEMP_RESERVE_REMAINING
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

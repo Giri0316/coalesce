@@ -1,0 +1,83 @@
+fileVersion: 1
+id: 5a73e6a4-43e7-49f8-b11d-5b3a623a8563
+name: VW_TEMP_RESERVE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a8b082d-11d7-402a-a9e9-798e20253f93
+          stepCounter: 5a73e6a4-43e7-49f8-b11d-5b3a623a8563
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 934e8d35-f12a-43c3-b4e1-255d658c8a14
+                stepCounter: 28c40b8a-1317-48f0-af96-a8d626354673
+            transform: S.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f6717a0-2f9f-4315-b541-b8449c288d05
+          stepCounter: 5a73e6a4-43e7-49f8-b11d-5b3a623a8563
+        config: {}
+        dataType: VARCHAR(16)
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a8b082d-11d7-402a-a9e9-798e20253f93
+                stepCounter: 28c40b8a-1317-48f0-af96-a8d626354673
+            transform: S.RESERVE_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b7d9039-6d6c-4813-8b83-2d2c700388d7
+          stepCounter: 5a73e6a4-43e7-49f8-b11d-5b3a623a8563
+        config: {}
+        dataType: NUMERIC(19, 2)
+        description: ""
+        name: TRANSACTION_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d7f0691e-3511-4475-ac9d-92d3b2a59a72
+                stepCounter: 28c40b8a-1317-48f0-af96-a8d626354673
+            transform: SUM(S.RESERVE_AMOUNT)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ASTRUSMODELRESERVETRANSACTION: S
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ASTRUSMODELRESERVETRANSACTION
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'ASTRUSMODELRESERVETRANSACTION') }}
+            "S" WHERE S.RESERVE_TYPE <> 'RECOVERY' GROUP BY S.ACA_CLAIM_ID, S.RESERVE_TYPE
+        name: VW_TEMP_RESERVE
+        noLinkRefs: []
+  name: VW_TEMP_RESERVE
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

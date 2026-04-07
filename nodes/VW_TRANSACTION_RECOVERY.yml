@@ -1,0 +1,95 @@
+fileVersion: 1
+id: e4b2b31f-0e8c-4a3a-963a-867c4e512705
+name: VW_TRANSACTION_RECOVERY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e86e92b8-9b8d-4f11-9a71-6c4c5e317454
+          stepCounter: e4b2b31f-0e8c-4a3a-963a-867c4e512705
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2364c676-e832-4545-97e3-0c4be5178652
+                stepCounter: 56930263-54cd-4e94-a3f7-926c48f21908
+            transform: S.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e0a2491-38b8-4d56-a4f6-829d2f2d9e6f
+          stepCounter: e4b2b31f-0e8c-4a3a-963a-867c4e512705
+        config: {}
+        dataType: TINYINT
+        description: ""
+        name: TRANSACTION_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: '3'
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77b9605c-3544-48f8-b4b1-e23a85b96781
+          stepCounter: e4b2b31f-0e8c-4a3a-963a-867c4e512705
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1a0a58a-3603-4f51-b844-486016e38604
+                stepCounter: 56930263-54cd-4e94-a3f7-926c48f21908
+            transform: MAX(S.RECOVERY_TRANSACTION_DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2f45c8-1090-48e0-a590-f94d35c59367
+          stepCounter: e4b2b31f-0e8c-4a3a-963a-867c4e512705
+        config: {}
+        dataType: NUMERIC(19, 2)
+        description: ""
+        name: TRANSACTION_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1e5e0649-16a8-42f2-8c1c-c76b0521ca49
+                stepCounter: 56930263-54cd-4e94-a3f7-926c48f21908
+            transform: SUM(S.RECOVERY_AMOUNT_BY_RESERVE_TYPE)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ASTRUSMODELRECOVERYTRANSACTION: S
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ASTRUSMODELRECOVERYTRANSACTION
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'ASTRUSMODELRECOVERYTRANSACTION') }}
+            "S" GROUP BY S.ACA_CLAIM_ID
+        name: VW_TRANSACTION_RECOVERY
+        noLinkRefs: []
+  name: VW_TRANSACTION_RECOVERY
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

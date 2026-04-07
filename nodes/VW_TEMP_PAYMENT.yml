@@ -1,0 +1,83 @@
+fileVersion: 1
+id: 3c5770a3-a8a6-4299-873d-82c58971f153
+name: VW_TEMP_PAYMENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 934e8d35-f12a-43c3-b4e1-255d658c8a14
+          stepCounter: 3c5770a3-a8a6-4299-873d-82c58971f153
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91b48b11-925f-46df-9a25-2e557e62a8ab
+                stepCounter: 5747120a-43c2-48df-8cd5-f9f2526e0b73
+            transform: S.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 43a681c9-6c5c-4483-b0a6-16e6f11c75c5
+          stepCounter: 3c5770a3-a8a6-4299-873d-82c58971f153
+        config: {}
+        dataType: VARCHAR(16)
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4725c0e8-0726-448c-8461-12c8230f878b
+                stepCounter: 5747120a-43c2-48df-8cd5-f9f2526e0b73
+            transform: S.RESERVE_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d7f0691e-3511-4475-ac9d-92d3b2a59a72
+          stepCounter: 3c5770a3-a8a6-4299-873d-82c58971f153
+        config: {}
+        dataType: NUMERIC(19, 2)
+        description: ""
+        name: TRANSACTION_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a61e8c9c-b17b-40d6-8b2b-0e5a6396e6d1
+                stepCounter: 5747120a-43c2-48df-8cd5-f9f2526e0b73
+            transform: SUM(S.PAYMENT_AMOUNT_BY_RESERVE_TYPE)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ASTRUSMODELPAYMENTTRANSACTION: S
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ASTRUSMODELPAYMENTTRANSACTION
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'ASTRUSMODELPAYMENTTRANSACTION') }}
+            "S" WHERE S.RESERVE_TYPE <> 'RECOVERY' GROUP BY S.ACA_CLAIM_ID, S.RESERVE_TYPE
+        name: VW_TEMP_PAYMENT
+        noLinkRefs: []
+  name: VW_TEMP_PAYMENT
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

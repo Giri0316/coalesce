@@ -1,0 +1,110 @@
+fileVersion: 1
+id: 597a1773-f14d-4c3e-9907-28d8858e6538
+name: VW_TEMP_TRANSACTION_UNION
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b13c4c9a-9e11-4389-9e8c-529a9972b22f
+          stepCounter: 597a1773-f14d-4c3e-9907-28d8858e6538
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 74219199-3176-47a3-810a-42994e63e793
+                stepCounter: 5df2976f-a87f-4b08-958a-6b2a0c441c2d
+            transform: U.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 55a40722-e3a5-4813-8839-44e2315b8109
+          stepCounter: 597a1773-f14d-4c3e-9907-28d8858e6538
+        config: {}
+        dataType: TINYINT
+        description: ""
+        name: TRANSACTION_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a631339d-27b2-4d56-b8b9-e15ac88f4b00
+                stepCounter: 5df2976f-a87f-4b08-958a-6b2a0c441c2d
+            transform: U.TRANSACTION_TYPE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3d2a762-c1f0-4a87-8495-263228a9b20e
+          stepCounter: 597a1773-f14d-4c3e-9907-28d8858e6538
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e827d056-b003-455b-b9d5-4566a7b21e8d
+                stepCounter: 5df2976f-a87f-4b08-958a-6b2a0c441c2d
+            transform: U.TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a287b41-f62f-488b-a70d-27b20ebf6d90
+          stepCounter: 597a1773-f14d-4c3e-9907-28d8858e6538
+        config: {}
+        dataType: NUMERIC(19, 2)
+        description: ""
+        name: TRANSACTION_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 52eb402f-b40b-419b-a01c-6b1a77e48b94
+                stepCounter: 5df2976f-a87f-4b08-958a-6b2a0c441c2d
+            transform: U.TRANSACTION_AMOUNT
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: VW_TRANSACTION_PAYMENT
+          - locationName: DBSHIFT
+            nodeName: VW_TRANSACTION_RESERVE
+          - locationName: DBSHIFT
+            nodeName: VW_TRANSACTION_RECOVERY
+          - locationName: DBSHIFT
+            nodeName: VW_TRANSACTION_INCURRED
+        join:
+          joinCondition: |-
+            FROM (
+              SELECT * FROM {{ ref('DBSHIFT','VW_TRANSACTION_PAYMENT') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT','VW_TRANSACTION_RESERVE') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT','VW_TRANSACTION_RECOVERY') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT','VW_TRANSACTION_INCURRED') }}
+            ) "U"
+        name: VW_TEMP_TRANSACTION_UNION
+        noLinkRefs: []
+  name: VW_TEMP_TRANSACTION_UNION
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
