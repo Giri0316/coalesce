@@ -1,0 +1,74 @@
+fileVersion: 1
+id: 5a4b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+name: DBSHIFT_PSTG_NODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+      USE DATABASE ALLIANT_CLAIMS_ASTRUS;
+      UPDATE ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIM_TRANSACTION T
+      SET
+          ACA_CLAIM_ID = IFF(
+              T.ACA_CLAIM_ID = -1,
+              (SELECT IFNULL(MAX(C.ACA_CLAIM_ID), -1)
+               FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIM C
+               WHERE T.SOURCE_SYSTEM_CLAIM_ID = C.SOURCE_SYSTEM_CLAIM_ID AND T.ACA_SOURCE_SYSTEM_ID = C.SOURCE_SYSTEM_ID),
+              T.ACA_CLAIM_ID
+          ),
+          ACA_POLICY_ID = IFF(
+              T.ACA_POLICY_ID = -1,
+              (SELECT IFNULL(MAX(P.ACA_POLICY_ID), -1)
+               FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_POLICY P
+               WHERE T.SOURCE_SYSTEM_POLICY_ID = P.SOURCE_SYSTEM_POLICY_ID),
+              T.ACA_POLICY_ID
+          ),
+          ACA_CLAIMANT_ID = IFF(
+              T.ACA_CLAIMANT_ID = -1,
+              (SELECT IFNULL(MAX(CL.ACA_CLAIMANT_ID), -1)
+               FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIMANT CL
+               WHERE T.SOURCE_SYSTEM_CLAIMANT_ID = CL.SOURCE_SYSTEM_CLAIMANT_ID),
+              T.ACA_CLAIMANT_ID
+          ),
+          ACA_DATE_UPDATED = CURRENT_TIMESTAMP(),
+          ACA_UPDATE_USER = 'spaca_aca_claim_transaction_update'
+      WHERE
+          (T.ACA_CLAIM_ID = -1 AND T.SOURCE_SYSTEM_CLAIM_ID IS NOT NULL)
+          OR (T.ACA_POLICY_ID = -1 AND T.SOURCE_SYSTEM_POLICY_ID IS NOT NULL)
+          OR (T.ACA_CLAIMANT_ID = -1 AND T.SOURCE_SYSTEM_CLAIMANT_ID IS NOT NULL);
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: ""
+  deployEnabled: true
+  description: UPDATE-only conversion of spaca_aca_claim_transaction_update
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+          stepCounter: 5a4b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CURRENT_TIMESTAMP()
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping: []
+  name: DBSHIFT_PSTG_NODE
+  overrideSQL: false
+  schema: ""
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node
