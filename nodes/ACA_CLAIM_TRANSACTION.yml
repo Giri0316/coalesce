@@ -109,8 +109,7 @@ operation:
            OR IFNULL(d.status_date, '1900-01-01'::DATE) <> IFNULL(s.status_date, '1900-01-01'::DATE)
            OR IFNULL(d.reported_date, '1900-01-01 00:00:00.000'::TIMESTAMP_NTZ) <> IFNULL(s.reported_date, '1900-01-01 00:00:00.000'::TIMESTAMP_NTZ)
            OR IFNULL(d.accident_date, '1900-01-01 00:00:00.000'::TIMESTAMP_NTZ) <> IFNULL(s.accident_date, '1900-01-01 00:00:00.000'::TIMESTAMP_NTZ)
-           OR IFNULL(d.accident_type_code
-, '') <> IFNULL(s.accident_type_code, '')
+           OR IFNULL(d.accident_type_code, '') <> IFNULL(s.accident_type_code, '')
            OR IFNULL(d.accident_source_code, '') <> IFNULL(s.accident_source_code, '')
            OR IFNULL(d.accident_city_code, '') <> IFNULL(s.accident_city_code, '')
            OR IFNULL(d.accident_state_code, '') <> IFNULL(s.accident_state_code, '')
