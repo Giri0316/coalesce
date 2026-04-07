@@ -1,0 +1,215 @@
+fileVersion: 1
+id: 3a8e5b20-9a8e-4a8e-a2f2-3a8e5b209a8e
+name: ACA_CLAIM_TRANSACTION
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: |-
+      BEGIN
+      USE DATABASE ALLIANT_CLAIMS_ASTRUS_STAGE;
+      UPDATE ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIM_TRANSACTION AS d
+      SET d.aca_policy_id = s.aca_policy_id,
+          d.aca_claim_id = s.aca_claim_id,
+          d.aca_claimant_id = s.aca_claimant_id,
+          d.aca_claim_attribute_id = s.aca_claim_attribute_id,
+          d.aca_date_id_transaction_date = s.aca_date_id_transaction_date,
+          d.aca_date_id_status_date = s.aca_date_id_status_date,
+          d.aca_date_id_reported_date = s.aca_date_id_reported_date,
+          d.aca_date_id_accident_date = s.aca_date_id_accident_date,
+          d.aca_accident_source_code_id = s.aca_accident_source_code_id,
+          d.source_system_accident_source_code_id = s.source_system_accident_source_code_id,
+          d.policy_number = s.policy_number,
+          d.policy_effective_date = s.policy_effective_date,
+          d.policy_expiration_date = s.policy_expiration_date,
+          d.claim_status_code = s.claim_status_code,
+          d.claim_status = s.claim_status,
+          d.status_date = s.status_date,
+          d.reported_date = s.reported_date,
+          d.accident_date = s.accident_date,
+          d.accident_type_code = s.accident_type_code,
+          d.accident_source_code = s.accident_source_code,
+          d.accident_city_code = s.accident_city_code,
+          d.accident_state_code = s.accident_state_code,
+          d.accident_zip_code = s.accident_zip_code,
+          d.part_of_body_code = s.part_of_body_code,
+          d.nature_of_loss_code_property_damage = s.nature_of_loss_code_property_damage,
+          d.nature_of_loss_code_bodily_injury = s.nature_of_loss_code_bodily_injury,
+          d.method_of_settlement_code = s.method_of_settlement_code,
+          d.ncci_loss_coverage_code = s.ncci_loss_coverage_code,
+          d.description_of_loss_encrypted = s.description_of_loss_encrypted,
+          d.benefit_jurisdiction_state_code = s.benefit_jurisdiction_state_code,
+          d.exposure_state_code = s.exposure_state_code,
+          d.exposure_country_code = s.exposure_country_code,
+          d.state_claim_number = s.state_claim_number,
+          d.full_state_claim_number = s.full_state_claim_number,
+          d.employer_notification_date = s.employer_notification_date,
+          d.vehicle_identification_number_encrypted = s.vehicle_identification_number_encrypted,
+          d.claim_adjusting_branch_number = s.claim_adjusting_branch_number,
+          d.adjuster_number = s.adjuster_number,
+          d.number_of_dependents = s.number_of_dependents,
+          d.claimant_type = s.claimant_type,
+          d.claimant_encrypted = s.claimant_encrypted,
+          d.claimant_ssn_encrypted = s.claimant_ssn_encrypted,
+          d.employee_last_work_date = s.employee_last_work_date,
+          d.compensation_rate = s.compensation_rate,
+          d.ncci_injury_code = s.ncci_injury_code,
+          d.disability_date = s.disability_date,
+          d.return_to_work_date = s.return_to_work_date,
+          d.max_medical_improvement_date = s.max_medical_improvement_date,
+          d.post_injury_weekly_wage = s.post_injury_weekly_wage,
+          d.percentage_of_impairment = s.percentage_of_impairment,
+          d.insurer_name = s.insurer_name,
+          d.other_weekly_payments = s.other_weekly_payments,
+          d.attorney_disclosure_date = s.attorney_disclosure_date,
+          d.reporting_basis_date = s.reporting_basis_date,
+          d.occurrence_date = s.occurrence_date,
+          d.multi_claim_occur_code = s.multi_claim_occur_code,
+          d.ncci_method_of_settlement_code = s.ncci_method_of_settlement_code,
+          d.loss_program_number = s.loss_program_number,
+          d.denial_date = s.denial_date,
+          d.weekly_benefit = s.weekly_benefit,
+          d.ncci_type_of_loss_code = s.ncci_type_of_loss_code,
+          d.ncci_ppo_code = s.ncci_ppo_code,
+          d.total_lost_work_days = s.total_lost_work_days,
+          d.client_optional_claim_code = s.client_optional_claim_code,
+          d.insured_vehicle_year = s.insured_vehicle_year,
+          d.insured_vehicle_make = s.insured_vehicle_make,
+          d.beneficiary_information = s.beneficiary_information,
+          d.reporting_unit_number = s.reporting_unit_number,
+          d.return_to_work_full_duty_date = s.return_to_work_full_duty_date,
+          d.return_to_work_release_date = s.return_to_work_release_date,
+          d.representation_date = s.representation_date,
+          d.salary_continued_start_date = s.salary_continued_start_date,
+          d.salary_continued_end_date = s.salary_continued_end_date,
+          d.medical_to_indemnity_date = s.medical_to_indemnity_date,
+          d.last_review_date = s.last_review_date,
+          d.source_system_claimant_id = s.source_system_claimant_id,
+          d.source_system_claim_attribute_id = s.source_system_claim_attribute_id,
+          d.source_system_policy_id = s.source_system_policy_id
+      FROM {{ ref('DBSHIFT', 'STG_TMP_ACA_CLAIM_TRANSACTION') }} AS s
+      WHERE s.source_system_claim_id = d.source_system_claim_id
+        AND s.aca_source_system_id = d.aca_source_system_id
+        AND s.aca_transaction_date = d.aca_transaction_date
+        AND d.aca_date_created <> CURRENT_TIMESTAMP()
+        AND ( IFNULL(d.aca_policy_id, -1) <> IFNULL(s.aca_policy_id, -1)
+           OR IFNULL(d.aca_claim_id, -1) <> IFNULL(s.aca_claim_id, -1)
+           OR IFNULL(d.aca_claimant_id, -1) <> IFNULL(s.aca_claimant_id, -1)
+           OR IFNULL(d.aca_claim_attribute_id, -1) <> IFNULL(s.aca_claim_attribute_id, -1)
+           OR IFNULL(d.aca_date_id_transaction_date, -1) <> IFNULL(s.aca_date_id_transaction_date, -1)
+           OR IFNULL(d.aca_date_id_status_date, -1) <> IFNULL(s.aca_date_id_status_date, -1)
+           OR IFNULL(d.aca_date_id_reported_date, -1) <> IFNULL(s.aca_date_id_reported_date, -1)
+           OR IFNULL(d.aca_date_id_accident_date, -1) <> IFNULL(s.aca_date_id_accident_date, -1)
+           OR IFNULL(d.aca_accident_source_code_id, -1) <> IFNULL(s.aca_accident_source_code_id, -1)
+           OR IFNULL(d.source_system_accident_source_code_id, ''::BINARY) <> IFNULL(s.source_system_accident_source_code_id, ''::BINARY)
+           OR IFNULL(d.policy_number, '') <> IFNULL(s.policy_number, '')
+           OR IFNULL(d.policy_effective_date, '1900-01-01'::DATE) <> IFNULL(s.policy_effective_date, '1900-01-01'::DATE)
+           OR IFNULL(d.policy_expiration_date, '1900-01-01'::DATE) <> IFNULL(s.policy_expiration_date, '1900-01-01'::DATE)
+           OR IFNULL(d.claim_status_code, '') <> IFNULL(s.claim_status_code, '')
+           OR IFNULL(d.claim_status, '') <> IFNULL(s.claim_status, '')
+           OR IFNULL(d.status_date, '1900-01-01'::DATE) <> IFNULL(s.status_date, '1900-01-01'::DATE)
+           OR IFNULL(d.reported_date, '1900-01-01 00:00:00.000'::TIMESTAMP_NTZ) <> IFNULL(s.reported_date, '1900-01-01 00:00:00.000'::TIMESTAMP_NTZ)
+           OR IFNULL(d.accident_date, '1900-01-01 00:00:00.000'::TIMESTAMP_NTZ) <> IFNULL(s.accident_date, '1900-01-01 00:00:00.000'::TIMESTAMP_NTZ)
+           OR IFNULL(d.accident_type_code
+, '') <> IFNULL(s.accident_type_code, '')
+           OR IFNULL(d.accident_source_code, '') <> IFNULL(s.accident_source_code, '')
+           OR IFNULL(d.accident_city_code, '') <> IFNULL(s.accident_city_code, '')
+           OR IFNULL(d.accident_state_code, '') <> IFNULL(s.accident_state_code, '')
+           OR IFNULL(d.accident_zip_code, '') <> IFNULL(s.accident_zip_code, '')
+           OR IFNULL(d.part_of_body_code, '') <> IFNULL(s.part_of_body_code, '')
+           OR IFNULL(d.nature_of_loss_code_property_damage, '') <> IFNULL(s.nature_of_loss_code_property_damage, '')
+           OR IFNULL(d.nature_of_loss_code_bodily_injury, '') <> IFNULL(s.nature_of_loss_code_bodily_injury, '')
+           OR IFNULL(d.method_of_settlement_code, '') <> IFNULL(s.method_of_settlement_code, '')
+           OR IFNULL(d.ncci_loss_coverage_code, '') <> IFNULL(s.ncci_loss_coverage_code, '')
+           OR IFNULL(d.description_of_loss_encrypted, ''::BINARY) <> IFNULL(s.description_of_loss_encrypted, ''::BINARY)
+           OR IFNULL(d.benefit_jurisdiction_state_code, '') <> IFNULL(s.benefit_jurisdiction_state_code, '')
+           OR IFNULL(d.exposure_state_code, '') <> IFNULL(s.exposure_state_code, '')
+           OR IFNULL(d.exposure_country_code, '') <> IFNULL(s.exposure_country_code, '')
+           OR IFNULL(d.state_claim_number, '') <> IFNULL(s.state_claim_number, '')
+           OR IFNULL(d.full_state_claim_number, '') <> IFNULL(s.full_state_claim_number, '')
+           OR IFNULL(d.employer_notification_date, '1900-01-01'::DATE) <> IFNULL(s.employer_notification_date, '1900-01-01'::DATE)
+           OR IFNULL(d.vehicle_identification_number_encrypted, ''::BINARY) <> IFNULL(s.vehicle_identification_number_encrypted, ''::BINARY)
+           OR IFNULL(d.claim_adjusting_branch_number, '') <> IFNULL(s.claim_adjusting_branch_number, '')
+           OR IFNULL(d.adjuster_number, '') <> IFNULL(s.adjuster_number, '')
+           OR IFNULL(d.number_of_dependents, '') <> IFNULL(s.number_of_dependents, '')
+           OR IFNULL(d.claimant_type, '') <> IFNULL(s.claimant_type, '')
+           OR IFNULL(d.claimant_encrypted, ''::BINARY) <> IFNULL(s.claimant_encrypted, ''::BINARY)
+           OR IFNULL(d.claimant_ssn_encrypted, ''::BINARY) <> IFNULL(s.claimant_ssn_encrypted, ''::BINARY)
+           OR IFNULL(d.employee_last_work_date, '1900-01-01'::DATE) <> IFNULL(s.employee_last_work_date, '1900-01-01'::DATE)
+           OR IFNULL(d.compensation_rate, '') <> IFNULL(s.compensation_rate, '')
+           OR IFNULL(d.ncci_injury_code, '') <> IFNULL(s.ncci_injury_code, '')
+           OR IFNULL(d.disability_date, '1900-01-01'::DATE) <> IFNULL(s.disability_date, '1900-01-01'::DATE)
+           OR IFNULL(d.return_to_work_date, '1900-01-01'::DATE) <> IFNULL(s.return_to_work_date, '1900-01-01'::DATE)
+           OR IFNULL(d.max_medical_improvement_date, '1900-01-01'::DATE) <> IFNULL(s.max_medical_improvement_date, '1900-01-01'::DATE)
+           OR IFNULL(d.post_injury_weekly_wage, -1) <> IFNULL(s.post_injury_weekly_wage, -1)
+           OR IFNULL(d.percentage_of_impairment, '') <> IFNULL(s.percentage_of_impairment, '')
+           OR IFNULL(d.insurer_name, '') <> IFNULL(s.insurer_name, '')
+           OR IFNULL(d.other_weekly_payments, -1) <> IFNULL(s.other_weekly_payments, -1)
+           OR IFNULL(d.attorney_disclosure_date, '1900-01-01'::DATE) <> IFNULL(s.attorney_disclosure_date, '1900-01-01'::DATE)
+           OR IFNULL(d.reporting_basis_date, '1900-01-01 00:00:00.000'::TIMESTAMP_NTZ) <> IFNULL(s.reporting_basis_date, '1900-01-01 00:00:00.000'::TIMESTAMP_NTZ)
+           OR IFNULL(d.occurrence_date, '1900-01-01 00:00:00.000'::TIMESTAMP_NTZ) <> IFNULL(s.occurrence_date, '1900-01-01 00:00:00.000'::TIMESTAMP_NTZ)
+           OR IFNULL(d.multi_claim_occur_code, '') <> IFNULL(s.multi_claim_occur_code, '')
+           OR IFNULL(d.ncci_method_of_settlement_code, '') <> IFNULL(s.ncci_method_of_settlement_code, '')
+           OR IFNULL(d.loss_program_number, '') <> IFNULL(s.loss_program_number, '')
+           OR IFNULL(d.denial_date, '1900-01-01'::DATE) <> IFNULL(s.denial_date, '1900-01-01'::DATE)
+           OR IFNULL(d.weekly_benefit, -1) <> IFNULL(s.weekly_benefit, -1)
+           OR IFNULL(d.ncci_type_of_loss_code, '') <> IFNULL(s.ncci_type_of_loss_code, '')
+           OR IFNULL(d.ncci_ppo_code, '') <> IFNULL(s.ncci_ppo_code, '')
+           OR IFNULL(d.total_lost_work_days, '') <> IFNULL(s.total_lost_work_days, '')
+           OR IFNULL(d.client_optional_claim_code, '') <> IFNULL(s.client_optional_claim_code, '')
+           OR IFNULL(d.insured_vehicle_year, '') <> IFNULL(s.insured_vehicle_year, '')
+           OR IFNULL(d.insured_vehicle_make, '') <> IFNULL(s.insured_vehicle_make, '')
+           OR IFNULL(d.beneficiary_information, '') <> IFNULL(s.beneficiary_information, '')
+           OR IFNULL(d.reporting_unit_number, '') <> IFNULL(s.reporting_unit_number, '')
+           OR IFNULL(d.return_to_work_full_duty_date, '1900-01-01'::DATE) <> IFNULL(s.return_to_work_full_duty_date, '1900-01-01'::DATE)
+           OR IFNULL(d.return_to_work_release_date, '1900-01-01'::DATE) <> IFNULL(s.return_to_work_release_date, '1900-01-01'::DATE)
+           OR IFNULL(d.representation_date, '1900-01-01'::DATE) <> IFNULL(s.representation_date, '1900-01-01'::DATE)
+           OR IFNULL(d.salary_continued_start_date, '1900-01-01'::DATE) <> IFNULL(s.salary_continued_start_date, '1900-01-01'::DATE)
+           OR IFNULL(d.salary_continued_end_date, '1900-01-01'::DATE) <> IFNULL(s.salary_continued_end_date, '1900-01-01'::DATE)
+           OR IFNULL(d.medical_to_indemnity_date, '1900-01-01'::DATE) <> IFNULL(s.medical_to_indemnity_date, '1900-01-01'::DATE)
+           OR IFNULL(d.last_review_date, '1900-01-01'::DATE) <> IFNULL(s.last_review_date, '1900-01-01'::DATE)
+           OR IFNULL(d.source_system_claimant_id, ''::BINARY) <> IFNULL(s.source_system_claimant_id, ''::BINARY)
+           OR IFNULL(d.source_system_claim_attribute_id, ''::BINARY) <> IFNULL(s.source_system_claim_attribute_id, ''::BINARY)
+           OR IFNULL(d.source_system_policy_id, ''::BINARY) <> IFNULL(s.source_system_policy_id, ''::BINARY));
+      UPDATE ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIM_TRANSACTION AS t
+      SET aca_current_flag = stg.aca_current_flag
+        , aca_update_user = CONCAT('spaca_aca_claim_transaction_gb_insertUpdate', ' - flag update')
+        , aca_date_updated = CURRENT_TIMESTAMP()
+      FROM {{ ref('DBSHIFT', 'ACA_CLAIM_TRANSACTION_STAGING_GB') }} AS stg
+      WHERE t.source_system_claim_id = stg.source_system_claim_id
+        AND t.aca_source_system_id = stg.aca_source_system_id
+        AND t.aca_transaction_date = stg.aca_transaction_date
+        AND t.aca_current_flag <> stg.aca_current_flag;
+      END;
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: false
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns: []
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_ACA_CLAIM_TRANSACTION_GB_INSERT: SRC
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: STG_ACA_CLAIM_TRANSACTION_GB_INSERT
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'STG_ACA_CLAIM_TRANSACTION_GB_INSERT') }} AS SRC
+        name: ACA_CLAIM_TRANSACTION
+        noLinkRefs: []
+  name: ACA_CLAIM_TRANSACTION
+  overrideSQL: false
+  schema: DBO
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node
