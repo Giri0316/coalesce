@@ -1,0 +1,263 @@
+fileVersion: 1
+id: 5b4c1c9c-4e8c-4f8a-9c7a-3d2e1b0a9b8d
+name: TMPPOLICYCOVERAGE
+operation:
+  database: ALLIANT_STAGING
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f0b8d5a-1b1a-4c2d-8e3f-4a5b6c7d8e9f
+          stepCounter: 5b4c1c9c-4e8c-4f8a-9c7a-3d2e1b0a9b8d
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: POLICY_TERM_SK
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a1c9e6b-2c2b-4d3e-9f4a-5b6c7d8e9f0a
+          stepCounter: 5b4c1c9c-4e8c-4f8a-9c7a-3d2e1b0a9b8d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: BK_POLICY_COVERAGE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b2d0f7c-3d3c-4e4f-a05b-6c7d8e9f0a1b
+          stepCounter: 5b4c1c9c-4e8c-4f8a-9c7a-3d2e1b0a9b8d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_GROUP_DESCRIPTION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c3e108d-4e4d-4f50-b16c-7d8e9f0a1b2c
+          stepCounter: 5b4c1c9c-4e8c-4f8a-9c7a-3d2e1b0a9b8d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_DESCRIPTION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d4f219e-5f5e-4061-c27d-8e9f0a1b2c3d
+          stepCounter: 5b4c1c9c-4e8c-4f8a-9c7a-3d2e1b0a9b8d
+        config: {}
+        dataType: NUMBER(38,2)
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_LIMIT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e5032a0-606f-4172-d38e-9f0a1b2c3d4e
+          stepCounter: 5b4c1c9c-4e8c-4f8a-9c7a-3d2e1b0a9b8d
+        config: {}
+        dataType: NUMBER(38,2)
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_DEDUCTIBLE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7f6143b1-7170-4283-e49f-0a1b2c3d4e5f
+          stepCounter: 5b4c1c9c-4e8c-4f8a-9c7a-3d2e1b0a9b8d
+        config: {}
+        dataType: NUMBER(38,2)
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_PREMIUM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 807254c2-8281-4394-f5a0-1b2c3d4e5f60
+          stepCounter: 5b4c1c9c-4e8c-4f8a-9c7a-3d2e1b0a9b8d
+        config: {}
+        dataType: NUMBER(38,2)
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_ATTACHMENT_POINT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 918365d3-9392-44a5-06b1-2c3d4e5f6071
+          stepCounter: 5b4c1c9c-4e8c-4f8a-9c7a-3d2e1b0a9b8d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a29476e4-a4a3-45b6-17c2-3d4e5f607182
+          stepCounter: 5b4c1c9c-4e8c-4f8a-9c7a-3d2e1b0a9b8d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b3a587f5-b5b4-46c7-28d3-4e5f60718293
+          stepCounter: 5b4c1c9c-4e8c-4f8a-9c7a-3d2e1b0a9b8d
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_RETRO_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c4b69806-c6c5-47d8-39e4-5f60718293a4
+          stepCounter: 5b4c1c9c-4e8c-4f8a-9c7a-3d2e1b0a9b8d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_SUB_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d5c7a917-d7d6-48e9-4af5-60718293a4b5
+          stepCounter: 5b4c1c9c-4e8c-4f8a-9c7a-3d2e1b0a9b8d
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: IS_PRIMARY_COVERAGE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TMPPOLICYCOVERAGE
+  schema: STAGING
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
