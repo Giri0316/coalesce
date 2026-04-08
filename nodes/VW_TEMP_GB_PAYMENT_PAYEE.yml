@@ -1,0 +1,122 @@
+fileVersion: 1
+id: fe7a330b-5b5c-4d5c-9c9c-bfde3901b0f9
+name: VW_TEMP_GB_PAYMENT_PAYEE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_CLAIMS_ASTRUS_STAGE
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 981180d2-9646-4cf6-92f7-e23a31c55b68
+          stepCounter: fe7a330b-5b5c-4d5c-9c9c-bfde3901b0f9
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_TRANSACTION_PAYMENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f021e1d-8703-455b-b9f1-a1b637d97e7b
+                stepCounter: 5790a1f0-45f8-4e8c-8f47-3b7c7b411d51
+            transform: P.ACA_TRANSACTION_PAYMENT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c3198e38-9588-444f-bc72-132d0c24c2fd
+          stepCounter: fe7a330b-5b5c-4d5c-9c9c-bfde3901b0f9
+        config: {}
+        dataType: VARCHAR(12)
+        description: ""
+        name: PAYEE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 320d3f82-dd32-47ac-a16f-3105ab863774
+                stepCounter: 5790a1f0-45f8-4e8c-8f47-3b7c7b411d51
+            transform: |-
+              CASE P.PAYEE_NAME_FORMAT
+                  WHEN 'I' THEN 'INDIVIDUAL'
+                  WHEN 'O' THEN 'ORGANIZATION'
+                  ELSE NULL
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f7a20c4c-4235-4ed3-a9d0-0818314e7a79
+          stepCounter: fe7a330b-5b5c-4d5c-9c9c-bfde3901b0f9
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: PAYEE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 320d3f82-dd32-47ac-a16f-3105ab863774
+                stepCounter: 5790a1f0-45f8-4e8c-8f47-3b7c7b411d51
+              - columnCounter: f322f960-9d32-4e4b-bbca-b19b76e27161
+                stepCounter: 5790a1f0-45f8-4e8c-8f47-3b7c7b411d51
+              - columnCounter: 47970d4f-3de7-47b1-91a1-9a706599b5ed
+                stepCounter: 5790a1f0-45f8-4e8c-8f47-3b7c7b411d51
+              - columnCounter: 978912e7-573e-43f1-b4f0-b4da79b5c2d1
+                stepCounter: 5790a1f0-45f8-4e8c-8f47-3b7c7b411d51
+            transform: |-
+              CASE P.PAYEE_NAME_FORMAT
+                  WHEN 'I' THEN NULLIF(TRIM(CONCAT(P.PAYEE_FIRSTNAME, ' ', UDF_DECRYPT(P.PAYEE_LASTNAME_ENCRYPTED))), '')
+                  WHEN 'O' THEN UDF_DECRYPT(P.PAYEE_ORGANIZATION_NAME_ENCRYPTED)
+                  ELSE NULL
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b138c205-0219-4cdb-8777-66a9d20c57dd
+          stepCounter: fe7a330b-5b5c-4d5c-9c9c-bfde3901b0f9
+        config: {}
+        dataType: VARCHAR(16)
+        description: ""
+        name: IRS_TAX_IDENTIFICATION_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f82b8c9d-d652-4a0b-967a-1c5839c1b729
+                stepCounter: 5790a1f0-45f8-4e8c-8f47-3b7c7b411d51
+            transform: UDF_DECRYPT(P.PAYEE_IRS_TAX_IDENTIFICATION_NUMBER_ENCRYPTED)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_TRANSACTION_PAYMENT: P
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_TRANSACTION_PAYMENT
+          - locationName: DBSHIFT
+            nodeName: ACA_PAYMENT_TRANSACTION
+          - locationName: DBSHIFT
+            nodeName: ACA_SOURCE_SYSTEM
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'ACA_TRANSACTION_PAYMENT') }} AS P
+            WHERE P.ACA_DATE_UPDATED > (
+                SELECT COALESCE(MAX(T.ACA_DATE_UPDATED), '1776-07-04 00:00:00.000'::TIMESTAMP_NTZ)
+                FROM {{ ref('DBSHIFT', 'ACA_PAYMENT_TRANSACTION') }} AS T
+                WHERE T.ACA_SOURCE_SYSTEM_ID = (SELECT S.ACA_SOURCE_SYSTEM_ID FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} AS S WHERE S.SOURCE_SYSTEM = 'GB')
+            )
+        name: VW_TEMP_GB_PAYMENT_PAYEE
+        noLinkRefs: []
+  name: VW_TEMP_GB_PAYMENT_PAYEE
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
