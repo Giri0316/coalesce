@@ -1,0 +1,80 @@
+fileVersion: 1
+id: 56641bca-e6bd-4e89-8a8b-c6d9a5b3109a
+name: TEMP_ESIS_INCURRED_MAX_TRANSACTION_SEQUENCE_NUMBER
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97813a34-2e23-4414-874b-6101d2d0c2e3
+          stepCounter: 56641bca-e6bd-4e89-8a8b-c6d9a5b3109a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a6c4b2b3-547a-42e6-af87-ffc29792040b
+                stepCounter: 5930e16b-0720-410a-867c-941acb93b890
+            transform: T.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f35e985-7f41-4770-b186-b4356e3009ac
+          stepCounter: 56641bca-e6bd-4e89-8a8b-c6d9a5b3109a
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: MAX_TRANSACTION_SEQUENCE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d196e838-89c5-41e9-9742-c64603956322
+                stepCounter: 5930e16b-0720-410a-867c-941acb93b890
+            transform: MAX(T.TRANSACTION_SEQUENCE_NUMBER)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_EXPERIENCE_TRANSACTION
+          - locationName: DBSHIFT
+            nodeName: TEMP_ESIS_INCURRED_NEW_TRANSACTION
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'ACA_EXPERIENCE_TRANSACTION') }} AS T
+            INNER JOIN (
+              SELECT
+                SOURCE_SYSTEM_CLAIM_ID,
+                MIN(ACA_DATE_ID_TRANSACTION_DATE) AS ACA_DATE_ID_TRANSACTION_DATE
+              FROM {{ ref('DBSHIFT', 'TEMP_ESIS_INCURRED_NEW_TRANSACTION') }}
+              GROUP BY SOURCE_SYSTEM_CLAIM_ID
+            ) AS C
+            ON C.SOURCE_SYSTEM_CLAIM_ID = T.SOURCE_SYSTEM_CLAIM_ID
+            AND C.ACA_DATE_ID_TRANSACTION_DATE > T.ACA_DATE_ID_EXPERIENCE_TRANSACTION_DATE
+            GROUP BY T.SOURCE_SYSTEM_CLAIM_ID
+        name: TEMP_ESIS_INCURRED_MAX_TRANSACTION_SEQUENCE_NUMBER
+        noLinkRefs: []
+  name: TEMP_ESIS_INCURRED_MAX_TRANSACTION_SEQUENCE_NUMBER
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
