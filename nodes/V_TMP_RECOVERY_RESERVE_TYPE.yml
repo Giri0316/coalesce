@@ -1,0 +1,47 @@
+fileVersion: 1
+id: 59c68725-d083-4903-a1c0-03a113d07e76
+name: V_TMP_RECOVERY_RESERVE_TYPE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns: []
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: V_TMP_RECOVERY_PIVOT
+          - locationName: DBSHIFT
+            nodeName: ACA_RESERVE_TYPE_GB
+        join:
+          joinCondition: |-
+            SELECT
+              T1.UNIQUE_CLAIM_ID
+              ,RT.RESERVE_TYPE
+              ,T1.RECOVERY_AMOUNT
+            FROM {{ ref('DBSHIFT', 'V_TMP_RECOVERY_PIVOT') }} T1
+            INNER JOIN {{ ref('DBSHIFT', 'ACA_RESERVE_TYPE_GB') }} RT ON T1.CLASS = RT.CLASS_CODE AND T1.RESERVE_TYPE_COLUMN_NUMBER = RT.RESERVE_TYPE_COLUMN_NUMBER
+        name: V_TMP_RECOVERY_RESERVE_TYPE
+        noLinkRefs: []
+  name: V_TMP_RECOVERY_RESERVE_TYPE
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

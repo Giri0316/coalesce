@@ -1,0 +1,57 @@
+fileVersion: 1
+id: 59c68725-d083-4903-a1c0-03a113d07e33
+name: V_TMP_PAYMENT_PIVOT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns: []
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: V_TMP_PAYMENT_CURRENT
+        join:
+          joinCondition: |-
+            SELECT 
+             U.UNIQUE_CLAIM_ID
+            ,U.PAYMENT_AMOUNT
+            ,U.CLAIM_COVERAGE_CODE
+            ,U.CLASS
+            ,CASE WHEN U.PMT_COLUMN = 'RESERVE_AMT1' THEN 'col1'
+                  WHEN U.PMT_COLUMN = 'RESERVE_AMT2' THEN 'col2'
+                  WHEN U.PMT_COLUMN = 'RESERVE_AMT3' THEN 'col3'
+                  WHEN U.PMT_COLUMN = 'RESERVE_AMT4' THEN 'col4'
+                  WHEN U.PMT_COLUMN = 'RESERVE_AMT5' THEN 'col5'
+                  ELSE 'col6'
+                  END AS RESERVE_TYPE_COLUMN_NUMBER
+            FROM {{ ref('DBSHIFT', 'V_TMP_PAYMENT_CURRENT') }} PC
+            UNPIVOT
+            (
+              PAYMENT_AMOUNT
+              FOR PMT_COLUMN IN (RESERVE_AMT1, RESERVE_AMT2, RESERVE_AMT3, RESERVE_AMT4, RESERVE_AMT5, RESERVE_AMT6)
+            ) U
+        name: V_TMP_PAYMENT_PIVOT
+        noLinkRefs: []
+  name: V_TMP_PAYMENT_PIVOT
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,58 @@
+fileVersion: 1
+id: 59c68725-d083-4903-a1c0-03a113d07e98
+name: V_TMP_RECOVERY_CURRENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns: []
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_TRANSACTION_THIRD_PARTY_RECOVERY
+          - locationName: DBSHIFT
+            nodeName: ACA_COVERAGE_CODE
+        join:
+          joinCondition: |-
+            SELECT 
+            TP.UNIQUE_CLAIM_ID
+            ,TP.CLAIM_COVERAGE_CODE
+            ,ACC.CLASS
+            ,SUM(TP.RECOVERY_AMOUNT1) AS RECOVERY_AMOUNT1
+            ,SUM(TP.RECOVERY_AMOUNT2) AS RECOVERY_AMOUNT2
+            ,SUM(TP.RECOVERY_AMOUNT3) AS RECOVERY_AMOUNT3
+            ,SUM(TP.RECOVERY_AMOUNT4) AS RECOVERY_AMOUNT4
+            ,SUM(TP.RECOVERY_AMOUNT5) AS RECOVERY_AMOUNT5
+            ,SUM(TP.RECOVERY_AMOUNT6) AS RECOVERY_AMOUNT6
+            FROM {{ ref('DBSHIFT', 'ACA_TRANSACTION_THIRD_PARTY_RECOVERY') }} TP
+            LEFT OUTER JOIN {{ ref('DBSHIFT', 'ACA_COVERAGE_CODE') }} ACC ON TP.CLAIM_COVERAGE_CODE = ACC.CODE
+            WHERE TP.THIRD_PARTY_RECOVERY_TRANSACTION_DATE <= CURRENT_DATE()
+            GROUP BY 
+             TP.UNIQUE_CLAIM_ID
+            ,TP.CLAIM_COVERAGE_CODE
+            ,ACC.CLASS
+        name: V_TMP_RECOVERY_CURRENT
+        noLinkRefs: []
+  name: V_TMP_RECOVERY_CURRENT
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

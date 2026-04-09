@@ -1,0 +1,61 @@
+fileVersion: 1
+id: 59c68725-d083-4903-a1c0-03a113d07e77
+name: V_TMP_EXP_PIVOT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns: []
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: V_TMP_EXP_CURRENT
+          - locationName: DBSHIFT
+            nodeName: ACA_COVERAGE_CODE
+        join:
+          joinCondition: |-
+            SELECT 
+             U.UNIQUE_CLAIM_ID
+            ,U.EXPERIENCE_AMOUNT
+            ,U.CLAIM_COVERAGE_CODE
+            ,ACC.CLASS
+            ,U.TOTAL_EXPERIENCE
+            ,CASE WHEN U.EXPR_COLUMN = 'EXPERIENCE_AMOUNT1' THEN 'col1'
+                  WHEN U.EXPR_COLUMN = 'EXPERIENCE_AMOUNT2' THEN 'col2'
+                  WHEN U.EXPR_COLUMN = 'EXPERIENCE_AMOUNT3' THEN 'col3'
+                  WHEN U.EXPR_COLUMN = 'EXPERIENCE_AMOUNT4' THEN 'col4'
+                  WHEN U.EXPR_COLUMN = 'EXPERIENCE_AMOUNT5' THEN 'col5'
+                  ELSE 'col6'
+                  END AS RESERVE_TYPE_COLUMN_NUMBER
+            FROM {{ ref('DBSHIFT', 'V_TMP_EXP_CURRENT') }} EC
+            LEFT OUTER JOIN {{ ref('DBSHIFT', 'ACA_COVERAGE_CODE') }} ACC ON EC.CLAIM_COVERAGE_CODE = ACC.CODE
+            UNPIVOT
+            (
+              EXPERIENCE_AMOUNT
+              FOR EXPR_COLUMN IN (EXPERIENCE_AMOUNT1, EXPERIENCE_AMOUNT2, EXPERIENCE_AMOUNT3, EXPERIENCE_AMOUNT4, EXPERIENCE_AMOUNT5, EXPERIENCE_AMOUNT6)
+            ) U
+        name: V_TMP_EXP_PIVOT
+        noLinkRefs: []
+  name: V_TMP_EXP_PIVOT
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

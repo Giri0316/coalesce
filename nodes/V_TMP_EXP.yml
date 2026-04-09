@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 59c68725-d083-4903-a1c0-03a113d07e55
+name: V_TMP_EXP
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns: []
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: V_TMP_EXP_RESERVE_TYPE
+        join:
+          joinCondition: |-
+            SELECT
+              UNIQUE_CLAIM_ID
+            ,IFNULL("'B. I.'",0.00) AS INCD_BI
+            ,IFNULL(COLLISION,0.00) AS INCD_COLLISION
+            ,IFNULL(COMP,0.00) AS INCD_COMP
+            ,IFNULL(EXPENSE,0.00) AS INCD_EXPENSE
+            ,IFNULL(INDEMNITY,0.00) AS INCD_INDEMNITY
+            ,IFNULL(MEDICAL,0.00) AS INCD_MEDICAL
+            ,IFNULL("'P. D.'",0.00) AS INCD_PD
+            ,IFNULL(REHAB,0.00) AS INCD_REHAB
+            ,ANY_VALUE(TOTAL_EXPERIENCE) as TOTAL_EXPERIENCE
+            FROM {{ ref('DBSHIFT', 'V_TMP_EXP_RESERVE_TYPE') }} T1
+            PIVOT (SUM(EXPERIENCE_AMOUNT)
+            FOR RESERVE_TYPE IN('B. I.','BUILDING','COLLISION','COMP','CONTENTS','EXPENSE','EXTD. COVG.','INDEMNITY','LOSS','MEDICAL','P. D.','REHAB','V & M.M.','WAGE LOSS','Zero (0)'))
+            GROUP BY UNIQUE_CLAIM_ID
+        name: V_TMP_EXP
+        noLinkRefs: []
+  name: V_TMP_EXP
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

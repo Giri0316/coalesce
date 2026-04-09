@@ -1,0 +1,220 @@
+fileVersion: 1
+id: d769c0d2-972c-4740-9830-1c3905c1d684
+name: RPT_ACA_LOSS_RUN_SUMMARY_HISTORY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ANALYTICS
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2b2c95-88f0-461d-9e6b-a2eb9195b45c
+          stepCounter: d769c0d2-972c-4740-9830-1c3905c1d684
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: CLM_VLD_DT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_DATE()
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e5050f2-7729-450b-806b-74e921d23bfa
+          stepCounter: d769c0d2-972c-4740-9830-1c3905c1d684
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: CLM_TRANS_DT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2f7335d2-f67b-402f-b4de-c840c436d418
+                stepCounter: 610f4492-d352-4752-9b24-b17b6a67f9e8
+            transform: C.TRANSACTION_DATE
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97818e61-a02b-4171-ac91-91a0f9b6c934
+          stepCounter: d769c0d2-972c-4740-9830-1c3905c1d684
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLIENT_NUM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a6c4b2b6-03f4-41d5-b0b9-50965d70fcf1
+                stepCounter: 610f4492-d352-4752-9b24-b17b6a67f9e8
+            transform: C.CLIENT_NUMBER
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ab4173d1-4e4b-4f93-b600-8334460f6ac9
+          stepCounter: d769c0d2-972c-4740-9830-1c3905c1d684
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACCID_YEAR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f3c5f49-598d-4e92-a162-dd0923d249f8
+                stepCounter: 610f4492-d352-4752-9b24-b17b6a67f9e8
+            transform: C.ACCIDENT_YEAR
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f31f417e-7c2a-464a-93f5-6544976451e2
+          stepCounter: d769c0d2-972c-4740-9830-1c3905c1d684
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: UNITNAME_4
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7e7a8581-2244-4b5c-897d-6063f2518e1d
+                stepCounter: 59c25626-d34e-4e42-995b-014522a5ac9c
+            transform: C.UNIT_NAME_4
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97818e61-a02b-4171-ac91-91a0f9b6c935
+          stepCounter: d769c0d2-972c-4740-9830-1c3905c1d684
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: UNITNAME_3
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7e7a8581-2244-4b5c-897d-6063f2518e1d
+                stepCounter: 59c25626-d34e-4e42-995b-014522a5ac9c
+            transform: PD3.UNIT_NAME
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ab4173d1-4e4b-4f93-b600-8334460f6ac0
+          stepCounter: d769c0d2-972c-4740-9830-1c3905c1d684
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: UNITNAME_2
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7e7a8581-2244-4b5c-897d-6063f2518e1d
+                stepCounter: 59c25626-d34e-4e42-995b-014522a5ac9c
+            transform: PD2.UNIT_NAME
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f31f417e-7c2a-464a-93f5-6544976451e3
+          stepCounter: d769c0d2-972c-4740-9830-1c3905c1d684
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLAIM_NUM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3a284c4a-874e-4f3b-9a4f-59e5192c72b2
+                stepCounter: 610f4492-d352-4752-9b24-b17b6a67f9e8
+            transform: C.UNIQUE_CLAIM_ID
+        transform: ""
+        uniqueKey: false
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          RPT_ACA_LOSS_RUN_SUMMARY_HISTORY: C
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: V_TMP_CLAIM_CURRENT
+          - locationName: DBSHIFT
+            nodeName: V_TMP_EXP
+          - locationName: DBSHIFT
+            nodeName: V_TMP_PAYMENT
+          - locationName: DBSHIFT
+            nodeName: V_TMP_RECOVERY
+          - locationName: DBSHIFT
+            nodeName: ACA_PYRAMID
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'V_TMP_CLAIM_CURRENT') }} C
+            LEFT OUTER JOIN {{ ref('DBSHIFT', 'V_TMP_EXP') }} E ON C.UNIQUE_CLAIM_ID = E.UNIQUE_CLAIM_ID
+            LEFT OUTER JOIN {{ ref('DBSHIFT', 'V_TMP_PAYMENT') }} P ON C.UNIQUE_CLAIM_ID = P.UNIQUE_CLAIM_ID
+            LEFT OUTER JOIN {{ ref('DBSHIFT', 'V_TMP_RECOVERY') }} R ON C.UNIQUE_CLAIM_ID = R.UNIQUE_CLAIM_ID
+            LEFT OUTER JOIN {{ ref('DBSHIFT', 'ACA_PYRAMID') }} PD2 ON C.LEVEL_2 = PD2.INSURED AND PD2.LEVEL = '02' AND C.CLIENT_NUMBER = PD2.CLIENT
+            LEFT OUTER JOIN {{ ref('DBSHIFT', 'ACA_PYRAMID') }} PD3 ON C.LEVEL_3 = PD3.SUBSIDIARY AND PD3.LEVEL = '03' AND C.CLIENT_NUMBER = PD3.CLIENT
+        name: RPT_ACA_LOSS_RUN_SUMMARY_HISTORY
+        noLinkRefs: []
+  name: RPT_ACA_LOSS_RUN_SUMMARY_HISTORY
+  overrideSQL: false
+  schema: CORE
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

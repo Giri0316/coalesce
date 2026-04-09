@@ -1,0 +1,54 @@
+fileVersion: 1
+id: c5d6b8b0-5883-4a64-923f-e053a4794833
+name: ACA_ACCIDENT_TYPE_CODE
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97818e61-a02b-4171-ac91-91a0f9b6c934
+          stepCounter: c5d6b8b0-5883-4a64-923f-e053a4794833
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: TYPE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e5050f2-7729-450b-806b-74e921d23bfa
+          stepCounter: c5d6b8b0-5883-4a64-923f-e053a4794833
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DESCRIPTION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_ACCIDENT_TYPE_CODE
+  schema: REF
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
