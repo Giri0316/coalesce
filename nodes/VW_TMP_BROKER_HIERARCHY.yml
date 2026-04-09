@@ -1,0 +1,102 @@
+fileVersion: 1
+id: 5c9d0e1f-2a3b-4c4d-5e6f-7a8b9c0d1e2f
+name: VW_TMP_BROKER_HIERARCHY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1d2e3f4a-7b8c-4d9e-0f1a-2b3c4d5e6f7a
+          stepCounter: 5c9d0e1f-2a3b-4c4d-5e6f-7a8b9c0d1e2f
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: PARENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1b2c3d4e-5f6a-4b7c-8d9e-0f1a2b3c4d5e
+                stepCounter: 3a7b8c9d-0e1f-4a2b-3c4d-5e6f7a8b9c0d
+            transform: U.PARENT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2e3f4a5b-8c9d-4e0f-1a2b-3c4d5e6f7a8b
+          stepCounter: 5c9d0e1f-2a3b-4c4d-5e6f-7a8b9c0d1e2f
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: MEMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2c3d4e5f-6a7b-4c8d-9e0f-1a2b3c4d5e6f
+                stepCounter: 3a7b8c9d-0e1f-4a2b-3c4d-5e6f7a8b9c0d
+            transform: U.MEMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3f4a5b6c-9d0e-4f1a-2b3c-4d5e6f7a8b9c
+          stepCounter: 5c9d0e1f-2a3b-4c4d-5e6f-7a8b9c0d1e2f
+        config: {}
+        dataType: INT
+        description: ""
+        name: GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3d4e5f6a-7b8c-4d9e-0f1a-2b3c4d5e6f7a
+                stepCounter: 3a7b8c9d-0e1f-4a2b-3c4d-5e6f7a8b9c0d
+            transform: U.GROUP_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a5b6c7d-0e1f-4a2b-3c4d-5e6f7a8b9c0d
+          stepCounter: 5c9d0e1f-2a3b-4c4d-5e6f-7a8b9c0d1e2f
+        config: {}
+        dataType: INT
+        description: ""
+        name: SORT_ORDER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4e5f6a7b-8c9d-4e0f-1a2b-3c4d5e6f7a8b
+                stepCounter: 3a7b8c9d-0e1f-4a2b-3c4d-5e6f7a8b9c0d
+            transform: U.SORT_ORDER
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: VW_BROKER_HIERARCHY_PARENTS
+          - locationName: DBSHIFT
+            nodeName: VW_BROKER_HIERARCHY_MEMBERS
+        join:
+          joinCondition: |-
+            FROM (
+              SELECT PARENT, MEMBER, GROUP_ID, SORT_ORDER FROM {{ ref('DBSHIFT', 'VW_BROKER_HIERARCHY_PARENTS') }}
+              UNION ALL
+              SELECT PARENT, MEMBER, GROUP_ID, SORT_ORDER FROM {{ ref('DBSHIFT', 'VW_BROKER_HIERARCHY_MEMBERS') }}
+            ) "U"
+        name: VW_TMP_BROKER_HIERARCHY
+        noLinkRefs: []
+  name: VW_TMP_BROKER_HIERARCHY
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
