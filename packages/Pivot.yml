@@ -1,0 +1,28 @@
+config:
+  entities:
+    nodeTypes:
+      "399":
+        defaultStorageLocation: null
+        isDisabled: false
+      "404":
+        defaultStorageLocation: null
+        isDisabled: false
+      "409":
+        defaultStorageLocation: null
+        isDisabled: false
+      "410":
+        defaultStorageLocation: null
+        isDisabled: false
+      "459":
+        defaultStorageLocation: null
+        isDisabled: false
+      "586":
+        defaultStorageLocation: null
+        isDisabled: false
+  packageVariables: ""
+fileVersion: 1
+id: "@coalesce/snowflake/functional-node-types"
+name: Pivot
+packageID: "@coalesce/snowflake/functional-node-types"
+releaseID: 40b42ef2-7d05-4479-aaf9-5139553799b6
+type: Package
