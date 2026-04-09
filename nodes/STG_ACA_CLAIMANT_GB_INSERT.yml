@@ -1,0 +1,494 @@
+fileVersion: 1
+id: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+name: STG_ACA_CLAIMANT_GB_INSERT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a48d88e-6709-40fe-8f81-432d52579122
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_CLAIMANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b13c9a63-4c6e-41f2-8951-e3725b822d5b
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.SOURCE_SYSTEM_CLAIMANT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6377e8e7-38e2-45e8-b7ca-a0f1246d6bfe
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_EMPLOYMENT_STATUS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3a9a7977-628b-4a55-89b5-4125b0fc4628
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.ACA_EMPLOYMENT_STATUS_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6363b469-80ac-4b08-8e6f-dd9093ed2a6d
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_MARITAL_STATUS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 421de408-2e0f-4889-8086-5381a17937ca
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.ACA_MARITAL_STATUS_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c134f71a-289b-4402-bb03-c35f6a95e263
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIMANT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8251e065-5de6-4b68-80f0-c515a80572e5
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.CLAIMANT_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1320df6-a67b-40fa-80b6-193496b6c039
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARBINARY
+        description: ""
+        name: CLAIMANT_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1a49ab5-73f1-4682-96c9-e77a11c0022d
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.CLAIMANT_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a9f028b-b72e-4b47-b847-f529f7f45719
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARBINARY
+        description: ""
+        name: LAST_NAME_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4f4f5f59-38b8-4c37-9759-6799540b7931
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.LAST_NAME_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9811f0d3-37a5-430b-9363-2287950c413b
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARBINARY
+        description: ""
+        name: FIRST_NAME_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d66938a-1a35-46f0-a3e9-0268ecf75841
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.FIRST_NAME_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a63459c2-5527-4416-a36c-9473b1eb728f
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARBINARY
+        description: ""
+        name: ORGANIZATION_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3c1b854a-579d-4725-b461-9f2681533159
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.ORGANIZATION_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6bb8bb8f-e9f0-4660-8f92-564580214a4c
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARBINARY
+        description: ""
+        name: ADDRESS_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1eb42ef-00a4-4cc4-aa0f-b25dd3543d2c
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.ADDRESS_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c8223c6b-8b5e-49b9-ac5d-6c17e33501a3
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: df7d7f78-b131-41ee-b6e9-2f56a634eb60
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.CITY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f568a9b-75c1-4b14-8f2e-e4a06cd82470
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0461f67f-4424-4f51-b847-a8a29631b52a
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.STATE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d3c906a-ff2c-4860-84e0-94d0a9277d33
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 39a4891b-4cf7-4f65-ac61-2dd676a084c8
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.COUNTRY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 60b299e9-11ba-47a3-82ef-d5f0e1f74ec6
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ZIP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b70b021d-9104-44ac-9705-eb8b408103c8
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.ZIP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c147f20e-6f7f-4b0e-859a-f43c3f8e5610
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: INT
+        description: ""
+        name: AGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a73e6da-52e0-496a-a226-764027781b0f
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.AGE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd69a84a-38a3-488b-a82f-22fefb76b2c6
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GENDER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f2818f15-9c59-42b7-8495-2c813c988a2c
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.GENDER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: caa1c220-3051-404c-8ab8-16e6d1a938ea
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARBINARY
+        description: ""
+        name: SSN_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: edc6287c-e092-421b-85d7-b3524823abf6
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.SSN_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 337e738c-8f9f-4315-ae7d-2b47596a5d4d
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: DECIMAL
+        description: ""
+        name: AVERAGE_WEEKLY_WAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5b746351-4081-4355-be23-f3655df082a5
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.AVERAGE_WEEKLY_WAGE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c14936d8-65fe-4f96-af03-f09c7eb4620f
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NCCI_JOB_CLASSIFICATION_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32a03d09-b63d-4c57-8d07-a0680a65345a
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.NCCI_JOB_CLASSIFICATION_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ff34d284-90a6-424b-a7f4-d2e8dd7a530f
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: INT
+        description: ""
+        name: LENGTH_OF_SERVICE_IN_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d19b788-b2a0-4886-b485-61876e488da1
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.LENGTH_OF_SERVICE_IN_YEAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e82d790d-2a8d-4ebc-8067-d6ec7a810593
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARBINARY
+        description: ""
+        name: PHONE_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 486a4387-54c3-4d4b-9759-4e788e0b6b23
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.PHONE_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3d0d6c4-118c-4a1e-8fdc-37651c6b5b94
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: DATE
+        description: ""
+        name: HIRE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cb40f95c-7d9a-4fd9-ae82-f5429188d3e9
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.HIRE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f229c1d-1149-4395-ac82-a0e104193d5a
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYMENT_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b13c4c9e-52f0-4318-ab93-d2d89b35ed88
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.EMPLOYMENT_STATUS_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eb86c673-c603-4c90-8e10-4ed37b2d5f0e
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYMENT_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b7e28b1-3843-41bb-a720-333e387c3b9b
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.EMPLOYMENT_STATUS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d364b18c-7f5b-43d8-a128-6d80ff01c6f9
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: DATE
+        description: ""
+        name: BIRTH_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b577732a-7e3f-42e6-a006-25807907530c
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.BIRTH_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1d6368d9-35ed-4e2b-b5d1-abf6a0058e0a
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MARITAL_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 37f5b13e-a34f-4d33-a3d1-abf317b1b365
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.MARITAL_STATUS_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d7211a7-1725-4c28-bbcd-4091d37acb70
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MARITAL_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 52a13b6f-4318-472d-868d-8c10527375a0
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.MARITAL_STATUS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d535e61-a068-45be-8456-e97d191ca7f2
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OCCUPATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b13c6b24-b1c0-4375-b9b5-7764f6918d36
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.OCCUPATION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a73e6da-1c60-466a-b286-9a250559a47a
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYEE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2f74c831-50e5-4759-8692-23c21c7e108d
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.EMPLOYEE_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 153a79d9-c088-444a-a035-71cc5e783422
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 93457199-6f91-49fa-946f-c67299a9b1c7
+                stepCounter: 569e5593-3d77-448f-aa6a-20072b226e64
+            transform: B.ACA_SOURCE_SYSTEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a63d4eb1-c42b-426c-85a7-9fd55c56c2f5
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACA_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 57404e3b-b235-4303-9118-8d070b42f9b8
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_CREATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'dbo.spaca_aca_claimant_gb_insertUpdate'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2b60de-b461-4564-88ab-f6b0b5de2899
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACA_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4867c473-b78f-4ed7-bb37-2936a2879a95
+          stepCounter: 3c5e0e0a-0158-4727-b778-5a21e0eb7633
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'dbo.spaca_aca_claimant_gb_insertUpdate'"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_CLAIMANT_STAGING_GB: b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_CLAIMANT_STAGING_GB
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_CLAIMANT_STAGING_GB') }} "b"
+        name: STG_ACA_CLAIMANT_GB_INSERT
+        noLinkRefs: []
+  name: STG_ACA_CLAIMANT_GB_INSERT
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
