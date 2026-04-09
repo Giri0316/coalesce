@@ -1,0 +1,8 @@
+fileVersion: 1
+id: "39"
+mappingDefinitions:
+  SRC:
+    database: WORKFLOW_CHECK
+    schema: CHECK_1
+name: WorkFlow_1
+type: Environment
