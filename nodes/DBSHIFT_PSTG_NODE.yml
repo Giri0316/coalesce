@@ -1,0 +1,183 @@
+fileVersion: 1
+id: 59a95721-6d9b-439f-a42e-15104a37397b
+name: DBSHIFT_PSTG_NODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+      USE DATABASE ALLIANT_CLAIMS_ASTRUS_STAGE;
+
+      UPDATE ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_CONTROL_PACKAGE_DATE_SOURCE_TABLE TGT
+      SET
+          loaded_flag = 1,
+          inserted_record_count = -1, -- Placeholder for dynamic @@ROWCOUNT from procedural logic
+          aca_date_updated = CURRENT_TIMESTAMP(),
+          aca_update_user = 'dbo.spaca_aca_control_package_date_source_table_update'
+      FROM (
+          SELECT dt.aca_control_package_date_source_table_id
+          FROM ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_CONTROL_PACKAGE_DATE AS d
+          INNER JOIN ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_CONTROL_PACKAGE_DATE_SOURCE_TABLE AS dt
+              ON dt.aca_control_package_date_id = d.aca_control_package_date_id
+          INNER JOIN ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_CONTROL_PACKAGE_SOURCE_TABLE AS t
+              ON t.aca_control_package_source_table_id = dt.aca_control_package_source_table_id
+          WHERE dt.loaded_flag = 0
+      ) AS SRC
+      WHERE TGT.aca_control_package_date_source_table_id = SRC.aca_control_package_date_source_table_id;
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: ALLIANT_CLAIMS_ASTRUS_STAGE
+  deployEnabled: true
+  description: UPDATE-only conversion of spaca_aca_control_package_date_source_table_update
+    due to procedural cursor logic.
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32626e2a-1c7b-40b4-9c59-86a03126f555
+          stepCounter: 59a95721-6d9b-439f-a42e-15104a37397b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_CONTROL_PACKAGE_DATE_SOURCE_TABLE_ID
+        nullable: true
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2f7678-c1a6-43f1-b1e7-e43501a3f65e
+          stepCounter: 59a95721-6d9b-439f-a42e-15104a37397b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_CONTROL_PACKAGE_DATE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 47b95a8f-0361-4608-8e68-4a5f4a7c0f13
+          stepCounter: 59a95721-6d9b-439f-a42e-15104a37397b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_CONTROL_PACKAGE_SOURCE_TABLE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b06d4e5-9f5b-4de0-8e1c-b472093e9619
+          stepCounter: 59a95721-6d9b-439f-a42e-15104a37397b
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: LOADED_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 574ef0d9-b59a-4c92-9a00-349f993d56b0
+          stepCounter: 59a95721-6d9b-439f-a42e-15104a37397b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: INSERTED_RECORD_COUNT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: eea7f58f-b529-4dd5-950c-d49d44391e4a
+          stepCounter: 59a95721-6d9b-439f-a42e-15104a37397b
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: ACA_DATE_UPDATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a634d587-c71c-4b68-b7a4-3156230f3a61
+          stepCounter: 59a95721-6d9b-439f-a42e-15104a37397b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: ACA_UPDATE_USER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping: []
+  name: DBSHIFT_PSTG_NODE
+  overrideSQL: false
+  schema: DBO
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node
