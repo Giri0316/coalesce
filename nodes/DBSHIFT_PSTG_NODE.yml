@@ -1,58 +1,27 @@
 fileVersion: 1
-id: 54b423f5-7d87-43c2-841f-8255b719463b
+id: 54b41398-38c6-4e55-89f4-187515320e6a
 name: DBSHIFT_PSTG_NODE
 operation:
   config:
     insertStrategy: INSERT
     postSQL: ""
     preSQL: |-
-      USE DATABASE ALLIANT_CLAIMS_ASTRUS;
       BEGIN
-          -- Check if there are any transactions to delete based on the original procedure's logic
-          LET row_count INT := (
-              SELECT COUNT(1)
-              FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_TRANSACTION_HEADER AS th
-              INNER JOIN ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_TRANSACTION_HEADER_STAGING AS ths 
-                  ON th.ACTIVITY_FROM_DATE = ths.ACTIVITY_FROM_DATE
-          );
-
-          IF (row_count > 0) THEN
-              -- delete rows from dbo.aca_transaction_header
-              DELETE FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_TRANSACTION_HEADER AS th
-              USING ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_TRANSACTION_HEADER_STAGING AS ths
-              WHERE th.ACTIVITY_FROM_DATE = ths.ACTIVITY_FROM_DATE;
-
-              -- delete rows from dbo.aca_transaction_claim
-              DELETE FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_TRANSACTION_CLAIM AS tc
-              USING ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_TRANSACTION_HEADER_STAGING AS ths
-              WHERE tc.TRANSACTION_DATE = ths.ACTIVITY_FROM_DATE;
-
-              -- delete rows from dbo.aca_transaction_excess	
-              DELETE FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_TRANSACTION_EXCESS AS te
-              USING ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_TRANSACTION_HEADER_STAGING AS ths
-              WHERE te.EXCESS_TRANSACTION_DATE = ths.ACTIVITY_FROM_DATE;
-
-              -- delete rows from dbo.aca_transaction_experience
-              DELETE FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_TRANSACTION_EXPERIENCE AS te
-              USING ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_TRANSACTION_HEADER_STAGING AS ths
-              WHERE te.EXPERIENCE_TRANSACTION_DATE = ths.ACTIVITY_FROM_DATE;
-
-              -- delete rows from dbo.aca_transaction_payment
-              DELETE FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_TRANSACTION_PAYMENT AS tp
-              USING ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_TRANSACTION_HEADER_STAGING AS ths
-              WHERE tp.PAYMENT_TRANSACTION_DATE = ths.ACTIVITY_FROM_DATE;
-
-              -- delete rows from aca_transaction_third_party_recovery
-              DELETE FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_TRANSACTION_THIRD_PARTY_RECOVERY AS ttpr
-              USING ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_TRANSACTION_HEADER_STAGING AS ths
-              WHERE ttpr.THIRD_PARTY_RECOVERY_TRANSACTION_DATE = ths.ACTIVITY_FROM_DATE;
-          END IF;
+        UPDATE ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIM ac
+        SET 
+            deleted_date = edc.delete_date,
+            deleted_flag = 'Y',
+            aca_update_user = 'spaca_aca_claim_esis_update_deleted_flag',
+            aca_date_updated = CURRENT_TIMESTAMP()
+        FROM ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_DELETED_CLAIM_STAGING_ESIS edc
+        WHERE ac.source_system_claim_id = edc.source_system_claim_id 
+          AND ac.aca_source_system_id = edc.aca_source_system_id;
       END;
     testsEnabled: true
     truncateBefore: false
-  database: DBSHIFT
+  database: ALLIANT_CLAIMS_ASTRUS
   deployEnabled: true
-  description: DELETE-only conversion of spaca_aca_astrus_transaction_delete
+  description: ""
   isMultisource: false
   locationName: DBSHIFT
   materializationType: table
@@ -61,8 +30,87 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 97818e6c-0e78-4a11-85e8-5b4d96a7d7ac
-          stepCounter: 54b423f5-7d87-43c2-841f-8255b719463b
+          columnCounter: b5efb0e6-5883-42e7-8b01-5d9c22e03882
+          stepCounter: 54b41398-38c6-4e55-89f4-187515320e6a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DBSHIFT_PSTG_NODE_KEY
+        nullable: true
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: UUID_STRING()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b2d12e6-990a-48d1-9f93-b0df59c38173
+          stepCounter: 54b41398-38c6-4e55-89f4-187515320e6a
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: "1"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 544a0b27-c812-4c2f-b4de-c8430e6cc462
+          stepCounter: 54b41398-38c6-4e55-89f4-187515320e6a
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: "TRUE"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a13143c-6874-4b58-a5b8-5c024564c718
+          stepCounter: 54b41398-38c6-4e55-89f4-187515320e6a
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b068800-47b7-4c07-b673-c6c7b952c1e8
+          stepCounter: 54b41398-38c6-4e55-89f4-187515320e6a
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e01fd05b-b9f4-41d3-9f20-b30f8c85cd9c
+          stepCounter: 54b41398-38c6-4e55-89f4-187515320e6a
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 933827d0-1a74-41c4-89d2-5f65f0535e5d
+          stepCounter: 54b41398-38c6-4e55-89f4-187515320e6a
         config: {}
         dataType: TIMESTAMP_NTZ
         description: ""
@@ -71,14 +119,14 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: ""
-        transform: CURRENT_TIMESTAMP()
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping: []
   name: DBSHIFT_PSTG_NODE
   overrideSQL: false
-  schema: PERSISTENT
-  sqlType: persistentStage
+  schema: DBO
+  sqlType: Stage
   type: sql
   version: 1
 type: Node
