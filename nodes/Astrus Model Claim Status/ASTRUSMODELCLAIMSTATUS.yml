@@ -1,0 +1,208 @@
+fileVersion: 1
+id: 4d9fb1d3-4f5a-4b6c-7d8e-9f0b1c2d3e4d
+name: ASTRUSMODELCLAIMSTATUS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5ea0c2e4-5a6b-4c7d-8e9f-0b1c2d3e4f5e
+          stepCounter: 4d9fb1d3-4f5a-4b6c-7d8e-9f0b1c2d3e4d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a05f7e9f-0b1c-4d2e-3f4a-5b6c7d8e9f0a
+                stepCounter: 9e4f6d8e-9a0b-4c1d-2e3f-4a5b6c7d8e9f
+            transform: U.ACA_CLAIM_ID
+          - columnReferences:
+              - columnCounter: 1a6d8ea0-1c2d-4e3f-4a5b-6c7d8e9f0b1c
+                stepCounter: 0f5c7d9f-0b1c-4d2e-3f4a-5b6c7d8e9f0b
+            transform: U.ACA_CLAIM_ID
+          - columnReferences:
+              - columnCounter: 2b7e9fb1-2d3e-4f4a-5b6c-7d8e9f0b1c2e
+                stepCounter: 1a6d8ea0-1c2d-4e3f-4a5b-6c7d8e9f0b1d
+            transform: U.ACA_CLAIM_ID
+          - columnReferences:
+              - columnCounter: 3c8fa0c2-3e4f-4a5b-6c7d-8e9f0b1c2d40
+                stepCounter: 2b7e9fb1-2d3e-4f4a-5b6c-7d8e9f0b1c2f
+            transform: U.ACA_CLAIM_ID
+          - columnReferences:
+              - columnCounter: 4d9fb1d3-4f5a-4b6c-7d8e-9f0b1c2d3e4c
+                stepCounter: 3c8fa0c2-3e4f-4a5b-6c7d-8e9f0b1c2d41
+            transform: U.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6fb1d3f5-6b7c-4d8e-9f0a-1b2c3d4e5f6f
+          stepCounter: 4d9fb1d3-4f5a-4b6c-7d8e-9f0b1c2d3e4d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ACA_DATE_ID_SOURCE_SYSTEM_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b16f8f0a-1c2d-4e3f-4a5b-6c7d8e9f0a1b
+                stepCounter: 9e4f6d8e-9a0b-4c1d-2e3f-4a5b6c7d8e9f
+            transform: U.ACA_DATE_ID_SOURCE_SYSTEM_TRANSACTION_DATE
+          - columnReferences:
+              - columnCounter: 2b7e9fb1-2d3e-4f4a-5b6c-7d8e9f0b1c2d
+                stepCounter: 0f5c7d9f-0b1c-4d2e-3f4a-5b6c7d8e9f0b
+            transform: U.ACA_DATE_ID_SOURCE_SYSTEM_TRANSACTION_DATE
+          - columnReferences:
+              - columnCounter: 3c8fa0c2-3e4f-4a5b-6c7d-8e9f0b1c2d3f
+                stepCounter: 1a6d8ea0-1c2d-4e3f-4a5b-6c7d8e9f0b1d
+            transform: U.ACA_DATE_ID_SOURCE_SYSTEM_TRANSACTION_DATE
+          - columnReferences:
+              - columnCounter: 4d9fb1d3-4f5a-4b6c-7d8e-9f0b1c2d3e4b
+                stepCounter: 2b7e9fb1-2d3e-4f4a-5b6c-7d8e9f0b1c2f
+            transform: U.ACA_DATE_ID_SOURCE_SYSTEM_TRANSACTION_DATE
+          - columnReferences:
+              - columnCounter: 5ea0c2e4-5a6b-4c7d-8e9f-0b1c2d3e4f5d
+                stepCounter: 3c8fa0c2-3e4f-4a5b-6c7d-8e9f0b1c2d41
+            transform: U.ACA_DATE_ID_SOURCE_SYSTEM_TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7ac2e406-7c8d-4e9f-a01b-2c3d4e5f6a80
+          stepCounter: 4d9fb1d3-4f5a-4b6c-7d8e-9f0b1c2d3e4d
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SOURCE_SYSTEM_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c27f9a1b-2d3e-4f4a-5b6c-7d8e9f0a1b2c
+                stepCounter: 9e4f6d8e-9a0b-4c1d-2e3f-4a5b6c7d8e9f
+            transform: U.SOURCE_SYSTEM_TRANSACTION_DATE
+          - columnReferences:
+              - columnCounter: 3c8fa0c2-3e4f-4a5b-6c7d-8e9f0b1c2d3e
+                stepCounter: 0f5c7d9f-0b1c-4d2e-3f4a-5b6c7d8e9f0b
+            transform: U.SOURCE_SYSTEM_TRANSACTION_DATE
+          - columnReferences:
+              - columnCounter: 4d9fb1d3-4f5a-4b6c-7d8e-9f0b1c2d3e4a
+                stepCounter: 1a6d8ea0-1c2d-4e3f-4a5b-6c7d8e9f0b1d
+            transform: U.SOURCE_SYSTEM_TRANSACTION_DATE
+          - columnReferences:
+              - columnCounter: 5ea0c2e4-5a6b-4c7d-8e9f-0b1c2d3e4f5c
+                stepCounter: 2b7e9fb1-2d3e-4f4a-5b6c-7d8e9f0b1c2f
+            transform: U.SOURCE_SYSTEM_TRANSACTION_DATE
+          - columnReferences:
+              - columnCounter: 6fb1d3f5-6b7c-4d8e-9f0a-1b2c3d4e5f6e
+                stepCounter: 3c8fa0c2-3e4f-4a5b-6c7d-8e9f0b1c2d41
+            transform: U.SOURCE_SYSTEM_TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8bd3f517-8d9e-4fa0-b12c-3d4e5f6a7b81
+          stepCounter: 4d9fb1d3-4f5a-4b6c-7d8e-9f0b1c2d3e4d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d38fa2c-3e4f-4a5b-6c7d-8e9f0a1b2c3d
+                stepCounter: 9e4f6d8e-9a0b-4c1d-2e3f-4a5b6c7d8e9f
+            transform: U.CLAIM_STATUS_CODE
+          - columnReferences:
+              - columnCounter: 4d9fb1d3-4f5a-4b6c-7d8e-9f0b1c2d3e4f
+                stepCounter: 0f5c7d9f-0b1c-4d2e-3f4a-5b6c7d8e9f0b
+            transform: U.CLAIM_STATUS_CODE
+          - columnReferences:
+              - columnCounter: 5ea0c2e4-5a6b-4c7d-8e9f-0b1c2d3e4f5b
+                stepCounter: 1a6d8ea0-1c2d-4e3f-4a5b-6c7d8e9f0b1d
+            transform: U.CLAIM_STATUS_CODE
+          - columnReferences:
+              - columnCounter: 6fb1d3f5-6b7c-4d8e-9f0a-1b2c3d4e5f6d
+                stepCounter: 2b7e9fb1-2d3e-4f4a-5b6c-7d8e9f0b1c2f
+            transform: U.CLAIM_STATUS_CODE
+          - columnReferences:
+              - columnCounter: 7ac2e406-7c8d-4e9f-a01b-2c3d4e5f6a7f
+                stepCounter: 3c8fa0c2-3e4f-4a5b-6c7d-8e9f0b1c2d41
+            transform: U.CLAIM_STATUS_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9ce40628-9ea0-4fb1-c23d-4e5f6a7b8c92
+          stepCounter: 4d9fb1d3-4f5a-4b6c-7d8e-9f0b1c2d3e4d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e49fb3d-4f5a-4b6c-7d8e-9f0a1b2c3d4e
+                stepCounter: 9e4f6d8e-9a0b-4c1d-2e3f-4a5b6c7d8e9f
+            transform: U.CLAIM_STATUS
+          - columnReferences:
+              - columnCounter: 5ea0c2e4-5a6b-4c7d-8e9f-0b1c2d3e4f5a
+                stepCounter: 0f5c7d9f-0b1c-4d2e-3f4a-5b6c7d8e9f0b
+            transform: U.CLAIM_STATUS
+          - columnReferences:
+              - columnCounter: 6fb1d3f5-6b7c-4d8e-9f0a-1b2c3d4e5f6c
+                stepCounter: 1a6d8ea0-1c2d-4e3f-4a5b-6c7d8e9f0b1d
+            transform: U.CLAIM_STATUS
+          - columnReferences:
+              - columnCounter: 7ac2e406-7c8d-4e9f-a01b-2c3d4e5f6a7e
+                stepCounter: 2b7e9fb1-2d3e-4f4a-5b6c-7d8e9f0b1c2f
+            transform: U.CLAIM_STATUS
+          - columnReferences:
+              - columnCounter: 8bd3f517-8d9e-4fa0-b12c-3d4e5f6a7b80
+                stepCounter: 3c8fa0c2-3e4f-4a5b-6c7d-8e9f0b1c2d41
+            transform: U.CLAIM_STATUS
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: V_GB_CLAIMS
+          - locationName: DBSHIFT
+            nodeName: V_ESIS_CLAIMS_OPEN
+          - locationName: DBSHIFT
+            nodeName: V_ESIS_CLAIMS_CLOSED
+          - locationName: DBSHIFT
+            nodeName: V_ESIS_CLAIMS_REOPEN
+          - locationName: DBSHIFT
+            nodeName: V_ESIS_CLAIMS_MOVING_FORWARD
+        join:
+          joinCondition: |-
+            FROM (
+              SELECT * FROM {{ ref('DBSHIFT', 'V_GB_CLAIMS') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT', 'V_ESIS_CLAIMS_OPEN') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT', 'V_ESIS_CLAIMS_CLOSED') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT', 'V_ESIS_CLAIMS_REOPEN') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT', 'V_ESIS_CLAIMS_MOVING_FORWARD') }}
+            ) AS U
+        name: ASTRUSMODELCLAIMSTATUS
+        noLinkRefs: []
+  name: ASTRUSMODELCLAIMSTATUS
+  overrideSQL: false
+  schema: RPT
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

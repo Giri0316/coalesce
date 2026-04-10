@@ -1,0 +1,118 @@
+fileVersion: 1
+id: 3c8fa0c2-3e4f-4a5b-6c7d-8e9f0b1c2d41
+name: V_ESIS_CLAIMS_MOVING_FORWARD
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d9fb1d3-4f5a-4b6c-7d8e-9f0b1c2d3e4c
+          stepCounter: 3c8fa0c2-3e4f-4a5b-6c7d-8e9f0b1c2d41
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b9c7e1f-4d6a-4b9e-8f1a-2b3c4d5e6f7a
+                stepCounter: 5a76483c-1b6e-4f5a-8b3d-1c3e2d6a1b9e
+            transform: ACT.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5ea0c2e4-5a6b-4c7d-8e9f-0b1c2d3e4f5d
+          stepCounter: 3c8fa0c2-3e4f-4a5b-6c7d-8e9f0b1c2d41
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ACA_DATE_ID_SOURCE_SYSTEM_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9a8b7c6d-5e4f-4d3c-b2a1-0f9e8d7c6b5a
+                stepCounter: 5a76483c-1b6e-4f5a-8b3d-1c3e2d6a1b9e
+            transform: CAST(TO_VARCHAR(ACT.SOURCE_SYSTEM_TRANSACTION_DATE, 'YYYYMMDD')
+              AS INT)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6fb1d3f5-6b7c-4d8e-9f0a-1b2c3d4e5f6e
+          stepCounter: 3c8fa0c2-3e4f-4a5b-6c7d-8e9f0b1c2d41
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SOURCE_SYSTEM_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9a8b7c6d-5e4f-4d3c-b2a1-0f9e8d7c6b5a
+                stepCounter: 5a76483c-1b6e-4f5a-8b3d-1c3e2d6a1b9e
+            transform: ACT.SOURCE_SYSTEM_TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7ac2e406-7c8d-4e9f-a01b-2c3d4e5f6a7f
+          stepCounter: 3c8fa0c2-3e4f-4a5b-6c7d-8e9f0b1c2d41
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a2b3c4d-5e6f-4g7h-8i9j-0k1l2m3n4o5p
+                stepCounter: 5a76483c-1b6e-4f5a-8b3d-1c3e2d6a1b9e
+            transform: ACT.CLAIM_STATUS_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8bd3f517-8d9e-4fa0-b12c-3d4e5f6a7b80
+          stepCounter: 3c8fa0c2-3e4f-4a5b-6c7d-8e9f0b1c2d41
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6p5o4n3m-2l1k-4j9i-8h7g-6f5e4d3c2b1a
+                stepCounter: 5a76483c-1b6e-4f5a-8b3d-1c3e2d6a1b9e
+            transform: ACT.CLAIM_STATUS
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_CLAIM_TRANSACTION: act
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_CLAIM_TRANSACTION
+          - locationName: DBSHIFT
+            nodeName: V_DISTINCT_REOPEN_CLAIM_ID
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_CLAIM_TRANSACTION') }} AS ACT
+            LEFT JOIN {{ ref('DBSHIFT', 'V_DISTINCT_REOPEN_CLAIM_ID') }} AS REOPEN
+            ON ACT.SOURCE_SYSTEM_CLAIM_ID = REOPEN.CLAIM_ID WHERE ACT.SOURCE_SYSTEM
+            = 'ESIS' AND ACT.CLAIM_STATUS_CODE <> 'O' AND REOPEN.CLAIM_ID IS NULL
+            GROUP BY ACT.ACA_CLAIM_ID, ACT.SOURCE_SYSTEM_TRANSACTION_DATE, ACT.CLAIM_STATUS_CODE,
+            ACT.CLAIM_STATUS
+        name: V_ESIS_CLAIMS_MOVING_FORWARD
+        noLinkRefs: []
+  name: V_ESIS_CLAIMS_MOVING_FORWARD
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,282 @@
+fileVersion: 1
+id: 5a8a1b9b-c8c7-4c4f-9a4f-5542f4c9a87d
+name: STG_AGENT
+operation:
+  database: YOUR_DB
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2f11e7-9d7a-4c2f-b45b-7e61e6c38a7c
+          stepCounter: 5a8a1b9b-c8c7-4c4f-9a4f-5542f4c9a87d
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: AGENT_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e8d4a3c-b6f1-4a5f-b98a-9f4a5c6d7e8f
+          stepCounter: 5a8a1b9b-c8c7-4c4f-9a4f-5542f4c9a87d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: AGENT_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d7c3b2d-a5e0-494e-a879-8e3b4d5e6f7g
+          stepCounter: 5a8a1b9b-c8c7-4c4f-9a4f-5542f4c9a87d
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: AGENCY_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3c6b2a1e-94d-483d-9768-7d2c3e4f5g6h
+          stepCounter: 5a8a1b9b-c8c7-4c4f-9a4f-5542f4c9a87d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: AGENT_TYPE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4b5a190f-83c8-472c-8657-6c1d2f3g4h5i
+          stepCounter: 5a8a1b9b-c8c7-4c4f-9a4f-5542f4c9a87d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: AGENT_STATUS_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a4908f0-72b7-461b-7546-5b0e1f2g3h4j
+          stepCounter: 5a8a1b9b-c8c7-4c4f-9a4f-5542f4c9a87d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: FIRST_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6938f7e1-61a6-450a-6435-49f0f1e2g3h5
+          stepCounter: 5a8a1b9b-c8c7-4c4f-9a4f-5542f4c9a87d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: LAST_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7827e6d2-5095-43f9-5324-38e1e0d3f4g6
+          stepCounter: 5a8a1b9b-c8c7-4c4f-9a4f-5542f4c9a87d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: MIDDLE_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8716d5c3-3f84-42e8-4213-27d2d0c4e5f7
+          stepCounter: 5a8a1b9b-c8c7-4c4f-9a4f-5542f4c9a87d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: FULL_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9605c4b4-2e73-41d7-3102-16c3c0b5d6e8
+          stepCounter: 5a8a1b9b-c8c7-4c4f-9a4f-5542f4c9a87d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: NICK_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a5f4b3a5-1d62-40c6-2ff1-05b4b0a6c7d9
+          stepCounter: 5a8a1b9b-c8c7-4c4f-9a4f-5542f4c9a87d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: AGENT_EMAIL
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b4e3a296-0c51-4fb5-1ee0-f4a5a097b8c0
+          stepCounter: 5a8a1b9b-c8c7-4c4f-9a4f-5542f4c9a87d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: AGENT_PHONE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c3d29187-fb40-4ea4-0ddf-e3969088a9b1
+          stepCounter: 5a8a1b9b-c8c7-4c4f-9a4f-5542f4c9a87d
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d2c18078-ea3f-4d93-fcd-d28780799aa2
+          stepCounter: 5a8a1b9b-c8c7-4c4f-9a4f-5542f4c9a87d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: HASH_VALUE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: STG_AGENT
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

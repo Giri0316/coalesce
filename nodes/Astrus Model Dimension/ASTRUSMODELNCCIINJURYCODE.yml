@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 3c4d5e6f-7g8h-9i0j-1k2l-3m4n5o6p7q8r
+name: ASTRUSMODELNCCIINJURYCODE
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a3b4c5d-6e7f-8g9h-0i1j-2k3l4m5n6o7p
+          stepCounter: 3c4d5e6f-7g8h-9i0j-1k2l-3m4n5o6p7q8r
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_NCCI_INJURY_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b4c5d6e-7f8g-9h0i-1j2k-3l4m5n6o7p8q
+          stepCounter: 3c4d5e6f-7g8h-9i0j-1k2l-3m4n5o6p7q8r
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: NCCI_INJURY_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c5d6e7f-8g9h-0i1j-2k3l-4m5n6o7p8q9r
+          stepCounter: 3c4d5e6f-7g8h-9i0j-1k2l-3m4n5o6p7q8r
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: NCCI_INJURY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ASTRUSMODELNCCIINJURYCODE
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 6b5a4c3d-2f1e-4e8b-9c7d-0a9b8c7d6e5f
+name: ACA_COVERAGE_GROUP
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: abcd1234-5678-4f5a-6b7c-8d9e0f1a2b3c
+          stepCounter: 6b5a4c3d-2f1e-4e8b-9c7d-0a9b8c7d6e5f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bcde2345-6789-4a6b-7c8d-9e0f1a2b3c4d
+          stepCounter: 6b5a4c3d-2f1e-4e8b-9c7d-0a9b8c7d6e5f
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: cdef3456-7890-4b7c-8d9e-0f1a2b3c4d5e
+          stepCounter: 6b5a4c3d-2f1e-4e8b-9c7d-0a9b8c7d6e5f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_GROUP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_COVERAGE_GROUP
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

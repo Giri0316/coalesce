@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 0f1a2b3c-4d5e-6f7g-8h9i-0j1k2l3m4n5o
+name: ASTRUSMODELACCIDENTTYPECODE
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8g
+          stepCounter: 0f1a2b3c-4d5e-6f7g-8h9i-0j1k2l3m4n5o
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: ACCIDENT_TYPE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4e5f6a7b-8c9d-0e1f-2a3b-4c5d6e7f8g9h
+          stepCounter: 0f1a2b3c-4d5e-6f7g-8h9i-0j1k2l3m4n5o
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: ACCIDENT_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ASTRUSMODELACCIDENTTYPECODE
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

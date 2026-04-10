@@ -1,0 +1,144 @@
+fileVersion: 1
+id: 8b0c8d1a-5e9f-4b3c-8a1d-2c9b8e7f6a5d
+name: STG_DIM_CLAIM_INSERT_PROJECTION
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e1b3a5c7-8d9e-4f1a-b3c5-d7e9f1a3b5c7
+          stepCounter: 8b0c8d1a-5e9f-4b3c-8a1d-2c9b8e7f6a5d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3a921d1c-b5f7-4148-8a8f-51d02c5f1a3b
+                stepCounter: 5418b7e2-491c-4b57-9304-44ac84e3e33e
+            transform: SRC.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a8b7c6d-5e4f-4a3b-2c1d-0e9f8a7b6c5d
+          stepCounter: 8b0c8d1a-5e9f-4b3c-8a1d-2c9b8e7f6a5d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f26938d-8a5f-4d37-8e6c-0e79c3f1f7d5
+                stepCounter: 5418b7e2-491c-4b57-9304-44ac84e3e33e
+            transform: SRC.CLAIM_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7d6e5f4a-3b2c-4d1e-0f9a-8b7c6d5e4f3a
+          stepCounter: 8b0c8d1a-5e9f-4b3c-8a1d-2c9b8e7f6a5d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: POLICY_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6d4b553e-2f88-435b-b9d9-1c97a55f9e9a
+                stepCounter: 5418b7e2-491c-4b57-9304-44ac84e3e33e
+            transform: SRC.POLICY_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 8b0c8d1a-5e9f-4b3c-8a1d-2c9b8e7f6a5d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DW_ROW_HASH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c0e7b8a-3d2f-4e0c-b2a1-6a3f2d1e9f8c
+                stepCounter: 5418b7e2-491c-4b57-9304-44ac84e3e33e
+            transform: SRC.DW_ROW_HASH
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d6e7f8a-9b0c-4d1e-2f3a-4b5c6d7e8f9a
+          stepCounter: 8b0c8d1a-5e9f-4b3c-8a1d-2c9b8e7f6a5d
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: DW_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b2c3d4e-5f6a-4b7c-8d9e-0f1a2b3c4d5e
+          stepCounter: 8b0c8d1a-5e9f-4b3c-8a1d-2c9b8e7f6a5d
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: DW_DATE_MODIFIED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f8a7b6c-5d4e-4f3a-2b1c-0d9e8f7a6b5c
+          stepCounter: 8b0c8d1a-5e9f-4b3c-8a1d-2c9b8e7f6a5d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DW_ROW_IS_CURRENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: '''Y'''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a6b5c4d-3e2f-4a1b-0c9d-8e7f6a5b4c3d
+          stepCounter: 8b0c8d1a-5e9f-4b3c-8a1d-2c9b8e7f6a5d
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: DW_DATE_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_CLAIM: SRC
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: STG_CLAIM
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'STG_CLAIM') }} "SRC"
+        name: STG_DIM_CLAIM_INSERT_PROJECTION
+        noLinkRefs: []
+  name: STG_DIM_CLAIM_INSERT_PROJECTION
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

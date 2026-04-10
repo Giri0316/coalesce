@@ -1,0 +1,403 @@
+fileVersion: 1
+id: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+name: DIM_AGENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: |-
+      BEGIN
+      USE DATABASE YOUR_DB;
+      -- Soft delete records that are no longer in the source
+      UPDATE YOUR_DB.DBO.DIM_AGENT AS t
+      SET
+          DW_IS_CURRENT = 'N',
+          DW_DATE_DELETED = CURRENT_TIMESTAMP()
+      WHERE t.DW_IS_CURRENT = 'Y'
+        AND NOT EXISTS (
+          SELECT 1
+          FROM {{ ref('DBSHIFT', 'STG_AGENT') }} AS s
+          WHERE s.AGENT_ID = t.AGENT_ID
+        );
+      END;
+    preSQL: |-
+      BEGIN
+      USE DATABASE YOUR_DB;
+      -- Update existing records that have changed
+      UPDATE YOUR_DB.DBO.DIM_AGENT AS t
+      SET 
+          DW_DATE_DELETED = CURRENT_TIMESTAMP(),
+          DW_IS_CURRENT = 'N'
+      FROM {{ ref('DBSHIFT', 'STG_AGENT') }} AS s
+      WHERE t.AGENT_ID = s.AGENT_ID
+        AND t.DW_IS_CURRENT = 'Y'
+        AND t.HASH_VALUE <> s.HASH_VALUE;
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: YOUR_DB
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d1d4e2e-fbfb-4e7f-bd7g-8875g7f2dba0
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIM_AGENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e2e5f3f-0c0c-4f8g-be8h-9986h8g3ecb1
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: af3f6g4g-1d1d-4g9h-cf9i-aa97i9h4fcc2
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b0407h5h-2e2e-4h0i-dg0j-bb08j0i5gdd3
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1518i6i-3f3f-4i1j-eh1k-cc19k1j6hee4
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d2629j7j-4g4g-4j2k-fi2l-dd20l2k7iff5
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e3730k8k-5h5h-4k3l-gj3m-ee31m3l8jgg6
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a9f4e2e-fbfc-4f7g-bd7g-8875g7f2dbb0
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: true
+        name: AGENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7a8a3d1d-eaea-4e6f-bc6f-7764f6e1ca9f
+                stepCounter: 6b9b2c0c-d9d8-4d5e-ab5f-6653f5d0b98e
+            transform: SRC.AGENT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b8a5f3f-0c0d-4g8h-de8h-9986h8g3ecc1
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: AGENT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b7b4e2e-fbfb-4f7g-cd7g-8875g7f2dba0
+                stepCounter: 6b9b2c0c-d9d8-4d5e-ab5f-6653f5d0b98e
+            transform: SRC.AGENT_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3c7b6g4g-1d1e-4h9i-ef9i-aa97i9h4fdd2
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: AGENCY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c6c5f3f-0c0c-4g8h-de8h-9986h8g3ecb1
+                stepCounter: 6b9b2c0c-d9d8-4d5e-ab5f-6653f5d0b98e
+            transform: SRC.AGENCY_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d6c7h5h-2e2f-4i0j-fg0j-bb08j0i5gee3
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: AGENT_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ad5d6g4g-1d1d-4h9i-ef9i-aa97i9h4fcc2
+                stepCounter: 6b9b2c0c-d9d8-4d5e-ab5f-6653f5d0b98e
+            transform: SRC.AGENT_TYPE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e5d8i6i-3f3g-4j1k-gh1k-cc19k1j6hff4
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: AGENT_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: be4e7h5h-2e2e-4i0j-fg0j-bb08j0i5gdd3
+                stepCounter: 6b9b2c0c-d9d8-4d5e-ab5f-6653f5d0b98e
+            transform: SRC.AGENT_STATUS_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f4e9j7j-4g4h-4k2l-hi2l-dd20l2k7igg5
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: FIRST_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cf3f8i6i-3f3f-4j1k-gh1k-cc19k1j6hee4
+                stepCounter: 6b9b2c0c-d9d8-4d5e-ab5f-6653f5d0b98e
+            transform: SRC.FIRST_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7g3f0k8k-5h5i-4l3m-ij3m-ee31m3l8jhh6
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LAST_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dg2g9j7j-4g4g-4k2l-hi2l-dd20l2k7iff5
+                stepCounter: 6b9b2c0c-d9d8-4d5e-ab5f-6653f5d0b98e
+            transform: SRC.LAST_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8h2g1l9l-6i6j-4m4n-jk4n-ff42n4m9kii7
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MIDDLE_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eh1h0k8k-5h5h-4l3m-ij3m-ee31m3l8jgg6
+                stepCounter: 6b9b2c0c-d9d8-4d5e-ab5f-6653f5d0b98e
+            transform: SRC.MIDDLE_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9i1h2ma0-7j7k-4n5o-kl5o-gg53o5n0ljj8
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: FULL_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fi0i1l9l-6i6i-4m4n-jk4n-ff42n4m9khh7
+                stepCounter: 6b9b2c0c-d9d8-4d5e-ab5f-6653f5d0b98e
+            transform: SRC.FULL_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aj0i3nb1-8k8l-4o6p-lm6p-hh64p6o1mkk9
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NICK_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: gjzjzma0-7j7j-4n5o-kl5o-gg53o5n0lii8
+                stepCounter: 6b9b2c0c-d9d8-4d5e-ab5f-6653f5d0b98e
+            transform: SRC.NICK_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bkzjzoc2-9l9m-4p7q-mn7q-ii75q7p2nll0
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: AGENT_EMAIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: hk9k0nb1-8k8k-4o6p-lm6p-hh64p6o1mjj9
+                stepCounter: 6b9b2c0c-d9d8-4d5e-ab5f-6653f5d0b98e
+            transform: SRC.AGENT_EMAIL
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: clyky_pd3_amam_4q8r_no8r_jj86r8q3omm1
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: AGENT_PHONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: il8l1oc2-9l9l-4p7q-mn7q-ii75q7p2nkk0
+                stepCounter: 6b9b2c0c-d9d8-4d5e-ab5f-6653f5d0b98e
+            transform: SRC.AGENT_PHONE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dmxkx_qe4_bnbn_4r9s_op9s_kk97s9r4pnn2
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: jm7m2pd3-amam-4q8r-no8r-jj86r8q3oll1
+                stepCounter: 6b9b2c0c-d9d8-4d5e-ab5f-6653f5d0b98e
+            transform: SRC.SOURCE_SYSTEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: enwjw_rf5_coco_4s0t_pqt0_ll08t0s5qoo3
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: HASH_VALUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: kn6n3qe4-bnbn-4r9s-op9s-kk97s9r4pmm2
+                stepCounter: 6b9b2c0c-d9d8-4d5e-ab5f-6653f5d0b98e
+            transform: SRC.HASH_VALUE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: foviv_sg6_dodo_4t1u_qru1_mm19u1t6rpp4
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        name: DW_IS_CURRENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: lo5o4rf5-coco-4s0t-pqt0-ll08t0s5qnn3
+                stepCounter: 6b9b2c0c-d9d8-4d5e-ab5f-6653f5d0b98e
+            transform: SRC.DW_IS_CURRENT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: gpuhu_th7_eoeo_4u2v_rsv2_nn20v2u7sqq5
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: DW_DATE_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: mp4p5sg6-dodo-4t1u-qru1-mm19u1t6roo4
+                stepCounter: 6b9b2c0c-d9d8-4d5e-ab5f-6653f5d0b98e
+            transform: SRC.DW_DATE_DELETED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: hqttg_ui8_fofo_4v3w_stw3_oo31w3v8rrr6
+          stepCounter: 7c0c3d1d-eaea-4d6e-ac6f-7764f6e1ca9f
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: DW_LOAD_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: nq3q6th7-eoeo-4u2v-rsv2-nn20v2u7spp5
+                stepCounter: 6b9b2c0c-d9d8-4d5e-ab5f-6653f5d0b98e
+            transform: SRC.DW_LOAD_DATE
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_AGENT_INS: SRC
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: STG_AGENT_INS
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'STG_AGENT_INS') }} AS SRC
+        name: DIM_AGENT
+        noLinkRefs: []
+  name: DIM_AGENT
+  overrideSQL: false
+  schema: DBO
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node

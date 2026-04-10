@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 1111a4c3d-2f1e-4e8b-9c7d-0a9b8c7d6e5f
+name: ACA_SUMMARIZED_BODY_PART
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 22221234-5678-4f5a-6b7c-8d9e0f1a2b3c
+          stepCounter: 1111a4c3d-2f1e-4e8b-9c7d-0a9b8c7d6e5f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: BODY_PART_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 33332345-6789-4a6b-7c8d-9e0f1a2b3c4d
+          stepCounter: 1111a4c3d-2f1e-4e8b-9c7d-0a9b8c7d6e5f
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 44443456-7890-4b7c-8d9e-0f1a2b3c4d5e
+          stepCounter: 1111a4c3d-2f1e-4e8b-9c7d-0a9b8c7d6e5f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SUMMARIZED_BODY_PART
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_SUMMARIZED_BODY_PART
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

@@ -1,0 +1,288 @@
+fileVersion: 1
+id: 3c2d1b0a-9e8f-4a7b-6c5d-4e3f2a1b0c9d
+name: DIM_CLAIM
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: |-
+      BEGIN
+          -- Soft-delete records that no longer exist in the source
+          UPDATE YOUR_DB.DW.DIM_CLAIM AS TGT
+          SET
+              TGT.DW_ROW_IS_CURRENT = 'N',
+              TGT.DW_DATE_DELETED = CURRENT_TIMESTAMP(),
+              TGT.DW_DATE_MODIFIED = CURRENT_TIMESTAMP()
+          WHERE TGT.DW_ROW_IS_CURRENT = 'Y'
+            AND NOT EXISTS (
+              SELECT 1
+              FROM {{ ref('DBSHIFT', 'STG_CLAIM') }} AS SRC
+              WHERE SRC.SOURCE_SYSTEM_CLAIM_ID = TGT.SOURCE_SYSTEM_CLAIM_ID
+            );
+      END;
+    preSQL: |-
+      BEGIN
+          -- Update attributes for existing, changed records
+          UPDATE YOUR_DB.DW.DIM_CLAIM AS TGT
+          SET
+              CLAIM_NUMBER = S.CLAIM_NUMBER,
+              POLICY_NUMBER = S.POLICY_NUMBER,
+              DW_ROW_HASH = S.DW_ROW_HASH,
+              DW_DATE_MODIFIED = CURRENT_TIMESTAMP()
+          FROM {{ ref('DBSHIFT', 'STG_CLAIM') }} AS S
+          WHERE
+              TGT.SOURCE_SYSTEM_CLAIM_ID = S.SOURCE_SYSTEM_CLAIM_ID
+              AND TGT.DW_ROW_IS_CURRENT = 'Y'
+              AND TGT.DW_ROW_HASH <> S.DW_ROW_HASH;
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: YOUR_DB
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f0a9b8c-7d6e-4f5a-3b2c-1d0e9f8a7b6c
+          stepCounter: 3c2d1b0a-9e8f-4a7b-6c5d-4e3f2a1b0c9d
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIM_CLAIM_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a4b3c2d-1e0f-4d7a-8b6c-9e8d7c6b5a4b
+          stepCounter: 3c2d1b0a-9e8f-4a7b-6c5d-4e3f2a1b0c9d
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d7c6b5a-4b3c-2d1e-0f9a-8b7c6d5e4f3a
+          stepCounter: 3c2d1b0a-9e8f-4a7b-6c5d-4e3f2a1b0c9d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1c0b9a8d-7f6e-5d4c-3b2a-1e0f9d8c7b6a
+          stepCounter: 3c2d1b0a-9e8f-4a7b-6c5d-4e3f2a1b0c9d
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f5e4d3c-2b1a-0f9d-8c7b-6a5f4e3d2c1b
+          stepCounter: 3c2d1b0a-9e8f-4a7b-6c5d-4e3f2a1b0c9d
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9d8c7b6a-5f4e-3d2c-1b0a-9f8e7d6c5b4a
+          stepCounter: 3c2d1b0a-9e8f-4a7b-6c5d-4e3f2a1b0c9d
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a3b2c1d-0e9f-8a7b-6c5d-4e3f2a1b0c9d
+          stepCounter: 3c2d1b0a-9e8f-4a7b-6c5d-4e3f2a1b0c9d
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5a3c1d9-8e7f-4a6b-5c4d-3b2a1e0f9d8c
+          stepCounter: 3c2d1b0a-9e8f-4a7b-6c5d-4e3f2a1b0c9d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isBusinessKey: true
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e1b3a5c7-8d9e-4f1a-b3c5-d7e9f1a3b5c7
+                stepCounter: 8b0c8d1a-5e9f-4b3c-8a1d-2c9b8e7f6a5d
+            transform: SRC.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d9e8f7-a6b5-c4d3-b2a1-e0f9d8c7b6a5
+          stepCounter: 3c2d1b0a-9e8f-4a7b-6c5d-4e3f2a1b0c9d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLAIM_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9a8b7c6d-5e4f-4a3b-2c1d-0e9f8a7b6c5d
+                stepCounter: 8b0c8d1a-5e9f-4b3c-8a1d-2c9b8e7f6a5d
+            transform: SRC.CLAIM_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f9d8c7b6-a5f4-e3d2-c1b0-a9f8e7d6c5b4
+          stepCounter: 3c2d1b0a-9e8f-4a7b-6c5d-4e3f2a1b0c9d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: POLICY_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7d6e5f4a-3b2c-4d1e-0f9a-8b7c6d5e4f3a
+                stepCounter: 8b0c8d1a-5e9f-4b3c-8a1d-2c9b8e7f6a5d
+            transform: SRC.POLICY_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b2a1e0f-9d8c-7b6a-5f4e-3d2c1b0a9f8e
+          stepCounter: 3c2d1b0a-9e8f-4a7b-6c5d-4e3f2a1b0c9d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DW_ROW_HASH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+                stepCounter: 8b0c8d1a-5e9f-4b3c-8a1d-2c9b8e7f6a5d
+            transform: SRC.DW_ROW_HASH
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e7d6c5b4-a3f2-e1d0-b9a8-f7e6d5c4b3a2
+          stepCounter: 3c2d1b0a-9e8f-4a7b-6c5d-4e3f2a1b0c9d
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: DW_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5d6e7f8a-9b0c-4d1e-2f3a-4b5c6d7e8f9a
+                stepCounter: 8b0c8d1a-5e9f-4b3c-8a1d-2c9b8e7f6a5d
+            transform: SRC.DW_DATE_CREATED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a1b0c9d-8e7f-6a5b-4c3d-2b1a0c9d8e7f
+          stepCounter: 3c2d1b0a-9e8f-4a7b-6c5d-4e3f2a1b0c9d
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: DW_DATE_MODIFIED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1b2c3d4e-5f6a-4b7c-8d9e-0f1a2b3c4d5e
+                stepCounter: 8b0c8d1a-5e9f-4b3c-8a1d-2c9b8e7f6a5d
+            transform: SRC.DW_DATE_MODIFIED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f9e8d7c-6b5a-4c3b-2a1e-0f9e8d7c6b5a
+          stepCounter: 3c2d1b0a-9e8f-4a7b-6c5d-4e3f2a1b0c9d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DW_ROW_IS_CURRENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9f8a7b6c-5d4e-4f3a-2b1c-0d9e8f7a6b5c
+                stepCounter: 8b0c8d1a-5e9f-4b3c-8a1d-2c9b8e7f6a5d
+            transform: SRC.DW_ROW_IS_CURRENT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8c7b6a5f-4e3d-2c1b-0a9f-8e7d6c5b4a3b
+          stepCounter: 3c2d1b0a-9e8f-4a7b-6c5d-4e3f2a1b0c9d
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: DW_DATE_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7a6b5c4d-3e2f-4a1b-0c9d-8e7f6a5b4c3d
+                stepCounter: 8b0c8d1a-5e9f-4b3c-8a1d-2c9b8e7f6a5d
+            transform: SRC.DW_DATE_DELETED
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_DIM_CLAIM_INSERT_PROJECTION: SRC
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: STG_DIM_CLAIM_INSERT_PROJECTION
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'STG_DIM_CLAIM_INSERT_PROJECTION')
+            }} "SRC"
+        name: DIM_CLAIM
+        noLinkRefs: []
+  name: DIM_CLAIM
+  overrideSQL: false
+  schema: DW
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node

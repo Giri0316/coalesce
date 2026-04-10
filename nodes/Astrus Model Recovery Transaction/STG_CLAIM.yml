@@ -1,0 +1,92 @@
+fileVersion: 1
+id: 5418b7e2-491c-4b57-9304-44ac84e3e33e
+name: STG_CLAIM
+operation:
+  database: YOUR_DB
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a921d1c-b5f7-4148-8a8f-51d02c5f1a3b
+          stepCounter: 5418b7e2-491c-4b57-9304-44ac84e3e33e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f26938d-8a5f-4d37-8e6c-0e79c3f1f7d5
+          stepCounter: 5418b7e2-491c-4b57-9304-44ac84e3e33e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLAIM_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d4b553e-2f88-435b-b9d9-1c97a55f9e9a
+          stepCounter: 5418b7e2-491c-4b57-9304-44ac84e3e33e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: POLICY_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c0e7b8a-3d2f-4e0c-b2a1-6a3f2d1e9f8c
+          stepCounter: 5418b7e2-491c-4b57-9304-44ac84e3e33e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DW_ROW_HASH
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: STG_CLAIM
+  schema: STAGING
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
