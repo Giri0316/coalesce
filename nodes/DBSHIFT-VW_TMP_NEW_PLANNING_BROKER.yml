@@ -243,6 +243,47 @@ operation:
               - columnCounter: 6a7b8c9d-0e1f-4a2b-3c4d-5e6f7g8h9i0j
                 stepCounter: 5b1a0e1c-7f2a-4a8b-9b4c-8e4a7d1c6f9b
             transform: MAX(STG.POST_DATE)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a87e5602-e815-4aa6-80eb-e76cf2fc1d15
+          stepCounter: 9a7b1c3d-5e8f-4d2a-9b1c-3d5e8f6a2b1c
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: max_group_id
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: SELECT MAX(TRY_CAST(SUBSTRING(parent_planning_id,1, CHARINDEX('_', parent_planning_Id)-1) AS INT)) FROM dbo.planning_fccs_broker
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1b10b0a-d866-4f92-b93a-368d34a7028d
+          stepCounter: 9a7b1c3d-5e8f-4d2a-9b1c-3d5e8f6a2b1c
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: count_of_max_group_id
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |
+              SELECT COUNT(1) FROM dbo.planning_fccs_broker  WHERE TRY_CAST(SUBSTRING(parent_planning_id,1, CHARINDEX('_', parent_planning_Id)-1) AS INT) = (SELECT MAX(TRY_CAST(SUBSTRING(parent_planning_id,1, CHARINDEX('_', parent_planning_Id)-1) AS INT)) FROM dbo.planning_fccs_broker)
+        systemColumnType: None
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
