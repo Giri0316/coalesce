@@ -1,0 +1,153 @@
+fileVersion: 1
+id: c7e3a241-11d2-43d9-a359-9b90040e5d1e
+name: DBSHIFT_PSTG_NODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+      USE DATABASE ALLIANT_CLAIMS_ASTRUS_STAGE;
+      UPDATE ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_RECOVERY_TRANSACTION_STAGING_GB AS R
+      SET
+          R.ACA_CLAIM_ID = SOURCE.NEW_ACA_CLAIM_ID,
+          R.ACA_POLICY_ID = SOURCE.NEW_ACA_POLICY_ID,
+          R.ACA_DATE_UPDATED = CURRENT_TIMESTAMP(),
+          R.ACA_UPDATE_USER = 'spaca_aca_recovery_transaction_staging_gb_update'
+      FROM (
+          SELECT
+              RT.SOURCE_SYSTEM_CLAIM_ID,
+              RT.SOURCE_SYSTEM_POLICY_ID,
+              COALESCE(C.ACA_CLAIM_ID, -1) AS NEW_ACA_CLAIM_ID,
+              COALESCE(PO.ACA_POLICY_ID, -1) AS NEW_ACA_POLICY_ID
+          FROM
+              ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_RECOVERY_TRANSACTION_STAGING_GB AS RT
+          LEFT JOIN ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIM AS C
+              ON C.SOURCE_SYSTEM_CLAIM_ID = RT.SOURCE_SYSTEM_CLAIM_ID
+          LEFT JOIN ALLIANT_CLAIMS_ASTRUS.DBO.ACA_POLICY AS PO
+              ON PO.SOURCE_SYSTEM_POLICY_ID = RT.SOURCE_SYSTEM_POLICY_ID
+      ) AS SOURCE
+      WHERE
+          R.SOURCE_SYSTEM_CLAIM_ID IS NOT DISTINCT FROM SOURCE.SOURCE_SYSTEM_CLAIM_ID
+          AND R.SOURCE_SYSTEM_POLICY_ID IS NOT DISTINCT FROM SOURCE.SOURCE_SYSTEM_POLICY_ID;
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: DBSHIFT_DATAMART
+  deployEnabled: true
+  description: UPDATE-only conversion of spaca_aca_recovery_transaction_staging_gb_update
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e1c0c1b-e5d4-47f1-8072-a08b671a5330
+          stepCounter: c7e3a241-11d2-43d9-a359-9b90040e5d1e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DBSHIFT_PSTG_NODE_KEY
+        nullable: false
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: UUID_STRING()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f9b8c0a8-7f9e-4e9d-9c3f-42a17621c5b8
+          stepCounter: c7e3a241-11d2-43d9-a359-9b90040e5d1e
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: "1"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e4d7a8d9-3a7c-40b1-8b7c-36c58971f6d3
+          stepCounter: c7e3a241-11d2-43d9-a359-9b90040e5d1e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: "'Y'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c9b2f6-8c4a-4e2b-b5d1-6d7e9f3b5a1e
+          stepCounter: c7e3a241-11d2-43d9-a359-9b90040e5d1e
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a3f5b1e8-7d6e-4c1d-8a9d-5b2c7f4a9d2c
+          stepCounter: c7e3a241-11d2-43d9-a359-9b90040e5d1e
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST('9999-12-31 23:59:59.999' AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c8d7b3a1-4f5c-4d3e-9b6a-2f4e8d7c6b5a
+          stepCounter: c7e3a241-11d2-43d9-a359-9b90040e5d1e
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b9e8d7c6-3a1b-4f5e-8d7c-9b6a5f4e3d2c
+          stepCounter: c7e3a241-11d2-43d9-a359-9b90040e5d1e
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping: []
+  name: DBSHIFT_PSTG_NODE
+  overrideSQL: false
+  schema: DBSHIFT
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node
