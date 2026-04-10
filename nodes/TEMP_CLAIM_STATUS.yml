@@ -1,0 +1,101 @@
+fileVersion: 1
+id: fe717b7f-1355-46fe-bd2b-65c2b0b74100
+name: TEMP_CLAIM_STATUS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77169cf7-2bb8-45a8-ac36-05971a8166c3
+          stepCounter: fe717b7f-1355-46fe-bd2b-65c2b0b74100
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a18a80d5-56f9-4670-802c-4740e461239c
+                stepCounter: 54b8e21f-8e43-43f1-b9b3-4f0e21c3b1e4
+            transform: S.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c0dd39e6-0158-45e0-9e5b-163f5919e917
+          stepCounter: fe717b7f-1355-46fe-bd2b-65c2b0b74100
+        config: {}
+        dataType: DATE
+        description: ""
+        name: STATUS_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b57778b0-51a8-422f-87d3-1d0115e580e6
+                stepCounter: 54b8e21f-8e43-43f1-b9b3-4f0e21c3b1e4
+            transform: S.SOURCE_SYSTEM_TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32626e27-5d55-4089-a292-69f2010486c4
+          stepCounter: fe717b7f-1355-46fe-bd2b-65c2b0b74100
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c82d603a-c852-45e0-b6a6-0619c9636a0d
+                stepCounter: 54b8e21f-8e43-43f1-b9b3-4f0e21c3b1e4
+            transform: S.CLAIM_STATUS_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a631dd84-18e3-4c90-9f5b-167825b419c8
+          stepCounter: fe717b7f-1355-46fe-bd2b-65c2b0b74100
+        config: {}
+        dataType: INT
+        description: ""
+        name: ROW_SEQ
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a18a80d5-56f9-4670-802c-4740e461239c
+                stepCounter: 54b8e21f-8e43-43f1-b9b3-4f0e21c3b1e4
+              - columnCounter: b57778b0-51a8-422f-87d3-1d0115e580e6
+                stepCounter: 54b8e21f-8e43-43f1-b9b3-4f0e21c3b1e4
+              - columnCounter: c82d603a-c852-45e0-b6a6-0619c9636a0d
+                stepCounter: 54b8e21f-8e43-43f1-b9b3-4f0e21c3b1e4
+            transform: ROW_NUMBER() OVER (PARTITION BY S.ACA_CLAIM_ID ORDER BY S.SOURCE_SYSTEM_TRANSACTION_DATE
+              DESC, S.CLAIM_STATUS_CODE DESC)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ASTRUSMODELCLAIMSTATUS: S
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ASTRUSMODELCLAIMSTATUS
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'ASTRUSMODELCLAIMSTATUS') }} "S"
+        name: TEMP_CLAIM_STATUS
+        noLinkRefs: []
+  name: TEMP_CLAIM_STATUS
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

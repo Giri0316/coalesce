@@ -1,0 +1,85 @@
+fileVersion: 1
+id: 64b8e21f-8e43-43f1-b9b3-4f0e21c3b1e4
+name: TEMP_PAYMENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2b2c93-9c8e-4a7b-a192-d6d744b15093
+          stepCounter: 64b8e21f-8e43-43f1-b9b3-4f0e21c3b1e4
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3223e717-b76c-48b4-8452-167825b449b2
+                stepCounter: 57900b17-768a-4c28-86d5-a352ab5f75e7
+            transform: T.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e7352fe-7d88-43d9-9524-747209e599b4
+          stepCounter: 64b8e21f-8e43-43f1-b9b3-4f0e21c3b1e4
+        config: {}
+        dataType: VARCHAR(16)
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 429623e1-7e50-4d56-b08e-17cfc8973b18
+                stepCounter: 57900b17-768a-4c28-86d5-a352ab5f75e7
+            transform: T.RESERVE_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d23e717-b76c-48b4-8452-167825b449b2
+          stepCounter: 64b8e21f-8e43-43f1-b9b3-4f0e21c3b1e4
+        config: {}
+        dataType: NUMERIC(19, 2)
+        description: ""
+        name: TRANSACTION_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f2b2c93-9c8e-4a7b-a192-d6d744b15093
+                stepCounter: 57900b17-768a-4c28-86d5-a352ab5f75e7
+            transform: SUM(T.PAYMENT_AMOUNT_BY_RESERVE_TYPE)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ASTRUSMODELPAYMENTTRANSACTION: T
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ASTRUSMODELPAYMENTTRANSACTION
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'ASTRUSMODELPAYMENTTRANSACTION') }} "T"
+            WHERE T.RESERVE_TYPE <> 'RECOVERY'
+            GROUP BY T.ACA_CLAIM_ID, T.RESERVE_TYPE
+        name: TEMP_PAYMENT
+        noLinkRefs: []
+  name: TEMP_PAYMENT
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

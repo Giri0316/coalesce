@@ -1,0 +1,92 @@
+fileVersion: 1
+id: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+name: ASTRUSMODELINCURREDTRANSACTION
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b06c8b0-a304-4e48-8df0-7d4efb5ef664
+          stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 326779b5-c089-4a4b-87cc-2e9f0d463d6b
+          stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: EXPERIENCE_TRANSACTION_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c3d22e03-34e8-4660-8488-842245b73373
+          stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: EXPERIENCE_AMOUNT_BY_RESERVE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 36f86a01-497d-41a4-9493-271d5386f76c
+          stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ASTRUSMODELINCURREDTRANSACTION
+  schema: RPT
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

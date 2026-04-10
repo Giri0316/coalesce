@@ -1,0 +1,207 @@
+fileVersion: 1
+id: 97eb1541-b176-4614-c2e6-7i3h44f6e4h7
+name: V_INCURRED_AGGREGATE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 637f7148-5h34-471f-d5d6-1a1188f594d7
+          stepCounter: 97eb1541-b176-4614-c2e6-7i3h44f6e4h7
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b06c8b0-a304-4e48-8df0-7d4efb5ef664
+                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+            transform: I.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 74808259-6i45-4820-e6e7-2b229906a5e8
+          stepCounter: 97eb1541-b176-4614-c2e6-7i3h44f6e4h7
+        config: {}
+        dataType: NUMERIC(38, 2)
+        description: ""
+        name: INCURRED_BI
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c3d22e03-34e8-4660-8488-842245b73373
+                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+              - columnCounter: 36f86a01-497d-41a4-9493-271d5386f76c
+                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+            transform: SUM(IFF(I.RESERVE_TYPE = 'B. I.', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE,
+              0))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8591936a-7j56-4931-f7f8-3c33aa17b6f9
+          stepCounter: 97eb1541-b176-4614-c2e6-7i3h44f6e4h7
+        config: {}
+        dataType: NUMERIC(38, 2)
+        description: ""
+        name: INCURRED_COLLISION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c3d22e03-34e8-4660-8488-842245b73373
+                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+              - columnCounter: 36f86a01-497d-41a4-9493-271d5386f76c
+                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+            transform: SUM(IFF(I.RESERVE_TYPE = 'COLLISION', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE,
+              0))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 96a2a47b-8k67-4a42-0809-4d44bb28c70a
+          stepCounter: 97eb1541-b176-4614-c2e6-7i3h44f6e4h7
+        config: {}
+        dataType: NUMERIC(38, 2)
+        description: ""
+        name: INCURRED_COMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c3d22e03-34e8-4660-8488-842245b73373
+                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+              - columnCounter: 36f86a01-497d-41a4-9493-271d5386f76c
+                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+            transform: SUM(IFF(I.RESERVE_TYPE = 'COMP', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE,
+              0))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a7b3b58c-9l78-4b53-191a-5e55cc39d81b
+          stepCounter: 97eb1541-b176-4614-c2e6-7i3h44f6e4h7
+        config: {}
+        dataType: NUMERIC(38, 2)
+        description: ""
+        name: INCURRED_EXPENSE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c3d22e03-34e8-4660-8488-842245b73373
+                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+              - columnCounter: 36f86a01-497d-41a4-9493-271d5386f76c
+                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+            transform: SUM(IFF(I.RESERVE_TYPE = 'EXPENSE', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE,
+              0))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b8c4c69d-am89-4c64-2a2b-6f66dd4aed2c
+          stepCounter: 97eb1541-b176-4614-c2e6-7i3h44f6e4h7
+        config: {}
+        dataType: NUMERIC(38, 2)
+        description: ""
+        name: INCURRED_INDEMNITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c3d22e03-34e8-4660-8488-842245b73373
+                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+              - columnCounter: 36f86a01-497d-41a4-9493-271d5386f76c
+                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+            transform: SUM(IFF(I.RESERVE_TYPE = 'INDEMNITY', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE,
+              0))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9d5d7ae-bn90-4d75-3b3c-7077ee5bfe3d
+          stepCounter: 97eb1541-b176-4614-c2e6-7i3h44f6e4h7
+        config: {}
+        dataType: NUMERIC(38, 2)
+        description: ""
+        name: INCURRED_MEDICAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c3d22e03-34e8-4660-8488-842245b73373
+                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+              - columnCounter: 36f86a01-497d-41a4-9493-271d5386f76c
+                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+            transform: SUM(IFF(I.RESERVE_TYPE = 'MEDICAL', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE,
+              0))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dae6e8bf-co01-4e86-4c4d-8188ff6c0f4e
+          stepCounter: 97eb1541-b176-4614-c2e6-7i3h44f6e4h7
+        config: {}
+        dataType: NUMERIC(38, 2)
+        description: ""
+        name: PD_MEDICAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c3d22e03-34e8-4660-8488-842245b73373
+                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+              - columnCounter: 36f86a01-497d-41a4-9493-271d5386f76c
+                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+            transform: SUM(IFF(I.RESERVE_TYPE = 'P. D.', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE,
+              0))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ebf7f9c0-dp12-4f97-5d5e-9299007d105f
+          stepCounter: 97eb1541-b176-4614-c2e6-7i3h44f6e4h7
+        config: {}
+        dataType: NUMERIC(38, 2)
+        description: ""
+        name: REHAB_MEDICAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c3d22e03-34e8-4660-8488-842245b73373
+                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+              - columnCounter: 36f86a01-497d-41a4-9493-271d5386f76c
+                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+            transform: SUM(IFF(I.RESERVE_TYPE = 'REHAB', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE,
+              0))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fc080ad1-eq23-40a8-6e6f-a3aa118e2160
+          stepCounter: 97eb1541-b176-4614-c2e6-7i3h44f6e4h7
+        config: {}
+        dataType: NUMERIC(38, 2)
+        description: ""
+        name: INCURRED_TOTAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c3d22e03-34e8-4660-8488-842245b73373
+                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+            transform: SUM(I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ASTRUSMODELINCURREDTRANSACTION: I
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ASTRUSMODELINCURREDTRANSACTION
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'ASTRUSMODELINCURREDTRANSACTION') }} "I"
+            WHERE I.RESERVE_TYPE <> 'RECOVERY'
+            GROUP BY I.ACA_CLAIM_ID
+        name: V_INCURRED_AGGREGATE
+        noLinkRefs: []
+  name: V_INCURRED_AGGREGATE
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

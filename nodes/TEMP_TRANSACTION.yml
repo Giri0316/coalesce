@@ -1,0 +1,156 @@
+fileVersion: 1
+id: d4d7e914-7d5d-4f81-8b06-444747c3e5d0
+name: TEMP_TRANSACTION
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: true
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a6b6e4e5-4f0f-4e9e-9d8a-9860b73c41a4
+          stepCounter: d4d7e914-7d5d-4f81-8b06-444747c3e5d0
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b4388e62-4217-43f7-9c98-1e4334a1e948
+                stepCounter: 5938d21c-a128-4f24-9b2f-76813b2de9c1
+            transform: ""
+          - columnReferences:
+              - columnCounter: b128d9c2-1a42-4f68-b128-8e62421743f7
+                stepCounter: 593d9b4c-9f7a-4c32-b98a-1e4334a1e948
+            transform: ""
+          - columnReferences:
+              - columnCounter: c4388e62-4217-43f7-9c98-1e4334a1e948
+                stepCounter: 5948d21c-a128-4f24-9b2f-76813b2de9c1
+            transform: ""
+          - columnReferences:
+              - columnCounter: e4388e62-4217-43f7-9c98-1e4334a1e948
+                stepCounter: 5958d21c-a128-4f24-9b2f-76813b2de9c1
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5a5d3d4-5e0e-4d8d-8c79-8759a62b3093
+          stepCounter: d4d7e914-7d5d-4f81-8b06-444747c3e5d0
+        config: {}
+        dataType: TINYINT
+        description: ""
+        name: TRANSACTION_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a29a1b42-78a3-4b68-8096-747d337d45c5
+                stepCounter: 5938d21c-a128-4f24-9b2f-76813b2de9c1
+            transform: ""
+          - columnReferences:
+              - columnCounter: c129a1b4-278a-4b68-b129-96747d337d45
+                stepCounter: 593d9b4c-9f7a-4c32-b98a-1e4334a1e948
+            transform: ""
+          - columnReferences:
+              - columnCounter: d29a1b42-78a3-4b68-8096-747d337d45c5
+                stepCounter: 5948d21c-a128-4f24-9b2f-76813b2de9c1
+            transform: ""
+          - columnReferences:
+              - columnCounter: e29a1b42-78a3-4b68-8096-747d337d45c5
+                stepCounter: 5958d21c-a128-4f24-9b2f-76813b2de9c1
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c494c2c3-6d9d-4c7c-7b68-7648951a2982
+          stepCounter: d4d7e914-7d5d-4f81-8b06-444747c3e5d0
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 938b8a5b-4399-4c12-a72e-06788e2c7a6f
+                stepCounter: 5938d21c-a128-4f24-9b2f-76813b2de9c1
+            transform: ""
+          - columnReferences:
+              - columnCounter: 938b8a5b-4399-4c12-a72e-06788e2c7a6f
+                stepCounter: 593d9b4c-9f7a-4c32-b98a-1e4334a1e948
+            transform: ""
+          - columnReferences:
+              - columnCounter: 948b8a5b-4399-4c12-a72e-06788e2c7a6f
+                stepCounter: 5948d21c-a128-4f24-9b2f-76813b2de9c1
+            transform: ""
+          - columnReferences:
+              - columnCounter: 958b8a5b-4399-4c12-a72e-06788e2c7a6f
+                stepCounter: 5958d21c-a128-4f24-9b2f-76813b2de9c1
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d383b1b2-7c8c-4b6b-6a57-653784091871
+          stepCounter: d4d7e914-7d5d-4f81-8b06-444747c3e5d0
+        config: {}
+        dataType: NUMERIC(19, 2)
+        description: ""
+        name: TRANSACTION_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f32c1b4d-908d-4a1e-b83c-6893c14d9b4b
+                stepCounter: 5938d21c-a128-4f24-9b2f-76813b2de9c1
+            transform: ""
+          - columnReferences:
+              - columnCounter: 594c1b4d-908d-4a1e-b83c-6893c14d9b4b
+                stepCounter: 593d9b4c-9f7a-4c32-b98a-1e4334a1e948
+            transform: ""
+          - columnReferences:
+              - columnCounter: f42c1b4d-908d-4a1e-b83c-6893c14d9b4b
+                stepCounter: 5948d21c-a128-4f24-9b2f-76813b2de9c1
+            transform: ""
+          - columnReferences:
+              - columnCounter: f52c1b4d-908d-4a1e-b83c-6893c14d9b4b
+                stepCounter: 5958d21c-a128-4f24-9b2f-76813b2de9c1
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: |-
+            SELECT * FROM {{ ref('DBSHIFT', 'V_TRANSACTION_PAYMENT') }}
+            UNION ALL
+            SELECT * FROM {{ ref('DBSHIFT', 'V_TRANSACTION_RESERVE') }}
+            UNION ALL
+            SELECT * FROM {{ ref('DBSHIFT', 'V_TRANSACTION_RECOVERY') }}
+            UNION ALL
+            SELECT * FROM {{ ref('DBSHIFT', 'V_TRANSACTION_INCURRED') }}
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: V_TRANSACTION_PAYMENT
+          - locationName: DBSHIFT
+            nodeName: V_TRANSACTION_RESERVE
+          - locationName: DBSHIFT
+            nodeName: V_TRANSACTION_RECOVERY
+          - locationName: DBSHIFT
+            nodeName: V_TRANSACTION_INCURRED
+        join:
+          joinCondition: ""
+        name: TEMP_TRANSACTION
+        noLinkRefs: []
+  name: TEMP_TRANSACTION
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,73 @@
+fileVersion: 1
+id: f1c2f901-2a8d-4f7e-a89e-2244237d40a1
+name: ASTRUSMODELRECOVERYTRANSACTION
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32626e83-7c98-4228-a40c-3d29199f7d4b
+          stepCounter: f1c2f901-2a8d-4f7e-a89e-2244237d40a1
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a1656c9-b883-4a0b-8d00-4b6e51cc6133
+          stepCounter: f1c2f901-2a8d-4f7e-a89e-2244237d40a1
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_TRANSACTION_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 54a8b839-a9a3-41bb-a5a6-95f73d82a30b
+          stepCounter: f1c2f901-2a8d-4f7e-a89e-2244237d40a1
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_AMOUNT_BY_RESERVE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ASTRUSMODELRECOVERYTRANSACTION
+  schema: RPT
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

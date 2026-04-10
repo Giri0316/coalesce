@@ -1,0 +1,104 @@
+fileVersion: 1
+id: a8fc2652-c287-4725-d3f7-8j4i55g7f5i8
+name: V_TRANSACTION_AGGREGATE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 748g825a-7i46-4831-e7f9-4d44cc39d92b
+          stepCounter: a8fc2652-c287-4725-d3f7-8j4i55g7f5i8
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a6b6e4e5-4f0f-4e9e-9d8a-9860b73c41a4
+                stepCounter: d4d7e914-7d5d-4f81-8b06-444747c3e5d0
+            transform: TD.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 859h936b-8j57-4942-f80a-5e55dd4ae03c
+          stepCounter: a8fc2652-c287-4725-d3f7-8j4i55g7f5i8
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c494c2c3-6d9d-4c7c-7b68-7648951a2982
+                stepCounter: d4d7e914-7d5d-4f81-8b06-444747c3e5d0
+            transform: MAX(TD.TRANSACTION_DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 96a0a47c-9k68-4a53-091b-6f66ee5bf14d
+          stepCounter: a8fc2652-c287-4725-d3f7-8j4i55g7f5i8
+        config: {}
+        dataType: NUMERIC(38, 2)
+        description: ""
+        name: PAYMENT_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b5a5d3d4-5e0e-4d8d-8c79-8759a62b3093
+                stepCounter: d4d7e914-7d5d-4f81-8b06-444747c3e5d0
+              - columnCounter: d383b1b2-7c8c-4b6b-6a57-653784091871
+                stepCounter: d4d7e914-7d5d-4f81-8b06-444747c3e5d0
+            transform: SUM(IFF(TD.TRANSACTION_TYPE_CODE = 1, TD.TRANSACTION_AMOUNT,
+              0))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a7b1b58d-al79-4b64-1a2c-7077ff6cg25e
+          stepCounter: a8fc2652-c287-4725-d3f7-8j4i55g7f5i8
+        config: {}
+        dataType: NUMERIC(38, 2)
+        description: ""
+        name: RECOVERY_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b5a5d3d4-5e0e-4d8d-8c79-8759a62b3093
+                stepCounter: d4d7e914-7d5d-4f81-8b06-444747c3e5d0
+              - columnCounter: d383b1b2-7c8c-4b6b-6a57-653784091871
+                stepCounter: d4d7e914-7d5d-4f81-8b06-444747c3e5d0
+            transform: SUM(IFF(TD.TRANSACTION_TYPE_CODE = 3, TD.TRANSACTION_AMOUNT,
+              0))
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          TEMP_TRANSACTION: TD
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: TEMP_TRANSACTION
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'TEMP_TRANSACTION') }} "TD"
+            GROUP BY TD.ACA_CLAIM_ID
+        name: V_TRANSACTION_AGGREGATE
+        noLinkRefs: []
+  name: V_TRANSACTION_AGGREGATE
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 54b8e21f-8e43-43f1-b9b3-4f0e21c3b1e4
+name: ASTRUSMODELCLAIMSTATUS
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a18a80d5-56f9-4670-802c-4740e461239c
+          stepCounter: 54b8e21f-8e43-43f1-b9b3-4f0e21c3b1e4
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b57778b0-51a8-422f-87d3-1d0115e580e6
+          stepCounter: 54b8e21f-8e43-43f1-b9b3-4f0e21c3b1e4
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_TRANSACTION_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c82d603a-c852-45e0-b6a6-0619c9636a0d
+          stepCounter: 54b8e21f-8e43-43f1-b9b3-4f0e21c3b1e4
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLAIM_STATUS_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ASTRUSMODELCLAIMSTATUS
+  schema: RPT
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

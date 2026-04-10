@@ -1,0 +1,78 @@
+fileVersion: 1
+id: 86da0430-a065-4503-b1d5-6h2g33e5d3g6
+name: TEMP_RESERVE_REMAINING
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: true
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 415e5f26-3g12-469d-c3b4-f8f966d372b5
+          stepCounter: 86da0430-a065-4503-b1d5-6h2g33e5d3g6
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 103c3d04-0d9f-4b8c-b2a3-e7e855c261a4
+                stepCounter: 75c9f32f-9f54-44f2-a0c4-5g1f22d4c2f5
+            transform: R.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 526f6037-4h23-470e-d4c5-090077e483c6
+          stepCounter: 86da0430-a065-4503-b1d5-6h2g33e5d3g6
+        config: {}
+        dataType: NUMERIC(19, 2)
+        description: ""
+        name: TRANSACTION_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 304d4e15-2f01-45fa-d4c5-090077e483c6
+                stepCounter: 75c9f32f-9f54-44f2-a0c4-5g1f22d4c2f5
+              - columnCounter: 2d23e717-b76c-48b4-8452-167825b449b2
+                stepCounter: 64b8e21f-8e43-43f1-b9b3-4f0e21c3b1e4
+            transform: SUM(CASE WHEN (R.TRANSACTION_AMOUNT - IFNULL(P.TRANSACTION_AMOUNT,
+              0)) <= 0 THEN 0 ELSE R.TRANSACTION_AMOUNT - IFNULL(P.TRANSACTION_AMOUNT,
+              0) END)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          TEMP_PAYMENT: P
+          TEMP_RESERVE: R
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: TEMP_RESERVE
+          - locationName: DBSHIFT
+            nodeName: TEMP_PAYMENT
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'TEMP_RESERVE') }} "R"
+            LEFT JOIN {{ ref('DBSHIFT', 'TEMP_PAYMENT') }} "P" ON P.ACA_CLAIM_ID = R.ACA_CLAIM_ID AND P.RESERVE_TYPE = R.RESERVE_TYPE
+            GROUP BY R.ACA_CLAIM_ID
+        name: TEMP_RESERVE_REMAINING
+        noLinkRefs: []
+  name: TEMP_RESERVE_REMAINING
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

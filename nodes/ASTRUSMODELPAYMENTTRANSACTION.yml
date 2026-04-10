@@ -1,0 +1,92 @@
+fileVersion: 1
+id: 57900b17-768a-4c28-86d5-a352ab5f75e7
+name: ASTRUSMODELPAYMENTTRANSACTION
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3223e717-b76c-48b4-8452-167825b449b2
+          stepCounter: 57900b17-768a-4c28-86d5-a352ab5f75e7
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e7352fe-7d88-43d9-9524-747209e599b4
+          stepCounter: 57900b17-768a-4c28-86d5-a352ab5f75e7
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2b2c93-9c8e-4a7b-a192-d6d744b15093
+          stepCounter: 57900b17-768a-4c28-86d5-a352ab5f75e7
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: PAYMENT_AMOUNT_BY_RESERVE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 429623e1-7e50-4d56-b08e-17cfc8973b18
+          stepCounter: 57900b17-768a-4c28-86d5-a352ab5f75e7
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ASTRUSMODELPAYMENTTRANSACTION
+  schema: RPT
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

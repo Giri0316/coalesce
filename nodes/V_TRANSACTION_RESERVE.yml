@@ -1,0 +1,95 @@
+fileVersion: 1
+id: 593d9b4c-9f7a-4c32-b98a-1e4334a1e948
+name: V_TRANSACTION_RESERVE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b128d9c2-1a42-4f68-b128-8e62421743f7
+          stepCounter: 593d9b4c-9f7a-4c32-b98a-1e4334a1e948
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 45789f2d-8e4c-4720-91a7-fde0f5a701a2
+                stepCounter: 59a1a243-7e4d-409e-b960-9150ab6134b3
+            transform: T.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c129a1b4-278a-4b68-b129-96747d337d45
+          stepCounter: 593d9b4c-9f7a-4c32-b98a-1e4334a1e948
+        config: {}
+        dataType: TINYINT
+        description: ""
+        name: TRANSACTION_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "2"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 938b8a5b-4399-4c12-a72e-06788e2c7a6f
+          stepCounter: 593d9b4c-9f7a-4c32-b98a-1e4334a1e948
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c1482f7-727b-4029-844a-f52988d5e840
+                stepCounter: 59a1a243-7e4d-409e-b960-9150ab6134b3
+            transform: MAX(T.TRANSACTION_DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 594c1b4d-908d-4a1e-b83c-6893c14d9b4b
+          stepCounter: 593d9b4c-9f7a-4c32-b98a-1e4334a1e948
+        config: {}
+        dataType: NUMERIC(19, 2)
+        description: ""
+        name: TRANSACTION_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e82e16d4-8d2b-4fa6-8488-751790407a10
+                stepCounter: 59a1a243-7e4d-409e-b960-9150ab6134b3
+            transform: SUM(T.RESERVE_AMOUNT)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ASTRUSMODELRESERVETRANSACTION: T
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ASTRUSMODELRESERVETRANSACTION
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'ASTRUSMODELRESERVETRANSACTION')
+            }} "T" GROUP BY T.ACA_CLAIM_ID
+        name: V_TRANSACTION_RESERVE
+        noLinkRefs: []
+  name: V_TRANSACTION_RESERVE
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
