@@ -1,0 +1,54 @@
+fileVersion: 1
+id: fe7a3cbe-3b8c-48c6-b333-e96a2004245c
+name: ACA_COVERAGE_CODE
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d334538-3162-43f1-b4f1-628b031d27f2
+          stepCounter: fe7a3cbe-3b8c-48c6-b333-e96a2004245c
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c33e54b6-a8c9-4623-8326-e91060936f45
+          stepCounter: fe7a3cbe-3b8c-48c6-b333-e96a2004245c
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLASS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_COVERAGE_CODE
+  schema: REF
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

@@ -1,0 +1,111 @@
+fileVersion: 1
+id: 53c84029-28c9-4de7-9276-2e8633b4382e
+name: VW_TEMP_RECOVERY_MEASURE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63f7215c-35cd-447a-8f43-3ed128d5789f
+          stepCounter: 53c84029-28c9-4de7-9276-2e8633b4382e
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_TRANSACTION_THIRD_PARTY_RECOVERY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b13c4187-c816-43dd-94e8-4226d40019ee
+                stepCounter: 5698b671-b0e7-404c-8092-23f46f041d01
+            transform: P.ACA_TRANSACTION_THIRD_PARTY_RECOVERY_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a63b4822-0d17-4861-a477-d64e83c34e06
+          stepCounter: 53c84029-28c9-4de7-9276-2e8633b4382e
+        config: {}
+        dataType: CHAR(2)
+        description: ""
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e597cd0c-e350-410a-b366-2826e7bb463f
+                stepCounter: 5698b671-b0e7-404c-8092-23f46f041d01
+            transform: TRIM(P.CLAIM_COVERAGE_CODE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eaf09b43-4b68-4560-a2ac-e89a58434778
+          stepCounter: 53c84029-28c9-4de7-9276-2e8633b4382e
+        config: {}
+        dataType: CHAR(4)
+        description: ""
+        name: RESERVE_TYPE_COLUMN_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: |-
+              CASE U.VALUE['name']
+                   WHEN 'recovery_amount1' THEN 'col1'
+                   WHEN 'recovery_amount2' THEN 'col2'
+                   WHEN 'recovery_amount3' THEN 'col3'
+                   WHEN 'recovery_amount4' THEN 'col4'
+                   WHEN 'recovery_amount5' THEN 'col5'
+                   WHEN 'recovery_amount6' THEN 'col6'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b10b957e-e51c-4b53-b0ac-a2e6e30064f2
+          stepCounter: 53c84029-28c9-4de7-9276-2e8633b4382e
+        config: {}
+        dataType: NUMERIC(19, 2)
+        description: ""
+        name: RECOVERY_AMOUNT_BY_RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: U.VALUE['value']
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_TRANSACTION_THIRD_PARTY_RECOVERY: p
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_TRANSACTION_THIRD_PARTY_RECOVERY
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'ACA_TRANSACTION_THIRD_PARTY_RECOVERY') }} P,
+            LATERAL FLATTEN(INPUT => ARRAY_CONSTRUCT(
+              OBJECT_CONSTRUCT('name', 'recovery_amount1', 'value', P.RECOVERY_AMOUNT1),
+              OBJECT_CONSTRUCT('name', 'recovery_amount2', 'value', P.RECOVERY_AMOUNT2),
+              OBJECT_CONSTRUCT('name', 'recovery_amount3', 'value', P.RECOVERY_AMOUNT3),
+              OBJECT_CONSTRUCT('name', 'recovery_amount4', 'value', P.RECOVERY_AMOUNT4),
+              OBJECT_CONSTRUCT('name', 'recovery_amount5', 'value', P.RECOVERY_AMOUNT5),
+              OBJECT_CONSTRUCT('name', 'recovery_amount6', 'value', P.RECOVERY_AMOUNT6)
+            )) U
+            WHERE P.ACA_DATE_UPDATED > (SELECT IFNULL(MAX(T.ACA_DATE_UPDATED), '1776-07-04 00:00:00.000'::TIMESTAMP_NTZ) FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_RECOVERY_TRANSACTION T WHERE T.ACA_SOURCE_SYSTEM_ID = (SELECT S.ACA_SOURCE_SYSTEM_ID FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_SOURCE_SYSTEM S WHERE S.SOURCE_SYSTEM = 'GB'))
+            AND U.VALUE['value']::NUMERIC <> 0
+        name: VW_TEMP_RECOVERY_MEASURE
+        noLinkRefs: []
+  name: VW_TEMP_RECOVERY_MEASURE
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

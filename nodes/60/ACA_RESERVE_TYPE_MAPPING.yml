@@ -1,0 +1,111 @@
+fileVersion: 1
+id: 5e636f33-c7e6-4074-9f44-9336d39ddc1e
+name: ACA_RESERVE_TYPE_MAPPING
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d8a818c3-4d43-42e7-916c-e4f6120b6e16
+          stepCounter: 5e636f33-c7e6-4074-9f44-9336d39ddc1e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLASS_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 12f9b177-8d02-4919-8677-49f4b5f9226e
+          stepCounter: 5e636f33-c7e6-4074-9f44-9336d39ddc1e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: RESERVE_TYPE_COLUMN_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2e0ac8-090c-4bd5-8f64-88390e14a1a6
+          stepCounter: 5e636f33-c7e6-4074-9f44-9336d39ddc1e
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77f06ed6-49f1-43e3-be5d-a1112b325251
+          stepCounter: 5e636f33-c7e6-4074-9f44-9336d39ddc1e
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c969a531-dd39-44f3-8b7a-a66453186326
+          stepCounter: 5e636f33-c7e6-4074-9f44-9336d39ddc1e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_RESERVE_TYPE_MAPPING
+  schema: REF
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
