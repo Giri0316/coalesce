@@ -1,0 +1,453 @@
+fileVersion: 1
+id: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+name: DIMPOLICYCOVERAGE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: |-
+      BEGIN
+      USE DATABASE ALLIANT_DW;
+      UPDATE ALLIANT_DW.DBO.DIMPOLICYCOVERAGE AS PC
+      SET
+        DW_ISCURRENT = 'N',
+        DW_ROW_END_DATE = CURRENT_TIMESTAMP()
+      WHERE PC.DW_ISCURRENT = 'Y'
+      AND NOT EXISTS (
+          SELECT 1 FROM {{ ref('DBSHIFT', 'TMPPOLICYCOVERAGE') }} AS S
+          WHERE S.BK_POLICY_COVERAGE = PC.BK_POLICY_COVERAGE
+      );
+      END;
+    preSQL: |-
+      BEGIN
+      USE DATABASE ALLIANT_DW;
+      UPDATE ALLIANT_DW.DBO.DIMPOLICYCOVERAGE AS PC
+      SET
+        PC.POLICY_TERM_SK = S.POLICY_TERM_SK,
+        PC.COVERAGE_GROUP_DESCRIPTION = S.COVERAGE_GROUP_DESCRIPTION,
+        PC.COVERAGE_DESCRIPTION = S.COVERAGE_DESCRIPTION,
+        PC.COVERAGE_LIMIT = S.COVERAGE_LIMIT,
+        PC.COVERAGE_DEDUCTIBLE = S.COVERAGE_DEDUCTIBLE,
+        PC.COVERAGE_PREMIUM = S.COVERAGE_PREMIUM,
+        PC.COVERAGE_ATTACHMENT_POINT = S.COVERAGE_ATTACHMENT_POINT,
+        PC.COVERAGE_TYPE = S.COVERAGE_TYPE,
+        PC.COVERAGE_CODE = S.COVERAGE_CODE,
+        PC.COVERAGE_RETRO_DATE = S.COVERAGE_RETRO_DATE,
+        PC.COVERAGE_SUB_TYPE = S.COVERAGE_SUB_TYPE,
+        PC.IS_PRIMARY_COVERAGE = S.IS_PRIMARY_COVERAGE,
+        PC.DW_UPDATE_DATE = CURRENT_TIMESTAMP()
+      FROM {{ ref('DBSHIFT', 'TMPPOLICYCOVERAGE') }} AS S
+      WHERE PC.BK_POLICY_COVERAGE = S.BK_POLICY_COVERAGE
+      AND PC.DW_ISCURRENT = 'Y'
+      AND (
+          IFNULL(PC.POLICY_TERM_SK, -1) <> IFNULL(S.POLICY_TERM_SK, -1) OR
+          IFNULL(PC.COVERAGE_GROUP_DESCRIPTION, '') <> IFNULL(S.COVERAGE_GROUP_DESCRIPTION, '') OR
+          IFNULL(PC.COVERAGE_DESCRIPTION, '') <> IFNULL(S.COVERAGE_DESCRIPTION, '') OR
+          IFNULL(PC.COVERAGE_LIMIT, 0) <> IFNULL(S.COVERAGE_LIMIT, 0) OR
+          IFNULL(PC.COVERAGE_DEDUCTIBLE, 0) <> IFNULL(S.COVERAGE_DEDUCTIBLE, 0) OR
+          IFNULL(PC.COVERAGE_PREMIUM, 0) <> IFNULL(S.COVERAGE_PREMIUM, 0) OR
+          IFNULL(PC.COVERAGE_ATTACHMENT_POINT, 0) <> IFNULL(S.COVERAGE_ATTACHMENT_POINT, 0) OR
+          IFNULL(PC.COVERAGE_TYPE, '') <> IFNULL(S.COVERAGE_TYPE, '') OR
+          IFNULL(PC.COVERAGE_CODE, '') <> IFNULL(S.COVERAGE_CODE, '') OR
+          IFNULL(PC.COVERAGE_RETRO_DATE, '1900-01-01'::DATE) <> IFNULL(S.COVERAGE_RETRO_DATE, '1900-01-01'::DATE) OR
+          IFNULL(PC.COVERAGE_SUB_TYPE, '') <> IFNULL(S.COVERAGE_SUB_TYPE, '') OR
+          IFNULL(PC.IS_PRIMARY_COVERAGE, FALSE) <> IFNULL(S.IS_PRIMARY_COVERAGE, FALSE)
+      );
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b3d4e5f-7a8b-4c9d-8e0f-1a2b3c4d5e6f
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIMPOLICYCOVERAGE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c4e5f6a-8b9c-4dae-9f10-2b3c4d5e6f70
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d5f6a7b-9c0d-4ebf-a021-3c4d5e6f7081
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4e6a7b8c-0d1e-4fc0-b132-4d5e6f708192
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5f7b8c9d-1e2f-40d1-c243-5e6f708192a3
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 608c9dae-2f30-41e2-d354-6f708192a3b4
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 719daebf-3041-42f3-e465-708192a3b4c5
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 82ae0fcd-4152-4304-f576-8192a3b4c5d6
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: POLICY_TERM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a2b3c4d-5e6f-4789-a0b1-c2d3e4f5a6b7
+                stepCounter: 6a5b2d0d-5f9d-409b-ad8b-4e3f2c1b0c9e
+            transform: SRC.POLICY_TERM_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93bf10de-5263-4415-0687-92a3b4c5d6e7
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isBusinessKey: true
+        name: BK_POLICY_COVERAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b3c4d5e-6f7a-4890-b1c2-d3e4f5a6b7c8
+                stepCounter: 6a5b2d0d-5f9d-409b-ad8b-4e3f2c1b0c9e
+            transform: SRC.BK_POLICY_COVERAGE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a4c021ef-6374-4526-1798-a3b4c5d6e7f8
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_GROUP_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3c4d5e6f-7a8b-4901-c2d3-e4f5a6b7c8d9
+                stepCounter: 6a5b2d0d-5f9d-409b-ad8b-4e3f2c1b0c9e
+            transform: SRC.COVERAGE_GROUP_DESCRIPTION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5d132f0-7485-4637-28a9-b4c5d6e7f809
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4d5e6f7a-8b9c-4a12-d3e4-f5a6b7c8d9e0
+                stepCounter: 6a5b2d0d-5f9d-409b-ad8b-4e3f2c1b0c9e
+            transform: SRC.COVERAGE_DESCRIPTION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c6e24301-8596-4748-39ba-c5d6e7f8091a
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: NUMBER(38,2)
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_LIMIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5e6f7a8b-9c0d-4b23-e4f5-a6b7c8d9e0f1
+                stepCounter: 6a5b2d0d-5f9d-409b-ad8b-4e3f2c1b0c9e
+            transform: SRC.COVERAGE_LIMIT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d7f35412-96a7-4859-4acb-d6e7f8091a2b
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: NUMBER(38,2)
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_DEDUCTIBLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f7a8b9c-0d1e-4c34-f5a6-b7c8d9e0f1a2
+                stepCounter: 6a5b2d0d-5f9d-409b-ad8b-4e3f2c1b0c9e
+            transform: SRC.COVERAGE_DEDUCTIBLE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e8046523-a7b8-496a-5bdd-e7f8091a2b3c
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: NUMBER(38,2)
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_PREMIUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7a8b9c0d-1e2f-4d45-06b7-c8d9e0f1a2b3
+                stepCounter: 6a5b2d0d-5f9d-409b-ad8b-4e3f2c1b0c9e
+            transform: SRC.COVERAGE_PREMIUM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f9157634-b8c9-4a7b-6cec-f8091a2b3c4d
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: NUMBER(38,2)
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_ATTACHMENT_POINT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b9c0d1e-2f30-4e56-17c8-d9e0f1a2b3c4
+                stepCounter: 6a5b2d0d-5f9d-409b-ad8b-4e3f2c1b0c9e
+            transform: SRC.COVERAGE_ATTACHMENT_POINT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a268745-c9da-4b8c-7dfd-091a2b3c4d5e
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c0d1e2f-3041-4f67-28d9-e0f1a2b3c4d5
+                stepCounter: 6a5b2d0d-5f9d-409b-ad8b-4e3f2c1b0c9e
+            transform: SRC.COVERAGE_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b379856-daeb-4c9d-8e0e-1a2b3c4d5e6f
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0d1e2f30-4152-4078-39e0-f1a2b3c4d5e6
+                stepCounter: 6a5b2d0d-5f9d-409b-ad8b-4e3f2c1b0c9e
+            transform: SRC.COVERAGE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c48a967-ebfc-4dae-9f1f-2b3c4d5e6f70
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_RETRO_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1e2f3041-5263-4189-4af1-02b3c4d5e6f7
+                stepCounter: 6a5b2d0d-5f9d-409b-ad8b-4e3f2c1b0c9e
+            transform: SRC.COVERAGE_RETRO_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d59ba78-fc0d-4ebf-a020-3c4d5e6f7081
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_SUB_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2f304152-6374-429a-5b02-13c4d5e6f7a8
+                stepCounter: 6a5b2d0d-5f9d-409b-ad8b-4e3f2c1b0c9e
+            transform: SRC.COVERAGE_SUB_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4e6acb89-0d1e-4fc0-b131-4d5e6f708192
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: IS_PRIMARY_COVERAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 30415263-7485-43ab-6c13-24d5e6f7a8b9
+                stepCounter: 6a5b2d0d-5f9d-409b-ad8b-4e3f2c1b0c9e
+            transform: SRC.IS_PRIMARY_COVERAGE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5f7bdc9a-1e2f-40d1-c242-5e6f708192a3
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: DW_ROW_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 41526374-8596-44bc-7d24-35e6f7a8b9ca
+                stepCounter: 6a5b2d0d-5f9d-409b-ad8b-4e3f2c1b0c9e
+            transform: SRC.DW_ROW_START_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 608cedab-2f30-41e2-d353-6f708192a3b4
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: DW_ROW_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 719dfebc-3041-42f3-e464-708192a3b4c5
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: VARCHAR(1)
+        defaultValue: ""
+        description: ""
+        name: DW_ISCURRENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 52637485-96a7-45cd-8e35-46f7a8b9cadb
+                stepCounter: 6a5b2d0d-5f9d-409b-ad8b-4e3f2c1b0c9e
+            transform: SRC.DW_ISCURRENT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 82aef0cd-4152-4304-f575-8192a3b4c5d6
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: DW_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 63748596-a7b8-46de-9f46-5708b9cadbcf
+                stepCounter: 6a5b2d0d-5f9d-409b-ad8b-4e3f2c1b0c9e
+            transform: SRC.DW_CREATE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93b001de-5263-4415-0686-92a3b4c5d6e7
+          stepCounter: 7b6c3e1e-60a0-410c-be9c-5f403d2c1da0
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: DW_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SRC: src
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: STG_DIMPOLICYCOVERAGE_INSERT_VIEW
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'STG_DIMPOLICYCOVERAGE_INSERT_VIEW') }}
+            AS "src"
+        name: DIMPOLICYCOVERAGE
+        noLinkRefs: []
+  name: DIMPOLICYCOVERAGE
+  overrideSQL: false
+  schema: DBO
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node
