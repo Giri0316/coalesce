@@ -522,8 +522,7 @@ operation:
                 stepCounter: 5912a773-1f19-4b67-bd1c-8e4dd554160d
               - columnCounter: d8a8947f-f7d9-43c2-ab16-56da456e729a
                 stepCounter: 5912a773-1f19-4b67-bd1c-8e4dd554160d
-            transform: DAYNAME(DATEADD(DAY, D.DAYS_BETWEEN_ACCIDENT_AND_REPORTED_DATE,
-              D.REPORTED_DATE))
+            transform: DAYNAME(DATEADD(DAY, D.DAYS_BETWEEN_ACCIDENT_AND_REPORTED_DATE, D.REPORTED_DATE))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 2k3k4k5k-2k3k-4k5k-2k3k-4k5k6k7k8k9k

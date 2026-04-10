@@ -46,9 +46,7 @@ operation:
                 stepCounter: 75c9f32f-9f54-44f2-a0c4-5g1f22d4c2f5
               - columnCounter: 2d23e717-b76c-48b4-8452-167825b449b2
                 stepCounter: 64b8e21f-8e43-43f1-b9b3-4f0e21c3b1e4
-            transform: SUM(CASE WHEN (R.TRANSACTION_AMOUNT - IFNULL(P.TRANSACTION_AMOUNT,
-              0)) <= 0 THEN 0 ELSE R.TRANSACTION_AMOUNT - IFNULL(P.TRANSACTION_AMOUNT,
-              0) END)
+            transform: SUM(CASE WHEN (R.TRANSACTION_AMOUNT - IFNULL(P.TRANSACTION_AMOUNT, 0)) <= 0 THEN 0 ELSE R.TRANSACTION_AMOUNT - IFNULL(P.TRANSACTION_AMOUNT, 0) END)
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:

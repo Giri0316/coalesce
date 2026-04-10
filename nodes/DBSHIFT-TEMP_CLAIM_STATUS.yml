@@ -76,8 +76,7 @@ operation:
                 stepCounter: 54b8e21f-8e43-43f1-b9b3-4f0e21c3b1e4
               - columnCounter: c82d603a-c852-45e0-b6a6-0619c9636a0d
                 stepCounter: 54b8e21f-8e43-43f1-b9b3-4f0e21c3b1e4
-            transform: ROW_NUMBER() OVER (PARTITION BY S.ACA_CLAIM_ID ORDER BY S.SOURCE_SYSTEM_TRANSACTION_DATE
-              DESC, S.CLAIM_STATUS_CODE DESC)
+            transform: ROW_NUMBER() OVER (PARTITION BY S.ACA_CLAIM_ID ORDER BY S.SOURCE_SYSTEM_TRANSACTION_DATE DESC, S.CLAIM_STATUS_CODE DESC)
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:

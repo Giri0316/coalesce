@@ -60,8 +60,7 @@ operation:
                 stepCounter: d4d7e914-7d5d-4f81-8b06-444747c3e5d0
               - columnCounter: d383b1b2-7c8c-4b6b-6a57-653784091871
                 stepCounter: d4d7e914-7d5d-4f81-8b06-444747c3e5d0
-            transform: SUM(IFF(TD.TRANSACTION_TYPE_CODE = 1, TD.TRANSACTION_AMOUNT,
-              0))
+            transform: SUM(IFF(TD.TRANSACTION_TYPE_CODE = 1, TD.TRANSACTION_AMOUNT, 0))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: a7b1b58d-al79-4b64-1a2c-7077ff6cg25e
@@ -77,8 +76,7 @@ operation:
                 stepCounter: d4d7e914-7d5d-4f81-8b06-444747c3e5d0
               - columnCounter: d383b1b2-7c8c-4b6b-6a57-653784091871
                 stepCounter: d4d7e914-7d5d-4f81-8b06-444747c3e5d0
-            transform: SUM(IFF(TD.TRANSACTION_TYPE_CODE = 3, TD.TRANSACTION_AMOUNT,
-              0))
+            transform: SUM(IFF(TD.TRANSACTION_TYPE_CODE = 3, TD.TRANSACTION_AMOUNT, 0))
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:

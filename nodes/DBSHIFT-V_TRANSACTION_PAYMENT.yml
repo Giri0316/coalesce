@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 5958d21c-a128-4f24-9b2f-76813b2de9c1
-name: V_TRANSACTION_INCURRED
+id: 5938d21c-a128-4f24-9b2f-76813b2de9c1
+name: V_TRANSACTION_PAYMENT
 operation:
   config:
     insertStrategy: INSERT
@@ -19,8 +19,8 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: e4388e62-4217-43f7-9c98-1e4334a1e948
-          stepCounter: 5958d21c-a128-4f24-9b2f-76813b2de9c1
+          columnCounter: b4388e62-4217-43f7-9c98-1e4334a1e948
+          stepCounter: 5938d21c-a128-4f24-9b2f-76813b2de9c1
         config: {}
         dataType: INT
         description: ""
@@ -28,13 +28,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 8b06c8b0-a304-4e48-8df0-7d4efb5ef664
-                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+              - columnCounter: 3223e717-b76c-48b4-8452-167825b449b2
+                stepCounter: 57900b17-768a-4c28-86d5-a352ab5f75e7
             transform: T.ACA_CLAIM_ID
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: e29a1b42-78a3-4b68-8096-747d337d45c5
-          stepCounter: 5958d21c-a128-4f24-9b2f-76813b2de9c1
+          columnCounter: a29a1b42-78a3-4b68-8096-747d337d45c5
+          stepCounter: 5938d21c-a128-4f24-9b2f-76813b2de9c1
         config: {}
         dataType: TINYINT
         description: ""
@@ -42,11 +42,11 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "4"
+            transform: "1"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 958b8a5b-4399-4c12-a72e-06788e2c7a6f
-          stepCounter: 5958d21c-a128-4f24-9b2f-76813b2de9c1
+          columnCounter: 938b8a5b-4399-4c12-a72e-06788e2c7a6f
+          stepCounter: 5938d21c-a128-4f24-9b2f-76813b2de9c1
         config: {}
         dataType: DATE
         description: ""
@@ -54,13 +54,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 326779b5-c089-4a4b-87cc-2e9f0d463d6b
-                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
-            transform: MAX(T.EXPERIENCE_TRANSACTION_DATE)
+              - columnCounter: 7e7352fe-7d88-43d9-9524-747209e599b4
+                stepCounter: 57900b17-768a-4c28-86d5-a352ab5f75e7
+            transform: MAX(T.TRANSACTION_DATE)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: f52c1b4d-908d-4a1e-b83c-6893c14d9b4b
-          stepCounter: 5958d21c-a128-4f24-9b2f-76813b2de9c1
+          columnCounter: f32c1b4d-908d-4a1e-b83c-6893c14d9b4b
+          stepCounter: 5938d21c-a128-4f24-9b2f-76813b2de9c1
         config: {}
         dataType: NUMERIC(19, 2)
         description: ""
@@ -68,25 +68,24 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: c3d22e03-34e8-4660-8488-842245b73373
-                stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
-            transform: SUM(T.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE)
+              - columnCounter: 0f2b2c93-9c8e-4a7b-a192-d6d744b15093
+                stepCounter: 57900b17-768a-4c28-86d5-a352ab5f75e7
+            transform: SUM(T.PAYMENT_AMOUNT_BY_RESERVE_TYPE)
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          ASTRUSMODELINCURREDTRANSACTION: T
+          ASTRUSMODELPAYMENTTRANSACTION: T
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: DBSHIFT
-            nodeName: ASTRUSMODELINCURREDTRANSACTION
+            nodeName: ASTRUSMODELPAYMENTTRANSACTION
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'ASTRUSMODELINCURREDTRANSACTION')
-            }} "T" GROUP BY T.ACA_CLAIM_ID
-        name: V_TRANSACTION_INCURRED
+          joinCondition: FROM {{ ref('DBSHIFT', 'ASTRUSMODELPAYMENTTRANSACTION') }} "T" GROUP BY T.ACA_CLAIM_ID
+        name: V_TRANSACTION_PAYMENT
         noLinkRefs: []
-  name: V_TRANSACTION_INCURRED
+  name: V_TRANSACTION_PAYMENT
   overrideSQL: false
   schema: STAGING
   sqlType: Stage

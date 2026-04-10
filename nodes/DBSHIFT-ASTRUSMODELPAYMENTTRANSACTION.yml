@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
-name: ASTRUSMODELINCURREDTRANSACTION
+id: 57900b17-768a-4c28-86d5-a352ab5f75e7
+name: ASTRUSMODELPAYMENTTRANSACTION
 operation:
   database: ALLIANT_CLAIMS_ASTRUS
   deployEnabled: true
@@ -13,8 +13,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 8b06c8b0-a304-4e48-8df0-7d4efb5ef664
-          stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+          columnCounter: 3223e717-b76c-48b4-8452-167825b449b2
+          stepCounter: 57900b17-768a-4c28-86d5-a352ab5f75e7
         config: {}
         dataType: NUMBER
         defaultValue: ""
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 326779b5-c089-4a4b-87cc-2e9f0d463d6b
-          stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+          columnCounter: 7e7352fe-7d88-43d9-9524-747209e599b4
+          stepCounter: 57900b17-768a-4c28-86d5-a352ab5f75e7
         config: {}
         dataType: DATE
         defaultValue: ""
         description: ""
-        name: EXPERIENCE_TRANSACTION_DATE
+        name: TRANSACTION_DATE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c3d22e03-34e8-4660-8488-842245b73373
-          stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+          columnCounter: 0f2b2c93-9c8e-4a7b-a192-d6d744b15093
+          stepCounter: 57900b17-768a-4c28-86d5-a352ab5f75e7
         config: {}
         dataType: NUMBER
         defaultValue: ""
         description: ""
-        name: EXPERIENCE_AMOUNT_BY_RESERVE_TYPE
+        name: PAYMENT_AMOUNT_BY_RESERVE_TYPE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,8 +70,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 36f86a01-497d-41a4-9493-271d5386f76c
-          stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
+          columnCounter: 429623e1-7e50-4d56-b08e-17cfc8973b18
+          stepCounter: 57900b17-768a-4c28-86d5-a352ab5f75e7
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -84,7 +84,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: ASTRUSMODELINCURREDTRANSACTION
+  name: ASTRUSMODELPAYMENTTRANSACTION
   schema: RPT
   sqlType: Source
   type: sourceInput

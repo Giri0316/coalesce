@@ -46,8 +46,7 @@ operation:
                 stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
               - columnCounter: 36f86a01-497d-41a4-9493-271d5386f76c
                 stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
-            transform: SUM(IFF(I.RESERVE_TYPE = 'B. I.', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE,
-              0))
+            transform: SUM(IFF(I.RESERVE_TYPE = 'B. I.', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 8591936a-7j56-4931-f7f8-3c33aa17b6f9
@@ -63,8 +62,7 @@ operation:
                 stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
               - columnCounter: 36f86a01-497d-41a4-9493-271d5386f76c
                 stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
-            transform: SUM(IFF(I.RESERVE_TYPE = 'COLLISION', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE,
-              0))
+            transform: SUM(IFF(I.RESERVE_TYPE = 'COLLISION', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 96a2a47b-8k67-4a42-0809-4d44bb28c70a
@@ -80,8 +78,7 @@ operation:
                 stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
               - columnCounter: 36f86a01-497d-41a4-9493-271d5386f76c
                 stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
-            transform: SUM(IFF(I.RESERVE_TYPE = 'COMP', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE,
-              0))
+            transform: SUM(IFF(I.RESERVE_TYPE = 'COMP', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: a7b3b58c-9l78-4b53-191a-5e55cc39d81b
@@ -97,8 +94,7 @@ operation:
                 stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
               - columnCounter: 36f86a01-497d-41a4-9493-271d5386f76c
                 stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
-            transform: SUM(IFF(I.RESERVE_TYPE = 'EXPENSE', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE,
-              0))
+            transform: SUM(IFF(I.RESERVE_TYPE = 'EXPENSE', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: b8c4c69d-am89-4c64-2a2b-6f66dd4aed2c
@@ -114,8 +110,7 @@ operation:
                 stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
               - columnCounter: 36f86a01-497d-41a4-9493-271d5386f76c
                 stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
-            transform: SUM(IFF(I.RESERVE_TYPE = 'INDEMNITY', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE,
-              0))
+            transform: SUM(IFF(I.RESERVE_TYPE = 'INDEMNITY', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: c9d5d7ae-bn90-4d75-3b3c-7077ee5bfe3d
@@ -131,8 +126,7 @@ operation:
                 stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
               - columnCounter: 36f86a01-497d-41a4-9493-271d5386f76c
                 stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
-            transform: SUM(IFF(I.RESERVE_TYPE = 'MEDICAL', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE,
-              0))
+            transform: SUM(IFF(I.RESERVE_TYPE = 'MEDICAL', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: dae6e8bf-co01-4e86-4c4d-8188ff6c0f4e
@@ -148,8 +142,7 @@ operation:
                 stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
               - columnCounter: 36f86a01-497d-41a4-9493-271d5386f76c
                 stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
-            transform: SUM(IFF(I.RESERVE_TYPE = 'P. D.', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE,
-              0))
+            transform: SUM(IFF(I.RESERVE_TYPE = 'P. D.', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: ebf7f9c0-dp12-4f97-5d5e-9299007d105f
@@ -165,8 +158,7 @@ operation:
                 stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
               - columnCounter: 36f86a01-497d-41a4-9493-271d5386f76c
                 stepCounter: 591a27e7-fd81-4b13-90d1-0f73c1c738e4
-            transform: SUM(IFF(I.RESERVE_TYPE = 'REHAB', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE,
-              0))
+            transform: SUM(IFF(I.RESERVE_TYPE = 'REHAB', I.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: fc080ad1-eq23-40a8-6e6f-a3aa118e2160
