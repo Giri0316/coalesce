@@ -1,0 +1,207 @@
+fileVersion: 1
+id: b32a4e21-047b-402f-8a03-9c8e10d21a5b
+name: DBSHIFT_PSTG_NODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+          -- This procedure is highly procedural, using cursors and dynamic SQL to perform
+          -- backup, truncate, and status update operations on a list of tables defined in a control table.
+          -- Such imperative logic is translated into a Snowflake Scripting block to be executed in its entirety.
+          
+          -- The iSourceGroupId parameter from the original procedure is hardcoded to 1 based on the provided test execution command.
+          LET iSourceGroupId INT := 1;
+
+          LET step VARCHAR(510);
+          LET proc_name VARCHAR := 'dbo.spaca_aca_control_package_source_table_update';
+          LET current_timestamp TIMESTAMP_NTZ := CURRENT_TIMESTAMP();
+          LET sqlDropTable STRING;
+
+          BEGIN
+              step := 'Build SQL for Drop Unbacked Up Table(s)';
+
+              SELECT LISTAGG(
+                  'DROP TABLE IF EXISTS ' || DATABASE_NAME || '.' || SCHEMA_NAME || '.' || TABLE_NAME || BACKUP_TABLE_NAME_POSTFIX || ';',
+                  '\n'
+              )
+              INTO :sqlDropTable
+              FROM ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_CONTROL_PACKAGE_SOURCE_TABLE
+              WHERE BACKED_UP_FLAG = 0
+              AND SOURCE_GROUP_ID = :iSourceGroupId;
+
+              IF (:sqlDropTable IS NOT NULL AND :sqlDropTable != '') THEN
+                  step := 'Drop Unbacked Up Table(s)';
+                  EXECUTE IMMEDIATE :sqlDropTable;
+              END IF;
+
+              step := 'Processing tables for backup and truncate';
+              
+              -- Use a FOR loop, which is more idiomatic in Snowflake than a CURSOR.
+              FOR row IN (
+                  SELECT
+                      ACA_CONTROL_PACKAGE_SOURCE_TABLE_ID,
+                      DATABASE_NAME,
+                      SCHEMA_NAME,
+                      TABLE_NAME,
+                      BACKUP_TABLE_NAME_POSTFIX
+                  FROM ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_CONTROL_PACKAGE_SOURCE_TABLE
+                  WHERE BACKED_UP_FLAG = 0 AND SOURCE_GROUP_ID = :iSourceGroupId
+              )
+              DO
+                  LET id INT := row.ACA_CONTROL_PACKAGE_SOURCE_TABLE_ID;
+                  LET databaseName VARCHAR := row.DATABASE_NAME;
+                  LET schemaName VARCHAR := row.SCHEMA_NAME;
+                  LET tableName VARCHAR := row.TABLE_NAME;
+                  LET backupPostfix VARCHAR := row.BACKUP_TABLE_NAME_POSTFIX;
+                  LET backedupRecordCount INT := 0;
+                  LET sqlInsert STRING;
+                  LET sqlTruncate STRING;
+                  LET object VARCHAR(512) := '(' || databaseName || '.' || schemaName || '.' || tableName || ')';
+
+                  step := 'Start Transaction for object: ' || object;
+                  BEGIN TRANSACTION;
+
+                  step := 'Backup Table ' || object;
+                  sqlInsert := 'CREATE OR REPLACE TABLE ' || databaseName || '.' || schemaName || '.' || tableName || backupPostfix || ' AS SELECT * FROM ' || databaseName || '.' || schemaName || '.' || tableName || ';';
+                  EXECUTE IMMEDIATE :sqlInsert;
+                  
+                  backedupRecordCount := IFNULL(SQLROWCOUNT, 0);
+
+                  step := 'Update Backup Status ' || object;
+                  UPDATE ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_CONTROL_PACKAGE_SOURCE_TABLE
+                  SET BACKED_UP_FLAG = 1,
+                      BACKED_UP_RECORD_COUNT = :backedupRecordCount,
+                      ACA_DATE_UPDATED = :current_timestamp,
+                      ACA_UPDATE_USER = :proc_name
+                  WHERE ACA_CONTROL_PACKAGE_SOURCE_TABLE_ID = :id;
+
+                  step := 'Truncate Source ' || object;
+                  sqlTruncate := 'TRUNCATE TABLE IF EXISTS ' || databaseName || '.' || schemaName || '.' || tableName || ';';
+                  EXECUTE IMMEDIATE :sqlTruncate;
+
+                  step := 'Commit Transaction for object: ' || object;
+                  COMMIT;
+
+              END FOR;
+              RETURN 'Success';
+          EXCEPTION
+              WHEN OTHER THEN
+                  LET errmsg VARCHAR := 'Error: ' || SQLERRM || ' at step: ' || step;
+                  ROLLBACK;
+                  RAISE :errmsg;
+          END;
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: ALLIANT_CLAIMS_ASTRUS_STAGE
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b57e6005-59d4-469a-b40b-7411603511f5
+          stepCounter: b32a4e21-047b-402f-8a03-9c8e10d21a5b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_CONTROL_PACKAGE_SOURCE_TABLE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(MD5_BINARY(NULL) AS VARCHAR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32622f96-3c22-4a0b-930b-044154109406
+          stepCounter: b32a4e21-047b-402f-8a03-9c8e10d21a5b
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(1 AS NUMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c0d2f07d-26a9-4672-aa6d-007e1c8a14b5
+          stepCounter: b32a4e21-047b-402f-8a03-9c8e10d21a5b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST('Y' AS VARCHAR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f28d4076-2f04-45e0-b0f1-0a65191845eb
+          stepCounter: b32a4e21-047b-402f-8a03-9c8e10d21a5b
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2b2318-7b9c-4b3f-ab51-6893dd56722d
+          stepCounter: b32a4e21-047b-402f-8a03-9c8e10d21a5b
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(NULL AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d14f494-0199-4d04-8097-9e7cfc0a68d7
+          stepCounter: b32a4e21-047b-402f-8a03-9c8e10d21a5b
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 322c4f52-8d76-43b9-a29d-f6551b8c19a9
+          stepCounter: b32a4e21-047b-402f-8a03-9c8e10d21a5b
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping: []
+  name: DBSHIFT_PSTG_NODE
+  overrideSQL: false
+  schema: DBO
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node
