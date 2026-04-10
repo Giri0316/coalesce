@@ -1,0 +1,222 @@
+fileVersion: 1
+id: e47b5212-0f55-46bd-89e4-c71550c60d92
+name: TEMP_ESIS_INCURRED_NEW_TRANSACTION
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32626e29-7ca2-4c22-95f7-f8cd73123891
+          stepCounter: e47b5212-0f55-46bd-89e4-c71550c60d92
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32626e29-7ca2-4c22-95f7-f8cd73123891
+                stepCounter: 59b7f52f-fd28-444a-874c-4740e53a79eb
+            transform: IFNULL(CT.ACA_CLAIM_ID, -1)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8206d4e5-9c59-470a-861f-177cd06d2c49
+          stepCounter: e47b5212-0f55-46bd-89e4-c71550c60d92
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 97813a34-2e23-4414-874b-6101d2d0c2e3
+                stepCounter: 3c26023d-c146-4a11-a53c-1b702dfed3df
+            transform: C.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f35e985-7f41-4770-b186-b4356e3009ac
+          stepCounter: e47b5212-0f55-46bd-89e4-c71550c60d92
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f35e985-7f41-4770-b186-b4356e3009ac
+                stepCounter: 3c26023d-c146-4a11-a53c-1b702dfed3df
+            transform: C.ACA_RESERVE_TYPE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c767f401-447a-4286-9a29-bd06d2c43315
+          stepCounter: e47b5212-0f55-46bd-89e4-c71550c60d92
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f2f7ef3-b452-475a-a3a8-644788c7f7bc
+                stepCounter: 3c26023d-c146-4a11-a53c-1b702dfed3df
+            transform: C.TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e3c988e-c9ab-4841-b663-14902161b9df
+          stepCounter: e47b5212-0f55-46bd-89e4-c71550c60d92
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_DATE_ID_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c767f401-447a-4286-9a29-bd06d2c43315
+                stepCounter: 3c26023d-c146-4a11-a53c-1b702dfed3df
+            transform: C.ACA_DATE_ID_TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97813a34-2e23-4414-874b-6101d2d0c2e3
+          stepCounter: e47b5212-0f55-46bd-89e4-c71550c60d92
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COVERAGE_GROUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9e3c988e-c9ab-4841-b663-14902161b9df
+                stepCounter: 3c26023d-c146-4a11-a53c-1b702dfed3df
+            transform: C.COVERAGE_GROUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93f7733f-c6dc-4735-8ca7-22f3e09841f3
+          stepCounter: e47b5212-0f55-46bd-89e4-c71550c60d92
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9e3c988e-c9ab-4841-b663-14902161b9df
+                stepCounter: 3c26023d-c146-4a11-a53c-1b702dfed3df
+            transform: C.RESERVE_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3770e53a-c32f-4131-b844-3252a16d5119
+          stepCounter: e47b5212-0f55-46bd-89e4-c71550c60d92
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 93f7733f-c6dc-4735-8ca7-22f3e09841f3
+                stepCounter: a7e38a29-0639-4467-84a8-648b2649a5b3
+            transform: P.ACA_POLICY_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b137f84-e4f6-4a49-af43-f11a43a42d96
+          stepCounter: e47b5212-0f55-46bd-89e4-c71550c60d92
+        config: {}
+        dataType: BINARY
+        description: ""
+        name: SOURCE_SYSTEM_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32626e29-7ca2-4c22-95f7-f8cd73123891
+                stepCounter: a7e38a29-0639-4467-84a8-648b2649a5b3
+            transform: P.SOURCE_SYSTEM_POLICY_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f31e7f9c-7033-4ca2-8a9d-16a7f8042456
+          stepCounter: e47b5212-0f55-46bd-89e4-c71550c60d92
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: POLICY_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f2f7ef3-b452-475a-a3a8-644788c7f7bc
+                stepCounter: a7e38a29-0639-4467-84a8-648b2649a5b3
+            transform: P.POLICY_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a6c4b2b3-547a-42e6-af87-ffc29792040b
+          stepCounter: e47b5212-0f55-46bd-89e4-c71550c60d92
+        config: {}
+        dataType: DATE
+        description: ""
+        name: EFFECTIVE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b13c9a41-e124-4f40-8f92-bd171b3e80ab
+                stepCounter: a7e38a29-0639-4467-84a8-648b2649a5b3
+            transform: P.EFFECTIVE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 17798394-4b53-4cd2-b36c-2f3b92f741d4
+          stepCounter: e47b5212-0f55-46bd-89e4-c71550c60d92
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: TRANSACTION_SEQUENCE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 97813a34-2e23-4414-874b-6101d2d0c2e3
+                stepCounter: 3c26023d-c146-4a11-a53c-1b702dfed3df
+              - columnCounter: 0f2f7ef3-b452-475a-a3a8-644788c7f7bc
+                stepCounter: 3c26023d-c146-4a11-a53c-1b702dfed3df
+              - columnCounter: 1f35e985-7f41-4770-b186-b4356e3009ac
+                stepCounter: 3c26023d-c146-4a11-a53c-1b702dfed3df
+            transform: ROW_NUMBER() OVER (PARTITION BY C.SOURCE_SYSTEM_CLAIM_ID ORDER BY
+              C.TRANSACTION_DATE ASC, C.ACA_RESERVE_TYPE_ID ASC)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          VW_ESIS_UNIONED_TRANSACTIONS: c
+          ACA_CLAIM_TRANSACTION: ct
+          ACA_POLICY: p
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: VW_ESIS_UNIONED_TRANSACTIONS
+          - locationName: DBSHIFT
+            nodeName: ACA_CLAIM_TRANSACTION
+          - locationName: DBSHIFT
+            nodeName: ACA_POLICY
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'VW_ESIS_UNIONED_TRANSACTIONS') }} AS C
+            LEFT JOIN {{ ref('DBSHIFT', 'ACA_CLAIM_TRANSACTION') }} AS CT ON CT.SOURCE_SYSTEM_CLAIM_ID = C.SOURCE_SYSTEM_CLAIM_ID AND CT.ACA_CURRENT_FLAG = 'Y'
+            LEFT JOIN {{ ref('DBSHIFT', 'ACA_POLICY') }} AS P ON P.ACA_POLICY_ID = CT.ACA_POLICY_ID
+        name: TEMP_ESIS_INCURRED_NEW_TRANSACTION
+        noLinkRefs: []
+  name: TEMP_ESIS_INCURRED_NEW_TRANSACTION
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

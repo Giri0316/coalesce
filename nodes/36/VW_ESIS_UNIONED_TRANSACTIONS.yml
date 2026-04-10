@@ -1,0 +1,161 @@
+fileVersion: 1
+id: 3c26023d-c146-4a11-a53c-1b702dfed3df
+name: VW_ESIS_UNIONED_TRANSACTIONS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97813a34-2e23-4414-874b-6101d2d0c2e3
+          stepCounter: 3c26023d-c146-4a11-a53c-1b702dfed3df
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: U.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f35e985-7f41-4770-b186-b4356e3009ac
+          stepCounter: 3c26023d-c146-4a11-a53c-1b702dfed3df
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: U.ACA_RESERVE_TYPE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2f7ef3-b452-475a-a3a8-644788c7f7bc
+          stepCounter: 3c26023d-c146-4a11-a53c-1b702dfed3df
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: U.TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c767f401-447a-4286-9a29-bd06d2c43315
+          stepCounter: 3c26023d-c146-4a11-a53c-1b702dfed3df
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_DATE_ID_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: U.ACA_DATE_ID_TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e3c988e-c9ab-4841-b663-14902161b9df
+          stepCounter: 3c26023d-c146-4a11-a53c-1b702dfed3df
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COVERAGE_GROUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: U.COVERAGE_GROUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e3c988e-c9ab-4841-b663-14902161b9df
+          stepCounter: 3c26023d-c146-4a11-a53c-1b702dfed3df
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: U.RESERVE_TYPE
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_PAYMENT_TRANSACTION
+          - locationName: DBSHIFT
+            nodeName: ACA_RECOVERY_TRANSACTION
+          - locationName: DBSHIFT
+            nodeName: ACA_RESERVE_TRANSACTION
+          - locationName: DBSHIFT
+            nodeName: ACA_SOURCE_SYSTEM
+          - locationName: DBSHIFT
+            nodeName: ACA_EXPERIENCE_TRANSACTION
+        join:
+          joinCondition: |-
+            FROM (SELECT
+              SOURCE_SYSTEM_CLAIM_ID,
+              ACA_RESERVE_TYPE_ID,
+              TRANSACTION_DATE,
+              ACA_DATE_ID_TRANSACTION_DATE,
+              COVERAGE_GROUP_CODE,
+              MAX(RESERVE_TYPE) AS RESERVE_TYPE
+            FROM {{ ref('DBSHIFT', 'ACA_PAYMENT_TRANSACTION') }}
+            WHERE ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'ESIS')
+              AND ACA_DATE_UPDATED > (SELECT IFNULL(MAX(ACA_DATE_UPDATED), '1776-07-04 00:00:00.000'::TIMESTAMP_NTZ) FROM {{ ref('DBSHIFT', 'ACA_EXPERIENCE_TRANSACTION') }} WHERE ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'ESIS'))
+              AND TRANSACTION_DATE >= '1900-01-01'::DATE
+            GROUP BY SOURCE_SYSTEM_CLAIM_ID, ACA_RESERVE_TYPE_ID, TRANSACTION_DATE, ACA_DATE_ID_TRANSACTION_DATE, COVERAGE_GROUP_CODE
+
+            UNION
+
+            SELECT
+              SOURCE_SYSTEM_CLAIM_ID,
+              ACA_RESERVE_TYPE_ID,
+              RECOVERY_TRANSACTION_DATE AS TRANSACTION_DATE,
+              ACA_DATE_ID_RECOVERY_TRANSACTION_DATE AS ACA_DATE_ID_TRANSACTION_DATE,
+              COVERAGE_GROUP_CODE,
+              MAX(RESERVE_TYPE) AS RESERVE_TYPE
+            FROM {{ ref('DBSHIFT', 'ACA_RECOVERY_TRANSACTION') }}
+            WHERE ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'ESIS')
+              AND ACA_DATE_UPDATED > (SELECT IFNULL(MAX(ACA_DATE_UPDATED), '1776-07-04 00:00:00.000'::TIMESTAMP_NTZ) FROM {{ ref('DBSHIFT', 'ACA_EXPERIENCE_TRANSACTION') }} WHERE ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'ESIS'))
+              AND RECOVERY_TRANSACTION_DATE >= '1900-01-01'::DATE
+            GROUP BY SOURCE_SYSTEM_CLAIM_ID, ACA_RESERVE_TYPE_ID, RECOVERY_TRANSACTION_DATE, ACA_DATE_ID_RECOVERY_TRANSACTION_DATE, COVERAGE_GROUP_CODE
+
+            UNION
+
+            SELECT
+              SOURCE_SYSTEM_CLAIM_ID,
+              ACA_RESERVE_TYPE_ID,
+              TRANSACTION_DATE,
+              ACA_DATE_ID_TRANSACTION_DATE,
+              COVERAGE_GROUP_CODE,
+              MAX(RESERVE_TYPE) AS RESERVE_TYPE
+            FROM {{ ref('DBSHIFT', 'ACA_RESERVE_TRANSACTION') }}
+            WHERE ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'ESIS')
+              AND ACA_DATE_UPDATED > (SELECT IFNULL(MAX(ACA_DATE_UPDATED), '1776-07-04 00:00:00.000'::TIMESTAMP_NTZ) FROM {{ ref('DBSHIFT', 'ACA_EXPERIENCE_TRANSACTION') }} WHERE ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'ESIS'))
+              AND TRANSACTION_DATE >= '1900-01-01'::DATE
+            GROUP BY SOURCE_SYSTEM_CLAIM_ID, ACA_RESERVE_TYPE_ID, TRANSACTION_DATE, ACA_DATE_ID_TRANSACTION_DATE, COVERAGE_GROUP_CODE) AS U
+        name: VW_ESIS_UNIONED_TRANSACTIONS
+        noLinkRefs: []
+  name: VW_ESIS_UNIONED_TRANSACTIONS
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
