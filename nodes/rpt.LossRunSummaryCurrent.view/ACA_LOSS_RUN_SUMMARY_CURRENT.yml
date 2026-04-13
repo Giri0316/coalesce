@@ -25,8 +25,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLAIM_VALIDATION_DATE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLAIM_VALIDATION_DATE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -44,8 +44,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLIENT_NUMBER"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLIENT_NUMBER"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -63,8 +63,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."ACCIDENT_YEAR"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."ACCIDENT_YEAR"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -82,8 +82,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."UNITNAME_4"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."UNITNAME_4"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -101,8 +101,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."UNITNAME_3"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."UNITNAME_3"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -120,8 +120,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."UNITNAME_2"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."UNITNAME_2"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -139,8 +139,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."UNIQUE_CLAIM_ID"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."UNIQUE_CLAIM_ID"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -158,8 +158,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."WORKERS_COMPENSATION_CLAIMTYPE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."WORKERS_COMPENSATION_CLAIMTYPE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -177,8 +177,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLAIMANT_NAME_ENCRYPTED"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLAIMANT_NAME_ENCRYPTED"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -196,8 +196,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."EMPLOYEE_OCCUPATION"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."EMPLOYEE_OCCUPATION"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -215,8 +215,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."ACCIDENT_DATE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."ACCIDENT_DATE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -234,8 +234,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."VNDRRPTDAT"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."VNDRRPTDAT"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -253,8 +253,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."REPORTED_DATE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."REPORTED_DATE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -272,8 +272,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLAIM_STATUS"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLAIM_STATUS"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -291,8 +291,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLOSE_DATE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLOSE_DATE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -310,8 +310,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLAIM_COVERAGE_CODE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLAIM_COVERAGE_CODE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -329,8 +329,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."POLICY_NUMBER"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."POLICY_NUMBER"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -348,8 +348,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."POLICY_EFFECTIVE_DATE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."POLICY_EFFECTIVE_DATE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -367,8 +367,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."POLICY_EXPIRATION_DATE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."POLICY_EXPIRATION_DATE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -386,8 +386,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLAIMANT_NCCI_JOB_CLASSIFICATION"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLAIMANT_NCCI_JOB_CLASSIFICATION"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -405,8 +405,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."LITIG_FLAG"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."LITIG_FLAG"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -424,8 +424,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."SIC_CODE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."SIC_CODE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -443,8 +443,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."PART_OF_BODY_DESCRIPTION"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."PART_OF_BODY_DESCRIPTION"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -462,8 +462,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."ACCIDENT_TYPE_CODE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."ACCIDENT_TYPE_CODE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -481,8 +481,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."ACCIDENT_TYPE_DESCRIPTION"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."ACCIDENT_TYPE_DESCRIPTION"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -500,8 +500,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."NATURE_OF_LOSS_CODE_BODILY_INJURY"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."NATURE_OF_LOSS_CODE_BODILY_INJURY"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -519,8 +519,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."NATURE_OF_LOSS_BODILY_INJURY_DESCRIPTION"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."NATURE_OF_LOSS_BODILY_INJURY_DESCRIPTION"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -538,8 +538,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -557,8 +557,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."NATURE_OF_LOSS_PROPERTY_DAMAGE_DESCRIPTION"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."NATURE_OF_LOSS_PROPERTY_DAMAGE_DESCRIPTION"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -576,8 +576,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."ACCIDENT_SOURCE_CODE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."ACCIDENT_SOURCE_CODE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -595,8 +595,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."ACCIDENT_SOURCE_DESCRIPTION"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."ACCIDENT_SOURCE_DESCRIPTION"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -614,8 +614,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."DESCRIPTION_OF_LOSS_ENCRYPTED"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."DESCRIPTION_OF_LOSS_ENCRYPTED"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -633,8 +633,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."ACCIDENT_STATE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."ACCIDENT_STATE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -652,8 +652,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."BENEFIT_JURISDICTION_STATE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."BENEFIT_JURISDICTION_STATE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -671,8 +671,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."EXPOSURE_STATE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."EXPOSURE_STATE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -690,8 +690,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLAIMANT_AVERAGE_WEEKLY_WAGE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLAIMANT_AVERAGE_WEEKLY_WAGE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -709,8 +709,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLAIM_ADJUSTING_BRANCH_NUMBER"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLAIM_ADJUSTING_BRANCH_NUMBER"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -728,8 +728,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."BRNCH_NAME"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."BRNCH_NAME"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -747,8 +747,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."ACCIDENT_NUMBER"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."ACCIDENT_NUMBER"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -766,8 +766,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLIENT_OPTIONAL_CLAIM_CODES"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."CLIENT_OPTIONAL_CLAIM_CODES"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -785,8 +785,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."COMPENSATION_RATE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."COMPENSATION_RATE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -804,8 +804,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."INCD_BI"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."INCD_BI"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -823,8 +823,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."INCD_COLLISION"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."INCD_COLLISION"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -842,8 +842,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."INCD_COMP"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."INCD_COMP"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -861,8 +861,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."INCD_EXPENSE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."INCD_EXPENSE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -880,8 +880,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."INCD_INDEMNITY"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."INCD_INDEMNITY"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -899,8 +899,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."INCD_MEDICAL"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."INCD_MEDICAL"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -918,8 +918,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."INCD_PD"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."INCD_PD"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -937,8 +937,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."INCD_REHAB"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."INCD_REHAB"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -956,8 +956,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."TOTAL_EXPERIENCE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."TOTAL_EXPERIENCE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -975,8 +975,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."PMT_BI"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."PMT_BI"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -994,8 +994,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."PMT_COLLISION"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."PMT_COLLISION"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -1013,8 +1013,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."PMT_COMP"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."PMT_COMP"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -1032,8 +1032,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."PMT_EXPENSE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."PMT_EXPENSE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -1051,8 +1051,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."PMT_INDEMNITY"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."PMT_INDEMNITY"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -1070,8 +1070,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."PMT_MEDICAL"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."PMT_MEDICAL"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -1089,8 +1089,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."PMT_PD"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."PMT_PD"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -1108,8 +1108,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."PMT_REHAB"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."PMT_REHAB"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -1127,8 +1127,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."REC_BI"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."REC_BI"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -1146,8 +1146,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."REC_COLLISION"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."REC_COLLISION"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -1165,8 +1165,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."REC_COMP"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."REC_COMP"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -1184,8 +1184,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."REC_EXPENSE"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."REC_EXPENSE"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -1203,8 +1203,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."REC_INDEMNITY"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."REC_INDEMNITY"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -1222,8 +1222,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."REC_MEDICAL"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."REC_MEDICAL"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -1241,8 +1241,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."REC_PD"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."REC_PD"
         uniqueKey: false
       - acceptedValues:
           strictMatch: true
@@ -1260,8 +1260,8 @@ operation:
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."REC_REHAB"
+        transform: "ACA_LOSS_RUN_SUMMARY_CURRENT"."REC_REHAB"
         uniqueKey: false
   name: ACA_LOSS_RUN_SUMMARY_CURRENT
   schema: DBO
