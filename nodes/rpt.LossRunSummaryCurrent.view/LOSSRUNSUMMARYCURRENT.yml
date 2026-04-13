@@ -964,4 +964,4 @@ operation:
   sqlType: View
   type: sql
   version: 1
-type: node
+type: Node
