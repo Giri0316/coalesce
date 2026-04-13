@@ -1,0 +1,168 @@
+fileVersion: 1
+id: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+name: ACA_TRANSACTION_THIRD_PARTY_RECOVERY
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93ef6409-72c0-4357-8b02-534ef064f781
+          stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f930e46-5b3a-4416-8c43-26a91176ecf2
+          stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1a75094-1a06-4074-a4f7-e43598d1a104
+          stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_AMOUNT1
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9b2d8293-9c86-4014-b80c-c4664c39d09c
+          stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_AMOUNT2
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c23d387f-945f-4a00-9ef9-cc97b3117578
+          stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_AMOUNT3
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d152c93-577e-40d6-8488-29472e3915bc
+          stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_AMOUNT4
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b0a996d-cdd6-4171-aa3a-4422204c8651
+          stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_AMOUNT5
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3226a266-9351-41b9-8c6f-6f38010839a8
+          stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_AMOUNT6
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_TRANSACTION_THIRD_PARTY_RECOVERY
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

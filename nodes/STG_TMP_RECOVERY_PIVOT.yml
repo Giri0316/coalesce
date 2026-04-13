@@ -1,0 +1,160 @@
+fileVersion: 1
+id: 2c3d4e5f-8a7b-4d7i-8b6c-9e8d7c6b5a4b
+name: STG_TMP_RECOVERY_PIVOT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1c2d3e4f-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+          stepCounter: 2c3d4e5f-8a7b-4d7i-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a2b3c4d-5e6f-7890-a1b2-c3d4e5f67890
+                stepCounter: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+            transform: U.UNIQUE_CLAIM_ID
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d3e4f5a-6a7b-8c9d-0e1f-2a3b4c5d6e7f
+          stepCounter: 2c3d4e5f-8a7b-4d7i-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_AMOUNT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4d5e6f78-90a1-b2c3-d4e5-f67890123456
+                stepCounter: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+              - columnCounter: 5e6f7890-a1b2-c3d4-e5f6-789012345678
+                stepCounter: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+              - columnCounter: 6f7890a1-b2c3-d4e5-f678-901234567890
+                stepCounter: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+              - columnCounter: 7890a1b2-c3d4-e5f6-7890-123456789012
+                stepCounter: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+              - columnCounter: 890a1b2c-3d4e-5f67-8901-234567890123
+                stepCounter: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+              - columnCounter: 90a1b2c3-d4e5-f678-9012-345678901234
+                stepCounter: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+            transform: U.RECOVERY_AMOUNT
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3e4f5a6b-7b8c-9d0e-1f2a-3b4c5d6e7f80
+          stepCounter: 2c3d4e5f-8a7b-4d7i-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b3c4d5e-6f78-90a1-b2c3-d4e5f6789012
+                stepCounter: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+            transform: TE.CLAIM_COVERAGE_CODE
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4f5a6b7c-8c9d-0e1f-2a3b-4c5d6e7f8081
+          stepCounter: 2c3d4e5f-8a7b-4d7i-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLASS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3c4d5e6f-7890-a1b2-c3d4-e5f678901234
+                stepCounter: 1b2c3d4e-7f6a-4d7h-8b6c-9e8d7c6b5a4b
+            transform: TE.CLASS
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a6b7c8d-9d0e-1f2a-3b4c-5d6e7f808182
+          stepCounter: 2c3d4e5f-8a7b-4d7i-8b6c-9e8d7c6b5a4b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: RESERVE_TYPE_COLUMN_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: |-
+          CASE 
+                      WHEN U.REC_COLUMN = 'RECOVERY_AMOUNT1' THEN 'col1'
+                      WHEN U.REC_COLUMN = 'RECOVERY_AMOUNT2' THEN 'col2'
+                      WHEN U.REC_COLUMN = 'RECOVERY_AMOUNT3' THEN 'col3'
+                      WHEN U.REC_COLUMN = 'RECOVERY_AMOUNT4' THEN 'col4'
+                      WHEN U.REC_COLUMN = 'RECOVERY_AMOUNT5' THEN 'col5'
+                      ELSE 'col6'
+                  END
+        uniqueKey: false
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: STG_TMP_RECOVERY_CURRENT
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'STG_TMP_RECOVERY_CURRENT') }} TE
+            UNPIVOT(RECOVERY_AMOUNT FOR REC_COLUMN IN (RECOVERY_AMOUNT1, RECOVERY_AMOUNT2, RECOVERY_AMOUNT3, RECOVERY_AMOUNT4, RECOVERY_AMOUNT5, RECOVERY_AMOUNT6)) U
+        name: STG_TMP_RECOVERY_PIVOT
+        noLinkRefs: []
+  name: STG_TMP_RECOVERY_PIVOT
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
