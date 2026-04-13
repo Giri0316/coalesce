@@ -1,6 +1,6 @@
 fileVersion: 1
 id: 569308be-77b3-4f96-b605-72fd02e3b2e9
-name: REF_ACA_RESERVE_TYPE_GB
+name: ACA_RESERVE_TYPE_GB
 operation:
   database: ""
   deployEnabled: true
@@ -65,7 +65,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: REF_ACA_RESERVE_TYPE_GB
+  name: ACA_RESERVE_TYPE_GB
   schema: REF
   sqlType: Source
   type: sourceInput
