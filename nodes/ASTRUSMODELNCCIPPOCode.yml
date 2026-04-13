@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 6f7g8h9i-0j1k-2l3m-4n5o-6p7q8r9s0t1u
+name: ASTRUSMODELNCCIPPOCode
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0i1j2k3l-4m5n-6o7p-8q9r-0s1t2u3v4w5x
+          stepCounter: 6f7g8h9i-0j1k-2l3m-4n5o-6p7q8r9s0t1u
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: NCCI_PPO_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1j2k3l4m-5n6o-7p8q-9r0s-1t2u3v4w5x6y
+          stepCounter: 6f7g8h9i-0j1k-2l3m-4n5o-6p7q8r9s0t1u
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: NCCI_PPO
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ASTRUSMODELNCCIPPOCode
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

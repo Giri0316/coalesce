@@ -1,5 +1,4 @@
-defaultStorageMapping: TARGET
+defaultStorageMapping: DBSHIFT
 fileVersion: 1
 locations:
-  - SRC
-  - TARGET
+  - DBSHIFT

@@ -1,11 +1,11 @@
 fileVersion: 1
-id: 70f961e8-85c9-4bc6-8596-03a0ff4b4cbe
-name: PRODUCT
+id: 9e8d7c6b-5a4b-3c2d-1e0f-4d7a8b6c9e8d
+name: ASTRUSMODELACCIDENTSOURCECODE
 operation:
   database: ""
   deployEnabled: true
   description: ""
-  locationName: SRC
+  locationName: DBSHIFT
   metadata:
     columns:
       - acceptedValues:
@@ -13,32 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 53e39911-9a8b-4364-829e-00b64430e1eb
-          stepCounter: 70f961e8-85c9-4bc6-8596-03a0ff4b4cbe
+          columnCounter: 9f0a1b2c-3d4e-5f6a-7b8c-9d0e1f2a3b4c
+          stepCounter: 9e8d7c6b-5a4b-3c2d-1e0f-4d7a8b6c9e8d
         config: {}
-        dataType: NUMBER(38,0)
+        dataType: NUMBER
         defaultValue: ""
         description: ""
-        name: PRODUCT_ID
-        nullable: false
-        primaryKey: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: ce522918-1ea0-4400-8275-f976c098afc1
-          stepCounter: 70f961e8-85c9-4bc6-8596-03a0ff4b4cbe
-        config: {}
-        dataType: VARCHAR(100)
-        defaultValue: ""
-        description: ""
-        name: PRODUCT_NAME
+        name: ACA_ACCIDENT_SOURCE_CODE_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: cc05b789-8d4f-419c-b04d-826dae3e8006
-          stepCounter: 70f961e8-85c9-4bc6-8596-03a0ff4b4cbe
+          columnCounter: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 9e8d7c6b-5a4b-3c2d-1e0f-4d7a8b6c9e8d
         config: {}
-        dataType: VARCHAR(100)
+        dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: CATEGORY
+        name: ACCIDENT_SOURCE_CODE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 559043be-da3e-43b8-8432-eb3da00b4495
-          stepCounter: 70f961e8-85c9-4bc6-8596-03a0ff4b4cbe
+          columnCounter: 1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+          stepCounter: 9e8d7c6b-5a4b-3c2d-1e0f-4d7a8b6c9e8d
         config: {}
-        dataType: VARCHAR(100)
+        dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: BRAND
+        name: ACCIDENT_SOURCE_GROUP
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -89,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 348c6c63-6282-472b-85c5-732c68ffac0b
-          stepCounter: 70f961e8-85c9-4bc6-8596-03a0ff4b4cbe
+          columnCounter: 2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f
+          stepCounter: 9e8d7c6b-5a4b-3c2d-1e0f-4d7a8b6c9e8d
         config: {}
-        dataType: NUMBER(10,2)
+        dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: UNIT_PRICE
+        name: ACCIDENT_SOURCE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -103,7 +84,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: PRODUCT
+  name: ASTRUSMODELACCIDENTSOURCECODE
   schema: ""
   sqlType: Source
   type: sourceInput

@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 5e6f7g8h-9i0j-1k2l-3m4n-5o6p7q8r9s0t
+name: ASTRUSMODELNCCITYPEOFLOSSCODE
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8g9h0i1j-2k3l-4m5n-6o7p-8q9r0s1t2u3v
+          stepCounter: 5e6f7g8h-9i0j-1k2l-3m4n-5o6p7q8r9s0t
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: NCCI_TYPE_OF_LOSS_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9h0i1j2k-3l4m-5n6o-7p8q-9r0s1t2u3v4w
+          stepCounter: 5e6f7g8h-9i0j-1k2l-3m4n-5o6p7q8r9s0t
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: NCCI_TYPE_OF_LOSS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ASTRUSMODELNCCITYPEOFLOSSCODE
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

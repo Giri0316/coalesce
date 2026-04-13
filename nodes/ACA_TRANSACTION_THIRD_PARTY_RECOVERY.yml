@@ -1,11 +1,11 @@
 fileVersion: 1
-id: c9689822-e535-4304-9368-5952ffafd9aa
-name: SAMPLE1
+id: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+name: ACA_TRANSACTION_THIRD_PARTY_RECOVERY
 operation:
   database: ""
   deployEnabled: true
   description: ""
-  locationName: SRC
+  locationName: DBSHIFT
   metadata:
     columns:
       - acceptedValues:
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 7d744e52-d333-46a4-bf37-fac66dbc53be
-          stepCounter: c9689822-e535-4304-9368-5952ffafd9aa
+          columnCounter: 93ef6409-72c0-4357-8b02-534ef064f781
+          stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
         config: {}
-        dataType: NUMBER(38,0)
+        dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: SALE_ID
+        name: UNIQUE_CLAIM_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 69eab3b8-4470-4c6e-8aae-3bd4c05a0557
-          stepCounter: c9689822-e535-4304-9368-5952ffafd9aa
+          columnCounter: 0f930e46-5b3a-4416-8c43-26a91176ecf2
+          stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
         config: {}
-        dataType: NUMBER(38,0)
+        dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: PRODUCT_ID
+        name: CLAIM_COVERAGE_CODE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: de2fe51b-b8ef-42bf-a01c-81f971ade069
-          stepCounter: c9689822-e535-4304-9368-5952ffafd9aa
+          columnCounter: d1a75094-1a06-4074-a4f7-e43598d1a104
+          stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
         config: {}
-        dataType: VARCHAR(50)
+        dataType: NUMBER
         defaultValue: ""
         description: ""
-        name: REGION
+        name: RECOVERY_AMOUNT1
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: dc4e758f-160f-42e9-84a4-aedbd27fcdb7
-          stepCounter: c9689822-e535-4304-9368-5952ffafd9aa
+          columnCounter: 9b2d8293-9c86-4014-b80c-c4664c39d09c
+          stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
         config: {}
-        dataType: NUMBER(10,2)
+        dataType: NUMBER
         defaultValue: ""
         description: ""
-        name: QUANTITY
+        name: RECOVERY_AMOUNT2
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -89,13 +89,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: b82f8575-1d0c-488c-b681-e2628e8907a9
-          stepCounter: c9689822-e535-4304-9368-5952ffafd9aa
+          columnCounter: c23d387f-945f-4a00-9ef9-cc97b3117578
+          stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
         config: {}
-        dataType: NUMBER(10,2)
+        dataType: NUMBER
         defaultValue: ""
         description: ""
-        name: PRICE
+        name: RECOVERY_AMOUNT3
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -108,13 +108,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 479154f5-42dd-4884-a726-92c41d5275de
-          stepCounter: c9689822-e535-4304-9368-5952ffafd9aa
+          columnCounter: 2d152c93-577e-40d6-8488-29472e3915bc
+          stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
         config: {}
-        dataType: DATE
+        dataType: NUMBER
         defaultValue: ""
         description: ""
-        name: SALE_DATE
+        name: RECOVERY_AMOUNT4
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -122,8 +122,46 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: SAMPLE1
-  schema: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b0a996d-cdd6-4171-aa3a-4422204c8651
+          stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_AMOUNT5
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3226a266-9351-41b9-8c6f-6f38010839a8
+          stepCounter: 569d6a36-1e64-42f7-b2e1-4c6e91f09511
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_AMOUNT6
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_TRANSACTION_THIRD_PARTY_RECOVERY
+  schema: DBO
   sqlType: Source
   type: sourceInput
   version: 1
