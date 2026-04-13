@@ -1,6 +1,6 @@
 fileVersion: 1
 id: 59715569-8dd3-4b68-8094-1a2fcdb5d034
-name: REF_ACA_NATURE_CODE
+name: ACA_NATURE_CODE
 operation:
   database: ""
   deployEnabled: true
@@ -46,7 +46,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: REF_ACA_NATURE_CODE
+  name: ACA_NATURE_CODE
   schema: REF
   sqlType: Source
   type: sourceInput
