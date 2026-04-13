@@ -2,11 +2,10 @@ fileVersion: 1
 id: 171e540b-74b8-4c8d-b941-86f3b065dd4b
 name: ACA_LOSS_RUN_SUMMARY_CURRENT
 operation:
-  database: "ALLIANT_CLAIMS_ASTRUS"
+  database: ""
   deployEnabled: true
   description: ""
-  locationName: SRC
-  schema: "DBO"
+  locationName: DBSHIFT
   metadata:
     columns:
       - acceptedValues:
