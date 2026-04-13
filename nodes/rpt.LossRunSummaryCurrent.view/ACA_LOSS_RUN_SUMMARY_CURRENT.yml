@@ -1264,7 +1264,7 @@ operation:
         transform: ""
         uniqueKey: false
   name: ACA_LOSS_RUN_SUMMARY_CURRENT
-  schema: ""
+  schema: "DBO"
   sqlType: Source
   type: sourceInput
   version: 1
