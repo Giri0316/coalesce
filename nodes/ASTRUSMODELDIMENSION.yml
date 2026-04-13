@@ -1120,7 +1120,6 @@ operation:
         columnReference:
           columnCounter: ecd3f228-0095-4396-6129-112d19cf6ddd
           stepCounter: 5f1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4
-yaml
         dataType: VARCHAR
         description: ""
         name: CLAIM_COVERAGE_CODE
