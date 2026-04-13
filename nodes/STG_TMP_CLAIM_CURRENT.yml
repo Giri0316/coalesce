@@ -940,7 +940,7 @@ operation:
         nullable: true
         primaryKey: false
         sourceColumnReferences: []
-        transform: 1
+        transform: "1"
         uniqueKey: false
     cteString: ""
     enabledColumnTestIDs: []
