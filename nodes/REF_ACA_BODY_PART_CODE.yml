@@ -1,6 +1,6 @@
 fileVersion: 1
 id: 61c28c6e-d71d-400b-b23d-0d859d9c22e4
-name: REF_ACA_BODY_PART_CODE
+name: ACA_BODY_PART_CODE
 operation:
   database: ""
   deployEnabled: true
@@ -46,7 +46,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: REF_ACA_BODY_PART_CODE
+  name: ACA_BODY_PART_CODE
   schema: REF
   sqlType: Source
   type: sourceInput
