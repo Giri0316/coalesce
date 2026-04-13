@@ -1,6 +1,6 @@
 fileVersion: 1
 id: 79905bb1-3f0e-4dd1-863a-23d9a1c1a967
-name: REF_ACA_ACCIDENT_SOURCE_CODE
+name: ACA_ACCIDENT_SOURCE_CODE
 operation:
   database: ""
   deployEnabled: true
@@ -65,7 +65,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: REF_ACA_ACCIDENT_SOURCE_CODE
+  name: ACA_ACCIDENT_SOURCE_CODE
   schema: REF
   sqlType: Source
   type: sourceInput
