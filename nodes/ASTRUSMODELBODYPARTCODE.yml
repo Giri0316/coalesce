@@ -1,6 +1,6 @@
 fileVersion: 1
-id: d7d4d3d3-1c34-4b47-a3f2-8f9f8e7d6c5b
-name: ACA_SOURCE_SYSTEM
+id: 7c6b5a4b-3c2d-1e0f-4d7a-8b6c9e8d7c6b
+name: ASTRUSMODELBODYPARTCODE
 operation:
   database: ""
   deployEnabled: true
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 7e73523f-5b6c-48b4-8e3b-b230623315a6
-          stepCounter: d7d4d3d3-1c34-4b47-a3f2-8f9f8e7d6c5b
+          columnCounter: 5a6b7c8d-9e0f-1a2b-3c4d-5e6f7g8h9i0j
+          stepCounter: 7c6b5a4b-3c2d-1e0f-4d7a-8b6c9e8d7c6b
         config: {}
-        dataType: NUMBER
+        dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: ACA_SOURCE_SYSTEM_ID
+        name: PART_OF_BODY_CODE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: a6c5e4f3-5b6c-48b4-8e3b-b230623315a6
-          stepCounter: d7d4d3d3-1c34-4b47-a3f2-8f9f8e7d6c5b
+          columnCounter: 6b7c8d9e-0f1a-2b3c-4d5e-6f7g8h9i0j1k
+          stepCounter: 7c6b5a4b-3c2d-1e0f-4d7a-8b6c9e8d7c6b
         config: {}
         dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM
+        name: PART_OF_BODY
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -46,7 +46,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: ACA_SOURCE_SYSTEM
+  name: ASTRUSMODELBODYPARTCODE
   schema: ""
   sqlType: Source
   type: sourceInput

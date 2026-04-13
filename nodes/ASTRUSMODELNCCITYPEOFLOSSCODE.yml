@@ -1,6 +1,6 @@
 fileVersion: 1
-id: d7d4d3d3-1c34-4b47-a3f2-8f9f8e7d6c5b
-name: ACA_SOURCE_SYSTEM
+id: 5e6f7g8h-9i0j-1k2l-3m4n-5o6p7q8r9s0t
+name: ASTRUSMODELNCCITYPEOFLOSSCODE
 operation:
   database: ""
   deployEnabled: true
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 7e73523f-5b6c-48b4-8e3b-b230623315a6
-          stepCounter: d7d4d3d3-1c34-4b47-a3f2-8f9f8e7d6c5b
+          columnCounter: 8g9h0i1j-2k3l-4m5n-6o7p-8q9r0s1t2u3v
+          stepCounter: 5e6f7g8h-9i0j-1k2l-3m4n-5o6p7q8r9s0t
         config: {}
-        dataType: NUMBER
+        dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: ACA_SOURCE_SYSTEM_ID
+        name: NCCI_TYPE_OF_LOSS_CODE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: a6c5e4f3-5b6c-48b4-8e3b-b230623315a6
-          stepCounter: d7d4d3d3-1c34-4b47-a3f2-8f9f8e7d6c5b
+          columnCounter: 9h0i1j2k-3l4m-5n6o-7p8q-9r0s1t2u3v4w
+          stepCounter: 5e6f7g8h-9i0j-1k2l-3m4n-5o6p7q8r9s0t
         config: {}
         dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM
+        name: NCCI_TYPE_OF_LOSS
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -46,7 +46,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: ACA_SOURCE_SYSTEM
+  name: ASTRUSMODELNCCITYPEOFLOSSCODE
   schema: ""
   sqlType: Source
   type: sourceInput

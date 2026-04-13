@@ -1,6 +1,6 @@
 fileVersion: 1
-id: d7d4d3d3-1c34-4b47-a3f2-8f9f8e7d6c5b
-name: ACA_SOURCE_SYSTEM
+id: 1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p
+name: ASTRUSMODELNCCIACT
 operation:
   database: ""
   deployEnabled: true
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 7e73523f-5b6c-48b4-8e3b-b230623315a6
-          stepCounter: d7d4d3d3-1c34-4b47-a3f2-8f9f8e7d6c5b
+          columnCounter: 5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8g9h0i
+          stepCounter: 1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p
         config: {}
-        dataType: NUMBER
+        dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: ACA_SOURCE_SYSTEM_ID
+        name: NCCI_ACT_CODE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: a6c5e4f3-5b6c-48b4-8e3b-b230623315a6
-          stepCounter: d7d4d3d3-1c34-4b47-a3f2-8f9f8e7d6c5b
+          columnCounter: 6a7b8c9d-0e1f-2a3b-4c5d-6e7f8g9h0i1j
+          stepCounter: 1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p
         config: {}
         dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM
+        name: NCCI_ACT
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -46,7 +46,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: ACA_SOURCE_SYSTEM
+  name: ASTRUSMODELNCCIACT
   schema: ""
   sqlType: Source
   type: sourceInput

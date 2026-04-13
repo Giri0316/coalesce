@@ -1,6 +1,6 @@
 fileVersion: 1
-id: d7d4d3d3-1c34-4b47-a3f2-8f9f8e7d6c5b
-name: ACA_SOURCE_SYSTEM
+id: 8d7c6b5a-4b3c-2d1e-0f4d-7a8b6c9e8d7c
+name: ASTRUSMODELNATURECODE
 operation:
   database: ""
   deployEnabled: true
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 7e73523f-5b6c-48b4-8e3b-b230623315a6
-          stepCounter: d7d4d3d3-1c34-4b47-a3f2-8f9f8e7d6c5b
+          columnCounter: 7d8e9f0a-1b2c-3d4e-5f6a-7b8c9d0e1f2a
+          stepCounter: 8d7c6b5a-4b3c-2d1e-0f4d-7a8b6c9e8d7c
         config: {}
-        dataType: NUMBER
+        dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: ACA_SOURCE_SYSTEM_ID
+        name: NATURE_CODE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: a6c5e4f3-5b6c-48b4-8e3b-b230623315a6
-          stepCounter: d7d4d3d3-1c34-4b47-a3f2-8f9f8e7d6c5b
+          columnCounter: 8e9f0a1b-2c3d-4e5f-6a7b-8c9d0e1f2a3b
+          stepCounter: 8d7c6b5a-4b3c-2d1e-0f4d-7a8b6c9e8d7c
         config: {}
         dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM
+        name: NATURE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -46,7 +46,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: ACA_SOURCE_SYSTEM
+  name: ASTRUSMODELNATURECODE
   schema: ""
   sqlType: Source
   type: sourceInput
