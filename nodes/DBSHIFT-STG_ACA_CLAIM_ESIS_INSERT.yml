@@ -483,14 +483,14 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          ACA_CLAIM_STAGING_ESIS: CGB
+          CGB: 54117b3d-18f1-460f-90e8-0a06806df86e
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: TARGET
             nodeName: ACA_CLAIM_STAGING_ESIS
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_CLAIM_STAGING_ESIS') }} "CGB"
+          joinCondition: FROM {{ ref('TARGET', 'ACA_CLAIM_STAGING_ESIS') }} "CGB"
         name: STG_ACA_CLAIM_ESIS_INSERT
         noLinkRefs: []
   name: STG_ACA_CLAIM_ESIS_INSERT

@@ -1,5 +1,8 @@
 fileVersion: 1
 id: "42"
-mappingDefinitions: {}
+mappingDefinitions:
+  DBSHIFT:
+    database: ""
+    schema: ""
 name: Checkk
 type: Environment
