@@ -1,5 +1,8 @@
 fileVersion: 1
 id: "42"
-mappingDefinitions: {}
+mappingDefinitions:
+  ALLIANT_CLAIM_ASTRUS_DBO:
+    database: ""
+    schema: ""
 name: Checkk
 type: Environment
