@@ -8,7 +8,7 @@ operation:
     preSQL: |-
       BEGIN
           USE ALLIANT_CLAIMS_ASTRUS_STAGE;
-      
+
           -- NOTE: This conversion assumes a unique key (e.g., a primary key) exists on the target table
           -- to correctly join the subquery back to the table being updated. A placeholder '<<UNIQUE_KEY>>' is used.
           UPDATE ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_PAYEE_STAGING_ESIS AS P
@@ -24,7 +24,7 @@ operation:
               P.MAIL_TO_FIRST_NAME_ENCRYPTED = SOURCE.NEW_MAIL_TO_FIRST_NAME_ENCRYPTED,
               P.MAIL_TO_ORGANIZATION_ENCRYPTED = SOURCE.NEW_MAIL_TO_ORGANIZATION_ENCRYPTED,
               P.MAIL_TO_ADDRESS_ENCRYPTED = SOURCE.NEW_MAIL_TO_ADDRESS_ENCRYPTED,
-      
+
               P.PAYEE = NULL,
               P.LAST_NAME = NULL,
               P.FIRST_NAME = NULL,
@@ -36,11 +36,11 @@ operation:
               P.MAIL_TO_FIRST_NAME = NULL,
               P.MAIL_TO_ORGANIZATION = NULL,
               P.MAIL_TO_ADDRESS = NULL,
-      
+
               P.ACA_IRS_FORM_1099_TYPE_ID = SOURCE.NEW_ACA_IRS_FORM_1099_TYPE_ID,
               P.IRS_FORM_1099_TYPE = SOURCE.NEW_IRS_FORM_1099_TYPE,
               P.ACA_SOURCE_SYSTEM_ID = SOURCE.NEW_ACA_SOURCE_SYSTEM_ID,
-      
+
               P.ACA_DATE_UPDATED = CURRENT_TIMESTAMP(),
               P.ACA_UPDATE_USER = 'dbo.spaca_aca_payee_staging_esis_update'
           FROM (
@@ -116,7 +116,7 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: ""
-        transform: '''Y'''
+        transform: "'Y'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: c7d6a2f9-158a-40a8-b6e5-4a6c4b2600d8
@@ -171,7 +171,13 @@ operation:
         transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
     cteString: ""
     enabledColumnTestIDs: []
-    sourceMapping: []
+    sourceMapping:
+      - aliases: {}
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: DBSHIFT_PSTG_NODE
+        noLinkRefs: []
   name: DBSHIFT_PSTG_NODE
   overrideSQL: false
   schema: ""

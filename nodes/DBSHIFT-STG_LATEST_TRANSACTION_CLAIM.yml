@@ -30,8 +30,8 @@ operation:
           - columnReferences:
               - columnCounter: 6363c1a3-ef0c-40ad-9d22-1d529da14392
                 stepCounter: 610c1490-6435-4993-9c87-84618e39f323
-            transform: ""
-        transform: "sub.ACA_TRANSACTION_CLAIM_ID"
+            transform: "\"sub\".ACA_TRANSACTION_CLAIM_ID"
+        transform: sub.ACA_TRANSACTION_CLAIM_ID
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 5c91f4a4-1234-4b52-b1e2-b152d0a0b925
@@ -45,8 +45,8 @@ operation:
           - columnReferences:
               - columnCounter: 16b5a340-a359-450f-90e8-0b6c69fdd94a
                 stepCounter: 610c1490-6435-4993-9c87-84618e39f323
-            transform: ""
-        transform: "sub.UNIQUE_CLAIM_ID"
+            transform: "\"sub\".UNIQUE_CLAIM_ID"
+        transform: sub.UNIQUE_CLAIM_ID
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:

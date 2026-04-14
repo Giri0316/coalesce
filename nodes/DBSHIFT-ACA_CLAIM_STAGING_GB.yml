@@ -50,8 +50,7 @@ operation:
               - columnCounter: f7d1a1b8-6a3f-4e0d-b4f7-e1e3e7f9e8a5
                 stepCounter: 29f27d35-3c1c-4b5b-8f77-51369f8d7b32
             transform: ""
-        transform: MD5(CONCAT_WS('||', IFNULL(TRIM(T.CLIENT_NUMBER), ''), IFNULL(TRIM(T.REPORTING_UNIT_NUMBER),
-          ''), IFNULL(TRIM(P.MIN_LEVEL), '')))
+        transform: MD5(CONCAT_WS('||', IFNULL(TRIM(T.CLIENT_NUMBER), ''), IFNULL(TRIM(T.REPORTING_UNIT_NUMBER), ''), IFNULL(TRIM(P.MIN_LEVEL), '')))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 8d7c6b5a-4f3e-4d2c-b1a0-9e8d7c6b5a4b
@@ -222,7 +221,7 @@ operation:
           columnCounter: 0d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a
           stepCounter: b6c1d739-e932-4d2d-9b1b-9f2b3e8e7e1a
         config: {}
-        dataType: DATE
+        dataType: BINARY
         description: ""
         name: DEATH_DATE
         nullable: true
@@ -231,14 +230,13 @@ operation:
               - columnCounter: 9b2d8f99-4d98-44d5-8a2a-7e0f6c2f483c
                 stepCounter: 610c1490-6435-4993-9c87-84618e39f323
             transform: ""
-        transform: TRY_TO_DATE(CAST(DECRYPTBYKEY(T.DEATH_DATE_ENCRYPTED, 1, '123')
-          AS VARCHAR))
+        transform: TRY_TO_DATE(CAST(DECRYPTBYKEY(T.DEATH_DATE_ENCRYPTED, 1, '123') AS VARCHAR))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b
           stepCounter: b6c1d739-e932-4d2d-9b1b-9f2b3e8e7e1a
         config: {}
-        dataType: VARCHAR(9)
+        dataType: BINARY
         description: ""
         name: EMPLOYEE_IDENTIFICATION_NUMBER
         nullable: true
@@ -247,8 +245,7 @@ operation:
               - columnCounter: e87f8b92-8a9d-4786-8d6f-71a2a472c67b
                 stepCounter: 610c1490-6435-4993-9c87-84618e39f323
             transform: ""
-        transform: CAST(DECRYPTBYKEY(T.EMPLOYEE_IDENTIFICATION_NUMBER_ENCRYPTED,
-          1, '123') AS VARCHAR(9))
+        transform: CAST(DECRYPTBYKEY(T.EMPLOYEE_IDENTIFICATION_NUMBER_ENCRYPTED, 1, '123') AS VARCHAR(9))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c
@@ -329,7 +326,7 @@ operation:
           columnCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
           stepCounter: b6c1d739-e932-4d2d-9b1b-9f2b3e8e7e1a
         config: {}
-        dataType: VARCHAR(10)
+        dataType: BINARY
         description: ""
         name: EMPLOYER_FEDERAL_TAX_IDENTIFICATION_NUMBER
         nullable: true
@@ -338,8 +335,7 @@ operation:
               - columnCounter: 6b3c9a4e-0a5d-4f0e-b9e7-5e6f3d9d3c5f
                 stepCounter: 610c1490-6435-4993-9c87-84618e39f323
             transform: ""
-        transform: CAST(DECRYPTBYKEY(T.EMPLOYER_FEDERAL_TAX_IDENTIFICATION_NUMBER_ENCRYPTED,
-          1, '123') AS VARCHAR(10))
+        transform: CAST(DECRYPTBYKEY(T.EMPLOYER_FEDERAL_TAX_IDENTIFICATION_NUMBER_ENCRYPTED, 1, '123') AS VARCHAR(10))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
@@ -470,7 +466,7 @@ operation:
         name: SOURCE_SYSTEM
         nullable: true
         sourceColumnReferences: []
-        transform: '''GB'''
+        transform: "'GB'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 7c8d9e0f-1a2b-3c4d-5e6f-7a8b9c0d1e2f
@@ -481,8 +477,7 @@ operation:
         name: ACA_SOURCE_SYSTEM_ID
         nullable: true
         sourceColumnReferences: []
-        transform: (SELECT ACA_SOURCE_SYSTEM_ID FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_SOURCE_SYSTEM
-          WHERE SOURCE_SYSTEM = 'GB')
+        transform: (SELECT ACA_SOURCE_SYSTEM_ID FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_SOURCE_SYSTEM WHERE SOURCE_SYSTEM = 'GB')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 8d9e0f1a-2b3c-4d5e-6f7a-8b9c0d1e2f3a
@@ -504,7 +499,7 @@ operation:
         name: ACA_CREATE_USER
         nullable: true
         sourceColumnReferences: []
-        transform: '''spaca_aca_claim_staging_gb_insert'''
+        transform: "'spaca_aca_claim_staging_gb_insert'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 0f1a2b3c-4d5e-6f7a-8b9c-0d1e2f3a4b5c
@@ -526,28 +521,28 @@ operation:
         name: ACA_UPDATE_USER
         nullable: true
         sourceColumnReferences: []
-        transform: '''spaca_aca_claim_staging_gb_insert'''
+        transform: "'spaca_aca_claim_staging_gb_insert'"
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          STG_LATEST_TRANSACTION_CLAIM: TMP
-          ACA_TRANSACTION_CLAIM: T
-          VW_ACA_PYRAMID_MIN_LEVEL: P
+          ACA_TRANSACTION_CLAIM: 610c1490-6435-4993-9c87-84618e39f323
+          STG_LATEST_TRANSACTION_CLAIM: 86b72a6e-44d7-46e3-9828-d1a1b15d0d82
+          VW_ACA_PYRAMID_MIN_LEVEL: 29f27d35-3c1c-4b5b-8f77-51369f8d7b32
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: DBSHIFT
-            nodeName: STG_LATEST_TRANSACTION_CLAIM
-          - locationName: DBSHIFT
             nodeName: ACA_TRANSACTION_CLAIM
+          - locationName: DBSHIFT
+            nodeName: STG_LATEST_TRANSACTION_CLAIM
           - locationName: DBSHIFT
             nodeName: VW_ACA_PYRAMID_MIN_LEVEL
         join:
           joinCondition: |-
-            FROM {{ ref('DBSHIFT', 'STG_LATEST_TRANSACTION_CLAIM') }} AS "TMP"
-            INNER JOIN {{ ref('DBSHIFT', 'ACA_TRANSACTION_CLAIM') }} AS "T" ON T.ACA_TRANSACTION_CLAIM_ID = TMP.ACA_TRANSACTION_CLAIM_ID
-            LEFT OUTER JOIN {{ ref('DBSHIFT', 'VW_ACA_PYRAMID_MIN_LEVEL') }} AS "P" ON T.CLIENT_NUMBER = P.CLIENT_NUMBER AND T.REPORTING_UNIT_NUMBER = P.UNIT_ID
+            FROM {{ ref('DBSHIFT', 'STG_LATEST_TRANSACTION_CLAIM') }} AS "STG_LATEST_TRANSACTION_CLAIM"
+            INNER JOIN {{ ref('DBSHIFT', 'ACA_TRANSACTION_CLAIM') }} AS ACA_TRANSACTION_CLAIM ON ACA_TRANSACTION_CLAIM.ACA_TRANSACTION_CLAIM_ID = STG_LATEST_TRANSACTION_CLAIM.ACA_TRANSACTION_CLAIM_ID
+            LEFT OUTER JOIN {{ ref('DBSHIFT', 'VW_ACA_PYRAMID_MIN_LEVEL') }} AS VW_ACA_PYRAMID_MIN_LEVEL ON ACA_TRANSACTION_CLAIM.CLIENT_NUMBER = VW_ACA_PYRAMID_MIN_LEVEL.CLIENT_NUMBER AND ACA_TRANSACTION_CLAIM.REPORTING_UNIT_NUMBER = VW_ACA_PYRAMID_MIN_LEVEL.UNIT_ID
         name: ACA_CLAIM_STAGING_GB
         noLinkRefs: []
   name: ACA_CLAIM_STAGING_GB
