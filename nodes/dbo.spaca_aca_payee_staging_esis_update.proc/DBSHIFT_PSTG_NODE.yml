@@ -1,0 +1,181 @@
+fileVersion: 1
+id: 11110025-a81e-450f-a65c-3f4ec9f029a2
+name: DBSHIFT_PSTG_NODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+          USE ALLIANT_CLAIMS_ASTRUS_STAGE;
+      
+          -- NOTE: This conversion assumes a unique key (e.g., a primary key) exists on the target table
+          -- to correctly join the subquery back to the table being updated. A placeholder '<<UNIQUE_KEY>>' is used.
+          UPDATE ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_PAYEE_STAGING_ESIS AS P
+          SET
+              P.PAYEE_ENCRYPTED = SOURCE.NEW_PAYEE_ENCRYPTED,
+              P.LAST_NAME_ENCRYPTED = SOURCE.NEW_LAST_NAME_ENCRYPTED,
+              P.FIRST_NAME_ENCRYPTED = SOURCE.NEW_FIRST_NAME_ENCRYPTED,
+              P.ORGANIZATION_ENCRYPTED = SOURCE.NEW_ORGANIZATION_ENCRYPTED,
+              P.ADDRESS_ENCRYPTED = SOURCE.NEW_ADDRESS_ENCRYPTED,
+              P.IRS_TAX_IDENTIFICATION_NUMBER_ENCRYPTED = SOURCE.NEW_IRS_TAX_IDENTIFICATION_NUMBER_ENCRYPTED,
+              P.MAIL_TO_ENCRYPTED = SOURCE.NEW_MAIL_TO_ENCRYPTED,
+              P.MAIL_TO_LAST_NAME_ENCRYPTED = SOURCE.NEW_MAIL_TO_LAST_NAME_ENCRYPTED,
+              P.MAIL_TO_FIRST_NAME_ENCRYPTED = SOURCE.NEW_MAIL_TO_FIRST_NAME_ENCRYPTED,
+              P.MAIL_TO_ORGANIZATION_ENCRYPTED = SOURCE.NEW_MAIL_TO_ORGANIZATION_ENCRYPTED,
+              P.MAIL_TO_ADDRESS_ENCRYPTED = SOURCE.NEW_MAIL_TO_ADDRESS_ENCRYPTED,
+      
+              P.PAYEE = NULL,
+              P.LAST_NAME = NULL,
+              P.FIRST_NAME = NULL,
+              P.ORGANIZATION = NULL,
+              P.ADDRESS = NULL,
+              P.IRS_TAX_IDENTIFICATION_NUMBER = NULL,
+              P.MAIL_TO = NULL,
+              P.MAIL_TO_LAST_NAME = NULL,
+              P.MAIL_TO_FIRST_NAME = NULL,
+              P.MAIL_TO_ORGANIZATION = NULL,
+              P.MAIL_TO_ADDRESS = NULL,
+      
+              P.ACA_IRS_FORM_1099_TYPE_ID = SOURCE.NEW_ACA_IRS_FORM_1099_TYPE_ID,
+              P.IRS_FORM_1099_TYPE = SOURCE.NEW_IRS_FORM_1099_TYPE,
+              P.ACA_SOURCE_SYSTEM_ID = SOURCE.NEW_ACA_SOURCE_SYSTEM_ID,
+      
+              P.ACA_DATE_UPDATED = CURRENT_TIMESTAMP(),
+              P.ACA_UPDATE_USER = 'dbo.spaca_aca_payee_staging_esis_update'
+          FROM (
+              SELECT
+                  P_INNER.<<UNIQUE_KEY>>, -- Placeholder for the unique key of the table
+                  -- The ENCRYPTBYKEY function and its parameters are specific to SQL Server and will need to be replaced with a suitable Snowflake equivalent.
+                  IFNULL(P_INNER.PAYEE_ENCRYPTED, ENCRYPTBYKEY(KEY_GUID('SymmetricKey1'), P_INNER.PAYEE, 1, '123')) AS NEW_PAYEE_ENCRYPTED,
+                  IFNULL(P_INNER.LAST_NAME_ENCRYPTED, ENCRYPTBYKEY(KEY_GUID('SymmetricKey1'), P_INNER.LAST_NAME, 1, '123')) AS NEW_LAST_NAME_ENCRYPTED,
+                  IFNULL(P_INNER.FIRST_NAME_ENCRYPTED, ENCRYPTBYKEY(KEY_GUID('SymmetricKey1'), P_INNER.FIRST_NAME, 1, '123')) AS NEW_FIRST_NAME_ENCRYPTED,
+                  IFNULL(P_INNER.ORGANIZATION_ENCRYPTED, ENCRYPTBYKEY(KEY_GUID('SymmetricKey1'), P_INNER.ORGANIZATION, 1, '123')) AS NEW_ORGANIZATION_ENCRYPTED,
+                  IFNULL(P_INNER.ADDRESS_ENCRYPTED, ENCRYPTBYKEY(KEY_GUID('SymmetricKey1'), P_INNER.ADDRESS, 1, '123')) AS NEW_ADDRESS_ENCRYPTED,
+                  IFNULL(P_INNER.IRS_TAX_IDENTIFICATION_NUMBER_ENCRYPTED, ENCRYPTBYKEY(KEY_GUID('SymmetricKey1'), P_INNER.IRS_TAX_IDENTIFICATION_NUMBER, 1, '123')) AS NEW_IRS_TAX_IDENTIFICATION_NUMBER_ENCRYPTED,
+                  IFNULL(P_INNER.MAIL_TO_ENCRYPTED, ENCRYPTBYKEY(KEY_GUID('SymmetricKey1'), P_INNER.MAIL_TO, 1, '123')) AS NEW_MAIL_TO_ENCRYPTED,
+                  IFNULL(P_INNER.MAIL_TO_LAST_NAME_ENCRYPTED, ENCRYPTBYKEY(KEY_GUID('SymmetricKey1'), P_INNER.MAIL_TO_LAST_NAME, 1, '123')) AS NEW_MAIL_TO_LAST_NAME_ENCRYPTED,
+                  IFNULL(P_INNER.MAIL_TO_FIRST_NAME_ENCRYPTED, ENCRYPTBYKEY(KEY_GUID('SymmetricKey1'), P_INNER.MAIL_TO_FIRST_NAME, 1, '123')) AS NEW_MAIL_TO_FIRST_NAME_ENCRYPTED,
+                  IFNULL(P_INNER.MAIL_TO_ORGANIZATION_ENCRYPTED, ENCRYPTBYKEY(KEY_GUID('SymmetricKey1'), P_INNER.MAIL_TO_ORGANIZATION, 1, '123')) AS NEW_MAIL_TO_ORGANIZATION_ENCRYPTED,
+                  IFNULL(P_INNER.MAIL_TO_ADDRESS_ENCRYPTED, ENCRYPTBYKEY(KEY_GUID('SymmetricKey1'), P_INNER.MAIL_TO_ADDRESS, 1, '123')) AS NEW_MAIL_TO_ADDRESS_ENCRYPTED,
+                  IFNULL(I.ACA_IRS_FORM_1099_TYPE_ID, -1) AS NEW_ACA_IRS_FORM_1099_TYPE_ID,
+                  I.IRS_FORM_1099_TYPE AS NEW_IRS_FORM_1099_TYPE,
+                  S.ACA_SOURCE_SYSTEM_ID AS NEW_ACA_SOURCE_SYSTEM_ID
+              FROM ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_PAYEE_STAGING_ESIS AS P_INNER
+              LEFT JOIN ALLIANT_CLAIMS_ASTRUS.REF.ACA_IRS_FORM_1099_TYPE AS I ON I.IRS_FORM_1099_TYPE_CODE = P_INNER.IRS_FORM_1099_TYPE_CODE
+              LEFT JOIN ALLIANT_CLAIMS_ASTRUS.DBO.ACA_SOURCE_SYSTEM AS S ON S.SOURCE_SYSTEM = P_INNER.SOURCE_SYSTEM
+          ) AS SOURCE
+          WHERE P.<<UNIQUE_KEY>> = SOURCE.<<UNIQUE_KEY>>;
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 42207b5a-acbd-477d-b4b3-57a92268b816
+          stepCounter: 11110025-a81e-450f-a65c-3f4ec9f029a2
+        config: {}
+        dataType: VARCHAR(32)
+        description: ""
+        name: DBSHIFT_PSTG_NODE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: MD5(1)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1a0b3f5-7d88-466d-a162-d266e7681c4e
+          stepCounter: 11110025-a81e-450f-a65c-3f4ec9f029a2
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: "1"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5a371c1-4d33-4f9e-a89a-0e7e1c8a16f2
+          stepCounter: 11110025-a81e-450f-a65c-3f4ec9f029a2
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: '''Y'''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c7d6a2f9-158a-40a8-b6e5-4a6c4b2600d8
+          stepCounter: 11110025-a81e-450f-a65c-3f4ec9f029a2
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 938b8243-d88e-4a6c-9403-f14d8b9e6f21
+          stepCounter: 11110025-a81e-450f-a65c-3f4ec9f029a2
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST('2999-12-31 00:00:00.000' AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e889417d-2b4f-4d2a-a21c-a128854f3b25
+          stepCounter: 11110025-a81e-450f-a65c-3f4ec9f029a2
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3175c2e-4a4b-4b16-8f3f-4e082877a16b
+          stepCounter: 11110025-a81e-450f-a65c-3f4ec9f029a2
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping: []
+  name: DBSHIFT_PSTG_NODE
+  overrideSQL: false
+  schema: ""
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node
