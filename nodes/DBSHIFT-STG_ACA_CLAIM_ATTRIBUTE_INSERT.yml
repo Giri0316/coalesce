@@ -628,7 +628,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: '''dbo.spaca_aca_claim_attribute_insertUpdate'''
+            transform: "'dbo.spaca_aca_claim_attribute_insertUpdate'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: c8223d72-8877-497d-aa2b-b41315fcbca6
@@ -652,7 +652,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: '''dbo.spaca_aca_claim_attribute_insertUpdate'''
+            transform: "'dbo.spaca_aca_claim_attribute_insertUpdate'"
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:

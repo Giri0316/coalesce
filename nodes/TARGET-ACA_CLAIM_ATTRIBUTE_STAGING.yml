@@ -5,7 +5,7 @@ operation:
   database: ALLIANT_CLAIMS_ASTRUS_STAGE
   deployEnabled: true
   description: ""
-  locationName: DBSHIFT
+  locationName: TARGET
   metadata:
     columns:
       - acceptedValues:
