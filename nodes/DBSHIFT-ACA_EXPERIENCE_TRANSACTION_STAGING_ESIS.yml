@@ -28,9 +28,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: MD5(CONCAT_WS('||', C.SOURCE_SYSTEM_CLAIM_ID, CURRENT_TIMESTAMP()::VARCHAR,
-              IFNULL(TS.MAX_TRANSACTION_SEQUENCE_NUMBER, 0) + C.TRANSACTION_SEQUENCE_NUMBER,
-              C.RESERVE_TYPE))
+            transform: MD5(CONCAT_WS('||', C.SOURCE_SYSTEM_CLAIM_ID, CURRENT_TIMESTAMP()::VARCHAR, IFNULL(TS.MAX_TRANSACTION_SEQUENCE_NUMBER, 0) + C.TRANSACTION_SEQUENCE_NUMBER, C.RESERVE_TYPE))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 474a8166-5c5f-40e9-b520-25e24c6e3b0e
@@ -256,14 +254,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: (IFF(IFNULL(RES.RESERVE_AMOUNT, 0.00) - IFNULL(PMT.PAYMENT_AMOUNT,
-              0.00) <= 0, 0, IFNULL(RES.RESERVE_AMOUNT, 0.00) - IFNULL(PMT.PAYMENT_AMOUNT,
-              0.00)) + IFNULL(PMT.PAYMENT_AMOUNT, 0.00) - IFNULL(REC.RECOVERY_AMOUNT,
-              0.00)) - LAG(IFF(IFNULL(RES.RESERVE_AMOUNT, 0.00) - IFNULL(PMT.PAYMENT_AMOUNT,
-              0.00) <= 0, 0, IFNULL(RES.RESERVE_AMOUNT, 0.00) - IFNULL(PMT.PAYMENT_AMOUNT,
-              0.00)) + IFNULL(PMT.PAYMENT_AMOUNT, 0.00) - IFNULL(REC.RECOVERY_AMOUNT,
-              0.00), 1, IFNULL(INC.INCURRED_AMOUNT, 0.00)) OVER (PARTITION BY C.SOURCE_SYSTEM_CLAIM_ID,
-              C.ACA_RESERVE_TYPE_ID ORDER BY C.TRANSACTION_DATE ASC)
+            transform: (IFF(IFNULL(RES.RESERVE_AMOUNT, 0.00) - IFNULL(PMT.PAYMENT_AMOUNT, 0.00) <= 0, 0, IFNULL(RES.RESERVE_AMOUNT, 0.00) - IFNULL(PMT.PAYMENT_AMOUNT, 0.00)) + IFNULL(PMT.PAYMENT_AMOUNT, 0.00) - IFNULL(REC.RECOVERY_AMOUNT, 0.00)) - LAG(IFF(IFNULL(RES.RESERVE_AMOUNT, 0.00) - IFNULL(PMT.PAYMENT_AMOUNT, 0.00) <= 0, 0, IFNULL(RES.RESERVE_AMOUNT, 0.00) - IFNULL(PMT.PAYMENT_AMOUNT, 0.00)) + IFNULL(PMT.PAYMENT_AMOUNT, 0.00) - IFNULL(REC.RECOVERY_AMOUNT, 0.00), 1, IFNULL(INC.INCURRED_AMOUNT, 0.00)) OVER (PARTITION BY C.SOURCE_SYSTEM_CLAIM_ID, C.ACA_RESERVE_TYPE_ID ORDER BY C.TRANSACTION_DATE ASC)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: f31e7f9c-7033-4ca2-8a9d-16a7f8042456
@@ -275,8 +266,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM')
-              }} WHERE SOURCE_SYSTEM = 'ESIS')
+            transform: (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'ESIS')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: a6c4b2b3-547a-42e6-af87-ffc29792040b
@@ -329,9 +319,9 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          TEMP_ESIS_INCURRED_NEW_TRANSACTION: c
           TEMP_ESIS_INCURRED_EXISTING_INCURRED: inc
           TEMP_ESIS_INCURRED_MAX_TRANSACTION_SEQUENCE_NUMBER: ts
+          TEMP_ESIS_INCURRED_NEW_TRANSACTION: c
           TEMP_ESIS_INCURRED_TOTAL_PAYMENT: pmt
           TEMP_ESIS_INCURRED_TOTAL_RECOVERY: rec
           TEMP_ESIS_INCURRED_TOTAL_RESERVE: res

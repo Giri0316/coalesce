@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 5930e16b-0720-410a-867c-941acb93b890
-name: ACA_EXPERIENCE_TRANSACTION
+id: 110d9f48-a00d-4581-8b36-a36c9687440b
+name: ACA_PAYMENT_TRANSACTION
 operation:
   database: ALLIANT_CLAIMS_ASTRUS
   deployEnabled: true
@@ -13,46 +13,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 3770e53a-c32f-4131-b844-3252a16d5119
-          stepCounter: 5930e16b-0720-410a-867c-941acb93b890
-        config: {}
-        dataType: TIMESTAMP_NTZ
-        defaultValue: ""
-        description: ""
-        name: ACA_DATE_UPDATED
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: b13c9a41-e124-4f40-8f92-bd171b3e80ab
-          stepCounter: 5930e16b-0720-410a-867c-941acb93b890
-        config: {}
-        dataType: NUMBER
-        defaultValue: ""
-        description: ""
-        name: ACA_SOURCE_SYSTEM_ID
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: a6c4b2b3-547a-42e6-af87-ffc29792040b
-          stepCounter: 5930e16b-0720-410a-867c-941acb93b890
+          columnCounter: 474a8166-5c5f-40e9-b520-25e24c6e3b0e
+          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -70,46 +32,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: d196e838-89c5-41e9-9742-c64603956322
-          stepCounter: 5930e16b-0720-410a-867c-941acb93b890
-        config: {}
-        dataType: NUMBER
-        defaultValue: ""
-        description: ""
-        name: TRANSACTION_SEQUENCE_NUMBER
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 9c165147-3a18-498c-8438-26156e52c803
-          stepCounter: 5930e16b-0720-410a-867c-941acb93b890
-        config: {}
-        dataType: NUMBER
-        defaultValue: ""
-        description: ""
-        name: ACA_DATE_ID_EXPERIENCE_TRANSACTION_DATE
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 32626e29-7ca2-4c22-95f7-f8cd73123891
-          stepCounter: 5930e16b-0720-410a-867c-941acb93b890
+          columnCounter: c0edc2bd-000c-43f9-8693-02f837330752
+          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
         config: {}
         dataType: NUMBER
         defaultValue: ""
@@ -127,8 +51,46 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 0f2f7ef3-b452-475a-a3a8-644788c7f7bc
-          stepCounter: 5930e16b-0720-410a-867c-941acb93b890
+          columnCounter: 77a111b0-e01e-450f-a496-e26e3c0dd280
+          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4f8fd8e8-a15e-4c7b-b0b3-6c84b1265b4c
+          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_DATE_ID_TRANSACTION_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e99e407-78da-4e5c-9c1a-82d278484e03
+          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -146,8 +108,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c829e0de-4ac7-4592-965a-0639d675685a
-          stepCounter: 5930e16b-0720-410a-867c-941acb93b890
+          columnCounter: f3a270f2-b88d-4f05-8e7c-86f76c0e86b0
+          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -165,13 +127,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 9e3c988e-c9ab-4841-b663-14902161b9df
-          stepCounter: 5930e16b-0720-410a-867c-941acb93b890
+          columnCounter: 0f2f7ef3-b452-475a-a3a8-644788c7f7bc
+          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
         config: {}
         dataType: NUMBER
         defaultValue: ""
         description: ""
-        name: EXPERIENCE_AMOUNT_BY_RESERVE_TYPE
+        name: ACA_SOURCE_SYSTEM_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -179,7 +141,45 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: ACA_EXPERIENCE_TRANSACTION
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c767f401-447a-4286-9a29-bd06d2c43315
+          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: ACA_DATE_UPDATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e3c988e-c9ab-4841-b663-14902161b9df
+          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: PAYMENT_AMOUNT_BY_RESERVE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_PAYMENT_TRANSACTION
   schema: DBO
   sqlType: Source
   type: sourceInput

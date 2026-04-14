@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 59378174-884b-4b21-9721-395764d95267
-name: ACA_RESERVE_TRANSACTION
+id: 86b6ac48-e87f-4315-95a7-79758509c118
+name: ACA_RECOVERY_TRANSACTION
 operation:
   database: ALLIANT_CLAIMS_ASTRUS
   deployEnabled: true
@@ -13,8 +13,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 0f3c5553-29a3-48ef-ac63-36ca386b0a8f
-          stepCounter: 59378174-884b-4b21-9721-395764d95267
+          columnCounter: b13c9a41-e124-4f40-8f92-bd171b3e80ab
+          stepCounter: 86b6ac48-e87f-4315-95a7-79758509c118
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -32,8 +32,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 3770e53a-c32f-4131-b844-3252a16d5119
-          stepCounter: 59378174-884b-4b21-9721-395764d95267
+          columnCounter: d196e838-89c5-41e9-9742-c64603956322
+          stepCounter: 86b6ac48-e87f-4315-95a7-79758509c118
         config: {}
         dataType: NUMBER
         defaultValue: ""
@@ -51,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 9c165147-3a18-498c-8438-26156e52c803
-          stepCounter: 59378174-884b-4b21-9721-395764d95267
+          columnCounter: 97813a34-2e23-4414-874b-6101d2d0c2e3
+          stepCounter: 86b6ac48-e87f-4315-95a7-79758509c118
         config: {}
         dataType: DATE
         defaultValue: ""
         description: ""
-        name: TRANSACTION_DATE
+        name: RECOVERY_TRANSACTION_DATE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 421c97a8-3563-4700-be58-7c858a74e6f9
-          stepCounter: 59378174-884b-4b21-9721-395764d95267
+          columnCounter: b8185c78-6ef8-4e89-98dd-f542d99d3fc5
+          stepCounter: 86b6ac48-e87f-4315-95a7-79758509c118
         config: {}
         dataType: NUMBER
         defaultValue: ""
         description: ""
-        name: ACA_DATE_ID_TRANSACTION_DATE
+        name: ACA_DATE_ID_RECOVERY_TRANSACTION_DATE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -89,8 +89,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 1c028292-1b15-46aa-ac84-b0fd5e48d3ab
-          stepCounter: 59378174-884b-4b21-9721-395764d95267
+          columnCounter: 3b137f84-e4f6-4a49-af43-f11a43a42d96
+          stepCounter: 86b6ac48-e87f-4315-95a7-79758509c118
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -108,8 +108,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: f32c1c73-4f9e-4df7-9571-f9260a996f08
-          stepCounter: 59378174-884b-4b21-9721-395764d95267
+          columnCounter: f31e7f9c-7033-4ca2-8a9d-16a7f8042456
+          stepCounter: 86b6ac48-e87f-4315-95a7-79758509c118
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -127,8 +127,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 97813a34-2e23-4414-874b-6101d2d0c2e3
-          stepCounter: 59378174-884b-4b21-9721-395764d95267
+          columnCounter: a6c4b2b3-547a-42e6-af87-ffc29792040b
+          stepCounter: 86b6ac48-e87f-4315-95a7-79758509c118
         config: {}
         dataType: NUMBER
         defaultValue: ""
@@ -146,8 +146,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: d3b906a2-e63d-4c3d-82b5-336717a80735
-          stepCounter: 59378174-884b-4b21-9721-395764d95267
+          columnCounter: 17798394-4b53-4cd2-b36c-2f3b92f741d4
+          stepCounter: 86b6ac48-e87f-4315-95a7-79758509c118
         config: {}
         dataType: TIMESTAMP_NTZ
         defaultValue: ""
@@ -165,13 +165,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: a6d0124e-4f0f-488f-af89-a2a47a1ebcf3
-          stepCounter: 59378174-884b-4b21-9721-395764d95267
+          columnCounter: c829e0de-4ac7-4592-965a-0639d675685a
+          stepCounter: 86b6ac48-e87f-4315-95a7-79758509c118
         config: {}
         dataType: NUMBER
         defaultValue: ""
         description: ""
-        name: RESERVE_AMOUNT
+        name: RECOVERY_AMOUNT_BY_RESERVE_TYPE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -179,7 +179,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: ACA_RESERVE_TRANSACTION
+  name: ACA_RECOVERY_TRANSACTION
   schema: DBO
   sqlType: Source
   type: sourceInput

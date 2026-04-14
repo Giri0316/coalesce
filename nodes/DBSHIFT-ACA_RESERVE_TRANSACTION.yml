@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 110d9f48-a00d-4581-8b36-a36c9687440b
-name: ACA_PAYMENT_TRANSACTION
+id: 59378174-884b-4b21-9721-395764d95267
+name: ACA_RESERVE_TRANSACTION
 operation:
   database: ALLIANT_CLAIMS_ASTRUS
   deployEnabled: true
@@ -13,8 +13,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 474a8166-5c5f-40e9-b520-25e24c6e3b0e
-          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+          columnCounter: 0f3c5553-29a3-48ef-ac63-36ca386b0a8f
+          stepCounter: 59378174-884b-4b21-9721-395764d95267
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -32,8 +32,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c0edc2bd-000c-43f9-8693-02f837330752
-          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+          columnCounter: 3770e53a-c32f-4131-b844-3252a16d5119
+          stepCounter: 59378174-884b-4b21-9721-395764d95267
         config: {}
         dataType: NUMBER
         defaultValue: ""
@@ -51,8 +51,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 77a111b0-e01e-450f-a496-e26e3c0dd280
-          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+          columnCounter: 9c165147-3a18-498c-8438-26156e52c803
+          stepCounter: 59378174-884b-4b21-9721-395764d95267
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -70,8 +70,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 4f8fd8e8-a15e-4c7b-b0b3-6c84b1265b4c
-          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+          columnCounter: 421c97a8-3563-4700-be58-7c858a74e6f9
+          stepCounter: 59378174-884b-4b21-9721-395764d95267
         config: {}
         dataType: NUMBER
         defaultValue: ""
@@ -89,8 +89,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 1e99e407-78da-4e5c-9c1a-82d278484e03
-          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+          columnCounter: 1c028292-1b15-46aa-ac84-b0fd5e48d3ab
+          stepCounter: 59378174-884b-4b21-9721-395764d95267
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -108,8 +108,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: f3a270f2-b88d-4f05-8e7c-86f76c0e86b0
-          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+          columnCounter: f32c1c73-4f9e-4df7-9571-f9260a996f08
+          stepCounter: 59378174-884b-4b21-9721-395764d95267
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -127,8 +127,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 0f2f7ef3-b452-475a-a3a8-644788c7f7bc
-          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+          columnCounter: 97813a34-2e23-4414-874b-6101d2d0c2e3
+          stepCounter: 59378174-884b-4b21-9721-395764d95267
         config: {}
         dataType: NUMBER
         defaultValue: ""
@@ -146,8 +146,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c767f401-447a-4286-9a29-bd06d2c43315
-          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+          columnCounter: d3b906a2-e63d-4c3d-82b5-336717a80735
+          stepCounter: 59378174-884b-4b21-9721-395764d95267
         config: {}
         dataType: TIMESTAMP_NTZ
         defaultValue: ""
@@ -165,13 +165,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 9e3c988e-c9ab-4841-b663-14902161b9df
-          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+          columnCounter: a6d0124e-4f0f-488f-af89-a2a47a1ebcf3
+          stepCounter: 59378174-884b-4b21-9721-395764d95267
         config: {}
         dataType: NUMBER
         defaultValue: ""
         description: ""
-        name: PAYMENT_AMOUNT_BY_RESERVE_TYPE
+        name: RESERVE_AMOUNT
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -179,7 +179,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: ACA_PAYMENT_TRANSACTION
+  name: ACA_RESERVE_TRANSACTION
   schema: DBO
   sqlType: Source
   type: sourceInput
