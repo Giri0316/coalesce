@@ -30,7 +30,7 @@ operation:
           - columnReferences:
               - columnCounter: a631e847-0e6e-4c74-850f-e60d19528f82
                 stepCounter: 53c8c7f9-8664-42ea-9e9d-c49b0629a9a3
-            transform: ""
+            transform: P."CLIENT"
         transform: P.CLIENT
       - appliedColumnTests: {}
         columnReference:
@@ -45,7 +45,7 @@ operation:
           - columnReferences:
               - columnCounter: 32a76f23-6617-493e-90e6-a8d67a99f36f
                 stepCounter: 53c8c7f9-8664-42ea-9e9d-c49b0629a9a3
-            transform: ""
+            transform: P."UNIT_ID"
         transform: P.UNIT_ID
       - appliedColumnTests: {}
         columnReference:
@@ -60,13 +60,16 @@ operation:
           - columnReferences:
               - columnCounter: b13c4a93-5d51-4034-8c83-0498b185b9b8
                 stepCounter: 53c8c7f9-8664-42ea-9e9d-c49b0629a9a3
-            transform: ""
+            transform: min(P."LEVEL")
         transform: MIN(P.LEVEL)
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
-          ACA_PYRAMID: p
+          P: 53c8c7f9-8664-42ea-9e9d-c49b0629a9a3
         customSQL:
           customSQL: ""
         dependencies:
@@ -74,7 +77,7 @@ operation:
             nodeName: ACA_PYRAMID
         join:
           joinCondition: |-
-            FROM {{ ref('DBSHIFT', 'ACA_PYRAMID') }} "P"
+            FROM {{ ref('DBSHIFT', 'ACA_PYRAMID') }} P
             GROUP BY P.CLIENT, P.UNIT_ID
         name: VW_ACA_PYRAMID_MIN_LEVEL
         noLinkRefs: []

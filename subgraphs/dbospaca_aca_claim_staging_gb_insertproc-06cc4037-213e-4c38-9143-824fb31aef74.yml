@@ -1,0 +1,10 @@
+fileVersion: 1
+id: 06cc4037-213e-4c38-9143-824fb31aef74
+name: dbo.spaca_aca_claim_staging_gb_insert.proc
+steps:
+  - 29f27d35-3c1c-4b5b-8f77-51369f8d7b32
+  - 53c8c7f9-8664-42ea-9e9d-c49b0629a9a3
+  - 610c1490-6435-4993-9c87-84618e39f323
+  - 86b72a6e-44d7-46e3-9828-d1a1b15d0d82
+  - b6c1d739-e932-4d2d-9b1b-9f2b3e8e7e1a
+type: Subgraph

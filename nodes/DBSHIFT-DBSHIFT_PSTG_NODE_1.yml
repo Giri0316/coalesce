@@ -1,6 +1,6 @@
 fileVersion: 1
 id: 5b6c31e2-45e3-4f9b-8e1d-3a4b5c6d7e8f
-name: DBSHIFT_PSTG_NODE
+name: DBSHIFT_PSTG_NODE_1
 operation:
   config:
     insertStrategy: INSERT
@@ -57,9 +57,9 @@ operation:
               FROM ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_CLAIM_TRANSACTION_STAGING_GB
           ) MX ON S.SOURCE_SYSTEM_CLAIM_ID = MX.SOURCE_SYSTEM_CLAIM_ID AND S.SOURCE_SYSTEM_TRANSACTION_DATE = MX.SOURCE_SYSTEM_TRANSACTION_DATE
           LEFT OUTER JOIN ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIM CL ON S.SOURCE_SYSTEM_CLAIM_ID = CL.SOURCE_SYSTEM_CLAIM_ID AND CL.ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_SOURCE_SYSTEM WHERE SOURCE_SYSTEM = 'GB')
-          LEFT OUTER JOIN ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIMANT C ON S.SOURCE_SYSTEM_CLAIMANT_ID = C.SOURCE_SYSTEM_CLAIMANT_ID
-          LEFT OUTER JOIN ALLIANT_CLAIMS_ASTRUS.DBO.ACA_POLICY P ON P.SOURCE_SYSTEM_POLICY_ID = S.SOURCE_SYSTEM_POLICY_ID
-          LEFT OUTER JOIN ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIM_ATTRIBUTE CA ON S.SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID = CA.SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID
+          LEFT OUTER JOIN ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIMANT C ON S.SOURCE_SYSTEM_CLAIMANT_ID = TO_VARCHAR(C.SOURCE_SYSTEM_CLAIMANT_ID)
+          LEFT OUTER JOIN ALLIANT_CLAIMS_ASTRUS.DBO.ACA_POLICY P ON P.SOURCE_SYSTEM_POLICY_ID = TO_BINARY(S.SOURCE_SYSTEM_POLICY_ID)
+          LEFT OUTER JOIN ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIM_ATTRIBUTE CA ON S.SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID =TO_VARCHAR(CA.SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID)
           LEFT OUTER JOIN ALLIANT_CLAIMS_ASTRUS.REF.ACA_ACCIDENT_SOURCE_CODE ASCO ON ASCO.SOURCE_SYSTEM_ACCIDENT_SOURCE_CODE_ID = S.SOURCE_SYSTEM_ACCIDENT_SOURCE_CODE_ID
       ) AS SRC
       WHERE S.SOURCE_SYSTEM_CLAIM_ID = SRC.SOURCE_SYSTEM_CLAIM_ID
@@ -76,20 +76,6 @@ operation:
   metadata:
     appliedNodeTests: []
     columns:
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 32a9c3d4-8d4e-4b9e-9e6a-7f1b2c3d4e5f
-          stepCounter: 5b6c31e2-45e3-4f9b-8e1d-3a4b5c6d7e8f
-        config: {}
-        dataType: BINARY(16)
-        description: ""
-        name: DBSHIFT_PSTG_NODE_KEY
-        nullable: true
-        primaryKey: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: MD5('DUMMY')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 43b0d4e5-9e5f-4c0f-af7b-8g2c3d4e5f6a
@@ -170,8 +156,14 @@ operation:
         transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
     cteString: ""
     enabledColumnTestIDs: []
-    sourceMapping: []
-  name: DBSHIFT_PSTG_NODE
+    sourceMapping:
+      - aliases: {}
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: DBSHIFT_PSTG_NODE_1
+        noLinkRefs: []
+  name: DBSHIFT_PSTG_NODE_1
   overrideSQL: false
   schema: DBSHIFT
   sqlType: persistentStage
