@@ -1,0 +1,84 @@
+fileVersion: 1
+id: 86b72a6e-44d7-46e3-9828-d1a1b15d0d82
+name: STG_LATEST_TRANSACTION_CLAIM
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5b0e012-98e3-4d7a-b9c1-5f25a58e6e5a
+          stepCounter: 86b72a6e-44d7-46e3-9828-d1a1b15d0d82
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_TRANSACTION_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6363c1a3-ef0c-40ad-9d22-1d529da14392
+                stepCounter: 610c1490-6435-4993-9c87-84618e39f323
+            transform: ""
+        transform: "sub.ACA_TRANSACTION_CLAIM_ID"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5c91f4a4-1234-4b52-b1e2-b152d0a0b925
+          stepCounter: 86b72a6e-44d7-46e3-9828-d1a1b15d0d82
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 16b5a340-a359-450f-90e8-0b6c69fdd94a
+                stepCounter: 610c1490-6435-4993-9c87-84618e39f323
+            transform: ""
+        transform: "sub.UNIQUE_CLAIM_ID"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_TRANSACTION_CLAIM: sub
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_TRANSACTION_CLAIM
+        join:
+          joinCondition: |-
+            FROM (
+                SELECT
+                  *,
+                  ROW_NUMBER() OVER (
+                    PARTITION BY UNIQUE_CLAIM_ID
+                    ORDER BY
+                      TRANSACTION_DATE DESC,
+                      STATUS_DATE DESC,
+                      ACA_TRANSACTION_CLAIM_ID DESC
+                  ) AS ROW_NUM_SEQ
+                FROM
+                  {{ ref('DBSHIFT', 'ACA_TRANSACTION_CLAIM') }}
+              ) AS "sub"
+            WHERE "sub".ROW_NUM_SEQ = 1
+        name: STG_LATEST_TRANSACTION_CLAIM
+        noLinkRefs: []
+  name: STG_LATEST_TRANSACTION_CLAIM
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

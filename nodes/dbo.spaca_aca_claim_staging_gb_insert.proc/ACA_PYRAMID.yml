@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 53c8c7f9-8664-42ea-9e9d-c49b0629a9a3
+name: ACA_PYRAMID
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a631e847-0e6e-4c74-850f-e60d19528f82
+          stepCounter: 53c8c7f9-8664-42ea-9e9d-c49b0629a9a3
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLIENT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32a76f23-6617-493e-90e6-a8d67a99f36f
+          stepCounter: 53c8c7f9-8664-42ea-9e9d-c49b0629a9a3
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: UNIT_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b13c4a93-5d51-4034-8c83-0498b185b9b8
+          stepCounter: 53c8c7f9-8664-42ea-9e9d-c49b0629a9a3
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: LEVEL
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_PYRAMID
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

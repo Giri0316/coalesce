@@ -1,0 +1,87 @@
+fileVersion: 1
+id: 29f27d35-3c1c-4b5b-8f77-51369f8d7b32
+name: VW_ACA_PYRAMID_MIN_LEVEL
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a2c5a01-92e1-4c7a-9a0e-a61621a6f1b3
+          stepCounter: 29f27d35-3c1c-4b5b-8f77-51369f8d7b32
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLIENT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a631e847-0e6e-4c74-850f-e60d19528f82
+                stepCounter: 53c8c7f9-8664-42ea-9e9d-c49b0629a9a3
+            transform: ""
+        transform: P.CLIENT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b3e5c7a5-6e3e-4d4b-b38e-c9f5e5f5f4b5
+          stepCounter: 29f27d35-3c1c-4b5b-8f77-51369f8d7b32
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32a76f23-6617-493e-90e6-a8d67a99f36f
+                stepCounter: 53c8c7f9-8664-42ea-9e9d-c49b0629a9a3
+            transform: ""
+        transform: P.UNIT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f7d1a1b8-6a3f-4e0d-b4f7-e1e3e7f9e8a5
+          stepCounter: 29f27d35-3c1c-4b5b-8f77-51369f8d7b32
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MIN_LEVEL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b13c4a93-5d51-4034-8c83-0498b185b9b8
+                stepCounter: 53c8c7f9-8664-42ea-9e9d-c49b0629a9a3
+            transform: ""
+        transform: MIN(P.LEVEL)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_PYRAMID: p
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_PYRAMID
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'ACA_PYRAMID') }} "P"
+            GROUP BY P.CLIENT, P.UNIT_ID
+        name: VW_ACA_PYRAMID_MIN_LEVEL
+        noLinkRefs: []
+  name: VW_ACA_PYRAMID_MIN_LEVEL
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
