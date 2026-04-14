@@ -1,6 +1,6 @@
 fileVersion: 1
 id: 569d2551-50e5-4d26-a320-b30f40d6c559
-name: ACA_CLAIM_ATTRIBUTE
+name: ACA_CLAIM_ATTRIBUTE_1
 operation:
   config:
     insertStrategy: INSERT
@@ -799,9 +799,9 @@ operation:
             nodeName: STG_ACA_CLAIM_ATTRIBUTE_INSERT
         join:
           joinCondition: FROM {{ ref('DBSHIFT', 'STG_ACA_CLAIM_ATTRIBUTE_INSERT') }} "src"
-        name: ACA_CLAIM_ATTRIBUTE
+        name: ACA_CLAIM_ATTRIBUTE_1
         noLinkRefs: []
-  name: ACA_CLAIM_ATTRIBUTE
+  name: ACA_CLAIM_ATTRIBUTE_1
   overrideSQL: false
   schema: DBO
   sqlType: Dimension
