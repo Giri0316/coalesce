@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 569308be-77b3-4f96-b605-72fd02e3b2e9
+name: REF_ACA_RESERVE_TYPE_GB
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32a76f2d-8686-4442-8c17-6447c237a34e
+          stepCounter: 569308be-77b3-4f96-b605-72fd02e3b2e9
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLASS_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 52195f2a-71dd-481d-b6a9-4089c17dfd57
+          stepCounter: 569308be-77b3-4f96-b605-72fd02e3b2e9
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: RESERVE_TYPE_COLUMN_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a63f913d-e475-474c-8fd2-c4de4da5b306
+          stepCounter: 569308be-77b3-4f96-b605-72fd02e3b2e9
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: REF_ACA_RESERVE_TYPE_GB
+  schema: REF
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
