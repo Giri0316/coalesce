@@ -1,0 +1,675 @@
+fileVersion: 1
+id: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+name: ACA_CLAIMANT_GB
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01001-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        isBusinessKey: true
+        name: SOURCE_SYSTEM_CLAIMANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7a8b9c0d-1e2f-4a3b-5c6d-7e8f9a0b1c2d
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.SOURCE_SYSTEM_CLAIMANT_ID"
+        transform: "SRC.SOURCE_SYSTEM_CLAIMANT_ID"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01002-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ""
+        description: ""
+        isBusinessKey: true
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5e6f7a8b-9c0d-4e1f-3a4b-5c6d7e8f9a0b
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.ACA_SOURCE_SYSTEM_ID"
+        transform: "SRC.ACA_SOURCE_SYSTEM_ID"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01003-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ""
+        description: ""
+        name: ACA_EMPLOYMENT_STATUS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b9c0d1e-2f3a-4b4c-6d7e-8f9a0b1c2d3e
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.ACA_EMPLOYMENT_STATUS_ID"
+        transform: "SRC.ACA_EMPLOYMENT_STATUS_ID"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01004-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ""
+        description: ""
+        name: ACA_MARITAL_STATUS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c0d1e2f-3a4b-4c5d-7e8f-9a0b1c2d3e4f
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.ACA_MARITAL_STATUS_ID"
+        transform: "SRC.ACA_MARITAL_STATUS_ID"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01005-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: CLAIMANT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0d1e2f3a-4b5c-4d6e-8f9a-0b1c2d3e4f5a
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.CLAIMANT_TYPE"
+        transform: "SRC.CLAIMANT_TYPE"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01006-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: BINARY
+        defaultValue: ""
+        description: ""
+        name: CLAIMANT_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1e2f3a4b-5c6d-4e7f-9a0b-1c2d3e4f5a6b
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.CLAIMANT_ENCRYPTED"
+        transform: "SRC.CLAIMANT_ENCRYPTED"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01007-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: BINARY
+        defaultValue: ""
+        description: ""
+        name: LAST_NAME_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2f3a4b5c-6d7e-4f8a-0b1c-2d3e4f5a6b7c
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.LAST_NAME_ENCRYPTED"
+        transform: "SRC.LAST_NAME_ENCRYPTED"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01008-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: BINARY
+        defaultValue: ""
+        description: ""
+        name: FIRST_NAME_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3a4b5c6d-7e8f-4a9b-1c2d-3e4f5a6b7c8d
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.FIRST_NAME_ENCRYPTED"
+        transform: "SRC.FIRST_NAME_ENCRYPTED"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01009-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: BINARY
+        defaultValue: ""
+        description: ""
+        name: ORGANIZATION_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4b5c6d7e-8f9a-4b0c-2d3e-4f5a6b7c8d9e
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.ORGANIZATION_ENCRYPTED"
+        transform: "SRC.ORGANIZATION_ENCRYPTED"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01010-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: BINARY
+        defaultValue: ""
+        description: ""
+        name: ADDRESS_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5c6d7e8f-9a0b-4c1d-3e4f-5a6b7c8d9e0f
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.ADDRESS_ENCRYPTED"
+        transform: "SRC.ADDRESS_ENCRYPTED"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01011-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6d7e8f9a-0b1c-4d2e-4f5a-6b7c8d9e0f1a
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.CITY"
+        transform: "SRC.CITY"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01012-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: VARCHAR(10)
+        defaultValue: ""
+        description: ""
+        name: STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7e8f9a0b-1c2d-4e3f-5a6b-7c8d9e0f1a2b
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.STATE_CODE"
+        transform: "SRC.STATE_CODE"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01013-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: VARCHAR(10)
+        defaultValue: ""
+        description: ""
+        name: COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8f9a0b1c-2d3e-4f4a-6b7c-8d9e0f1a2b3c
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.COUNTRY_CODE"
+        transform: "SRC.COUNTRY_CODE"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01014-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: VARCHAR(20)
+        defaultValue: ""
+        description: ""
+        name: ZIP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9a0b1c2d-3e4f-4a5b-7c8d-9e0f1a2b3c4d
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.ZIP_CODE"
+        transform: "SRC.ZIP_CODE"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01015-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: NUMBER(3,0)
+        defaultValue: ""
+        description: ""
+        name: AGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0b1c2d3e-4f5a-4b6c-8d9e-0f1a2b3c4d5e
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.AGE"
+        transform: "SRC.AGE"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01016-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: VARCHAR(10)
+        defaultValue: ""
+        description: ""
+        name: GENDER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1c2d3e4f-5a6b-4c7d-9e0f-1a2b3c4d5e6f
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.GENDER"
+        transform: "SRC.GENDER"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01017-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: BINARY
+        defaultValue: ""
+        description: ""
+        name: SSN_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d3e4f5a-6b7c-4d8e-0f1a-2b3c4d5e6f7a
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.SSN_ENCRYPTED"
+        transform: "SRC.SSN_ENCRYPTED"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01018-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: NUMBER(19,4)
+        defaultValue: ""
+        description: ""
+        name: AVERAGE_WEEKLY_WAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3e4f5a6b-7c8d-4e9f-1a2b-3c4d5e6f7a8b
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.AVERAGE_WEEKLY_WAGE"
+        transform: "SRC.AVERAGE_WEEKLY_WAGE"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01019-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: NCCI_JOB_CLASSIFICATION_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4f5a6b7c-8d9e-4f0a-2b3c-4d5e6f7a8b9c
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.NCCI_JOB_CLASSIFICATION_CODE"
+        transform: "SRC.NCCI_JOB_CLASSIFICATION_CODE"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01020-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: NUMBER(5,0)
+        defaultValue: ""
+        description: ""
+        name: LENGTH_OF_SERVICE_IN_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a6b7c8d-9e0f-4a1b-3c4d-5e6f7a8b9c0d
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.LENGTH_OF_SERVICE_IN_YEAR"
+        transform: "SRC.LENGTH_OF_SERVICE_IN_YEAR"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01021-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: BINARY
+        defaultValue: ""
+        description: ""
+        name: PHONE_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6b7c8d9e-0f1a-4b2c-4d5e-6f7a8b9c0d1e
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.PHONE_ENCRYPTED"
+        transform: "SRC.PHONE_ENCRYPTED"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01022-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: HIRE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c8d9e0f-1a2b-4c3d-5e6f-7a8b9c0d1e2f
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.HIRE_DATE"
+        transform: "SRC.HIRE_DATE"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01023-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: EMPLOYMENT_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d9e0f1a-2b3c-4d4e-6f7a-8b9c0d1e2f3a
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.EMPLOYMENT_STATUS_CODE"
+        transform: "SRC.EMPLOYMENT_STATUS_CODE"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01024-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: EMPLOYMENT_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9e0f1a2b-3c4d-4e5f-7a8b-9c0d1e2f3a4b
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.EMPLOYMENT_STATUS"
+        transform: "SRC.EMPLOYMENT_STATUS"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01025-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: BIRTH_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f1a2b3c-4d5e-4f6a-8b9c-0d1e2f3a4b5c
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.BIRTH_DATE"
+        transform: "SRC.BIRTH_DATE"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01026-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: MARITAL_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a2b3c4d-5e6f-4a7b-9c0d-1e2f3a4b5c6d
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.MARITAL_STATUS_CODE"
+        transform: "SRC.MARITAL_STATUS_CODE"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01027-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: MARITAL_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b3c4d5e-6f7a-4b8c-0d1e-2f3a4b5c6d7e
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.MARITAL_STATUS"
+        transform: "SRC.MARITAL_STATUS"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01028-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: OCCUPATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3c4d5e6f-7a8b-4c9d-1e2f-3a4b5c6d7e8f
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.OCCUPATION"
+        transform: "SRC.OCCUPATION"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01029-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: EMPLOYEE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4d5e6f7a-8b9c-4d0e-2f3a-4b5c6d7e8f9a
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.EMPLOYEE_NUMBER"
+        transform: "SRC.EMPLOYEE_NUMBER"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01030-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: ACA_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f7a8b9c-0d1e-4f2a-4b5c-6d7e8f9a0b1c
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.ACA_DATE_CREATED"
+        transform: "SRC.ACA_DATE_CREATED"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01031-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: ACA_CREATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81a2b3c4-d5e6-4f7a-9b8c-0d1e2f3a4b5c
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.ACA_CREATE_USER"
+        transform: "SRC.ACA_CREATE_USER"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01032-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: ACA_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 92b3c4d5-e6f7-4a8b-0c1d-2e3f4a5b6c7d
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.ACA_DATE_UPDATED"
+        transform: "SRC.ACA_DATE_UPDATED"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01033-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: ACA_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 03c4d5e6-f7a8-4b9c-1d2e-3f4a5b6c7d8e
+                stepCounter: 4f29a73e-32b0-4f90-84c1-2a6d71b3e590
+            transform: "SRC.ACA_UPDATE_USER"
+        transform: "SRC.ACA_UPDATE_USER"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01034-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: ACA_CLAIMANT_GB_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01035-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01036-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01037-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01038-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+        transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01039-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1c01040-a1b2-4c3d-8e9f-0a1b2c3d4e5f
+          stepCounter: 1f3e7b9a-4c8d-4f1e-92b6-5c8a0d7f3e1b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SRC: SRC
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: ALLIANT_DW_STAGING
+            nodeName: ACA_CLAIMANT_GB_STAGE
+        join:
+          joinCondition: FROM {{ ref('ALLIANT_DW_STAGING', 'ACA_CLAIMANT_GB_STAGE') }} AS SRC
+        name: ACA_CLAIMANT_GB
+        noLinkRefs: []
+  name: ACA_CLAIMANT_GB
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node
