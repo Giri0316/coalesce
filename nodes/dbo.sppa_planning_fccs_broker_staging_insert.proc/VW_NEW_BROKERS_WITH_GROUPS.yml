@@ -1,0 +1,328 @@
+fileVersion: 1
+id: 1d5e0a6b-2b4c-4e5f-1a2b-3c4d5e6f7a8b
+name: VW_NEW_BROKERS_WITH_GROUPS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f0a2b3c-4d5e-4f6a-7b8c-9d0e1f2a3b4c
+          stepCounter: 1d5e0a6b-2b4c-4e5f-1a2b-3c4d5e6f7a8b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PLANNING_ID
+        nullable: true
+        sourceColumnReferences: []
+        transform: PLANNING_ID
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a1b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1d5e0a6b-2b4c-4e5f-1a2b-3c4d5e6f7a8b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: BROKER_NAME
+        nullable: true
+        sourceColumnReferences: []
+        transform: BROKER_NAME
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b2c4d5e-6f7a-4b8c-9d0e-1f2a3b4c5d6e
+          stepCounter: 1d5e0a6b-2b4c-4e5f-1a2b-3c4d5e6f7a8b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: BROKER_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences: []
+        transform: BROKER_LOOKUP_CODE
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c3d5e6f-7a8b-4c9d-0e1f-2a3b4c5d6e7f
+          stepCounter: 1d5e0a6b-2b4c-4e5f-1a2b-3c4d5e6f7a8b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: BROKER_STATUS_INDICATOR
+        nullable: true
+        sourceColumnReferences: []
+        transform: BROKER_STATUS_INDICATOR
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d4e6f7a-8b9c-4d0e-1f2a-3b4c5d6e7f8g
+          stepCounter: 1d5e0a6b-2b4c-4e5f-1a2b-3c4d5e6f7a8b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: BROKER_ALIAS
+        nullable: true
+        sourceColumnReferences: []
+        transform: BROKER_ALIAS
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e5f7a8b-9c0d-4e1f-2a3b-4c5d6e7f8g9h
+          stepCounter: 1d5e0a6b-2b4c-4e5f-1a2b-3c4d5e6f7a8b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_BROKER_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences: []
+        transform: SOURCE_SYSTEM_BROKER_LOOKUP_CODE
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7f6a8b9c-0d1e-4f2a-3b4c-5d6e7f8g9h0i
+          stepCounter: 1d5e0a6b-2b4c-4e5f-1a2b-3c4d5e6f7a8b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_BROKER_ID
+        nullable: true
+        sourceColumnReferences: []
+        transform: SOURCE_SYSTEM_BROKER_ID
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a7b9c0d-1e2f-4a3b-4c5d-6e7f8g9h0i1j
+          stepCounter: 1d5e0a6b-2b4c-4e5f-1a2b-3c4d5e6f7a8b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        sourceColumnReferences: []
+        transform: SOURCE_SYSTEM
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9b8c0d1e-2f3a-4b4c-5d6e-7f8g9h0i1j2k
+          stepCounter: 1d5e0a6b-2b4c-4e5f-1a2b-3c4d5e6f7a8b
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: DW_BROKER_MASTER_ID
+        nullable: true
+        sourceColumnReferences: []
+        transform: DW_BROKER_MASTER_ID
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0c9d1e2f-3a4b-4c5d-6e7f-8g9h0i1j2k3l
+          stepCounter: 1d5e0a6b-2b4c-4e5f-1a2b-3c4d5e6f7a8b
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: DW_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences: []
+        transform: DW_SOURCE_SYSTEM_ID
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1d0e2f3a-4b5c-4d6e-7f8g-9h0i1j2k3l4m
+          stepCounter: 1d5e0a6b-2b4c-4e5f-1a2b-3c4d5e6f7a8b
+        config: {}
+        dataType: BIGINT
+        defaultValue: ""
+        description: ""
+        name: ROW_ID
+        nullable: true
+        sourceColumnReferences: []
+        transform: ROW_ID
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2e1f3a4b-5c6d-4e7f-8g9h-0i1j2k3l4m5n
+          stepCounter: 1d5e0a6b-2b4c-4e5f-1a2b-3c4d5e6f7a8b
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: BEGIN_POST_DATE
+        nullable: true
+        sourceColumnReferences: []
+        transform: BEGIN_POST_DATE
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3f2a4b5c-6d7e-4f8g-9h0i-1j2k3l4m5n6o
+          stepCounter: 1d5e0a6b-2b4c-4e5f-1a2b-3c4d5e6f7a8b
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: END_POST_DATE
+        nullable: true
+        sourceColumnReferences: []
+        transform: END_POST_DATE
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a3b5c6d-7e8f-4a9h-0i1j-2k3l4m5n6o7p
+          stepCounter: 1d5e0a6b-2b4c-4e5f-1a2b-3c4d5e6f7a8b
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: GROUP_ID
+        nullable: true
+        sourceColumnReferences: []
+        transform: GROUP_ID
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b4c6d7e-8f9a-4b0i-1j2k-3l4m5n6o7p8q
+          stepCounter: 1d5e0a6b-2b4c-4e5f-1a2b-3c4d5e6f7a8b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: GROUP_NAME
+        nullable: true
+        sourceColumnReferences: []
+        transform: GROUP_NAME
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c5d7e8f-9a0b-4c1j-2k3l-4m5n6o7p8q9r
+          stepCounter: 1d5e0a6b-2b4c-4e5f-1a2b-3c4d5e6f7a8b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PARENT_PLANNING_ID
+        nullable: true
+        sourceColumnReferences: []
+        transform: PARENT_PLANNING_ID
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: |-
+            WITH BROKER_STATS AS (
+                SELECT 
+                    MAX(TRY_TO_NUMBER(SUBSTRING(PARENT_PLANNING_ID, 1, CHARINDEX('_', PARENT_PLANNING_ID) - 1))) AS MAX_GROUP_ID,
+                    COUNT(1) AS COUNT_OF_MAX_GROUP_ID
+                FROM {{ ref('DBSHIFT', 'PLANNING_FCCS_BROKER') }}
+                WHERE TRY_TO_NUMBER(SUBSTRING(PARENT_PLANNING_ID, 1, CHARINDEX('_', PARENT_PLANNING_ID) - 1)) = 
+                    (SELECT MAX(TRY_TO_NUMBER(SUBSTRING(PARENT_PLANNING_ID, 1, CHARINDEX('_', PARENT_PLANNING_ID) - 1))) FROM {{ ref('DBSHIFT', 'PLANNING_FCCS_BROKER') }})
+            ),
+            RANKED_NULLS AS (
+                SELECT 
+                    *,
+                    ROW_NUMBER() OVER (ORDER BY ROW_ID) as RN
+                FROM {{ ref('DBSHIFT', 'VW_TMP_NEW_PLANNING_BROKER') }}
+                WHERE GROUP_ID_INITIAL IS NULL
+            )
+            SELECT
+                NB.PLANNING_ID,
+                NB.BROKER_NAME,
+                NB.BROKER_LOOKUP_CODE,
+                NB.BROKER_STATUS_INDICATOR,
+                NB.BROKER_ALIAS,
+                NB.SOURCE_SYSTEM_BROKER_LOOKUP_CODE,
+                NB.SOURCE_SYSTEM_BROKER_ID,
+                NB.SOURCE_SYSTEM,
+                NB.DW_BROKER_MASTER_ID,
+                NB.DW_SOURCE_SYSTEM_ID,
+                NB.ROW_ID,
+                NB.BEGIN_POST_DATE,
+                NB.END_POST_DATE,
+                CASE 
+                    WHEN NB.GROUP_ID_INITIAL IS NOT NULL THEN NB.GROUP_ID_INITIAL
+                    WHEN S.MAX_GROUP_ID IS NOT NULL AND RN.RN <= (300 - S.COUNT_OF_MAX_GROUP_ID) THEN S.MAX_GROUP_ID
+                    ELSE IFNULL(S.MAX_GROUP_ID, 0) + 1 + FLOOR((RN.RN - IFNULL(300 - S.COUNT_OF_MAX_GROUP_ID, 0) - 1) / 300)
+                END AS GROUP_ID,
+                CASE 
+                    WHEN NB.GROUP_NAME_INITIAL IS NOT NULL THEN NB.GROUP_NAME_INITIAL
+                    WHEN S.MAX_GROUP_ID IS NOT NULL AND RN.RN <= (300 - S.COUNT_OF_MAX_GROUP_ID) THEN CONCAT(S.MAX_GROUP_ID, '_Producer_Parent')
+                    ELSE CONCAT(IFNULL(S.MAX_GROUP_ID, 0) + 1 + FLOOR((RN.RN - IFNULL(300 - S.COUNT_OF_MAX_GROUP_ID, 0) - 1) / 300), '_Producer_Parent')
+                END AS GROUP_NAME,
+                CASE 
+                    WHEN NB.PARENT_PLANNING_ID IS NOT NULL THEN NB.PARENT_PLANNING_ID
+                    WHEN S.MAX_GROUP_ID IS NOT NULL AND RN.RN <= (300 - S.COUNT_OF_MAX_GROUP_ID) THEN CONCAT(S.MAX_GROUP_ID, '_Producer_Parent')
+                    ELSE CONCAT(IFNULL(S.MAX_GROUP_ID, 0) + 1 + FLOOR((RN.RN - IFNULL(300 - S.COUNT_OF_MAX_GROUP_ID, 0) - 1) / 300), '_Producer_Parent')
+                END AS PARENT_PLANNING_ID
+            FROM {{ ref('DBSHIFT', 'VW_TMP_NEW_PLANNING_BROKER') }} NB
+            LEFT JOIN RANKED_NULLS RN ON NB.ROW_ID = RN.ROW_ID
+            CROSS JOIN BROKER_STATS S
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: VW_TMP_NEW_PLANNING_BROKER
+          - locationName: DBSHIFT
+            nodeName: PLANNING_FCCS_BROKER
+        join:
+          joinCondition: ""
+        name: VW_NEW_BROKERS_WITH_GROUPS
+        noLinkRefs: []
+  name: VW_NEW_BROKERS_WITH_GROUPS
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

@@ -1,25 +1,44 @@
 fileVersion: 1
-id: 110d9f48-a00d-4581-8b36-a36c9687440b
-name: ACA_PAYMENT_TRANSACTION
+id: 6c2b1f2d-8g3b-4b9c-ad5d-9f5b8e2d7g0c
+name: PLANNING_FCCS_BROKER
 operation:
-  database: ALLIANT_CLAIMS_ASTRUS
+  database: ""
   deployEnabled: true
   description: ""
   locationName: DBSHIFT
   metadata:
     columns:
       - acceptedValues:
-          strictMatch: true
+          strictMatch: false
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 474a8166-5c5f-40e9-b520-25e24c6e3b0e
-          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+          columnCounter: 7d3c2g3e-9h4c-4c0d-be6e-0g6c9f3e8h1d
+          stepCounter: 6c2b1f2d-8g3b-4b9c-ad5d-9f5b8e2d7g0c
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: DW_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e4d3h4f-0i5d-4d1e-cf7f-1h7d0g4f9i2e
+          stepCounter: 6c2b1f2d-8g3b-4b9c-ad5d-9f5b8e2d7g0c
         config: {}
         dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM_CLAIM_ID
+        name: SOURCE_SYSTEM_BROKER_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -28,74 +47,17 @@ operation:
         transform: ""
         uniqueKey: false
       - acceptedValues:
-          strictMatch: true
+          strictMatch: false
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c0edc2bd-000c-43f9-8693-02f837330752
-          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
-        config: {}
-        dataType: NUMBER
-        defaultValue: ""
-        description: ""
-        name: ACA_RESERVE_TYPE_ID
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 77a111b0-e01e-450f-a496-e26e3c0dd280
-          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
-        config: {}
-        dataType: DATE
-        defaultValue: ""
-        description: ""
-        name: TRANSACTION_DATE
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 4f8fd8e8-a15e-4c7b-b0b3-6c84b1265b4c
-          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
-        config: {}
-        dataType: NUMBER
-        defaultValue: ""
-        description: ""
-        name: ACA_DATE_ID_TRANSACTION_DATE
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 1e99e407-78da-4e5c-9c1a-82d278484e03
-          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+          columnCounter: 9f5e4i5g-1j6e-4e2f-dg8g-2i8e1h5g0j3f
+          stepCounter: 6c2b1f2d-8g3b-4b9c-ad5d-9f5b8e2d7g0c
         config: {}
         dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: COVERAGE_GROUP_CODE
+        name: PARENT_PLANNING_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -104,17 +66,17 @@ operation:
         transform: ""
         uniqueKey: false
       - acceptedValues:
-          strictMatch: true
+          strictMatch: false
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: f3a270f2-b88d-4f05-8e7c-86f76c0e86b0
-          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+          columnCounter: 0g6f5j6h-2k7f-4f3g-eh9h-3j9f2i6h1k4g
+          stepCounter: 6c2b1f2d-8g3b-4b9c-ad5d-9f5b8e2d7g0c
         config: {}
         dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: RESERVE_TYPE
+        name: PLANNING_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -123,17 +85,17 @@ operation:
         transform: ""
         uniqueKey: false
       - acceptedValues:
-          strictMatch: true
+          strictMatch: false
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 0f2f7ef3-b452-475a-a3a8-644788c7f7bc
-          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+          columnCounter: 1h7g6k7i-3l8g-4g4h-fi0i-4k0g3j7i2l5h
+          stepCounter: 6c2b1f2d-8g3b-4b9c-ad5d-9f5b8e2d7g0c
         config: {}
-        dataType: NUMBER
+        dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: ACA_SOURCE_SYSTEM_ID
+        name: BROKER_LOOKUP_CODE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -142,17 +104,17 @@ operation:
         transform: ""
         uniqueKey: false
       - acceptedValues:
-          strictMatch: true
+          strictMatch: false
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c767f401-447a-4286-9a29-bd06d2c43315
-          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+          columnCounter: 2i8h7l8j-4m9h-4h5i-gj1j-5l1h4k8j3m6i
+          stepCounter: 6c2b1f2d-8g3b-4b9c-ad5d-9f5b8e2d7g0c
         config: {}
-        dataType: TIMESTAMP_NTZ
+        dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: ACA_DATE_UPDATED
+        name: SOURCE_SYSTEM_BROKER_LOOKUP_CODE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -161,17 +123,17 @@ operation:
         transform: ""
         uniqueKey: false
       - acceptedValues:
-          strictMatch: true
+          strictMatch: false
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 9e3c988e-c9ab-4841-b663-14902161b9df
-          stepCounter: 110d9f48-a00d-4581-8b36-a36c9687440b
+          columnCounter: 3j9i8m9k-5n0i-4i6j-hk2k-6m2i5l9k4n7j
+          stepCounter: 6c2b1f2d-8g3b-4b9c-ad5d-9f5b8e2d7g0c
         config: {}
-        dataType: NUMBER
+        dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: PAYMENT_AMOUNT_BY_RESERVE_TYPE
+        name: SOURCE_SYSTEM
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -179,7 +141,45 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: ACA_PAYMENT_TRANSACTION
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4k0j9n0l-6o1j-4j7k-il3l-7n3j6m0l5o8k
+          stepCounter: 6c2b1f2d-8g3b-4b9c-ad5d-9f5b8e2d7g0c
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PLANNING_ALIAS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5l1k0o1m-7p2k-4k8l-jm4m-8o4k7n1m6p9l
+          stepCounter: 6c2b1f2d-8g3b-4b9c-ad5d-9f5b8e2d7g0c
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: DW_BROKER_MASTER_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: PLANNING_FCCS_BROKER
   schema: DBO
   sqlType: Source
   type: sourceInput

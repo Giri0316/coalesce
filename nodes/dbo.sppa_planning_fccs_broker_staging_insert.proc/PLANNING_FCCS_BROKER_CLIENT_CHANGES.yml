@@ -1,25 +1,44 @@
 fileVersion: 1
-id: 610b749d-6523-455b-b9d6-547e1320ef4b
-name: ACA_RESERVE_TYPE_MAPPING
+id: 7d3c2g3e-9h4c-4c0d-be6e-0g6c9f3e8h1d
+name: PLANNING_FCCS_BROKER_CLIENT_CHANGES
 operation:
-  database: ALLIANT_CLAIMS_ASTRUS
+  database: ""
   deployEnabled: true
   description: ""
   locationName: DBSHIFT
   metadata:
     columns:
       - acceptedValues:
-          strictMatch: true
+          strictMatch: false
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 47970d4f-3de7-47b1-91a1-9a706599b5ed
-          stepCounter: 610b749d-6523-455b-b9d6-547e1320ef4b
+          columnCounter: a8b9c0d1-e2f3-4a5b-6c7d-8e9f0a1b2c3d
+          stepCounter: 7d3c2g3e-9h4c-4c0d-be6e-0g6c9f3e8h1d
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: DW_BROKER_CLIENT_MASTER_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b9c0d1e2-f3a4-4b6c-7d8e-9f0a1b2c3d4e
+          stepCounter: 7d3c2g3e-9h4c-4c0d-be6e-0g6c9f3e8h1d
         config: {}
         dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: CLASS_CODE
+        name: SOURCE_SYSTEM
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -28,17 +47,17 @@ operation:
         transform: ""
         uniqueKey: false
       - acceptedValues:
-          strictMatch: true
+          strictMatch: false
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 978912e7-573e-43f1-b4f0-b4da79b5c2d1
-          stepCounter: 610b749d-6523-455b-b9d6-547e1320ef4b
+          columnCounter: c0d1e2f3-a4b5-4c7d-8e9f-0a1b2c3d4e5f
+          stepCounter: 7d3c2g3e-9h4c-4c0d-be6e-0g6c9f3e8h1d
         config: {}
         dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: RESERVE_TYPE_COLUMN_NUMBER
+        name: DIMENSION_TYPE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -47,55 +66,17 @@ operation:
         transform: ""
         uniqueKey: false
       - acceptedValues:
-          strictMatch: true
+          strictMatch: false
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: f82b8c9d-d652-4a0b-967a-1c5839c1b729
-          stepCounter: 610b749d-6523-455b-b9d6-547e1320ef4b
-        config: {}
-        dataType: NUMBER(38,0)
-        defaultValue: ""
-        description: ""
-        name: ACA_SOURCE_SYSTEM_ID
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: b577e163-95c0-4054-998f-4318350b284e
-          stepCounter: 610b749d-6523-455b-b9d6-547e1320ef4b
-        config: {}
-        dataType: NUMBER(38,0)
-        defaultValue: ""
-        description: ""
-        name: ACA_RESERVE_TYPE_ID
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: ab819c96-1c25-4c0d-b286-91e84d4e3416
-          stepCounter: 610b749d-6523-455b-b9d6-547e1320ef4b
+          columnCounter: d1e2f3a4-b5c6-4d8e-9f0a-1b2c3d4e5f6a
+          stepCounter: 7d3c2g3e-9h4c-4c0d-be6e-0g6c9f3e8h1d
         config: {}
         dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: RESERVE_TYPE
+        name: CHANGE_TYPE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -103,8 +84,27 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: ACA_RESERVE_TYPE_MAPPING
-  schema: REF
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e2f3a4b5-c6d7-4e9f-0a1b-2c3d4e5f6a7b
+          stepCounter: 7d3c2g3e-9h4c-4c0d-be6e-0g6c9f3e8h1d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PLANNING_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: PLANNING_FCCS_BROKER_CLIENT_CHANGES
+  schema: DBO
   sqlType: Source
   type: sourceInput
   version: 1

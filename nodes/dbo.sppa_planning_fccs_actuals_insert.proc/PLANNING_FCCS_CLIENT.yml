@@ -1,8 +1,8 @@
 fileVersion: 1
-id: 597a7e71-464a-4d2d-9477-84a86b1b590c
-name: ACA_SOURCE_SYSTEM
+id: 5971a1fa-1f81-432d-886f-e3c66063b2f5
+name: PLANNING_FCCS_CLIENT
 operation:
-  database: ALLIANT_CLAIMS_ASTRUS
+  database: ""
   deployEnabled: true
   description: ""
   locationName: DBSHIFT
@@ -13,15 +13,15 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 97813a34-2e23-4414-874b-6101d2d0c2e3
-          stepCounter: 597a7e71-464a-4d2d-9477-84a86b1b590c
+          columnCounter: 546f3325-1e4e-4e6a-aa7e-292196657954
+          stepCounter: 5971a1fa-1f81-432d-886f-e3c66063b2f5
         config: {}
-        dataType: NUMBER
+        dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: ACA_SOURCE_SYSTEM_ID
-        nullable: false
-        primaryKey: true
+        name: PLANNING_ID
+        nullable: true
+        primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
             transform: ""
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 934570fd-27f1-4672-911e-28ab0261173d
-          stepCounter: 597a7e71-464a-4d2d-9477-84a86b1b590c
+          columnCounter: 77f1f452-f32f-45b6-b51c-7b9c9f2b86ab
+          stepCounter: 5971a1fa-1f81-432d-886f-e3c66063b2f5
         config: {}
         dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM
+        name: PARENT_PLANNING_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -46,8 +46,8 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: ACA_SOURCE_SYSTEM
-  schema: DBO
+  name: PLANNING_FCCS_CLIENT
+  schema: ""
   sqlType: Source
   type: sourceInput
   version: 1
