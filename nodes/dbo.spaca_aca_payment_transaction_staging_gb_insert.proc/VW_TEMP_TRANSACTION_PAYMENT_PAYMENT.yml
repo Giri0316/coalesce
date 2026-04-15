@@ -1,0 +1,129 @@
+fileVersion: 1
+id: 593ed30c-2ef5-4299-b1d5-b6d85915d3de
+name: VW_TEMP_TRANSACTION_PAYMENT_PAYMENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_CLAIMS_ASTRUS_STAGE
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5040f9b6-8576-4702-8a9d-16f3150554c2
+          stepCounter: 593ed30c-2ef5-4299-b1d5-b6d85915d3de
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ACA_TRANSACTION_PAYMENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f021e1d-8703-455b-b9f1-a1b637d97e7b
+                stepCounter: 5790a1f0-45f8-4e8c-8f47-3b7c7b411d51
+            transform: P.ACA_TRANSACTION_PAYMENT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e57c858-525d-4f22-bd55-460d3c01acfd
+          stepCounter: 593ed30c-2ef5-4299-b1d5-b6d85915d3de
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b4347f3b-51bb-459d-8f3a-345371c1f544
+                stepCounter: 5790a1f0-45f8-4e8c-8f47-3b7c7b411d51
+            transform: P.CLAIM_COVERAGE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a63462f6-304b-4860-84a1-0e1940954b0d
+          stepCounter: 593ed30c-2ef5-4299-b1d5-b6d85915d3de
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RESERVE_TYPE_COLUMN_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: U.RESERVE_TYPE_COLUMN_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d30b92e7-814d-4522-8395-5d9c240974ed
+          stepCounter: 593ed30c-2ef5-4299-b1d5-b6d85915d3de
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: RESERVE_PAYMENT_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d30b92e7-814d-4522-8395-5d9c240974ed
+                stepCounter: 5790a1f0-45f8-4e8c-8f47-3b7c7b411d51
+              - columnCounter: a63462f6-304b-4860-84a1-0e1940954b0d
+                stepCounter: 5790a1f0-45f8-4e8c-8f47-3b7c7b411d51
+              - columnCounter: 3226a635-f09c-48c9-8356-9d860155b1f5
+                stepCounter: 5790a1f0-45f8-4e8c-8f47-3b7c7b411d51
+              - columnCounter: 585c49b6-8a0a-47d3-8f0a-b328a6f4e1f7
+                stepCounter: 5790a1f0-45f8-4e8c-8f47-3b7c7b411d51
+              - columnCounter: f3a24683-16a1-4fd3-b0fc-5750170a4a8c
+                stepCounter: 5790a1f0-45f8-4e8c-8f47-3b7c7b411d51
+              - columnCounter: 5b4e7235-901b-410a-acfd-9f447a060e86
+                stepCounter: 5790a1f0-45f8-4e8c-8f47-3b7c7b411d51
+            transform: U.RESERVE_PAYMENT_AMOUNT
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: |-
+            SELECT
+                P.ACA_TRANSACTION_PAYMENT_ID,
+                P.CLAIM_COVERAGE_CODE,
+                U.RESERVE_TYPE_COLUMN_NUMBER,
+                U.RESERVE_PAYMENT_AMOUNT
+            FROM (
+                SELECT
+                    ACA_TRANSACTION_PAYMENT_ID,
+                    CLAIM_COVERAGE_CODE AS CLAIM_COVERAGE_CODE,
+                    RESERVE_AMT1 AS COL1, RESERVE_AMT2 AS COL2, RESERVE_AMT3 AS COL3,
+                    RESERVE_AMT4 AS COL4, RESERVE_AMT5 AS COL5, RESERVE_AMT6 AS COL6
+                FROM {{ ref('DBSHIFT', 'ACA_TRANSACTION_PAYMENT') }}
+                WHERE ACA_DATE_UPDATED > (
+                    SELECT COALESCE(MAX(ACA_DATE_UPDATED), '1776-07-04 00:00:00.000'::TIMESTAMP_NTZ)
+                    FROM {{ ref('DBSHIFT', 'ACA_PAYMENT_TRANSACTION') }}
+                    WHERE ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'GB')
+                )
+            ) AS P
+            UNPIVOT (
+                RESERVE_PAYMENT_AMOUNT FOR RESERVE_TYPE_COLUMN_NUMBER IN (COL1, COL2, COL3, COL4, COL5, COL6)
+            ) AS U
+            WHERE U.RESERVE_PAYMENT_AMOUNT <> 0
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_TRANSACTION_PAYMENT
+          - locationName: DBSHIFT
+            nodeName: ACA_PAYMENT_TRANSACTION
+          - locationName: DBSHIFT
+            nodeName: ACA_SOURCE_SYSTEM
+        join:
+          joinCondition: ""
+        name: VW_TEMP_TRANSACTION_PAYMENT_PAYMENT
+        noLinkRefs: []
+  name: VW_TEMP_TRANSACTION_PAYMENT_PAYMENT
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

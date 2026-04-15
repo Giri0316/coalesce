@@ -1,0 +1,136 @@
+fileVersion: 1
+id: 59b7f52f-fd28-444a-874c-4740e53a79eb
+name: TEMP_ESIS_INCURRED_TOTAL_RECOVERY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3770e53a-c32f-4131-b844-3252a16d5119
+          stepCounter: 59b7f52f-fd28-444a-874c-4740e53a79eb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b13c9a41-e124-4f40-8f92-bd171b3e80ab
+                stepCounter: 86b6ac48-e87f-4315-95a7-79758509c118
+            transform: REC.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d3b906a2-e63d-4c3d-82b5-336717a80735
+          stepCounter: 59b7f52f-fd28-444a-874c-4740e53a79eb
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d196e838-89c5-41e9-9742-c64603956322
+                stepCounter: 86b6ac48-e87f-4315-95a7-79758509c118
+            transform: REC.ACA_RESERVE_TYPE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a6d0124e-4f0f-488f-af89-a2a47a1ebcf3
+          stepCounter: 59b7f52f-fd28-444a-874c-4740e53a79eb
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c767f401-447a-4286-9a29-bd06d2c43315
+                stepCounter: e47b5212-0f55-46bd-89e4-c71550c60d92
+            transform: C.TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b137f84-e4f6-4a49-af43-f11a43a42d96
+          stepCounter: 59b7f52f-fd28-444a-874c-4740e53a79eb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COVERAGE_GROUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b137f84-e4f6-4a49-af43-f11a43a42d96
+                stepCounter: 86b6ac48-e87f-4315-95a7-79758509c118
+            transform: MAX(REC.COVERAGE_GROUP_CODE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f31e7f9c-7033-4ca2-8a9d-16a7f8042456
+          stepCounter: 59b7f52f-fd28-444a-874c-4740e53a79eb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f31e7f9c-7033-4ca2-8a9d-16a7f8042456
+                stepCounter: 86b6ac48-e87f-4315-95a7-79758509c118
+            transform: MAX(REC.RESERVE_TYPE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a6c4b2b3-547a-42e6-af87-ffc29792040b
+          stepCounter: 59b7f52f-fd28-444a-874c-4740e53a79eb
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: RECOVERY_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c829e0de-4ac7-4592-965a-0639d675685a
+                stepCounter: 86b6ac48-e87f-4315-95a7-79758509c118
+            transform: SUM(REC.RECOVERY_AMOUNT_BY_RESERVE_TYPE)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_RECOVERY_TRANSACTION: rec
+          TEMP_ESIS_INCURRED_NEW_TRANSACTION: c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_RECOVERY_TRANSACTION
+          - locationName: DBSHIFT
+            nodeName: TEMP_ESIS_INCURRED_NEW_TRANSACTION
+          - locationName: DBSHIFT
+            nodeName: ACA_SOURCE_SYSTEM
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'ACA_RECOVERY_TRANSACTION') }} AS REC
+            INNER JOIN {{ ref('DBSHIFT', 'TEMP_ESIS_INCURRED_NEW_TRANSACTION') }} AS C
+            ON C.SOURCE_SYSTEM_CLAIM_ID = REC.SOURCE_SYSTEM_CLAIM_ID
+            AND C.ACA_RESERVE_TYPE_ID = REC.ACA_RESERVE_TYPE_ID
+            WHERE REC.ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'ESIS')
+            AND REC.RECOVERY_TRANSACTION_DATE <= C.TRANSACTION_DATE
+            GROUP BY REC.SOURCE_SYSTEM_CLAIM_ID, REC.ACA_RESERVE_TYPE_ID, C.TRANSACTION_DATE
+        name: TEMP_ESIS_INCURRED_TOTAL_RECOVERY
+        noLinkRefs: []
+  name: TEMP_ESIS_INCURRED_TOTAL_RECOVERY
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
