@@ -1,0 +1,452 @@
+fileVersion: 1
+id: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+name: STG_ACA_PAYEE_GB_INSERT_PROJECTION
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e8c67c53-b0f3-4e3f-9d3e-9f3a6b8c9d01
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_PAYEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c4912e-137a-4c28-98e3-0c487375a060
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.SOURCE_SYSTEM_PAYEE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f9d78d64-c104-4f40-ae4f-af4b7c9d0e12
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_IRS_FORM_1099_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3e8326f6-4d05-4f7f-8c3b-d102a0a256d0
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.ACA_IRS_FORM_1099_TYPE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a8e9f75-d215-4051-bf50-bf5c8dae1f23
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PAYEE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d9a2637-299f-44d4-9f89-c70a84e03f5e
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.PAYEE_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b9f0a86-e326-4162-c061-c06d9ebf2034
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PAYEE_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f0e9d6d-2c7b-40b9-8588-e21b0153096b
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.PAYEE_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2ca01b97-f437-4273-d172-d17ea0c03145
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LAST_NAME_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a2e4c02-4e0f-48d1-8a9d-1e1b203c9b74
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.LAST_NAME_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3db12ca8-0548-4384-e283-e28fb1d14256
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: FIRST_NAME_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1a0b3f8-6e54-47c1-840a-5b65f7c32e5d
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.FIRST_NAME_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4ec23db9-1659-4495-f394-f390c2e25367
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORGANIZATION_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f3a29d8a-0c2d-4531-89a7-8f72c3d0b28e
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.ORGANIZATION_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5fd34eca-276a-45a6-04a5-04a1d3f36478
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1e1c3e3a-e95e-41d3-9f5b-b9e38d4f4e1f
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.ADDRESS_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 60e45fdb-387b-46b7-15b6-15b2e4047589
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7a5b3a29-2d9d-4876-8f2c-5b63b2f9f1e1
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.CITY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 71f560ec-498c-47c8-26c7-26c3f515869a
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b0c8e3a-1d5e-4c7b-b38d-5e2a2c1d3f9f
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.STATE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 820671fd-5a9d-48d9-37d8-37d4062697ab
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ZIP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c4d9a3f-0f3b-4a8d-b9e5-9e6a3c4f5f6e
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.ZIP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9317820e-6bae-49ea-48e9-48e51737a8bc
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a0b1e3f9-7e2a-4d4b-9d7a-1e8b3c9f2f5e
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.COUNTRY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a428931f-7cbf-4afb-59fa-59f62848b9cd
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: IRS_TAX_IDENTIFICATION_NUMBER_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c2a3e5f1-3d7b-48c9-8d6e-8e3b2f5a4e3e
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.IRS_TAX_IDENTIFICATION_NUMBER_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b539a420-8dc0-4b0c-6a0b-6a073959caed
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: IRS_FORM_1099_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c4912e-137a-4c28-98e3-0c487375a061
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.IRS_FORM_1099_TYPE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c64ab531-9ed1-4c1d-7b1c-7b184a6adbfb
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: IRS_FORM_1099_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d3e8326f-4d05-4f7f-8c3b-d102a0a256d1
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.IRS_FORM_1099_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d75bc642-af22-4d2e-8c2d-8c295b7beccf
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MAIL_TO_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e8d9a263-299f-44d4-9f89-c70a84e03f5f
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.MAIL_TO_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e86cd753-b033-4e3f-9d3e-9d3a6c8cfdde
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MAIL_TO_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f1f0e9d6-2c7b-40b9-8588-e21b0153096c
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.MAIL_TO_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f97de864-c144-4f40-ae4f-ae4b7d9d0eef
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MAIL_TO_LAST_NAME_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a2e4c02-4e0f-48d1-8a9d-1e1b203c9b75
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.MAIL_TO_LAST_NAME_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a8ef975-d255-4051-bf50-bf5c8eaef000
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MAIL_TO_FIRST_NAME_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d1a0b3f-6e54-47c1-840a-5b65f7c32e5e
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.MAIL_TO_FIRST_NAME_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b9f0a86-e366-4162-c061-c06d9fb01111
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MAIL_TO_ORGANIZATION_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3f3a29d8-0c2d-4531-89a7-8f72c3d0b28f
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.MAIL_TO_ORGANIZATION_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2ca01b97-f477-4273-d172-d17ea0c12222
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MAIL_TO_ADDRESS_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4e1c3e3a-e95e-41d3-9f5b-b9e38d4f4e20
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.MAIL_TO_ADDRESS_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3db12ca8-0588-4384-e283-e28fb1d23333
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MAIL_TO_CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a5b3a29-2d9d-4876-8f2c-5b63b2f9f1e2
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.MAIL_TO_CITY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4ec23db9-1699-4495-f394-f390c2e34444
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MAIL_TO_STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6b0c8e3a-1d5e-4c7b-b38d-5e2a2c1d3fa0
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.MAIL_TO_STATE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5fd34eca-27aa-45a6-04a5-04a1d3f45555
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MAIL_TO_ZIP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c4d9a3f-0f3b-4a8d-b9e5-9e6a3c4f5f6f
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.MAIL_TO_ZIP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 60e45fdb-38bb-46b7-15b6-15b2e4056666
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MAIL_TO_COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8a0b1e3f-7e2a-4d4b-9d7a-1e8b3c9f2f5f
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.MAIL_TO_COUNTRY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 71f560ec-49cc-47c8-26c7-26c3f5167777
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c2a3e5f-3d7b-48c9-8d6e-8e3b2f5a4e3f
+                stepCounter: 5a9b70b3-f02a-4389-9b98-5c4a179e3c27
+            transform: S.ACA_SOURCE_SYSTEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 820671fd-5add-48d9-37d8-37d406278888
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACA_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9317820e-6bee-49ea-48e9-48e517389999
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_CREATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: '''dbo.spaca_aca_payee_gb_insertUpdate'''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a428931f-7cff-4afb-59fa-59f62849aaaa
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACA_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b539a420-8d00-4b0c-6a0b-6a07395abbbb
+          stepCounter: 9a7b9c1d-8e5f-4d3c-9b1a-2f4e8c7d6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: '''dbo.spaca_aca_payee_gb_insertUpdate'''
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_PAYEE_STAGING_GB: S
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_PAYEE_STAGING_GB
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_PAYEE_STAGING_GB') }} AS "S"
+        name: STG_ACA_PAYEE_GB_INSERT_PROJECTION
+        noLinkRefs: []
+  name: STG_ACA_PAYEE_GB_INSERT_PROJECTION
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
