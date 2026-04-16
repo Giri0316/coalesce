@@ -1,0 +1,301 @@
+fileVersion: 1
+id: 593b45a3-00dd-4286-af34-453051ab8b97
+name: ACA_RECOVERY_TRANSACTION_STAGING_ESIS
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6b361a86-1d18-479c-9c3f-42207b5e6e3c
+          stepCounter: 593b45a3-00dd-4286-af34-453051ab8b97
+        config: {}
+        dataType: BINARY(16)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_POLICY_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32a0335e-c1e5-4e78-9040-622f98628b06
+          stepCounter: 593b45a3-00dd-4286-af34-453051ab8b97
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 30f7e1b5-8851-4089-a35c-9c043e06a72e
+          stepCounter: 593b45a3-00dd-4286-af34-453051ab8b97
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 68686d87-6e3e-4d40-b684-2a6730ed7b57
+          stepCounter: 593b45a3-00dd-4286-af34-453051ab8b97
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: ACA_POLICY_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3174cf8-5e8a-4467-8cfb-666cf7ab0d61
+          stepCounter: 593b45a3-00dd-4286-af34-453051ab8b97
+        config: {}
+        dataType: BINARY(16)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_RECOVERY_TRANSACTION_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77508496-e137-4f6c-848e-cdab28564010
+          stepCounter: 593b45a3-00dd-4286-af34-453051ab8b97
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_GROUP_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 22d9c4c5-0370-4f51-b0e5-79ac4d1933c1
+          stepCounter: 593b45a3-00dd-4286-af34-453051ab8b97
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 58a36c84-1422-4934-8c83-5c2637996c9c
+          stepCounter: 593b45a3-00dd-4286-af34-453051ab8b97
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bd8036d0-40e1-4c6c-9407-7b2521c759bd
+          stepCounter: 593b45a3-00dd-4286-af34-453051ab8b97
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: ACA_DATE_UPDATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 521ab692-f046-4447-9f66-24e534f3a743
+          stepCounter: 593b45a3-00dd-4286-af34-453051ab8b97
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: ACA_UPDATE_USER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a69a473-8a30-4e3a-965a-0744760a9f5d
+          stepCounter: 593b45a3-00dd-4286-af34-453051ab8b97
+        config: {}
+        dataType: VARCHAR(30)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c0181514-498c-4861-ac32-9df7de6b3a24
+          stepCounter: 593b45a3-00dd-4286-af34-453051ab8b97
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PAYMENT_TYPE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4236a93d-d558-47ac-9ed4-001097e33553
+          stepCounter: 593b45a3-00dd-4286-af34-453051ab8b97
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: RECOVERY_TRANSACTION_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a630132b-36b1-4148-9642-1e96a40a8767
+          stepCounter: 593b45a3-00dd-4286-af34-453051ab8b97
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: TRANSACTION_SEQUENCE_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e875b42d-2099-4c1c-914b-ef356396924d
+          stepCounter: 593b45a3-00dd-4286-af34-453051ab8b97
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_RECOVERY_TRANSACTION_STAGING_ESIS
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
