@@ -1,0 +1,55 @@
+fileVersion: 1
+id: 3c924d5e-c75c-4a3d-a5d6-54a4f8d55e37
+name: V_SOURCE_SYSTEM_ID_GB
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 59a0f4a8-444a-4e2b-b83c-6eb08b5e9f5e
+          stepCounter: 3c924d5e-c75c-4a3d-a5d6-54a4f8d55e37
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9e585f5e-1a52-4467-876e-51835e5d32c1
+                stepCounter: 593b4f65-27a1-432a-881c-90514a3f11d1
+            transform: SS.ACA_SOURCE_SYSTEM_ID
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_SOURCE_SYSTEM: SS
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_SOURCE_SYSTEM
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} AS SS WHERE
+            SS.SOURCE_SYSTEM = 'GB'
+        name: V_SOURCE_SYSTEM_ID_GB
+        noLinkRefs: []
+  name: V_SOURCE_SYSTEM_ID_GB
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

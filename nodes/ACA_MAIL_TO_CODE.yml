@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 9a0b1c2d-3e4f-4a5b-8c9d-0e1f2a3b4c5d
+name: ACA_MAIL_TO_CODE
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a7b8c9d0-e1f2-4a3b-4c5d-6e7f8a9b0c1d
+          stepCounter: 9a0b1c2d-3e4f-4a5b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_MAIL_TO_CODE_ID
+        nullable: false
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b8c9d0e1-f2a3-4b4c-5d6e-7f8a9b0c1d2e
+          stepCounter: 9a0b1c2d-3e4f-4a5b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: MAIL_TO_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9d0e1f2-a3b4-4c5d-6e7f-8a9b0c1d2e3f
+          stepCounter: 9a0b1c2d-3e4f-4a5b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: MAIL_TO
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_MAIL_TO_CODE
+  schema: REF
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

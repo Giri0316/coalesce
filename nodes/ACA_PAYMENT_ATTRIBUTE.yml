@@ -1,0 +1,54 @@
+fileVersion: 1
+id: c4e98f2d-8b0c-4e8d-9f3a-7a1b2c3d4e5f
+name: ACA_PAYMENT_ATTRIBUTE
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: c4e98f2d-8b0c-4e8d-9f3a-7a1b2c3d4e5f
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: ACA_PAYMENT_ATTRIBUTE_ID
+        nullable: false
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e
+          stepCounter: c4e98f2d-8b0c-4e8d-9f3a-7a1b2c3d4e5f
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: ACA_DATE_UPDATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_PAYMENT_ATTRIBUTE
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

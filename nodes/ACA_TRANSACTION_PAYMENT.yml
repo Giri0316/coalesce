@@ -1,0 +1,187 @@
+fileVersion: 1
+id: 1d2e3f4a-5b6c-4d7e-8f9a-0b1c2d3e4f5a
+name: ACA_TRANSACTION_PAYMENT
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c
+          stepCounter: 1d2e3f4a-5b6c-4d7e-8f9a-0b1c2d3e4f5a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PAYMENT_TYPE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b3c4d5e-6f7a-4b8c-9d0e-1f2a3b4c5d6e
+          stepCounter: 1d2e3f4a-5b6c-4d7e-8f9a-0b1c2d3e4f5a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PAY_TO_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3c4d5e6f-7a8b-4c9d-0e1f-2a3b4c5d6e7f
+          stepCounter: 1d2e3f4a-5b6c-4d7e-8f9a-0b1c2d3e4f5a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: MAIL_TO_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d5e6f7a-8b9c-4d0e-1f2a-3b4c5d6e7f8a
+          stepCounter: 1d2e3f4a-5b6c-4d7e-8f9a-0b1c2d3e4f5a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CHECK_STOCK_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e6f7a8b-9c0d-4e1f-2a3b-4c5d6e7f8a9b
+          stepCounter: 1d2e3f4a-5b6c-4d7e-8f9a-0b1c2d3e4f5a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CHECK_HEADING
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f7a8b9c-0d1e-4f2a-3b4c-5d6e7f8a9b0c
+          stepCounter: 1d2e3f4a-5b6c-4d7e-8f9a-0b1c2d3e4f5a
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: PLAN_SEQUENCE_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a8b9c0d-1e2f-4a3b-4c5d-6e7f8a9b0c1d
+          stepCounter: 1d2e3f4a-5b6c-4d7e-8f9a-0b1c2d3e4f5a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PLAN_CLIENT_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b9c0d1e-2f3a-4b4c-5d6e-7f8a9b0c1d2e
+          stepCounter: 1d2e3f4a-5b6c-4d7e-8f9a-0b1c2d3e4f5a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: GB_INTERNAL_USE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c0d1e2f-3a4b-4c5d-6e7f-8a9b0c1d2e3f
+          stepCounter: 1d2e3f4a-5b6c-4d7e-8f9a-0b1c2d3e4f5a
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: ACA_DATE_UPDATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_TRANSACTION_PAYMENT
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

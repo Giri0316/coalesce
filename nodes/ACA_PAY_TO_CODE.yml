@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 8f9a0b1c-2d3e-4f5a-8b9c-0d1e2f3a4b5c
+name: ACA_PAY_TO_CODE
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a
+          stepCounter: 8f9a0b1c-2d3e-4f5a-8b9c-0d1e2f3a4b5c
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_PAY_TO_CODE_ID
+        nullable: false
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e5f6a7b8-c9d0-4e1f-2a3b-4c5d6e7f8a9b
+          stepCounter: 8f9a0b1c-2d3e-4f5a-8b9c-0d1e2f3a4b5c
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PAY_TO_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f6a7b8c9-d0e1-4f2a-3b4c-5d6e7f8a9b0c
+          stepCounter: 8f9a0b1c-2d3e-4f5a-8b9c-0d1e2f3a4b5c
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PAY_TO
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_PAY_TO_CODE
+  schema: REF
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
