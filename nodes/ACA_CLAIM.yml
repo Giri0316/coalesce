@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 56930263-9562-421f-82ed-4ac3ac38cc96
+name: ACA_CLAIM
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32a76f23-3b1d-4074-954f-126de466e07b
+          stepCounter: 56930263-9562-421f-82ed-4ac3ac38cc96
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b47c6152-9721-4f6c-84d7-0112c37e6f8d
+          stepCounter: 56930263-9562-421f-82ed-4ac3ac38cc96
+        config: {}
+        dataType: VARCHAR(30)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e89a699c-e74f-4d37-af3a-87424f198114
+          stepCounter: 56930263-9562-421f-82ed-4ac3ac38cc96
+        config: {}
+        dataType: CHAR(2)
+        defaultValue: ""
+        description: ""
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_CLAIM
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
