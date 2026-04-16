@@ -1,0 +1,111 @@
+fileVersion: 1
+id: 54a86b17-380d-4009-b631-01f221ca9423
+name: ACA_RESERVE_TYPE_MAPPING
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5c03977-628d-4f16-b1de-1a2c07925e0c
+          stepCounter: 54a86b17-380d-4009-b631-01f221ca9423
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 938b8d4f-f18c-4f7f-af29-57778b404d49
+          stepCounter: 54a86b17-380d-4009-b631-01f221ca9423
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: TRANSACTION_GROUP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d125c192-3580-496a-9359-5f10b71329c3
+          stepCounter: 54a86b17-380d-4009-b631-01f221ca9423
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PAYMENT_TYPE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 821369f6-6c8f-4ed7-9bd6-20925e0e0f31
+          stepCounter: 54a86b17-380d-4009-b631-01f221ca9423
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: COVERAGE_GROUP_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: dcd5970c-2fc8-452f-b413-58000b21a8cd
+          stepCounter: 54a86b17-380d-4009-b631-01f221ca9423
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_RESERVE_TYPE_MAPPING
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
