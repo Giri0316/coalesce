@@ -8,7 +8,7 @@ operation:
     preSQL: |-
       BEGIN
         USE ALLIANT_CLAIMS_ASTRUS_STAGE;
-        UPDATE TGT
+        UPDATE ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_ACCOUNT_STRUCTURE_STAGING_ESIS
         SET
             ACA_SOURCE_SYSTEM_ID = SRC.ACA_SOURCE_SYSTEM_ID,
             ACA_DATE_UPDATED = CURRENT_TIMESTAMP(),
@@ -26,7 +26,7 @@ operation:
   deployEnabled: true
   description: UPDATE-only conversion of spaca_aca_account_structure_staging_esis_update
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: SRC
   materializationType: table
   metadata:
     appliedNodeTests: []
@@ -125,7 +125,13 @@ operation:
         transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
     cteString: ""
     enabledColumnTestIDs: []
-    sourceMapping: []
+    sourceMapping:
+      - aliases: {}
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: DBSHIFT_PSTG_NODE
+        noLinkRefs: []
   name: DBSHIFT_PSTG_NODE
   overrideSQL: false
   schema: DBO
