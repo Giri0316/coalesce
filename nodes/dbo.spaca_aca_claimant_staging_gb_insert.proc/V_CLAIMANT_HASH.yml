@@ -1,0 +1,157 @@
+fileVersion: 1
+id: 59178f0d-2101-447a-8b1b-fd3818e69248
+name: V_CLAIMANT_HASH
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e610103-6052-4416-8bb0-00109d949ddf
+          stepCounter: 59178f0d-2101-447a-8b1b-fd3818e69248
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_TRANSACTION_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 17293a52-c842-4f05-8e7c-87d56e9c058c
+                stepCounter: 489d97a9-9c57-4648-9f37-14e3006a8ab9
+            transform: SRC.ACA_TRANSACTION_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f8e752c-d90c-43f9-8692-04989a3f3458
+          stepCounter: 59178f0d-2101-447a-8b1b-fd3818e69248
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIMANT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9781b0a5-f463-42e7-8b01-5256e2643a67
+                stepCounter: 489d97a9-9c57-4648-9f37-14e3006a8ab9
+            transform: SRC.CLAIMANT_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e06182c-4ef7-4952-8700-1c322d765870
+          stepCounter: 59178f0d-2101-447a-8b1b-fd3818e69248
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIMANT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 77a06f36-3a7c-4734-b236-02e079717013
+                stepCounter: 489d97a9-9c57-4648-9f37-14e3006a8ab9
+            transform: SRC.CLAIMANT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63f73656-749e-4c7b-b5d2-0994f275e505
+          stepCounter: 59178f0d-2101-447a-8b1b-fd3818e69248
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SSN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1d2e1b1-6a2d-4cc8-8319-75a7f98d5c41
+                stepCounter: 489d97a9-9c57-4648-9f37-14e3006a8ab9
+            transform: SRC.SSN
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 432f8a4f-5645-424a-874e-6e4695bce135
+          stepCounter: 59178f0d-2101-447a-8b1b-fd3818e69248
+        config: {}
+        dataType: DATE
+        description: ""
+        name: CLAIM_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f36471e4-3990-48e0-ac54-8e100f7fcb1a
+                stepCounter: 489d97a9-9c57-4648-9f37-14e3006a8ab9
+            transform: SRC.CLAIM_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 151528c1-6b80-496a-b28e-5b23d9a696ee
+          stepCounter: 59178f0d-2101-447a-8b1b-fd3818e69248
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d5d359b3-4f93-4a37-b952-6fc2f31f900a
+                stepCounter: 489d97a9-9c57-4648-9f37-14e3006a8ab9
+            transform: SRC.TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d79eb538-4e8c-4476-857e-75cd3e19808a
+          stepCounter: 59178f0d-2101-447a-8b1b-fd3818e69248
+        config: {}
+        dataType: DATE
+        description: ""
+        name: LAST_REVIEW_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b533f81e-d144-49c6-ad01-44755a5b174a
+                stepCounter: 489d97a9-9c57-4648-9f37-14e3006a8ab9
+            transform: SRC.LAST_REVIEW_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f723469b-980b-4497-b184-c6855b719001
+          stepCounter: 59178f0d-2101-447a-8b1b-fd3818e69248
+        config: {}
+        dataType: BINARY
+        description: ""
+        name: SOURCE_SYSTEM_CLAIMANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9781b0a5-f463-42e7-8b01-5256e2643a67
+                stepCounter: 489d97a9-9c57-4648-9f37-14e3006a8ab9
+              - columnCounter: 77a06f36-3a7c-4734-b236-02e079717013
+                stepCounter: 489d97a9-9c57-4648-9f37-14e3006a8ab9
+              - columnCounter: d1d2e1b1-6a2d-4cc8-8319-75a7f98d5c41
+                stepCounter: 489d97a9-9c57-4648-9f37-14e3006a8ab9
+            transform: IFF(SRC.CLAIMANT IS NULL, NULL, MD5_BINARY(CONCAT_WS('', SRC.CLAIMANT_TYPE,
+              SRC.CLAIMANT, SRC.SSN)))
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_CLAIMANT_KEYSET: SRC
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: V_CLAIMANT_KEYSET
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'V_CLAIMANT_KEYSET') }} "SRC"
+        name: V_CLAIMANT_HASH
+        noLinkRefs: []
+  name: V_CLAIMANT_HASH
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

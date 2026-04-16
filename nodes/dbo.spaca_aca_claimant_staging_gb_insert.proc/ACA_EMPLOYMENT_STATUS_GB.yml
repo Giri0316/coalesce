@@ -1,0 +1,71 @@
+fileVersion: 1
+id: 3c1a9667-27b2-4d51-893f-91507fcd59d9
+name: ACA_EMPLOYMENT_STATUS_GB
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b134d16-7d6f-474a-a486-218bbffac486
+          stepCounter: 3c1a9667-27b2-4d51-893f-91507fcd59d9
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: ACA_EMPLOYMENT_STATUS_GB_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b572ef91-72f8-4176-a006-25f058097d4b
+          stepCounter: 3c1a9667-27b2-4d51-893f-91507fcd59d9
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: EMPLOYMENT_STATUS_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a7e3760-449d-4357-9d7a-ab16238b16c8
+          stepCounter: 3c1a9667-27b2-4d51-893f-91507fcd59d9
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: EMPLOYMENT_STATUS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+  name: ACA_EMPLOYMENT_STATUS_GB
+  overrideSQL: false
+  schema: REF
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

@@ -1,0 +1,71 @@
+fileVersion: 1
+id: 57448e83-771f-4fcf-847e-77d0a273c563
+name: ACA_MARITAL_STATUS
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e5e05a8-12c8-479e-a89e-282d5f8ef0e3
+          stepCounter: 57448e83-771f-4fcf-847e-77d0a273c563
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: ACA_MARITAL_STATUS_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3108c5ea-2f1f-4d0f-8566-b33342379101
+          stepCounter: 57448e83-771f-4fcf-847e-77d0a273c563
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: MARITAL_STATUS_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b57ef8c6-b338-4222-92ab-62a265691079
+          stepCounter: 57448e83-771f-4fcf-847e-77d0a273c563
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: MARITAL_STATUS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+  name: ACA_MARITAL_STATUS
+  overrideSQL: false
+  schema: REF
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

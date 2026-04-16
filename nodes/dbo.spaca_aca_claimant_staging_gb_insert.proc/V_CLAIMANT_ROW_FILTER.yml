@@ -1,0 +1,78 @@
+fileVersion: 1
+id: fe7a3c3e-f63b-486a-8b43-41c3044a2b9f
+name: V_CLAIMANT_ROW_FILTER
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b57e606a-54e7-49d9-b6b6-9f44e8838b0b
+          stepCounter: fe7a3c3e-f63b-486a-8b43-41c3044a2b9f
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_TRANSACTION_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5e610103-6052-4416-8bb0-00109d949ddf
+                stepCounter: 59178f0d-2101-447a-8b1b-fd3818e69248
+            transform: SRC.ACA_TRANSACTION_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32662059-e91b-426c-9c71-c06b245a4982
+          stepCounter: fe7a3c3e-f63b-486a-8b43-41c3044a2b9f
+        config: {}
+        dataType: SMALLINT
+        description: ""
+        name: ROW_SEQUENCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f723469b-980b-4497-b184-c6855b719001
+                stepCounter: 59178f0d-2101-447a-8b1b-fd3818e69248
+              - columnCounter: 432f8a4f-5645-424a-874e-6e4695bce135
+                stepCounter: 59178f0d-2101-447a-8b1b-fd3818e69248
+              - columnCounter: 151528c1-6b80-496a-b28e-5b23d9a696ee
+                stepCounter: 59178f0d-2101-447a-8b1b-fd3818e69248
+              - columnCounter: d79eb538-4e8c-4476-857e-75cd3e19808a
+                stepCounter: 59178f0d-2101-447a-8b1b-fd3818e69248
+            transform: ROW_NUMBER() OVER (PARTITION BY SRC.SOURCE_SYSTEM_CLAIMANT_ID ORDER
+              BY SRC.CLAIM_DATE DESC, SRC.TRANSACTION_DATE DESC, SRC.LAST_REVIEW_DATE
+              DESC)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_CLAIMANT_HASH: SRC
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: V_CLAIMANT_HASH
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'V_CLAIMANT_HASH') }} "SRC"
+            WHERE SRC.SOURCE_SYSTEM_CLAIMANT_ID IS NOT NULL
+        name: V_CLAIMANT_ROW_FILTER
+        noLinkRefs: []
+  name: V_CLAIMANT_ROW_FILTER
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
