@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 86b61c94-b778-43d8-a8d2-ac3227a92211
+name: ACA_BODY_PART_CODE
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ab4173d1-4e4b-4f93-b600-8334460f6ac9
+          stepCounter: 86b61c94-b778-43d8-a8d2-ac3227a92211
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PART_OF_BODY_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f31f417e-7c2a-464a-93f5-6544976451e2
+          stepCounter: 86b61c94-b778-43d8-a8d2-ac3227a92211
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DESCRIPTION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_BODY_PART_CODE
+  schema: REF
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

@@ -1,0 +1,58 @@
+fileVersion: 1
+id: 59c68725-d083-4903-a1c0-03a113d07e44
+name: V_TMP_PAYMENT_CURRENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns: []
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_TRANSACTION_PAYMENT
+          - locationName: DBSHIFT
+            nodeName: ACA_COVERAGE_CODE
+        join:
+          joinCondition: |-
+            SELECT 
+            TP.UNIQUE_CLAIM_ID
+            ,TP.CLAIM_COVERAGE_CODE
+            ,ACC.CLASS
+            ,SUM(TP.RESERVE_AMT1) AS RESERVE_AMT1
+            ,SUM(TP.RESERVE_AMT2) AS RESERVE_AMT2
+            ,SUM(TP.RESERVE_AMT3) AS RESERVE_AMT3
+            ,SUM(TP.RESERVE_AMT4) AS RESERVE_AMT4
+            ,SUM(TP.RESERVE_AMT5) AS RESERVE_AMT5
+            ,SUM(TP.RESERVE_AMT6) AS RESERVE_AMT6
+            FROM {{ ref('DBSHIFT', 'ACA_TRANSACTION_PAYMENT') }} TP
+            LEFT OUTER JOIN {{ ref('DBSHIFT', 'ACA_COVERAGE_CODE') }} ACC ON TP.CLAIM_COVERAGE_CODE = ACC.CODE
+            WHERE TP.PAYMENT_TRANSACTION_DATE <= CURRENT_DATE()
+            GROUP BY 
+            TP.UNIQUE_CLAIM_ID
+            ,TP.CLAIM_COVERAGE_CODE
+            ,ACC.CLASS
+        name: V_TMP_PAYMENT_CURRENT
+        noLinkRefs: []
+  name: V_TMP_PAYMENT_CURRENT
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

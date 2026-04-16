@@ -1,0 +1,54 @@
+fileVersion: 1
+id: d7f0601f-0e10-47b2-ac63-d1f03f7e34ef
+name: ACA_NATURE_CODE
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2b2c95-88f0-461d-9e6b-a2eb9195b45c
+          stepCounter: d7f0601f-0e10-47b2-ac63-d1f03f7e34ef
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: NATURE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a623f9b1-e737-4f67-8278-838612ca4303
+          stepCounter: d7f0601f-0e10-47b2-ac63-d1f03f7e34ef
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DESCRIPTION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_NATURE_CODE
+  schema: REF
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

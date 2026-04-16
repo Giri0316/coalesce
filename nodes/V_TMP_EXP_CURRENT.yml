@@ -1,0 +1,56 @@
+fileVersion: 1
+id: 59c68725-d083-4903-a1c0-03a113d07e88
+name: V_TMP_EXP_CURRENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns: []
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_TRANSACTION_EXPERIENCE
+        join:
+          joinCondition: |-
+            WITH CTEEXPERIENCE AS (
+                SELECT
+                ACA_TRANSACTION_EXPERIENCE_ID 
+                ,UNIQUE_CLAIM_ID
+                ,CLAIM_COVERAGE_CODE
+                ,EXPERIENCE_AMOUNT1
+                ,EXPERIENCE_AMOUNT2
+                ,EXPERIENCE_AMOUNT3
+                ,EXPERIENCE_AMOUNT4
+                ,EXPERIENCE_AMOUNT5
+                ,EXPERIENCE_AMOUNT6
+                ,TOTAL_EXPERIENCE_AMOUNT_ALL_RESERVE_TYPES AS TOTAL_EXPERIENCE
+                ,ROW_NUMBER() OVER (PARTITION BY UNIQUE_CLAIM_ID ORDER BY EXPERIENCE_TRANSACTION_DATE DESC, TRANSACTION_SEQUENCE_NUMBER ASC) AS ROW_NUM
+                FROM {{ ref('DBSHIFT', 'ACA_TRANSACTION_EXPERIENCE') }}
+                WHERE EXPERIENCE_TRANSACTION_DATE <= CURRENT_DATE()
+            )
+            SELECT * FROM CTEEXPERIENCE WHERE ROW_NUM = 1
+        name: V_TMP_EXP_CURRENT
+        noLinkRefs: []
+  name: V_TMP_EXP_CURRENT
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

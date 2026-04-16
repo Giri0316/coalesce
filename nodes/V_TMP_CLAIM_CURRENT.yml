@@ -1,0 +1,119 @@
+fileVersion: 1
+id: 59c68725-d083-4903-a1c0-03a113d07e99
+name: V_TMP_CLAIM_CURRENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns: []
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_TRANSACTION_CLAIM
+          - locationName: DBSHIFT
+            nodeName: ACA_BODY_PART_CODE
+          - locationName: DBSHIFT
+            nodeName: ACA_ACCIDENT_TYPE_CODE
+          - locationName: DBSHIFT
+            nodeName: ACA_NATURE_CODE
+          - locationName: DBSHIFT
+            nodeName: ACA_ACCIDENT_SOURCE_CODE
+          - locationName: DBSHIFT
+            nodeName: ACA_PYRAMID
+        join:
+          joinCondition: |-
+            WITH CTECLAIM AS (
+                SELECT
+                 C.ACA_TRANSACTION_CLAIM_ID
+                ,C.TRANSACTION_DATE
+                ,C.CLIENT_NUMBER
+                ,YEAR(C.ACCIDENT_DATE) AS ACCIDENT_YEAR
+                ,C.UNIQUE_CLAIM_ID
+                ,C.WORKERS_COMPENSATION_CLAIMTYPE
+                ,CASE WHEN C.CLAIMANT_NAME_FORMAT = 'I' THEN (RTRIM(C.CLAIMANT_LASTNAME) || ', ' || RTRIM(C.CLAIMANT_FIRSTNAME))
+                      WHEN C.CLAIMANT_NAME_FORMAT = 'O' THEN RTRIM(C.CLAIMANT_ORGANIZATION_NAME)
+                      ELSE 'Unknown Name Format'
+                      END AS CLAIMANT_NAME
+                ,C.EMPLOYEE_OCCUPATION
+                ,C.ACCIDENT_DATE
+                ,C.REPORTED_DATE
+                ,C.CLAIM_STATUS
+                ,CASE WHEN C.CLAIM_STATUS = 'CL' THEN C.STATUS_DATE
+                      ELSE NULL
+                      END AS CLOSE_DATE
+                ,C.CLAIM_COVERAGE_CODE
+                ,C.POLICY_NUMBER
+                ,C.POLICY_EFFECTIVE_DATE
+                ,C.POLICY_EXPIRATION_DATE
+                ,C.CLAIMANT_NCCI_JOB_CLASSIFICATION
+                ,NULL AS LITIG_FLAG
+                ,C.SIC_CODE
+                ,C.PART_OF_BODY_CODE AS PART_OF_BODY_CODE
+                ,BPC.DESCRIPTION AS PART_OF_BODY_DESCRIPTION
+                ,C.ACCIDENT_TYPE_CODE
+                ,ATC.DESCRIPTION AS ACCIDENT_TYPE_DESCRIPTION
+                ,C.NATURE_OF_LOSS_CODE_BODILY_INJURY
+                ,NC.DESCRIPTION AS NATURE_OF_LOSS_BODILY_INJURY_DESCRIPTION
+                ,C.NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE
+                ,NC1.DESCRIPTION AS NATURE_OF_LOSS_PROPERTY_DAMAGE_DESCRIPTION
+                ,C.ACCIDENT_SOURCE_CODE
+                ,ACCS.ACCIDENT_SOURCE AS ACCIDENT_SOURCE_DESCRIPTION
+                ,RTRIM(C.DESCRIPTION_OF_LOSS) AS DESCRIPTION_OF_LOSS
+                ,C.ACCIDENT_STATE
+                ,C.BENEFIT_JURISDICTION_STATE
+                ,C.EXPOSURE_STATE
+                ,C.CLAIMANT_AVERAGE_WEEKLY_WAGE
+                ,C.CLAIM_ADJUSTING_BRANCH_NUMBER
+                ,NULL AS BRNCH_NAME
+                ,C.ACCIDENT_NUMBER
+                ,C.COMPENSATION_RATE
+                ,RTRIM(C.CLIENT_OPTIONAL_CLAIM_CODES) AS CLIENT_OPTIONAL_CLAIM_CODES
+                ,PD.INSURED AS LEVEL_2
+                ,PD.SUBSIDIARY AS LEVEL_3
+                ,RTRIM(C.REPORTING_UNIT_NUMBER) AS LEVEL_4
+                ,PD.UNIT_NAME AS UNIT_NAME_4
+                ,1 AS MAX_TRANS_DATE_ID
+                ,ROW_NUMBER() OVER (PARTITION BY C.UNIQUE_CLAIM_ID ORDER BY C.TRANSACTION_DATE DESC, C.ACA_TRANSACTION_CLAIM_ID DESC) AS ROW_NUM
+                FROM {{ ref('DBSHIFT', 'ACA_TRANSACTION_CLAIM') }} C
+                LEFT OUTER JOIN {{ ref('DBSHIFT', 'ACA_BODY_PART_CODE') }} BPC ON C.PART_OF_BODY_CODE = BPC.PART_OF_BODY_CODE 
+                LEFT OUTER JOIN {{ ref('DBSHIFT', 'ACA_ACCIDENT_TYPE_CODE') }} ATC ON C.ACCIDENT_TYPE_CODE = ATC.TYPE_CODE 
+                LEFT OUTER JOIN {{ ref('DBSHIFT', 'ACA_NATURE_CODE') }} NC ON C.NATURE_OF_LOSS_CODE_BODILY_INJURY = NC.NATURE_CODE
+                LEFT OUTER JOIN {{ ref('DBSHIFT', 'ACA_NATURE_CODE') }} NC1 ON C.NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE = NC1.NATURE_CODE
+                LEFT OUTER JOIN {{ ref('DBSHIFT', 'ACA_ACCIDENT_SOURCE_CODE') }} ACCS ON C.ACCIDENT_SOURCE_CODE = ACCS.ACCIDENT_SOURCE_CODE AND ACCS.ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM ACA_SOURCE_SYSTEM WHERE SOURCE_SYSTEM = 'GB')
+                LEFT JOIN (SELECT CLIENT, UNIT_ID, MAX(LEVEL) AS LEVEL
+                           FROM {{ ref('DBSHIFT', 'ACA_PYRAMID') }}
+                           GROUP BY CLIENT, UNIT_ID) AS L
+                ON L.CLIENT = C.CLIENT_NUMBER
+                AND L.UNIT_ID = RTRIM(C.REPORTING_UNIT_NUMBER)
+                LEFT OUTER JOIN {{ ref('DBSHIFT', 'ACA_PYRAMID') }} PD
+                ON PD.CLIENT = L.CLIENT
+                AND PD.UNIT_ID = L.UNIT_ID
+                AND PD.LEVEL = L.LEVEL
+                WHERE C.TRANSACTION_DATE <= CURRENT_DATE()
+            )
+            SELECT * FROM CTECLAIM WHERE ROW_NUM = 1
+        name: V_TMP_CLAIM_CURRENT
+        noLinkRefs: []
+  name: V_TMP_CLAIM_CURRENT
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

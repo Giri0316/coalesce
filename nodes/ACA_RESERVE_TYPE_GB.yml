@@ -1,0 +1,73 @@
+fileVersion: 1
+id: b92751f8-0051-4024-8a4b-232585f6e87f
+name: ACA_RESERVE_TYPE_GB
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c065113d-d1ef-401d-872f-bb6669ed6296
+          stepCounter: b92751f8-0051-4024-8a4b-232585f6e87f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLASS_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3267d302-3c81-4328-b80c-0d31c4f56f18
+          stepCounter: b92751f8-0051-4024-8a4b-232585f6e87f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: RESERVE_TYPE_COLUMN_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 934570fd-765f-4d64-96fe-3b77291a13e2
+          stepCounter: b92751f8-0051-4024-8a4b-232585f6e87f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_RESERVE_TYPE_GB
+  schema: REF
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

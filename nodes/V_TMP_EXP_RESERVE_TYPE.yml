@@ -1,0 +1,48 @@
+fileVersion: 1
+id: 59c68725-d083-4903-a1c0-03a113d07e66
+name: V_TMP_EXP_RESERVE_TYPE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns: []
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: V_TMP_EXP_PIVOT
+          - locationName: DBSHIFT
+            nodeName: ACA_RESERVE_TYPE_GB
+        join:
+          joinCondition: |-
+            SELECT
+               EP.UNIQUE_CLAIM_ID
+              ,RT.RESERVE_TYPE
+              ,EP.EXPERIENCE_AMOUNT
+              ,EP.TOTAL_EXPERIENCE
+            FROM {{ ref('DBSHIFT', 'V_TMP_EXP_PIVOT') }} EP
+            INNER JOIN {{ ref('DBSHIFT', 'ACA_RESERVE_TYPE_GB') }} RT ON EP.CLASS = RT.CLASS_CODE AND EP.RESERVE_TYPE_COLUMN_NUMBER = RT.RESERVE_TYPE_COLUMN_NUMBER
+        name: V_TMP_EXP_RESERVE_TYPE
+        noLinkRefs: []
+  name: V_TMP_EXP_RESERVE_TYPE
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

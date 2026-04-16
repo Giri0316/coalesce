@@ -1,0 +1,57 @@
+fileVersion: 1
+id: 59c68725-d083-4903-a1c0-03a113d07e87
+name: V_TMP_RECOVERY_PIVOT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns: []
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: V_TMP_RECOVERY_CURRENT
+        join:
+          joinCondition: |-
+            SELECT 
+            U.UNIQUE_CLAIM_ID
+            ,U.RECOVERY_AMOUNT
+            ,U.CLAIM_COVERAGE_CODE
+            ,U.CLASS
+            ,CASE WHEN U.REC_COLUMN = 'RECOVERY_AMOUNT1' THEN 'col1'
+                  WHEN U.REC_COLUMN = 'RECOVERY_AMOUNT2' THEN 'col2'
+                  WHEN U.REC_COLUMN = 'RECOVERY_AMOUNT3' THEN 'col3'
+                  WHEN U.REC_COLUMN = 'RECOVERY_AMOUNT4' THEN 'col4'
+                  WHEN U.REC_COLUMN = 'RECOVERY_AMOUNT5' THEN 'col5'
+                  ELSE 'col6'
+                  END AS RESERVE_TYPE_COLUMN_NUMBER
+            FROM {{ ref('DBSHIFT', 'V_TMP_RECOVERY_CURRENT') }} TE
+            UNPIVOT
+            (
+              RECOVERY_AMOUNT
+              FOR REC_COLUMN IN (RECOVERY_AMOUNT1, RECOVERY_AMOUNT2, RECOVERY_AMOUNT3, RECOVERY_AMOUNT4, RECOVERY_AMOUNT5, RECOVERY_AMOUNT6)
+            ) U
+        name: V_TMP_RECOVERY_PIVOT
+        noLinkRefs: []
+  name: V_TMP_RECOVERY_PIVOT
+  overrideSQL: false
+  schema: STAGING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,187 @@
+fileVersion: 1
+id: 59724ec5-5f50-4824-a4f5-5658e3f421f1
+name: ACA_TRANSACTION_PAYMENT
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 67323f46-935f-4229-87c1-d64e837f465d
+          stepCounter: 59724ec5-5f50-4824-a4f5-5658e3f421f1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ccfd4808-8df0-47b2-ac63-d1f03f7e34ef
+          stepCounter: 59724ec5-5f50-4824-a4f5-5658e3f421f1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a623f9b1-e737-4f67-8278-838612ca4303
+          stepCounter: 59724ec5-5f50-4824-a4f5-5658e3f421f1
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RESERVE_AMT1
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1cf3d8e-c9ab-48c2-ab4e-c54d715d5f2f
+          stepCounter: 59724ec5-5f50-4824-a4f5-5658e3f421f1
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RESERVE_AMT2
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f0a2e7c-87d9-4d8b-af49-92c2195f03d6
+          stepCounter: 59724ec5-5f50-4824-a4f5-5658e3f421f1
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RESERVE_AMT3
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93b1675a-360d-409c-a128-ed8203d980a3
+          stepCounter: 59724ec5-5f50-4824-a4f5-5658e3f421f1
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RESERVE_AMT4
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32a0c490-449e-4e4f-b64d-58b6e6acde87
+          stepCounter: 59724ec5-5f50-4824-a4f5-5658e3f421f1
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RESERVE_AMT5
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 73383a8b-4a55-46f3-a4e9-2dfde7a7266d
+          stepCounter: 59724ec5-5f50-4824-a4f5-5658e3f421f1
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: RESERVE_AMT6
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77a063aa-28d8-4f81-bfcd-dd8e367808de
+          stepCounter: 59724ec5-5f50-4824-a4f5-5658e3f421f1
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: PAYMENT_TRANSACTION_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_TRANSACTION_PAYMENT
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
