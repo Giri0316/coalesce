@@ -1,0 +1,81 @@
+fileVersion: 1
+id: 7f8d95b6-a3e4-4f9d-902a-c7d8b53206f3
+name: PLANNING_FCCS_BROKER
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: PLANNING_ALLIANT_DBO
+  metadata:
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 06819ecc-3b47-4966-f327-2345130876f9
+          stepCounter: 7f8d95b6-a3e4-4f9d-902a-c7d8b53206f3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1792afdd-4c58-4077-0438-34562419870a
+          stepCounter: 7f8d95b6-a3e4-4f9d-902a-c7d8b53206f3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PLANNING_ALIAS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 28a3beee-5d69-4188-1549-4567352a981b
+          stepCounter: 7f8d95b6-a3e4-4f9d-902a-c7d8b53206f3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 39b4cfff-6e7a-4299-265a-5678463ba92c
+          stepCounter: 7f8d95b6-a3e4-4f9d-902a-c7d8b53206f3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_BROKER_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4ac5d000-7f8b-43aa-376b-6789574cb03d
+          stepCounter: 7f8d95b6-a3e4-4f9d-902a-c7d8b53206f3
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: DW_BROKER_MASTER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+  name: PLANNING_FCCS_BROKER
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
