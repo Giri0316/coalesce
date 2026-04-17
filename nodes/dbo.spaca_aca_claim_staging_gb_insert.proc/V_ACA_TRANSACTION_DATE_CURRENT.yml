@@ -1,54 +1,46 @@
 fileVersion: 1
-id: 2f1d9168-96f7-4180-8777-62ba4a6f233f
+id: 5f9b4ce5-8855-4a27-c884-34d5e7f9a184
 name: V_ACA_TRANSACTION_DATE_CURRENT
+type: Node
 operation:
-  database: ""
+  name: V_ACA_TRANSACTION_DATE_CURRENT
+  type: sourceInput
+  database: ''
   deployEnabled: true
-  description: ""
+  description: ''
   locationName: ALLIANT_CLAIMS_ASTRUS_DBO
   metadata:
     columns:
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
-          columnCounter: a9b0c1d2-e3f4-4a29-b0c1-d2e3f4a5b6c7
-          stepCounter: 2f1d9168-96f7-4180-8777-62ba4a6f233f
+          columnCounter: e89b9409-f1a2-466d-aba3-d49925234ee1
+          stepCounter: 5f9b4ce5-8855-4a27-c884-34d5e7f9a184
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ''
+        description: ''
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d161c569-70bd-4ff2-8356-8a9d3e5e40e2
+          stepCounter: 5f9b4ce5-8855-4a27-c884-34d5e7f9a184
         config: {}
         dataType: DATE
-        defaultValue: ""
-        description: ""
+        defaultValue: ''
+        description: ''
         name: TRANSACTION_DATE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
+            transform: ''
         uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: b0c1d2e3-f4a5-4b30-c1d2-e3f4a5b6c7d8
-          stepCounter: 2f1d9168-96f7-4180-8777-62ba4a6f233f
-        config: {}
-        dataType: VARCHAR
-        defaultValue: ""
-        description: ""
-        name: SOURCE_SYSTEM
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-  name: V_ACA_TRANSACTION_DATE_CURRENT
-  schema: ""
+  schema: ''
   sqlType: Source
-  type: sourceInput
   version: 1
-type: Node

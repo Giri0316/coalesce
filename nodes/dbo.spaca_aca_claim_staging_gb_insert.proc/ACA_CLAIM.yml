@@ -1,9 +1,9 @@
 fileVersion: 1
-id: 4e8a2bd3-7744-4115-b772-23c3d6e8c973
-name: ACA_SOURCE_SYSTEM
+id: 3d5f19c2-5524-4f90-a541-11d2e5a7b629
+name: ACA_CLAIM
 type: Node
 operation:
-  name: ACA_SOURCE_SYSTEM
+  name: ACA_CLAIM
   type: sourceInput
   database: ''
   deployEnabled: true
@@ -13,13 +13,13 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 95dc3a1c-79cf-4a17-8e6f-427f714399d1
-          stepCounter: 4e8a2bd3-7744-4115-b772-23c3d6e8c973
+          columnCounter: d7f0e340-9b4e-4f36-bb1e-3592182ff0c1
+          stepCounter: 3d5f19c2-5524-4f90-a541-11d2e5a7b629
         config: {}
-        dataType: NUMBER(10,0)
+        dataType: TIMESTAMP_NTZ
         defaultValue: ''
         description: ''
-        name: ACA_SOURCE_SYSTEM_ID
+        name: ACA_DATE_UPDATED
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -28,13 +28,13 @@ operation:
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: b704af52-efaf-4a57-b1a7-ec3db2e8ebd2
-          stepCounter: 4e8a2bd3-7744-4115-b772-23c3d6e8c973
+          columnCounter: fa08e647-75aa-4389-9bca-c38a4d70b6c2
+          stepCounter: 3d5f19c2-5524-4f90-a541-11d2e5a7b629
         config: {}
-        dataType: VARCHAR(255)
+        dataType: NUMBER(10,0)
         defaultValue: ''
         description: ''
-        name: SOURCE_SYSTEM
+        name: ACA_SOURCE_SYSTEM_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:

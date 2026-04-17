@@ -1,0 +1,91 @@
+fileVersion: 1
+id: 6a1c5df6-9966-4c38-d995-45e6f8a1b295
+name: SUBQUERY_ATC_RNUM
+type: Node
+operation:
+  name: SUBQUERY_ATC_RNUM
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_CLAIMS_ASTRUS_STAGE
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ALLIANT_CLAIMS_ASTRUS_STAGE_DBO
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf89f13c-cc27-4632-a169-2f7b8ca5a191
+          stepCounter: 6a1c5df6-9966-4c38-d995-45e6f8a1b295
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: ACA_TRANSACTION_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0bd387e6-7fc1-49ea-8255-bdf9f086e2d1
+                stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+            transform: ACA_TRANSACTION_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e82cf518-ed0b-46db-9b2b-4cd5d48dd492
+          stepCounter: 6a1c5df6-9966-4c38-d995-45e6f8a1b295
+        config: {}
+        dataType: NUMBER(19,0)
+        description: ''
+        name: ROW_NUM_SEQ
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3a2c5f11-0eb8-42bc-9d33-4560a8e1ab32
+                stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+              - columnCounter: cb1f8792-3a87-4148-be58-386f9c9f28d3
+                stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+              - columnCounter: f223c7c5-7ea5-41e9-9a25-9c972dfa6404
+                stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+              - columnCounter: 0bd387e6-7fc1-49ea-8255-bdf9f086e2d1
+                stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+            transform: ROW_NUMBER() OVER (PARTITION BY UNIQUE_CLAIM_ID ORDER BY TRANSACTION_DATE
+              DESC, STATUS_DATE DESC, ACA_TRANSACTION_CLAIM_ID DESC)
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_TRANSACTION_CLAIM
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_CLAIM
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_SOURCE_SYSTEM
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: V_ACA_TRANSACTION_DATE_CURRENT
+        join:
+          joinCondition: "FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO', 'ACA_TRANSACTION_CLAIM')\
+            \ }}\nWHERE ACA_DATE_UPDATED > IFF(COALESCE({{ parameters.IBYPASSDATEFILTERS\
+            \ }}, 0) = 1, CAST('1900-01-01 00:00:00.000' AS TIMESTAMP_NTZ), (SELECT\
+            \ COALESCE(MAX(ACA_DATE_UPDATED), CAST('1776-07-04 00:00:00.000' AS TIMESTAMP_NTZ))\
+            \ FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO', 'ACA_CLAIM') }} WHERE ACA_SOURCE_SYSTEM_ID\
+            \ = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO',\
+            \ 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'GB')))\n  AND TRANSACTION_DATE\
+            \ > IFF(COALESCE({{ parameters.IBYPASSDATEFILTERS }}, 0) = 1, CAST('1900-01-01'\
+            \ AS DATE), (SELECT TRANSACTION_DATE FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO',\
+            \ 'V_ACA_TRANSACTION_DATE_CURRENT') }} WHERE ACA_SOURCE_SYSTEM_ID = (SELECT\
+            \ ACA_SOURCE_SYSTEM_ID FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO', 'ACA_SOURCE_SYSTEM')\
+            \ }} WHERE SOURCE_SYSTEM = 'GB')))"
+        name: SUBQUERY_ATC_RNUM
+        noLinkRefs: []
+  overrideSQL: false
+  schema: DBO
+  sqlType: Stage
+  version: 1
