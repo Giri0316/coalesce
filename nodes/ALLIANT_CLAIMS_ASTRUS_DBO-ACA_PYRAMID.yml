@@ -1,13 +1,10 @@
 fileVersion: 1
 id: 2c9d87f1-6712-4e88-b21d-93cc7b4e9f3b
 name: ACA_PYRAMID
-type: Node
 operation:
-  name: ACA_PYRAMID
-  type: sourceInput
-  database: ''
+  database: ""
   deployEnabled: true
-  description: ''
+  description: ""
   locationName: ALLIANT_CLAIMS_ASTRUS_DBO
   metadata:
     columns:
@@ -17,14 +14,14 @@ operation:
           stepCounter: 2c9d87f1-6712-4e88-b21d-93cc7b4e9f3b
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: CLIENT
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -32,14 +29,14 @@ operation:
           stepCounter: 2c9d87f1-6712-4e88-b21d-93cc7b4e9f3b
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: UNIT_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -47,15 +44,18 @@ operation:
           stepCounter: 2c9d87f1-6712-4e88-b21d-93cc7b4e9f3b
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: LEVEL
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
-  schema: ''
+  name: ACA_PYRAMID
+  schema: ""
   sqlType: Source
+  type: sourceInput
   version: 1
+type: Node

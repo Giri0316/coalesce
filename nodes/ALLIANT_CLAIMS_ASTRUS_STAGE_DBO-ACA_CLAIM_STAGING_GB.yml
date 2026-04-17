@@ -1,19 +1,16 @@
 fileVersion: 1
 id: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
 name: ACA_CLAIM_STAGING_GB
-type: Node
 operation:
-  name: ACA_CLAIM_STAGING_GB
-  type: sql
   config:
     insertStrategy: INSERT
-    postSQL: ''
-    preSQL: ''
+    postSQL: ""
+    preSQL: ""
     testsEnabled: true
     truncateBefore: true
   database: ALLIANT_CLAIMS_ASTRUS_STAGE
   deployEnabled: true
-  description: ''
+  description: ""
   isMultisource: false
   locationName: ALLIANT_CLAIMS_ASTRUS_STAGE_DBO
   materializationType: table
@@ -26,7 +23,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(19)
-        description: ''
+        description: ""
         name: SOURCE_SYSTEM_CLAIM_ID
         nullable: true
         sourceColumnReferences:
@@ -40,7 +37,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(32)
-        description: ''
+        description: ""
         name: SOURCE_SYSTEM_ACCOUNT_STRUCTURE_ID
         nullable: true
         sourceColumnReferences:
@@ -51,15 +48,14 @@ operation:
                 stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
               - columnCounter: a631245b-a7ab-4318-ba25-7df844517b93
                 stepCounter: 8c3e7fb8-bb88-4e5a-fbb7-67a8b0c3d4b7
-            transform: MD5(CONCAT(COALESCE(TRIM(T.CLIENT_NUMBER), ''), COALESCE(TRIM(T.REPORTING_UNIT_NUMBER),
-              ''), COALESCE(TRIM(P.MIN_LEVEL), '')))
+            transform: MD5(CONCAT(COALESCE(TRIM(T.CLIENT_NUMBER), ''), COALESCE(TRIM(T.REPORTING_UNIT_NUMBER), ''), COALESCE(TRIM(P.MIN_LEVEL), '')))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: f512a3d8-dbab-4340-9b41-e9fb13f36033
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: NUMBER(10,0)
-        description: ''
+        description: ""
         name: CLAIM_SEQUENCE_NUMBER
         nullable: true
         sourceColumnReferences:
@@ -73,7 +69,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(255)
-        description: ''
+        description: ""
         name: CLAIM_COVERAGE_CODE
         nullable: true
         sourceColumnReferences:
@@ -87,7 +83,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(255)
-        description: ''
+        description: ""
         name: ACCIDENT_NUMBER
         nullable: true
         sourceColumnReferences:
@@ -101,7 +97,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(255)
-        description: ''
+        description: ""
         name: CLIENT_NUMBER
         nullable: true
         sourceColumnReferences:
@@ -115,7 +111,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(255)
-        description: ''
+        description: ""
         name: UNIT_ID
         nullable: true
         sourceColumnReferences:
@@ -129,7 +125,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(255)
-        description: ''
+        description: ""
         name: SITE_NUMBER
         nullable: true
         sourceColumnReferences:
@@ -143,7 +139,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: TIMESTAMP_NTZ
-        description: ''
+        description: ""
         name: CLAIM_DATE
         nullable: true
         sourceColumnReferences:
@@ -157,7 +153,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: TIMESTAMP_NTZ
-        description: ''
+        description: ""
         name: ORIGINAL_OPEN_DATE
         nullable: true
         sourceColumnReferences:
@@ -171,7 +167,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(255)
-        description: ''
+        description: ""
         name: ACCIDENT_CAUSE_CODE
         nullable: true
         sourceColumnReferences:
@@ -185,7 +181,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(255)
-        description: ''
+        description: ""
         name: ACCIDENT_COUNTRY_CODE
         nullable: true
         sourceColumnReferences:
@@ -199,7 +195,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(255)
-        description: ''
+        description: ""
         name: BENEFIT_JURISDICTION_COUNTRY_CODE
         nullable: true
         sourceColumnReferences:
@@ -213,37 +209,35 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: DATE
-        description: ''
+        description: ""
         name: DEATH_DATE
         nullable: true
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: 180c43ef-1b20-41da-ab7b-3b39d10e5b10
                 stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
-            transform: TRY_TO_DATE(CAST(DECRYPTBYKEY(T.DEATH_DATE_ENCRYPTED, 1, '123')
-              AS VARCHAR(255)))
+            transform: TRY_TO_DATE(CAST(DECRYPTBYKEY(T.DEATH_DATE_ENCRYPTED, 1, '123') AS VARCHAR(255)))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: c1af8e51-8b3d-4c3e-bb3f-e8d1a1fc8515
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(9)
-        description: ''
+        description: ""
         name: EMPLOYEE_IDENTIFICATION_NUMBER
         nullable: true
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: ef11e2f3-1ad9-4dc8-a8f8-b3971e48e811
                 stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
-            transform: CAST(DECRYPTBYKEY(T.EMPLOYEE_IDENTIFICATION_NUMBER_ENCRYPTED,
-              1, '123') AS VARCHAR(9))
+            transform: CAST(DECRYPTBYKEY(T.EMPLOYEE_IDENTIFICATION_NUMBER_ENCRYPTED, 1, '123') AS VARCHAR(9))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: afbd1b8b-9e45-4235-9c3f-c30d9ecfb616
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(255)
-        description: ''
+        description: ""
         name: PRODUCT_NAME
         nullable: true
         sourceColumnReferences:
@@ -257,7 +251,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(255)
-        description: ''
+        description: ""
         name: NCCI_ACT
         nullable: true
         sourceColumnReferences:
@@ -271,7 +265,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: NUMBER(19,4)
-        description: ''
+        description: ""
         name: SOCIAL_SECURITY_OR_OTHER_OFFSET_AMOUNT
         nullable: true
         sourceColumnReferences:
@@ -285,7 +279,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(255)
-        description: ''
+        description: ""
         name: SIC_CODE
         nullable: true
         sourceColumnReferences:
@@ -299,7 +293,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(255)
-        description: ''
+        description: ""
         name: CLIENT_OPTIONAL_ACCIDENT_CODE
         nullable: true
         sourceColumnReferences:
@@ -313,22 +307,21 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(10)
-        description: ''
+        description: ""
         name: EMPLOYER_FEDERAL_TAX_IDENTIFICATION_NUMBER
         nullable: true
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: b0d760be-a035-430b-b152-ed22e43f5417
                 stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
-            transform: CAST(DECRYPTBYKEY(T.EMPLOYER_FEDERAL_TAX_IDENTIFICATION_NUMBER_ENCRYPTED,
-              1, '123') AS VARCHAR(10))
+            transform: CAST(DECRYPTBYKEY(T.EMPLOYER_FEDERAL_TAX_IDENTIFICATION_NUMBER_ENCRYPTED, 1, '123') AS VARCHAR(10))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: c149fe8a-dfb9-4a0b-ac44-f1cb7a5f2c22
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(255)
-        description: ''
+        description: ""
         name: COMPANION_ACCIDENT_NUMBER
         nullable: true
         sourceColumnReferences:
@@ -342,7 +335,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(255)
-        description: ''
+        description: ""
         name: COMPANION_COVERAGE_CODE
         nullable: true
         sourceColumnReferences:
@@ -356,7 +349,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: NUMBER(10,0)
-        description: ''
+        description: ""
         name: COMPANION_COVERAGE_SEQUENCE_NUMBER
         nullable: true
         sourceColumnReferences:
@@ -370,7 +363,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(255)
-        description: ''
+        description: ""
         name: LOSS_CLIENT_NUMBER
         nullable: true
         sourceColumnReferences:
@@ -384,7 +377,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(255)
-        description: ''
+        description: ""
         name: LOSS_REFERENCE_NUMBER
         nullable: true
         sourceColumnReferences:
@@ -398,7 +391,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(255)
-        description: ''
+        description: ""
         name: LOSS_TRADING_PARTNER_CODE
         nullable: true
         sourceColumnReferences:
@@ -412,7 +405,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(255)
-        description: ''
+        description: ""
         name: LOSS_TRADING_PARTNER_CODE_TYPE
         nullable: true
         sourceColumnReferences:
@@ -426,7 +419,7 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: NUMBER(10,0)
-        description: ''
+        description: ""
         name: LOSS_CLAIMANT_SEQUENCE_NUMBER
         nullable: true
         sourceColumnReferences:
@@ -440,34 +433,33 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(25)
-        description: ''
+        description: ""
         name: SOURCE_SYSTEM
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: '''GB'''
+            transform: "'GB'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: cac9db3f-a312-4c20-a612-e5f8f3fcab2b
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: NUMBER(10,0)
-        description: ''
+        description: ""
         name: ACA_SOURCE_SYSTEM_ID
         nullable: true
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: 95dc3a1c-79cf-4a17-8e6f-427f714399d1
                 stepCounter: 4e8a2bd3-7744-4115-b772-23c3d6e8c973
-            transform: (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO',
-              'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'GB')
+            transform: (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'GB')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: dda165b4-d1ec-4cbb-bbbc-fdb9e1a8cb2c
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: TIMESTAMP_NTZ
-        description: ''
+        description: ""
         name: ACA_DATE_CREATED
         nullable: true
         sourceColumnReferences:
@@ -479,19 +471,19 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(100)
-        description: ''
+        description: ""
         name: ACA_CREATE_USER
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: '''spaca_aca_claim_staging_gb_insert'''
+            transform: "'spaca_aca_claim_staging_gb_insert'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: ce1be5f6-db2f-4e6f-ba21-f3b1e3ce882e
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: TIMESTAMP_NTZ
-        description: ''
+        description: ""
         name: ACA_DATE_UPDATED
         nullable: true
         sourceColumnReferences:
@@ -503,21 +495,21 @@ operation:
           stepCounter: 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
         config: {}
         dataType: VARCHAR(100)
-        description: ''
+        description: ""
         name: ACA_UPDATE_USER
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: '''spaca_aca_claim_staging_gb_insert'''
-    cteString: ''
+            transform: "'spaca_aca_claim_staging_gb_insert'"
+    cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          TMP: TMP
-          T: T
           P: P
+          T: T
+          TMP: TMP
         customSQL:
-          customSQL: ''
+          customSQL: ""
         dependencies:
           - locationName: ALLIANT_CLAIMS_ASTRUS_STAGE_DBO
             nodeName: TMP_ACA_TRANSACTION_CLAIM
@@ -528,19 +520,17 @@ operation:
           - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
             nodeName: ACA_SOURCE_SYSTEM
         join:
-          joinCondition: 'FROM {{ ref(''ALLIANT_CLAIMS_ASTRUS_STAGE_DBO'', ''TMP_ACA_TRANSACTION_CLAIM'')
-            }} AS TMP
-
-            INNER JOIN {{ ref(''ALLIANT_CLAIMS_ASTRUS_DBO'', ''ACA_TRANSACTION_CLAIM'')
-            }} AS T ON T.ACA_TRANSACTION_CLAIM_ID = TMP.ACA_TRANSACTION_CLAIM_ID
-
-            LEFT OUTER JOIN {{ ref(''ALLIANT_CLAIMS_ASTRUS_STAGE_DBO'', ''SUBQUERY_PYRAMID'')
-            }} AS P ON T.CLIENT_NUMBER = P.CLIENT_NUMBER
-
-            AND T.REPORTING_UNIT_NUMBER = P.UNIT_ID'
+          joinCondition: |-
+            FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_STAGE_DBO', 'TMP_ACA_TRANSACTION_CLAIM') }} AS TMP
+            INNER JOIN {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO', 'ACA_TRANSACTION_CLAIM') }} AS T ON T.ACA_TRANSACTION_CLAIM_ID = TMP.ACA_TRANSACTION_CLAIM_ID
+            LEFT OUTER JOIN {{ ref('ALLIANT_CLAIMS_ASTRUS_STAGE_DBO', 'SUBQUERY_PYRAMID') }} AS P ON T.CLIENT_NUMBER = P.CLIENT_NUMBER
+            AND T.REPORTING_UNIT_NUMBER = P.UNIT_ID
         name: ACA_CLAIM_STAGING_GB
         noLinkRefs: []
+  name: ACA_CLAIM_STAGING_GB
   overrideSQL: false
   schema: DBO
   sqlType: Stage
+  type: sql
   version: 1
+type: Node

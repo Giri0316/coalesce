@@ -1,0 +1,14 @@
+fileVersion: 1
+id: c2f2bbf7-35a3-4792-b7ed-a8b5187c9e1e
+name: dbo.spaca_aca_claim_staging_gb_insert.proc
+steps:
+  - 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+  - 2c9d87f1-6712-4e88-b21d-93cc7b4e9f3b
+  - 3d5f19c2-5524-4f90-a541-11d2e5a7b629
+  - 4e8a2bd3-7744-4115-b772-23c3d6e8c973
+  - 5f9b4ce5-8855-4a27-c884-34d5e7f9a184
+  - 6a1c5df6-9966-4c38-d995-45e6f8a1b295
+  - 7b2d6ea7-aa77-4d49-eaa6-56f7a9b2c3a6
+  - 8c3e7fb8-bb88-4e5a-fbb7-67a8b0c3d4b7
+  - 9d4f8fc9-cc99-4f6b-acc8-78b9c1d4e5c8
+type: Subgraph

@@ -1,19 +1,16 @@
 fileVersion: 1
 id: 7b2d6ea7-aa77-4d49-eaa6-56f7a9b2c3a6
 name: TMP_ACA_TRANSACTION_CLAIM
-type: Node
 operation:
-  name: TMP_ACA_TRANSACTION_CLAIM
-  type: sql
   config:
     insertStrategy: INSERT
-    postSQL: ''
-    preSQL: ''
+    postSQL: ""
+    preSQL: ""
     testsEnabled: true
     truncateBefore: true
   database: ALLIANT_CLAIMS_ASTRUS_STAGE
   deployEnabled: true
-  description: ''
+  description: ""
   isMultisource: false
   locationName: ALLIANT_CLAIMS_ASTRUS_STAGE_DBO
   materializationType: table
@@ -26,7 +23,7 @@ operation:
           stepCounter: 7b2d6ea7-aa77-4d49-eaa6-56f7a9b2c3a6
         config: {}
         dataType: NUMBER(10,0)
-        description: ''
+        description: ""
         name: ACA_TRANSACTION_CLAIM_ID
         nullable: true
         sourceColumnReferences:
@@ -40,7 +37,7 @@ operation:
           stepCounter: 7b2d6ea7-aa77-4d49-eaa6-56f7a9b2c3a6
         config: {}
         dataType: VARCHAR(19)
-        description: ''
+        description: ""
         name: UNIQUE_CLAIM_ID
         nullable: true
         sourceColumnReferences:
@@ -48,30 +45,30 @@ operation:
               - columnCounter: 3a2c5f11-0eb8-42bc-9d33-4560a8e1ab32
                 stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
             transform: ATC.UNIQUE_CLAIM_ID
-    cteString: ''
+    cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
           ATC: ATC
           ATC_RNUM: ATC_RNUM
         customSQL:
-          customSQL: ''
+          customSQL: ""
         dependencies:
           - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
             nodeName: ACA_TRANSACTION_CLAIM
           - locationName: ALLIANT_CLAIMS_ASTRUS_STAGE_DBO
             nodeName: SUBQUERY_ATC_RNUM
         join:
-          joinCondition: 'FROM {{ ref(''ALLIANT_CLAIMS_ASTRUS_DBO'', ''ACA_TRANSACTION_CLAIM'')
-            }} AS ATC
-
-            INNER JOIN {{ ref(''ALLIANT_CLAIMS_ASTRUS_STAGE_DBO'', ''SUBQUERY_ATC_RNUM'')
-            }} AS ATC_RNUM ON ATC.ACA_TRANSACTION_CLAIM_ID = ATC_RNUM.ACA_TRANSACTION_CLAIM_ID
-
-            WHERE ATC_RNUM.ROW_NUM_SEQ = 1'
+          joinCondition: |-
+            FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO', 'ACA_TRANSACTION_CLAIM') }} AS ATC
+            INNER JOIN {{ ref('ALLIANT_CLAIMS_ASTRUS_STAGE_DBO', 'SUBQUERY_ATC_RNUM') }} AS ATC_RNUM ON ATC.ACA_TRANSACTION_CLAIM_ID = ATC_RNUM.ACA_TRANSACTION_CLAIM_ID
+            WHERE ATC_RNUM.ROW_NUM_SEQ = 1
         name: TMP_ACA_TRANSACTION_CLAIM
         noLinkRefs: []
+  name: TMP_ACA_TRANSACTION_CLAIM
   overrideSQL: false
   schema: DBO
   sqlType: Stage
+  type: sql
   version: 1
+type: Node

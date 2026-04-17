@@ -1,13 +1,10 @@
 fileVersion: 1
 id: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
 name: ACA_TRANSACTION_CLAIM
-type: Node
 operation:
-  name: ACA_TRANSACTION_CLAIM
-  type: sourceInput
-  database: ''
+  database: ""
   deployEnabled: true
-  description: ''
+  description: ""
   locationName: ALLIANT_CLAIMS_ASTRUS_DBO
   metadata:
     columns:
@@ -17,14 +14,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: NUMBER(10,0)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: ACA_TRANSACTION_CLAIM_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -32,14 +29,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: VARCHAR(19)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: UNIQUE_CLAIM_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -47,14 +44,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: DATE
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: TRANSACTION_DATE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -62,14 +59,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: DATE
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: STATUS_DATE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -77,14 +74,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: TIMESTAMP_NTZ
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: ACA_DATE_UPDATED
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -92,14 +89,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: NUMBER(10,0)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: CLAIM_SEQUENCE_NUMBER
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -107,14 +104,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: CLAIM_COVERAGE_CODE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -122,14 +119,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: ACCIDENT_NUMBER
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -137,14 +134,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: CLIENT_NUMBER
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -152,14 +149,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: REPORTING_UNIT_NUMBER
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -167,14 +164,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: TIMESTAMP_NTZ
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: CLAIM_DATE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -182,14 +179,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: TIMESTAMP_NTZ
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: ORIGINAL_OPEN_DATE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -197,14 +194,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: ACCIDENT_CAUSE_CODE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -212,14 +209,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: ACCIDENT_COUNTRY
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -227,14 +224,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: BENEFIT_JURISDICTION_COUNTRY
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -242,14 +239,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: BINARY
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: DEATH_DATE_ENCRYPTED
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -257,14 +254,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: BINARY
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: EMPLOYEE_IDENTIFICATION_NUMBER_ENCRYPTED
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -272,14 +269,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: PRODUCT_NAME
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -287,14 +284,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: NCCI_ACT
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -302,14 +299,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: NUMBER(19,4)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: SOCIALSECURITY_OR_OTHER_OFFSET_AMOUNT
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -317,14 +314,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: SIC_CODE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -332,14 +329,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: CLIENT_OPTIONAL_ACCIDENT_CODES
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -347,14 +344,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: BINARY
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: EMPLOYER_FEDERAL_TAX_IDENTIFICATION_NUMBER_ENCRYPTED
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -362,14 +359,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: COMPANION_ACCIDENT_NUMBER
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -377,14 +374,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: COMPANION_COVERAGE_CODE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -392,14 +389,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: NUMBER(10,0)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: COMPANION_COVERAGE_SEQUENCE_NUMBER
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -407,14 +404,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: LOSS_CLIENT_NUMBER
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -422,14 +419,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: LOSS_REFERENCE_NUMBER
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -437,14 +434,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: LOSS_TRADING_PARTERNER_CODE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -452,14 +449,14 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: VARCHAR(255)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: LOSS_TRADING_PARTERNER_CODE_TYPE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
       - appliedColumnTests: {}
         columnReference:
@@ -467,15 +464,18 @@ operation:
           stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
         config: {}
         dataType: NUMBER(10,0)
-        defaultValue: ''
-        description: ''
+        defaultValue: ""
+        description: ""
         name: LOSS_CLAIMANT_SEQUENCE_NUMBER
         nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ''
+            transform: ""
         uniqueKey: false
-  schema: ''
+  name: ACA_TRANSACTION_CLAIM
+  schema: ""
   sqlType: Source
+  type: sourceInput
   version: 1
+type: Node
