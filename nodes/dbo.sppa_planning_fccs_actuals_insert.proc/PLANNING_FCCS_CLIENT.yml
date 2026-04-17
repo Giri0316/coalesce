@@ -1,0 +1,48 @@
+fileVersion: 1
+id: 9a2f7c41-86de-4b13-be5a-1d8c9e543b2f
+name: PLANNING_FCCS_CLIENT
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: PLANNING_ALLIANT_DBO
+  metadata:
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e83b2d1f-61c4-48f5-9a4d-b3c7e2f18a01
+          stepCounter: 9a2f7c41-86de-4b13-be5a-1d8c9e543b2f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: PLANNING_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e83b2d1f-61c4-48f5-9a4d-b3c7e2f18a02
+          stepCounter: 9a2f7c41-86de-4b13-be5a-1d8c9e543b2f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: PARENT_PLANNING_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: PLANNING_FCCS_CLIENT
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
