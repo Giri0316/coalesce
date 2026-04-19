@@ -1,0 +1,149 @@
+fileVersion: 1
+id: b3d1d9fa-e728-83d1-d46e-1b1cf9764a37
+name: CTEPLANNINGALIAS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: PLANNING_ALLIANT_STAGING
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4ac5d000-7f8b-53aa-3765-6d8957acb03d
+          stepCounter: b3d1d9fa-e728-83d1-d46e-1b1cf9764a37
+        config: {}
+        dataType: VARCHAR(6)
+        description: ""
+        name: DIM_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8e091444-b3cf-47ee-7baf-a1cd9b80f471
+                stepCounter: 91afb7d8-c506-61bf-b24c-e9fad7542815
+              - columnCounter: e46f7aaa-1925-4d44-d10f-0723f1465ad7
+                stepCounter: a2c0c8e9-d617-72c0-c35d-0a0be8653926
+            transform: U.DIM_TYPE
+        transform: U.DIM_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5bd6e111-809c-54bb-4876-7e9a68bdc14e
+          stepCounter: b3d1d9fa-e728-83d1-d46e-1b1cf9764a37
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9f1a2555-c4d0-48ff-8cba-b2deac910582
+                stepCounter: 91afb7d8-c506-61bf-b24c-e9fad7542815
+              - columnCounter: f5708bbb-2a36-4e55-e210-183402576be8
+                stepCounter: a2c0c8e9-d617-72c0-c35d-0a0be8653926
+            transform: U.PLANNING_ID
+        transform: U.PLANNING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6ce7f222-91ad-55cc-5987-8fab79cdc25f
+          stepCounter: b3d1d9fa-e728-83d1-d46e-1b1cf9764a37
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PLANNING_ALIAS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a02b3666-d5e1-4900-9dcb-c3efbd021693
+                stepCounter: 91afb7d8-c506-61bf-b24c-e9fad7542815
+              - columnCounter: 06819ccc-3b47-4f66-f321-294513687cf9
+                stepCounter: a2c0c8e9-d617-72c0-c35d-0a0be8653926
+            transform: U.PLANNING_ALIAS
+        transform: U.PLANNING_ALIAS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7df80333-a2be-56dd-6a98-90bc8aedc360
+          stepCounter: b3d1d9fa-e728-83d1-d46e-1b1cf9764a37
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b13c4777-e6f2-4a11-aedc-d4f0ce1327a4
+                stepCounter: 91afb7d8-c506-61bf-b24c-e9fad7542815
+              - columnCounter: 1792addd-4c58-5077-0432-3a5624798d0a
+                stepCounter: a2c0c8e9-d617-72c0-c35d-0a0be8653926
+            transform: U.SOURCE_SYSTEM
+        transform: U.SOURCE_SYSTEM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e091444-b3cf-57ee-7ba9-a1cd9bfed471
+          stepCounter: b3d1d9fa-e728-83d1-d46e-1b1cf9764a37
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c24d5888-f703-4b22-bfed-e501df2438b5
+                stepCounter: 91afb7d8-c506-61bf-b24c-e9fad7542815
+              - columnCounter: 28a3beee-5d69-5188-1543-4b67358a9e1b
+                stepCounter: a2c0c8e9-d617-72c0-c35d-0a0be8653926
+            transform: U.LOOKUP_CODE
+        transform: U.LOOKUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f1a2555-c4d0-58ff-8cba-b2dea00fe582
+          stepCounter: b3d1d9fa-e728-83d1-d46e-1b1cf9764a37
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: DW_BROKER_CLIENT_MASTER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d35e6999-0814-4c33-c0fe-f612e03549c6
+                stepCounter: 91afb7d8-c506-61bf-b24c-e9fad7542815
+              - columnCounter: 39b4cfff-6e7a-5299-2654-5c78469baf2c
+                stepCounter: a2c0c8e9-d617-72c0-c35d-0a0be8653926
+            transform: U.DW_BROKER_CLIENT_MASTER_ID
+        transform: U.DW_BROKER_CLIENT_MASTER_ID
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          U: U
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: PLANNING_ALLIANT_STAGING
+            nodeName: CTEPLANNINGALIAS_CLIENT
+          - locationName: PLANNING_ALLIANT_STAGING
+            nodeName: CTEPLANNINGALIAS_BROKER
+        join:
+          joinCondition: |-
+            FROM (
+              SELECT * FROM {{ ref('PLANNING_ALLIANT_STAGING', 'CTEPLANNINGALIAS_CLIENT') }}
+              UNION
+              SELECT * FROM {{ ref('PLANNING_ALLIANT_STAGING', 'CTEPLANNINGALIAS_BROKER') }}
+            ) AS U
+        name: CTEPLANNINGALIAS
+        noLinkRefs: []
+  name: CTEPLANNINGALIAS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

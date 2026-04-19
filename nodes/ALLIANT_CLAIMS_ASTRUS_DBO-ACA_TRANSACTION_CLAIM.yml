@@ -1,0 +1,481 @@
+fileVersion: 1
+id: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+name: ACA_TRANSACTION_CLAIM
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+  metadata:
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0bd387e6-7fc1-49ea-8255-bdf9f086e2d1
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ""
+        description: ""
+        name: ACA_TRANSACTION_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a2c5f11-0eb8-42bc-9d33-4560a8e1ab32
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: VARCHAR(19)
+        defaultValue: ""
+        description: ""
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cb1f8792-3a87-4148-be58-386f9c9f28d3
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f223c7c5-7ea5-41e9-9a25-9c972dfa6404
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: STATUS_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dc74384a-93f8-4e89-8d14-8f1993b4a205
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: ACA_DATE_UPDATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e6a1005-fc42-4dc9-bc1f-8ef206771d06
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ""
+        description: ""
+        name: CLAIM_SEQUENCE_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a18a8bfa-f974-4b53-b09e-73c3835cf107
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cd1af621-e374-4e3a-8671-155be5530108
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: ACCIDENT_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: abdc7a3c-a968-46fb-a044-67e4125b3609
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: CLIENT_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5766d92-2cc3-4888-af25-1e4e941df70a
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: REPORTING_UNIT_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fe994348-1db2-488b-a3d8-554f67c13e0b
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: CLAIM_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c23efb7d-5aeb-49fc-91af-a730999ab20c
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: ORIGINAL_OPEN_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a63110e5-79a8-48b4-be74-12d8a571f30d
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: ACCIDENT_CAUSE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d14cb35-b2fb-4e10-bf2f-0f2c41c7b50e
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: ACCIDENT_COUNTRY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: de13f019-3d0d-44aa-9c44-d6a03db03f0f
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: BENEFIT_JURISDICTION_COUNTRY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 180c43ef-1b20-41da-ab7b-3b39d10e5b10
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: BINARY
+        defaultValue: ""
+        description: ""
+        name: DEATH_DATE_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ef11e2f3-1ad9-4dc8-a8f8-b3971e48e811
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: BINARY
+        defaultValue: ""
+        description: ""
+        name: EMPLOYEE_IDENTIFICATION_NUMBER_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c8229b0f-7984-4d80-b2b9-e13d96924712
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: PRODUCT_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e8756c80-db46-4dc5-bdfc-47343e06f913
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: NCCI_ACT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: acf148f4-6e82-45e3-85f4-386faeeaf614
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: NUMBER(19,4)
+        defaultValue: ""
+        description: ""
+        name: SOCIALSECURITY_OR_OTHER_OFFSET_AMOUNT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b138385a-0045-4235-95df-3d4a25e64815
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: SIC_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ee98e27f-d1a1-4203-b0e2-632b70f0df16
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: CLIENT_OPTIONAL_ACCIDENT_CODES
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b0d760be-a035-430b-b152-ed22e43f5417
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: BINARY
+        defaultValue: ""
+        description: ""
+        name: EMPLOYER_FEDERAL_TAX_IDENTIFICATION_NUMBER_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cd26c11b-3b3d-495f-8f83-e18e3cffc818
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: COMPANION_ACCIDENT_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b43f3b6c-e4ba-493f-8012-613b5efea319
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: COMPANION_COVERAGE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a5b81a2-63b7-4a0b-ae9b-c4391e0a9d1a
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ""
+        description: ""
+        name: COMPANION_COVERAGE_SEQUENCE_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b201a084-5f5c-42cc-a0fb-d499edff151b
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: LOSS_CLIENT_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2ea1322-9214-4fb9-ba06-b51f04d7c01c
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: LOSS_REFERENCE_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e61266b-4e1f-4952-bdae-402c52ed391d
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: LOSS_TRADING_PARTERNER_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 938d2f0d-587f-44e2-b1db-ce1d7f6c311e
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: LOSS_TRADING_PARTERNER_CODE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e007c5b6-7221-4f36-be57-fb926b1f251f
+          stepCounter: 1a7b45ca-8c33-4f28-a73c-f50fbd9e20a1
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ""
+        description: ""
+        name: LOSS_CLAIMANT_SEQUENCE_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        uniqueKey: false
+  name: ACA_TRANSACTION_CLAIM
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

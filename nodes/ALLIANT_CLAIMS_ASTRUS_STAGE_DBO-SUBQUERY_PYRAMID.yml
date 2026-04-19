@@ -1,0 +1,83 @@
+fileVersion: 1
+id: 8c3e7fb8-bb88-4e5a-fbb7-67a8b0c3d4b7
+name: SUBQUERY_PYRAMID
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_CLAIMS_ASTRUS_STAGE
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ALLIANT_CLAIMS_ASTRUS_STAGE_DBO
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d19642e1-da8b-4a30-802c-47314d3f3f71
+          stepCounter: 8c3e7fb8-bb88-4e5a-fbb7-67a8b0c3d4b7
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: CLIENT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 326f63fc-b969-450a-aa33-d9d1531e21b1
+                stepCounter: 2c9d87f1-6712-4e88-b21d-93cc7b4e9f3b
+            transform: CLIENT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b130e9d6-e2a2-4cbe-b43e-a74fc9e71382
+          stepCounter: 8c3e7fb8-bb88-4e5a-fbb7-67a8b0c3d4b7
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: UNIT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eaee1a3b-6f81-443b-ba2d-dbba91d575b2
+                stepCounter: 2c9d87f1-6712-4e88-b21d-93cc7b4e9f3b
+            transform: UNIT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a631245b-a7ab-4318-ba25-7df844517b93
+          stepCounter: 8c3e7fb8-bb88-4e5a-fbb7-67a8b0c3d4b7
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: MIN_LEVEL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 97f37dd3-cc07-4e63-bfda-4458d94895b3
+                stepCounter: 2c9d87f1-6712-4e88-b21d-93cc7b4e9f3b
+            transform: MIN(LEVEL)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_PYRAMID
+        join:
+          joinCondition: |-
+            FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO', 'ACA_PYRAMID') }}
+            GROUP BY CLIENT, UNIT_ID
+        name: SUBQUERY_PYRAMID
+        noLinkRefs: []
+  name: SUBQUERY_PYRAMID
+  overrideSQL: false
+  schema: DBO
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

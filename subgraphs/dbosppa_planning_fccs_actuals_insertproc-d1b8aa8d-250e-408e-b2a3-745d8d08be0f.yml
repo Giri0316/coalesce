@@ -1,0 +1,9 @@
+fileVersion: 1
+id: d1b8aa8d-250e-408e-b2a3-745d8d08be0f
+name: dbo.sppa_planning_fccs_actuals_insert.proc
+steps:
+  - 3c5e8d61-72f4-4a18-9e5c-2d8b4f179c3e
+  - 57bd94b2-031e-4c74-a698-c923f1e582d1
+  - 9a2f7c41-86de-4b13-be5a-1d8c9e543b2f
+  - e2b4f9c1-65d8-4f1a-b3e7-8c9a5d1f4e2b
+type: Subgraph
