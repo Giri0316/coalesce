@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 3c622a57-b2de-40de-8e31-d85698b64e56
+name: PLANNING_FCCS_BROKER
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b57198a2-21d3-4638-b747-062e08c1d3de
+          stepCounter: 3c622a57-b2de-40de-8e31-d85698b64e56
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PLANNING_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3514a4c6-2c5d-4f16-92f7-efd85c88b006
+          stepCounter: 3c622a57-b2de-40de-8e31-d85698b64e56
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PARENT_PLANNING_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: PLANNING_FCCS_BROKER
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
