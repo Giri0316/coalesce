@@ -1,0 +1,94 @@
+fileVersion: 1
+id: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+name: TMP_BROKER_HIERARCHY_BRANCH_1
+type: Node
+operation:
+  name: TMP_BROKER_HIERARCHY_BRANCH_1
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: PLANNING_ALLIANT
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: PLANNING_ALLIANT_DBO
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f
+          stepCounter: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+        config: {}
+        dataType: VARCHAR(100)
+        description: ''
+        name: PARENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: '''All_Producer'''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e3f4a5b6-7c8d-9e0f-1a2b-3c4d5e6f7a8b
+          stepCounter: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+        config: {}
+        dataType: VARCHAR(100)
+        description: ''
+        name: MEMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
+                stepCounter: 6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d
+            transform: GROUP_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a5b67c8d-9e0f-1a2b-3c4d-5e6f7a8b9c0d
+          stepCounter: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+                stepCounter: 6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d
+            transform: ABS(GROUP_ID)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c8d9e0f-1a2b-3c4d-5e6f-7a8b9c0d1e2f
+          stepCounter: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: SORT_ORDER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: '3'
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: PLANNING_ALLIANT_DBO
+            nodeName: TMP_NEW_PLANNING_BROKER
+        join:
+          joinCondition: 'FROM {{ ref(''PLANNING_ALLIANT_DBO'', ''TMP_NEW_PLANNING_BROKER'')
+            }}
+
+            GROUP BY ''All_Producer'', GROUP_NAME, ABS(GROUP_ID), 3'
+        name: TMP_BROKER_HIERARCHY_BRANCH_1
+        noLinkRefs: []
+  overrideSQL: false
+  schema: DBO
+  sqlType: Stage
+  version: 1

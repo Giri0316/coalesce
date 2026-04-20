@@ -1,0 +1,122 @@
+fileVersion: 1
+id: 1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f
+name: TMP_BROKER_HIERARCHY
+type: Node
+operation:
+  name: TMP_BROKER_HIERARCHY
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: PLANNING_ALLIANT
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: PLANNING_ALLIANT_DBO
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3e4f5a6b-7c8d-9e0f-1a2b-3c4d5e6f7a8b
+          stepCounter: 1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: ROW_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c8d9e0f-1a2b-3c4d-5e6f-7a8b9c0d1e2f
+                stepCounter: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+              - columnCounter: a5b67c8d-9e0f-1a2b-3c4d-5e6f7a8b9c0d
+                stepCounter: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+              - columnCounter: c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f
+                stepCounter: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+              - columnCounter: e3f4a5b6-7c8d-9e0f-1a2b-3c4d5e6f7a8b
+                stepCounter: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+            transform: ROW_NUMBER() OVER(ORDER BY SORT_ORDER, ABS(GROUP_ID), PARENT,
+              MEMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a6b7c8d-9e0f-1a2b-3c4d-5e6f7a8b9c0d
+          stepCounter: 1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f
+        config: {}
+        dataType: VARCHAR(100)
+        description: ''
+        name: PARENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f
+                stepCounter: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+            transform: PARENT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c8d9e0f-1a2b-3c4d-5e6f-7a8b9c0d1e2f
+          stepCounter: 1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f
+        config: {}
+        dataType: VARCHAR(100)
+        description: ''
+        name: MEMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e3f4a5b6-7c8d-9e0f-1a2b-3c4d5e6f7a8b
+                stepCounter: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+            transform: MEMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e0f1a2b-3c4d-5e6f-7a8b-9c0d1e2f3a4b
+          stepCounter: 1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a5b67c8d-9e0f-1a2b-3c4d-5e6f7a8b9c0d
+                stepCounter: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+            transform: GROUP_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+          stepCounter: 1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: SORT_ORDER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c8d9e0f-1a2b-3c4d-5e6f-7a8b9c0d1e2f
+                stepCounter: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+            transform: SORT_ORDER
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: PLANNING_ALLIANT_DBO
+            nodeName: TMP_BROKER_HIERARCHY_BRANCH_1
+          - locationName: PLANNING_ALLIANT_DBO
+            nodeName: TMP_BROKER_HIERARCHY_BRANCH_2
+        join:
+          joinCondition: "FROM (\n    SELECT PARENT, MEMBER, GROUP_ID, SORT_ORDER\
+            \ FROM {{ ref('PLANNING_ALLIANT_DBO', 'TMP_BROKER_HIERARCHY_BRANCH_1')\
+            \ }}\n    UNION\n    SELECT PARENT, MEMBER, GROUP_ID, SORT_ORDER FROM\
+            \ {{ ref('PLANNING_ALLIANT_DBO', 'TMP_BROKER_HIERARCHY_BRANCH_2') }}\n\
+            ) AS U"
+        name: TMP_BROKER_HIERARCHY
+        noLinkRefs: []
+  overrideSQL: false
+  schema: DBO
+  sqlType: Stage
+  version: 1
