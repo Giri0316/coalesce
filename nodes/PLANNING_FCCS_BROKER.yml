@@ -1,0 +1,133 @@
+fileVersion: 1
+id: 62e2b2c2-a1b2-c3d4-e5f6-7890abcdef12
+name: PLANNING_FCCS_BROKER
+type: Node
+operation:
+  name: PLANNING_FCCS_BROKER
+  type: sourceInput
+  database: ''
+  deployEnabled: true
+  description: ''
+  locationName: PLANNING_ALLIANT_DBO
+  metadata:
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6c2a1a1-1234-5678-90ab-cdef12345678
+          stepCounter: 62e2b2c2-a1b2-c3d4-e5f6-7890abcdef12
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ''
+        description: ''
+        name: DW_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6c2a1a2-1234-5678-90ab-cdef12345678
+          stepCounter: 62e2b2c2-a1b2-c3d4-e5f6-7890abcdef12
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ''
+        description: ''
+        name: SOURCE_SYSTEM_BROKER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6c2a1a3-1234-5678-90ab-cdef12345678
+          stepCounter: 62e2b2c2-a1b2-c3d4-e5f6-7890abcdef12
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ''
+        description: ''
+        name: PARENT_PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6c2a1a4-1234-5678-90ab-cdef12345678
+          stepCounter: 62e2b2c2-a1b2-c3d4-e5f6-7890abcdef12
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ''
+        description: ''
+        name: PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6c2a1a5-1234-5678-90ab-cdef12345678
+          stepCounter: 62e2b2c2-a1b2-c3d4-e5f6-7890abcdef12
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ''
+        description: ''
+        name: BROKER_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6c2a1a6-1234-5678-90ab-cdef12345678
+          stepCounter: 62e2b2c2-a1b2-c3d4-e5f6-7890abcdef12
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ''
+        description: ''
+        name: SOURCE_SYSTEM_BROKER_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6c2a1a7-1234-5678-90ab-cdef12345678
+          stepCounter: 62e2b2c2-a1b2-c3d4-e5f6-7890abcdef12
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ''
+        description: ''
+        name: SOURCE_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6c2a1a8-1234-5678-90ab-cdef12345678
+          stepCounter: 62e2b2c2-a1b2-c3d4-e5f6-7890abcdef12
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ''
+        description: ''
+        name: PLANNING_ALIAS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6c2a1a9-1234-5678-90ab-cdef12345678
+          stepCounter: 62e2b2c2-a1b2-c3d4-e5f6-7890abcdef12
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ''
+        description: ''
+        name: DW_BROKER_MASTER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+  schema: ''
+  sqlType: Source
+  version: 1
