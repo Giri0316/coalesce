@@ -1,0 +1,81 @@
+fileVersion: 1
+id: 83a26d1b-ba7e-409e-8c31-9a74a16ed712
+name: PLANNING_FCCS_BROKER_CLIENT_CHANGES
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: PLANNING_ALLIANT_DBO
+  metadata:
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 83a26d1b-3000-0000-0000-000000000001
+          stepCounter: 83a26d1b-ba7e-409e-8c31-9a74a16ed712
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: DW_BROKER_CLIENT_MASTER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 83a26d1b-3000-0000-0000-000000000002
+          stepCounter: 83a26d1b-ba7e-409e-8c31-9a74a16ed712
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 83a26d1b-3000-0000-0000-000000000003
+          stepCounter: 83a26d1b-ba7e-409e-8c31-9a74a16ed712
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DIMENSION_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 83a26d1b-3000-0000-0000-000000000004
+          stepCounter: 83a26d1b-ba7e-409e-8c31-9a74a16ed712
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CHANGE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 83a26d1b-3000-0000-0000-000000000005
+          stepCounter: 83a26d1b-ba7e-409e-8c31-9a74a16ed712
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+  name: PLANNING_FCCS_BROKER_CLIENT_CHANGES
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
