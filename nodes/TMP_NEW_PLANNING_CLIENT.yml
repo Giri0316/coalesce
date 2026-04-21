@@ -1,0 +1,319 @@
+fileVersion: 1
+id: 84de6522-d7b1-477e-97a7-5423f79efbb4
+name: TMP_NEW_PLANNING_CLIENT
+type: Node
+operation:
+  name: TMP_NEW_PLANNING_CLIENT
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: ''
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: PLANNING_ALLIANT_STAGING
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84de6522-4000-0000-0000-000000000001
+          stepCounter: 84de6522-d7b1-477e-97a7-5423f79efbb4
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: PARENT_PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 82bc3c0e-2000-0000-0000-000000000001
+                stepCounter: 82bc3c0e-ee4b-4f81-8b2b-42f8832a893d
+            transform: TMP.PARENT_PLANNING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84de6522-4000-0000-0000-000000000002
+          stepCounter: 84de6522-d7b1-477e-97a7-5423f79efbb4
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81d9f8b4-1000-0000-0000-000000000001
+                stepCounter: 81d9f8b4-0c17-48f0-b4f0-ecb66a5e18ac
+            transform: TMP.PLANNING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84de6522-4000-0000-0000-000000000003
+          stepCounter: 84de6522-d7b1-477e-97a7-5423f79efbb4
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: CLIENT_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81d9f8b4-1000-0000-0000-000000000002
+                stepCounter: 81d9f8b4-0c17-48f0-b4f0-ecb66a5e18ac
+            transform: TMP.CLIENT_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84de6522-4000-0000-0000-000000000004
+          stepCounter: 84de6522-d7b1-477e-97a7-5423f79efbb4
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: CLIENT_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81d9f8b4-1000-0000-0000-000000000003
+                stepCounter: 81d9f8b4-0c17-48f0-b4f0-ecb66a5e18ac
+            transform: TMP.CLIENT_LOOKUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84de6522-4000-0000-0000-000000000005
+          stepCounter: 84de6522-d7b1-477e-97a7-5423f79efbb4
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: CLIENT_STATUS_INDICATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81d9f8b4-1000-0000-0000-000000000004
+                stepCounter: 81d9f8b4-0c17-48f0-b4f0-ecb66a5e18ac
+            transform: TMP.CLIENT_STATUS_INDICATOR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84de6522-4000-0000-0000-000000000006
+          stepCounter: 84de6522-d7b1-477e-97a7-5423f79efbb4
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: PLANNING_ALIAS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81d9f8b4-1000-0000-0000-000000000005
+                stepCounter: 81d9f8b4-0c17-48f0-b4f0-ecb66a5e18ac
+            transform: TMP.PLANNING_ALIAS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84de6522-4000-0000-0000-000000000007
+          stepCounter: 84de6522-d7b1-477e-97a7-5423f79efbb4
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: SOURCE_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81d9f8b4-1000-0000-0000-000000000006
+                stepCounter: 81d9f8b4-0c17-48f0-b4f0-ecb66a5e18ac
+            transform: TMP.SOURCE_SYSTEM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84de6522-4000-0000-0000-000000000008
+          stepCounter: 84de6522-d7b1-477e-97a7-5423f79efbb4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ''
+        name: DW_CLIENT_MASTER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81d9f8b4-1000-0000-0000-000000000007
+                stepCounter: 81d9f8b4-0c17-48f0-b4f0-ecb66a5e18ac
+            transform: TMP.DW_CLIENT_MASTER_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84de6522-4000-0000-0000-000000000009
+          stepCounter: 84de6522-d7b1-477e-97a7-5423f79efbb4
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: SOURCE_SYSTEM_CLIENT_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81d9f8b4-1000-0000-0000-000000000008
+                stepCounter: 81d9f8b4-0c17-48f0-b4f0-ecb66a5e18ac
+            transform: TMP.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84de6522-4000-0000-0000-00000000000a
+          stepCounter: 84de6522-d7b1-477e-97a7-5423f79efbb4
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: SOURCE_SYSTEM_CLIENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81d9f8b4-1000-0000-0000-000000000009
+                stepCounter: 81d9f8b4-0c17-48f0-b4f0-ecb66a5e18ac
+            transform: TMP.SOURCE_SYSTEM_CLIENT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84de6522-4000-0000-0000-00000000000b
+          stepCounter: 84de6522-d7b1-477e-97a7-5423f79efbb4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ''
+        name: DW_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81d9f8b4-1000-0000-0000-00000000000a
+                stepCounter: 81d9f8b4-0c17-48f0-b4f0-ecb66a5e18ac
+            transform: TMP.DW_SOURCE_SYSTEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84de6522-4000-0000-0000-00000000000c
+          stepCounter: 84de6522-d7b1-477e-97a7-5423f79efbb4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ''
+        name: ROW_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81d9f8b4-1000-0000-0000-000000000007
+                stepCounter: 81d9f8b4-0c17-48f0-b4f0-ecb66a5e18ac
+            transform: TMP.ROW_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84de6522-4000-0000-0000-00000000000d
+          stepCounter: 84de6522-d7b1-477e-97a7-5423f79efbb4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ''
+        name: GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 82bc3c0e-2000-0000-0000-000000000001
+                stepCounter: 82bc3c0e-ee4b-4f81-8b2b-42f8832a893d
+            transform: TMP.GROUP_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84de6522-4000-0000-0000-00000000000e
+          stepCounter: 84de6522-d7b1-477e-97a7-5423f79efbb4
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: GROUP_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 82bc3c0e-2000-0000-0000-000000000001
+                stepCounter: 82bc3c0e-ee4b-4f81-8b2b-42f8832a893d
+            transform: TMP.GROUP_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84de6522-4000-0000-0000-00000000000f
+          stepCounter: 84de6522-d7b1-477e-97a7-5423f79efbb4
+        config: {}
+        dataType: DATE
+        description: ''
+        name: BEGIN_POST_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81d9f8b4-1000-0000-0000-00000000000c
+                stepCounter: 81d9f8b4-0c17-48f0-b4f0-ecb66a5e18ac
+            transform: TMP.BEGIN_POST_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84de6522-4000-0000-0000-000000000010
+          stepCounter: 84de6522-d7b1-477e-97a7-5423f79efbb4
+        config: {}
+        dataType: DATE
+        description: ''
+        name: END_POST_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81d9f8b4-1000-0000-0000-00000000000c
+                stepCounter: 81d9f8b4-0c17-48f0-b4f0-ecb66a5e18ac
+            transform: TMP.END_POST_DATE
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          TMP: TMP
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: PLANNING_ALLIANT_DBO
+            nodeName: PLANNING_FCCS_ACTUALS_STAGING
+          - locationName: PLANNING_ALLIANT_DBO
+            nodeName: PLANNING_FCCS_CLIENT
+        join:
+          joinCondition: "FROM (\n  WITH INITIAL_DATA AS (\n      SELECT\n       \
+            \   B.PARENT_PLANNING_ID AS BASE_PARENT_PLANNING_ID,\n          STG.CLIENT_PLANNING_ID\
+            \ AS PLANNING_ID,\n          STG.CLIENT_NAME,\n          STG.CLIENT_LOOKUP_CODE,\n\
+            \          STG.CLIENT_STATUS_INDICATOR,\n          STG.CLIENT_ALIAS AS\
+            \ PLANNING_ALIAS,\n          STG.SOURCE_SYSTEM,\n          STG.DW_CLIENT_MASTER_ID,\n\
+            \          REPLACE(IFF(LEFT(STG.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE, 1) =\
+            \ '-', SUBSTRING(STG.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE, 2, LEN(STG.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE)),\
+            \ STG.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE), '*', '') AS SOURCE_SYSTEM_CLIENT_LOOKUP_CODE,\n\
+            \          STG.SOURCE_SYSTEM_CLIENT_ID,\n          STG.DW_SOURCE_SYSTEM_ID,\n\
+            \          ROW_NUMBER() OVER(ORDER BY STG.SOURCE_SYSTEM, STG.DW_CLIENT_MASTER_ID)\
+            \ AS ROW_ID,\n          TRY_CAST(SUBSTRING(B.PARENT_PLANNING_ID,1, POSITION('_'\
+            \ IN B.PARENT_PLANNING_ID)-1) AS INT) AS GROUP_ID,\n          B.PARENT_PLANNING_ID\
+            \ AS GROUP_NAME,\n          MIN(STG.POST_DATE) AS BEGIN_POST_DATE,\n \
+            \         MAX(STG.POST_DATE) AS END_POST_DATE\n      FROM {{ ref('PLANNING_ALLIANT_DBO',\
+            \ 'PLANNING_FCCS_ACTUALS_STAGING') }} AS STG\n      LEFT OUTER JOIN {{\
+            \ ref('PLANNING_ALLIANT_DBO', 'PLANNING_FCCS_CLIENT') }} AS B ON STG.CLIENT_PLANNING_ID\
+            \ = B.PLANNING_ID\n      WHERE STG.CLIENT_PLANNING_ID <> 'No_Client'\n\
+            \        AND IFFNULL(STG.THRESHOLD_RULE_TYPE, '-1') NOT IN ('Threshold\
+            \ Client','Threshold Structure')\n      GROUP BY B.PARENT_PLANNING_ID,\
+            \ STG.CLIENT_PLANNING_ID, STG.CLIENT_NAME, STG.CLIENT_LOOKUP_CODE, STG.CLIENT_STATUS_INDICATOR,\
+            \ STG.CLIENT_ALIAS, STG.SOURCE_SYSTEM, STG.DW_CLIENT_MASTER_ID, REPLACE(IFF(LEFT(STG.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE,\
+            \ 1) = '-', SUBSTRING(STG.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE, 2, LEN(STG.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE)),\
+            \ STG.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE), '*', ''), STG.SOURCE_SYSTEM_CLIENT_ID,\
+            \ STG.DW_SOURCE_SYSTEM_ID, TRY_CAST(SUBSTRING(B.PARENT_PLANNING_ID,1,\
+            \ POSITION('_' IN B.PARENT_PLANNING_ID)-1) AS INT)\n  ),\n  GROUP_VARS\
+            \ AS (\n      SELECT\n          MAX(TRY_CAST(SUBSTRING(PARENT_PLANNING_ID,1,\
+            \ POSITION('_' IN PARENT_PLANNING_ID)-1) AS INT)) AS MAX_GROUP_ID,\n \
+            \         (SELECT COUNT(1) FROM {{ ref('PLANNING_ALLIANT_DBO', 'PLANNING_FCCS_CLIENT')\
+            \ }} WHERE TRY_CAST(SUBSTRING(PARENT_PLANNING_ID,1, POSITION('_' IN PARENT_PLANNING_ID)-1)\
+            \ AS INT) = MAX_GROUP_ID) AS COUNT_OF_MAX_GROUP_ID\n      FROM {{ ref('PLANNING_ALLIANT_DBO',\
+            \ 'PLANNING_FCCS_CLIENT') }}\n  ),\n  RANKED_NULLS AS (\n      SELECT\
+            \ *, ROW_NUMBER() OVER (ORDER BY ROW_ID) AS RN_FOR_NULLS\n      FROM INITIAL_DATA\n\
+            \      WHERE GROUP_ID IS NULL\n  ),\n  FINAL_CALCS AS (\n      SELECT\n\
+            \          D.BASE_PARENT_PLANNING_ID, D.PLANNING_ID, D.CLIENT_NAME, D.CLIENT_LOOKUP_CODE,\
+            \ D.CLIENT_STATUS_INDICATOR, D.PLANNING_ALIAS, D.SOURCE_SYSTEM, D.DW_CLIENT_MASTER_ID,\
+            \ D.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE, D.SOURCE_SYSTEM_CLIENT_ID, D.DW_SOURCE_SYSTEM_ID,\
+            \ D.ROW_ID, D.BEGIN_POST_DATE, D.END_POST_DATE,\n          COALESCE(\n\
+            \              D.GROUP_ID,\n              CASE\n                  WHEN\
+            \ GV.MAX_GROUP_ID IS NOT NULL AND R.RN_FOR_NULLS <= (300.00 - GV.COUNT_OF_MAX_GROUP_ID)\n\
+            \                  THEN GV.MAX_GROUP_ID\n                  ELSE\n    \
+            \                  (IFFNULL(GV.MAX_GROUP_ID, 0) + 1) + FLOOR((R.RN_FOR_NULLS\
+            \ - IFF(GV.COUNT_OF_MAX_GROUP_ID >= 300, 0, (300.00 - GV.COUNT_OF_MAX_GROUP_ID))\
+            \ - 1) / 300.00)\n              END\n          ) AS FINAL_GROUP_ID\n \
+            \     FROM INITIAL_DATA AS D\n      LEFT JOIN RANKED_NULLS AS R ON D.ROW_ID\
+            \ = R.ROW_ID\n      CROSS JOIN GROUP_VARS AS GV\n  )\n  SELECT\n     \
+            \ COALESCE(FC.BASE_PARENT_PLANNING_ID, CONCAT(FC.FINAL_GROUP_ID, '_Client_Parent'))\
+            \ AS PARENT_PLANNING_ID,\n      FC.PLANNING_ID,\n      FC.CLIENT_NAME,\n\
+            \      FC.CLIENT_LOOKUP_CODE,\n      FC.CLIENT_STATUS_INDICATOR,\n   \
+            \   FC.PLANNING_ALIAS,\n      FC.SOURCE_SYSTEM,\n      FC.DW_CLIENT_MASTER_ID,\n\
+            \      FC.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE,\n      FC.SOURCE_SYSTEM_CLIENT_ID,\n\
+            \      FC.DW_SOURCE_SYSTEM_ID,\n      FC.ROW_ID,\n      FC.FINAL_GROUP_ID\
+            \ AS GROUP_ID,\n      COALESCE(FC.BASE_PARENT_PLANNING_ID, CONCAT(FC.FINAL_GROUP_ID,\
+            \ '_Client_Parent')) AS GROUP_NAME,\n      FC.BEGIN_POST_DATE,\n     \
+            \ FC.END_POST_DATE\n  FROM FINAL_CALCS AS FC\n) AS TMP"
+        name: TMP_NEW_PLANNING_CLIENT
+        noLinkRefs: []
+  overrideSQL: false
+  schema: ''
+  sqlType: Stage
+  version: 1
