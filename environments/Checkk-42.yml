@@ -1,0 +1,11 @@
+fileVersion: 1
+id: "42"
+mappingDefinitions:
+  ALLIANT_CLAIMS_ASTRUS_DBO:
+    database: ""
+    schema: ""
+  PLANNING_ALLIANT_DBO:
+    database: ""
+    schema: ""
+name: Checkk
+type: Environment

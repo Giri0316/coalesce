@@ -1,0 +1,5 @@
+fileVersion: 1
+id: a6100af1-b5f1-475c-a2cf-d9c4970364c9
+name: dbo.spaca_aca_claim_transaction_staging_esis_insert.proc
+steps: []
+type: Subgraph

@@ -1,0 +1,117 @@
+fileVersion: 1
+id: 88e9da74-0f2c-4734-b258-0ceec08c9dd3
+name: TMPCLIENTHIERARCHY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: PLANNING_ALLIANT_STAGING
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 88e9da74-8000-0000-0000-000000000001
+          stepCounter: 88e9da74-0f2c-4734-b258-0ceec08c9dd3
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ROW_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 86ab921a-6000-0000-0000-000000000004
+                stepCounter: 86ab921a-2895-450e-9154-db27cd7c9994
+            transform: ROW_NUMBER() OVER (ORDER BY U.SORT_ORDER, ABS(U.GROUP_ID), U.PARENT, U.MEMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 88e9da74-8000-0000-0000-000000000002
+          stepCounter: 88e9da74-0f2c-4734-b258-0ceec08c9dd3
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: PARENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 86ab921a-6000-0000-0000-000000000001
+                stepCounter: 86ab921a-2895-450e-9154-db27cd7c9994
+            transform: U.PARENT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 88e9da74-8000-0000-0000-000000000003
+          stepCounter: 88e9da74-0f2c-4734-b258-0ceec08c9dd3
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: MEMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 86ab921a-6000-0000-0000-000000000002
+                stepCounter: 86ab921a-2895-450e-9154-db27cd7c9994
+            transform: U.MEMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 88e9da74-8000-0000-0000-000000000004
+          stepCounter: 88e9da74-0f2c-4734-b258-0ceec08c9dd3
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 86ab921a-6000-0000-0000-000000000003
+                stepCounter: 86ab921a-2895-450e-9154-db27cd7c9994
+            transform: U.GROUP_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 88e9da74-8000-0000-0000-000000000005
+          stepCounter: 88e9da74-0f2c-4734-b258-0ceec08c9dd3
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SORT_ORDER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 86ab921a-6000-0000-0000-000000000004
+                stepCounter: 86ab921a-2895-450e-9154-db27cd7c9994
+            transform: U.SORT_ORDER
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          U: U
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: PLANNING_ALLIANT_STAGING
+            nodeName: TMPCLIENTHIERARCHY_PART1
+          - locationName: PLANNING_ALLIANT_STAGING
+            nodeName: TMPCLIENTHIERARCHY_PART2
+        join:
+          joinCondition: |-
+            FROM (
+              SELECT * FROM {{ ref('PLANNING_ALLIANT_STAGING', 'TMPCLIENTHIERARCHY_PART1') }}
+              UNION
+              SELECT * FROM {{ ref('PLANNING_ALLIANT_STAGING', 'TMPCLIENTHIERARCHY_PART2') }}
+            ) AS U
+        name: TMPCLIENTHIERARCHY
+        noLinkRefs: []
+  name: TMPCLIENTHIERARCHY
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
