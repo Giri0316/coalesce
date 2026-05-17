@@ -1,0 +1,75 @@
+fileVersion: 1
+id: 5972d4c0-0f2a-4ee1-ac59-994364020a16
+name: VW_LATEST_ESIS_TRANSACTION
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_CLAIMS_ASTRUS_STAGE
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 479b1836-e88b-4a6f-b883-7c70c0c77a87
+          stepCounter: 5972d4c0-0f2a-4ee1-ac59-994364020a16
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f3c5553-65e3-4416-b52f-1a511679093a
+                stepCounter: 5882e30f-bdc7-4340-a17f-43b9542a1fd8
+            transform: ACT.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a6398913-9a4d-4560-9188-75056cd6df7a
+          stepCounter: 5972d4c0-0f2a-4ee1-ac59-994364020a16
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACA_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 154a49c9-598e-4a41-b664-8eb7b83d1cde
+                stepCounter: 5882e30f-bdc7-4340-a17f-43b9542a1fd8
+            transform: MAX(ACT.ACA_TRANSACTION_DATE)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_CLAIM_TRANSACTION: act
+          ACA_SOURCE_SYSTEM: ss
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_CLAIM_TRANSACTION
+          - locationName: DBSHIFT
+            nodeName: ACA_SOURCE_SYSTEM
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'ACA_CLAIM_TRANSACTION') }} "act"
+            INNER JOIN {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} "ss" ON ACT.ACA_SOURCE_SYSTEM_ID = SS.ACA_SOURCE_SYSTEM_ID
+            WHERE SS.SOURCE_SYSTEM = 'ESIS'
+            GROUP BY ACT.SOURCE_SYSTEM_CLAIM_ID
+        name: VW_LATEST_ESIS_TRANSACTION
+        noLinkRefs: []
+  name: VW_LATEST_ESIS_TRANSACTION
+  overrideSQL: false
+  schema: DBSHIFT_VWS
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
