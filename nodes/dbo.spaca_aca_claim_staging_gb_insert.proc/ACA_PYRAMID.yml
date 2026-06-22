@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 5b0e00fc-2bdf-4822-ba78-29ab5c9c9b13
+name: ACA_PYRAMID
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2dc96f30-8025-4148-be2d-fb506d860d5c
+          stepCounter: 5b0e00fc-2bdf-4822-ba78-29ab5c9c9b13
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLIENT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1507d3db-df12-42da-9957-cff3e86c1274
+          stepCounter: 5b0e00fc-2bdf-4822-ba78-29ab5c9c9b13
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: UNIT_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7db180b0-ccf0-4fc7-bf98-fb0162a4d3cf
+          stepCounter: 5b0e00fc-2bdf-4822-ba78-29ab5c9c9b13
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: LEVEL
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_PYRAMID
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

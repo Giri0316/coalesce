@@ -1,0 +1,72 @@
+fileVersion: 1
+id: fce6f30a-2b7e-40cc-baef-c2eaaf8a3014
+name: ATC_RNUM
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ALLIANT_CLAIMS_ASTRUS_STAGE_DBO
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4ed6be1d-8f24-4f99-8d7d-f4d0fb319692
+          stepCounter: fce6f30a-2b7e-40cc-baef-c2eaaf8a3014
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_TRANSACTION_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1e50f38b-d7db-4dbb-a8cc-71a25db1b326
+                stepCounter: 0799772d-1fc0-4d37-afad-df7ff4a68ef5
+            transform: ""
+        transform: "ACA_TRANSACTION_CLAIM_ID"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bd032f38-34f3-4d6d-ad73-af05f03f39af
+          stepCounter: fce6f30a-2b7e-40cc-baef-c2eaaf8a3014
+        config: {}
+        dataType: NUMBER(19,0)
+        description: ""
+        name: ROW_NUM_SEQ
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 876ec6a8-bfd2-4d2c-80ea-3e72eb1f4862
+                stepCounter: 0799772d-1fc0-4d37-afad-df7ff4a68ef5
+            transform: ""
+        transform: "ROW_NUMBER() OVER (PARTITION BY UNIQUE_CLAIM_ID ORDER BY TRANSACTION_DATE DESC, STATUS_DATE DESC, ACA_TRANSACTION_CLAIM_ID DESC)"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_TRANSACTION_CLAIM
+        join:
+          joinCondition: |
+            FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO', 'ACA_TRANSACTION_CLAIM') }}
+            WHERE ACA_DATE_UPDATED > {{ parameters.last_load_date }}
+            AND TRANSACTION_DATE > {{ parameters.transactionDateCurrent }}
+        name: ATC_RNUM
+        noLinkRefs: []
+  name: ATC_RNUM
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
