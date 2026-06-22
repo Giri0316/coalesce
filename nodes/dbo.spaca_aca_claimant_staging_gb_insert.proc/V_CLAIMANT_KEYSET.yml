@@ -1,0 +1,150 @@
+fileVersion: 1
+id: 489d97a9-9c57-4648-9f37-14e3006a8ab9
+name: V_CLAIMANT_KEYSET
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 17293a52-c842-4f05-8e7c-87d56e9c058c
+          stepCounter: 489d97a9-9c57-4648-9f37-14e3006a8ab9
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_TRANSACTION_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a63e414c-1d84-48c0-85f2-516d0046e7f8
+                stepCounter: 59a1c1d0-6644-4809-9b98-500e34c9c1b3
+            transform: SRC.ACA_TRANSACTION_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9781b0a5-f463-42e7-8b01-5256e2643a67
+          stepCounter: 489d97a9-9c57-4648-9f37-14e3006a8ab9
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIMANT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1e7e46c-c9f5-470a-a8c6-654d04847253
+                stepCounter: 59a1c1d0-6644-4809-9b98-500e34c9c1b3
+            transform: IFF(SRC.CLAIMANT_NAME_FORMAT = 'I', 'INDIVIDUAL', 'ORGANIZATION')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77a06f36-3a7c-4734-b236-02e079717013
+          stepCounter: 489d97a9-9c57-4648-9f37-14e3006a8ab9
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIMANT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1e7e46c-c9f5-470a-a8c6-654d04847253
+                stepCounter: 59a1c1d0-6644-4809-9b98-500e34c9c1b3
+              - columnCounter: f4096057-0a12-4299-813c-0e8620895c1c
+                stepCounter: 59a1c1d0-6644-4809-9b98-500e34c9c1b3
+              - columnCounter: 9c240984-7a98-43d9-ab70-2051280f3319
+                stepCounter: 59a1c1d0-6644-4809-9b98-500e34c9c1b3
+              - columnCounter: 77d24a0d-2947-4976-b6fd-3e33f37b120f
+                stepCounter: 59a1c1d0-6644-4809-9b98-500e34c9c1b3
+            transform: IFF(SRC.CLAIMANT_NAME_FORMAT = 'I', NULLIF(TRIM(CONCAT(COALESCE(TRIM(SRC.CLAIMANT_FIRSTNAME),
+              ''), ' ', COALESCE(TRIM(CAST(UDF_DECRYPT(SRC.CLAIMANT_LASTNAME_ENCRYPTED)
+              AS VARCHAR)), ''))), ''), NULLIF(TRIM(CAST(UDF_DECRYPT(SRC.CLAIMANT_ORGANIZATION_NAME_ENCRYPTED)
+              AS VARCHAR)), ''))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1d2e1b1-6a2d-4cc8-8319-75a7f98d5c41
+          stepCounter: 489d97a9-9c57-4648-9f37-14e3006a8ab9
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SSN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b138c232-a526-4d2c-88c9-59807530e163
+                stepCounter: 59a1c1d0-6644-4809-9b98-500e34c9c1b3
+            transform: NULLIF(TRIM(REPLACE(CAST(UDF_DECRYPT(SRC.CLAIMANT_SOCIALSECURITYNUMBER_ENCRYPTED)
+              AS VARCHAR), '-', '')), '')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f36471e4-3990-48e0-ac54-8e100f7fcb1a
+          stepCounter: 489d97a9-9c57-4648-9f37-14e3006a8ab9
+        config: {}
+        dataType: DATE
+        description: ""
+        name: CLAIM_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d125862d-0a25-451e-8411-4089a85012e8
+                stepCounter: 59a1c1d0-6644-4809-9b98-500e34c9c1b3
+            transform: SRC.CLAIM_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d5d359b3-4f93-4a37-b952-6fc2f31f900a
+          stepCounter: 489d97a9-9c57-4648-9f37-14e3006a8ab9
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d1e2e98-2503-455b-9d41-e940e532b271
+                stepCounter: 59a1c1d0-6644-4809-9b98-500e34c9c1b3
+            transform: SRC.TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b533f81e-d144-49c6-ad01-44755a5b174a
+          stepCounter: 489d97a9-9c57-4648-9f37-14e3006a8ab9
+        config: {}
+        dataType: DATE
+        description: ""
+        name: LAST_REVIEW_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 47b594b5-684c-4235-8669-70014b03657b
+                stepCounter: 59a1c1d0-6644-4809-9b98-500e34c9c1b3
+            transform: SRC.LAST_REVIEW_DATE
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_TRANSACTION_CLAIM: SRC
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_TRANSACTION_CLAIM
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'ACA_TRANSACTION_CLAIM') }} "SRC"
+            WHERE SRC.ACA_DATE_UPDATED > (SELECT IFF(COALESCE({{ parameters.IBYPASSDATEFILTERS }}, 0) = 1, CAST('1900-01-01 00:00:00.000' AS TIMESTAMP_NTZ), COALESCE(MAX(ACA_DATE_UPDATED), CAST('1776-07-04 00:00:00.000' AS TIMESTAMP_NTZ))) FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIMANT_GB WHERE ACA_CLAIMANT_GB_ID <> -1) AND SRC.TRANSACTION_DATE > (SELECT IFF(COALESCE({{ parameters.IBYPASSDATEFILTERS }}, 0) = 1, CAST('1900-01-01' AS DATE), TRANSACTION_DATE) FROM ALLIANT_CLAIMS_ASTRUS.DBO.V_ACA_TRANSACTION_DATE_CURRENT WHERE SOURCE_SYSTEM = 'GB')
+        name: V_CLAIMANT_KEYSET
+        noLinkRefs: []
+  name: V_CLAIMANT_KEYSET
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
